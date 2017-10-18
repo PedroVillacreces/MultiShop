@@ -1,0 +1,34 @@
+<?php
+
+class LinksModels{
+
+	public static function linksModel($links){
+
+		if($links == "home" ||
+		   $links == "login" ||
+		   $links == "slide" ||
+		   $links == "articulos" ||
+		   $links == "galeria" ||
+		   $links == "videos" ||
+		   $links == "suscriptores" ||
+		   $links == "mensajes" ||
+		   $links == "perfil" ||
+		   $links == "salir"){
+
+			$module = "views/".$links.".php";
+		}	
+
+		else if($links == "index"){
+			$module = "views/login.php";
+		}
+
+		else{
+			$module = "views/login.php";		
+		}
+
+		return $module;
+
+	}
+
+
+}
