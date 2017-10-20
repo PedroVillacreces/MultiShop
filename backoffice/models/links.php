@@ -1,7 +1,14 @@
 <?php
-
+/**
+ * Undocumented class
+ */
 class LinksModels{
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $links
+ * @return void
+ */
 	public static function linksModel($links){
 
 		if($links == "home" ||
