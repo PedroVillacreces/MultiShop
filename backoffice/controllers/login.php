@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * Undocumented class
+ */
 class Login{
 
+	/**
+	 * Undocumented function
+	 *
+	 * @return void
+	 */
 	public function loginController(){
 
 		if(isset($_POST["userLogin"])){

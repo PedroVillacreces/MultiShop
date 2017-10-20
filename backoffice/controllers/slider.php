@@ -1,20 +1,24 @@
 <?php
 
+/**
+ * Undocumented class
+ */
 class Slider{
 
-	#MOSTRAR IMAGEN SLIDE AJAX
-	#------------------------------------------------------------
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @return void
+ */
 	public function showImageController($data){
 
 		#getimagesize - Obtiene el tamaño de una imagen
 
 		#LIST(): Al igual que array(), no es realmente una función, es un constructor del lenguaje. list() se utiliza para asignar una lista de variables en una sola operación.
 
-		list($width, $height) = getimagesize($data["tempImage"]);
-		
+		list($width, $height) = getimagesize($data["tempImage"]);		
 		if($width < 1600 || $height < 600){
-
 			echo 0;
 
 		}
@@ -22,23 +26,17 @@ class Slider{
 		else{
 
 			$random = mt_rand(100, 999);
-
 			$path = "../multimedia/images/slide/slide".$random.".jpg";
-
 			#imagecreatefromjpeg — Crea una nueva imagen a partir de un fichero o de una URL
 
 			$from = imagecreatefromjpeg($data["tempImage"]);
-
 			#imagecrop() — Recorta una imagen usando las coordenadas, el tamaño, x, y, ancho y alto dados
 
 			$to = imagecrop($from, ["x"=>0, "y"=>0, "width"=>1600, "height"=>600]);
-
 			#imagejpeg() — Exportar la imagen al navegador o a un fichero
 
 			imagejpeg($to, $path);
-
 			GestorSlideModel::subirImagenSlideModel($path, "slide");
-
 			$response = SliderModel::showImageSliderModel($path, "slide");
 
 			$sendData = array("path"=>$response["path"],
@@ -50,9 +48,11 @@ class Slider{
 
 	}
 
-	#MOSTRAR IMAGENES EN LA VISTA
-	#------------------------------------------------------------
-
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 	public function showImageViewController(){
 
 		$response = SLiderModel::showImageViewModel("slide");
@@ -65,9 +65,11 @@ class Slider{
 
 	}
 
-	#MOSTRAR IMAGENES EN EL EDITOR
-	#------------------------------------------------------------
-
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 	public function editorSliderController(){
 
 		$response = SliderModel::showImageViewModel("slide");
@@ -85,8 +87,12 @@ class Slider{
 
 	}
 
-	#ELIMINAR ITEM DEL SLIDE
-	#-----------------------------------------------------------
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @return void
+ */
 	public function deleteSliderController($data){
 
 		$response = SliderModel::deleteSliderModel($data, "slide");
@@ -97,9 +103,13 @@ class Slider{
 
 	}
 
-	#ACTUALIZAR ITEM DEL SLIDE
-	#-----------------------------------------------------------
 
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @return void
+ */
 	public function updateSliderController($data){
 
 		SliderModel::updateSliderModel($data, "slide");
@@ -111,8 +121,12 @@ class Slider{
 		echo json_encode($sendData);
 	}
 
-	#ACTUALIZAR ORDEN 
-	#---------------------------------------------------
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @return void
+ */
 	public function updatePositionController($data){
 
 		SliderModel::updatePositionModel($data, "slide");

@@ -1,10 +1,18 @@
 <?php
 
 require_once "conexion.php";
-
+/**
+ * Undocumented class
+ */
 class SliderModel
 {
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function uploadImageSliderModel($data, $table)
     {
         $stmt = Conexion::connect()->prepare("INSERT INTO $table (path) VALUES (:path)");
@@ -18,7 +26,13 @@ class SliderModel
 
         $stmt->close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function showImageSliderModel($data, $table)
     {
 
@@ -28,7 +42,12 @@ class SliderModel
         return $stmt -> fetch();
         $stmt -> close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $table
+ * @return void
+ */
     public function showImageViewModel($table)
     {
 
@@ -37,7 +56,13 @@ class SliderModel
         return $stmt -> fetchAll();
         $stmt -> close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function deleteSliderModel($data, $table)
     {
 
@@ -51,7 +76,13 @@ class SliderModel
 
         $stmt->close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function updateSliderModel($data, $table)
     {
 
@@ -68,7 +99,13 @@ class SliderModel
 
         $stmt->close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function selectUpdateSliderModel($data, $table)
     {
 
@@ -78,7 +115,13 @@ class SliderModel
         return $stmt -> fetch();
         $stmt -> close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $data
+ * @param [type] $table
+ * @return void
+ */
     public function updatePositionModel($data, $table)
     {
 
@@ -94,7 +137,12 @@ class SliderModel
 
         $stmt -> close();
     }
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $table
+ * @return void
+ */
     public function selectPositionModel($table)
     {
 

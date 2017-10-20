@@ -1,9 +1,17 @@
 <?php
 
 require_once "conexion.php";
-
+/**
+ * Undocumented class
+ */
 class LoginModels{
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $dataModel
+ * @param [type] $table
+ * @return void
+ */
 	public static function loginModel($dataModel, $table){
 
 		$stmt = Conexion::connect()->prepare("SELECT user_name, password, counter FROM $table WHERE user_name = :user_name");
@@ -12,7 +20,13 @@ class LoginModels{
 		return $stmt -> fetch();
 		$stmt -> close();
 	}
-
+/**
+ * Undocumented function
+ *
+ * @param [type] $dataModel
+ * @param [type] $table
+ * @return void
+ */
 	public static function counterModel($dataModel, $table){
 
 		$stmt = Conexion::connect()->prepare("UPDATE $table SET counter = :counter WHERE user_name = :user_name");
