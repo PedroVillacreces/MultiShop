@@ -7,7 +7,7 @@ class LinksModels{
 		if($links == "home" ||
 		   $links == "login" ||
 		   $links == "slide" ||
-		   $links == "articulos" ||
+		   $links == "products" ||
 		   $links == "galeria" ||
 		   $links == "videos" ||
 		   $links == "suscriptores" ||
