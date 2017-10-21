@@ -1,11 +1,11 @@
 <?php
 session_start();
-if(!$_SESSION["validar"]){
-	header("location:ingreso");
+if(!$_SESSION["validate"]){
+	header("location:login");
 	exit();
 }
-include "views/modules/right-nav.php";
-include "views/modules/header.php";
+include "views/right-nav.php";
+include "views/header.php";
 ?>
 
 <div class="container">

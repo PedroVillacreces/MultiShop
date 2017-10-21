@@ -15,7 +15,7 @@ class LinksModels{
 		   $links == "login" ||
 		   $links == "slide" ||
 		   $links == "products" ||
-		   $links == "galeria" ||
+		   $links == "categories" ||
 		   $links == "videos" ||
 		   $links == "suscriptores" ||
 		   $links == "mensajes" ||
