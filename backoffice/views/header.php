@@ -37,7 +37,7 @@
 		
 		<img src="views/images/photo.jpg" class="img-circle">
 		
-		<p id="member"><?php echo $_SESSION["usuario"];?> <span class="fa fa-chevron-down"></span>
+		<p id="member"><?php echo $_SESSION["user_name"];?> <span class="fa fa-chevron-down"></span>
 			<br>
 			<ol id="admin">
 				<li><a href="perfil.html"><span class="fa fa-user"></span>Editar Perfil</a></li>

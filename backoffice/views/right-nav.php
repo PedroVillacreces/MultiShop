@@ -36,7 +36,7 @@ COLUMNA BOTONERA
 				<li><a href="inicio">Inicio <span class="glyphicon glyphicon-new-window"></span></a></li>
 				<li><a href="slide">Slide <span class="glyphicon glyphicon-new-window"></span></a></li>
 				<li><a href="articulos">Artículos <span class="glyphicon glyphicon-new-window"></span></a></li>
-
+				<li><a href="customers">Clientes <span class="glyphicon glyphicon-new-window"></span></a></li>
 			</ul>
 
 		</nav>

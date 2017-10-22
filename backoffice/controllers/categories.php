@@ -12,7 +12,7 @@ class Category
                 foreach($response as $row => $item){
                     echo 
                     '<tr>
-                    <td>'.$item['name']'</td>
+                    <td>'.$item['name'].'</td>
                     </tr>';
                 }
     }
