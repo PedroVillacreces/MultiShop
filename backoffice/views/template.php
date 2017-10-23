@@ -38,9 +38,8 @@
 	<script src="components/js/responsive.bootstrap.min.js"></script>
 	<script src="components/js/jquery-ui.min.js"></script>
 	<script src="components/js/sweetalert.min.js"></script>
-	<script src="components/js/script.js"></script>
-	
-	<script src="components/js/customer.js"></script>
+	<script src="components/js/script.js"></script>	
+	<script src="components/ajax/customer.js"></script>
 	
 </body>
 

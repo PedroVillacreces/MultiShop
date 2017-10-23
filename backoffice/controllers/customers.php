@@ -21,8 +21,8 @@ class Customers
                         <td>'.$item['region'].'</td>
                         <td>'.$item['phone'].'</td>
                         <td>
-                            <form method="post" id="formDelete" onsubmit="return deleteCustomer('.$item['id_customer'].')>
-                                <input type="submit" name="id_customer" class="btn btn-danger btn-xs">
+                            <form method="post" id="formDelete">
+                                <input type="submit" name="id_customer" id="id_customer" onclick= deleteCustomer('.$item['id_customer'].') class="btn btn-danger btn-xs">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </input>
                             </form>

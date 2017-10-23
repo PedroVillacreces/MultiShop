@@ -221,7 +221,7 @@ class CustomersModel
     public static function deleteCustomer($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_customer = :id_customer");
-        $stmt -> bindParam(":id_customer", $data["id_customer"], PDO::PARAM_INT);
+        $stmt -> bindParam(":id_customer", $data, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return "ok";
         } else {
