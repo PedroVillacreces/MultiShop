@@ -237,7 +237,7 @@ class CustomersModel
  * @param [type] $table
  * @return void
  */
-    public function updateCategory($data, $table)
+    public static function updateCategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, 
         address = :address, post_code = :post_code, region = :region, phone = :phone WHERE id_customer = :id_customer");
@@ -263,13 +263,39 @@ class CustomersModel
         $stmt->close();
     }
 
-    private function getCustomerById($table, $id)
+    public static function getCustomerById($table, $id)
     {
         $stmt = Conexion::connect()->prepare("SELECT id_customer, name, surname, mail, address, post_code, region, phone, 
-        validate FROM $table WHERE id_custumer = :id_customer ORDER BY surname ASC");
+        validate FROM $table WHERE id_custumer = :id_customer");
         $stmt -> bindParam(":id_customer", $id, PDO::PARAM_STR);
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();
+    }
+
+    public static function createCustomer($customer, $table)
+    {
+        $stmt = Conexion::connect()->prepare("INSERT INTO $table (name, surname, mail, address, post_code, region, phone, password, validate)
+        VALUES (:name, :surname, :mail, :address, :post_code, :region, :phone, :password, :validate)");
+        $stmt -> bindParam(":name", $customer['name'], PDO::PARAM_STR);
+        $stmt -> bindParam(":surname", $customer['surname'], PDO::PARAM_STR);
+        $stmt -> bindParam(":mail", $customer['mail'], PDO::PARAM_STR);
+        $stmt -> bindParam(":address", $customer['address'], PDO::PARAM_STR);
+        $stmt -> bindParam(":post_code", $customer['post_code'], PDO::PARAM_STR);
+        $stmt -> bindParam(":region", $customer['region'], PDO::PARAM_STR);
+        $stmt -> bindParam(":phone", $customer['phone'], PDO::PARAM_STR);
+        $stmt -> bindParam(":password", $customer['password'], PDO::PARAM_STR);
+        $stmt -> bindParam(":validate", $customer['validate'], PDO::PARAM_STR);
+
+        if ($stmt->execute())
+        {
+            return "Inserta Correctamente";
+        } 
+        else 
+        {
+            return "error";
+        }
+    
+        $stmt->close();
     }
 }

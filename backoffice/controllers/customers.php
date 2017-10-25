@@ -22,11 +22,22 @@ class Customers
                         <td>'.$item['phone'].'</td>
                         <td>
                             <form method="post" id="formDelete">
-                                <input type="submit" name="id_customer" id="id_customer" onclick= deleteCustomer('.$item['id_customer'].') class="btn btn-danger btn-xs">
+                                <button type="submit" name="id_customer" id="id_customer" onclick= deleteCustomer('.$item['id_customer'].') class="btn btn-danger btn-sm">
                                     <span class="glyphicon glyphicon-trash"></span>
-                                </input>
-                            </form>
+                                </button>
+                            </form>                            
                         </td>
+                        <td>     
+                            <form method="post" id="formUpdate">                       
+                                    <p data-placement="top" data-toggle="tooltip" title="Edit">
+                                        <button type="submit" name="update" id="update" class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" onclick= getCustomerById('.$item['id_customer'].') >
+                                            <span class="glyphicon glyphicon-pencil"></span>
+                                        </button>
+                                    </p>
+                            </form>
+                           
+                        </td>
+                        
                     </tr>';        
                 }
     }
@@ -34,6 +45,24 @@ class Customers
     public static function deleteCustomers($data)
     {
         $response = CustomersModel::deleteCustomer($data, "customers");
+        echo $response;
+    }
+
+    public static function updateCustomers($data)
+    {
+        $response = CustomersModel::updateCustomers($data, 'customers');
+        echo $response;
+    }
+
+    public static function getByIdCustomers($data)
+    {
+        $response = CustomersModel::getCustomerById($data, 'customers');
+        echo $response;
+    }
+
+    public static function createCustomer($data)
+    {
+        $response = CustomersModel::createCustomer($data, 'customers');
         echo $response;
     }
 
