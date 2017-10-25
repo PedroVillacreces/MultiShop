@@ -45,25 +45,25 @@ class Customers
     public static function deleteCustomers($data)
     {
         $response = CustomersModel::deleteCustomer($data, "customers");
-        echo $response;
+        return $response;
     }
 
     public static function updateCustomers($data)
     {
         $response = CustomersModel::updateCustomers($data, 'customers');
-        echo $response;
+        return $response;
     }
 
     public static function getByIdCustomers($data)
     {
         $response = CustomersModel::getCustomerById($data, 'customers');
-        echo $response;
+        return $response;
     }
 
     public static function createCustomer($data)
     {
         $response = CustomersModel::createCustomer($data, 'customers');
-        echo $response;
+        return $response;
     }
 
 }

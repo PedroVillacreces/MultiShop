@@ -28,7 +28,7 @@ include "views/header.php";
                         <th>Teléfono</th>
                         <th>Eliminar</th>
                    </thead>
-                    <tbody>
+                    <tbody id="customersRow">
                     <?php
                       $customer = new Customers();
                       $customer -> showCustomers();
@@ -146,11 +146,6 @@ include "views/header.php";
 </div><!-- /.modal -->
 
  <!-- /end .modal-create customer --> 
-
-
-
-
-
         </div>
     </div>
 </div>

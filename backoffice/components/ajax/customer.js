@@ -84,12 +84,36 @@ $('#createCustomer').on('click', '.btn-primary', function(e){
         $.ajax({
             type: "POST",
             url: "../backoffice/components/ajax/AjaxCustomer.php",
+            async:false,
             data:  {Customer:jsonFile},           
             dataType: "json",
-            success: function(data){console.log(data);},
-            failure: function(errMsg) {
-                alert(errMsg);
-            }
+        }).done(function (data) {
+                var htmlRow = "<tr>";
+                $.each(jsonFile, function(i, item){
+                    if(i !== "password" && i !== "validate")
+                    {
+                        htmlRow += "<td>" + item + "</td>";
+                    }
+                });
+                htmlRow += '<td>'+
+                        '<form method="post" id="formDelete">'+
+                            '<button type="submit" name="id_customer" id="id_customer" class="btn btn-danger btn-sm">'+
+                            '<span class="glyphicon glyphicon-trash"></span>'+
+                            '</button>'+
+                        '</form>'+                    
+                    '</td>'+
+                    '<td>'+  
+                        '<form method="post" id="formUpdate">'+                
+                                '<p data-placement="top" data-toggle="tooltip" title="Edit">'+
+                                    '<button type="submit" name="update" id="update" class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit">'+
+                                        '<span class="glyphicon glyphicon-pencil"></span>'+
+                                    '</button>'+
+                                '</p>'+
+                        '</form>'+
+                    '</td>'+
+                '</tr>';
+        $('#customersRow').append(htmlRow);    
+                alert(data["returned_val"]);
         });
     }else{
         alert("Las contraseñas deben ser iguales revisales");

@@ -42,7 +42,7 @@ class AjaxCustomer
         $data['mail'] = $this->mail;
         $data['validate'] = $this->validate;
         $response = Customers::createCustomer($data);
-        echo $response;
+        echo json_encode(array('returned_val' => $response));
     }
 }
 
