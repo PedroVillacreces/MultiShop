@@ -27,6 +27,7 @@ include "views/header.php";
                         <th>Región</th>
                         <th>Teléfono</th>
                         <th>Eliminar</th>
+                        <th>Editar</th>
                    </thead>
                     <tbody id="customersRow">
                     <?php
@@ -36,17 +37,8 @@ include "views/header.php";
                     </tbody>
             </table>
 
-<!--            <div class="clearfix"></div>-->
-<!--                <ul class="pagination pull-right">-->
-<!--                <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>-->
-<!--                <li class="active"><a href="#">1</a></li>-->
-<!--                <li><a href="#">2</a></li>-->
-<!--                <li><a href="#">3</a></li>-->
-<!--                <li><a href="#">4</a></li>-->
-<!--                <li><a href="#">5</a></li>-->
-<!--                <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>-->
-<!--                </ul>-->
-<!--            </div>-->
+
+
 <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
                 <div class="modal-content">
@@ -59,10 +51,8 @@ include "views/header.php";
                         <div class="modal-footer ">
                                 <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                         </div>
-                </div>
-    <!-- /.modal-content --> 
-        </div>
-      <!-- /.modal-dialog --> 
+                </div>  
+        </div>     
 </div>
 
  <!-- /.modal-create customer -->
@@ -136,14 +126,14 @@ include "views/header.php";
                     </div>
                     <div class="form-group">
                         <div>
-                        <button type="button" value="Registrar" class="btn btn-primary" name="create">Registar</button>
+                        <button type="button" value="Registrar" class="btn btn-primary createButton" name="create">Registar</button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>>
 
  <!-- /end .modal-create customer --> 
         </div>

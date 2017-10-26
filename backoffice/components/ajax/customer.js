@@ -1,32 +1,39 @@
-function deleteCustomer(id_customer)
-{
+$(document).on("click", '.deleteButton', function() {
+    event.preventDefault();
     if (confirm('¿Estas seguro que desea eliminar al cliente?')) {
-        $(this).parent().remove();
-        $("#item"+ id_customer).remove();
-        var deleteCustomer = new FormData();
-        deleteCustomer.append("id_customer", id_customer);
+        var id_customer = $(this).data('id');
 
         $.ajax({
             url:"../backoffice/components/ajax/AjaxCustomer.php",
             method:"POST",
             data:{id_customer:id_customer},
-            success:function(data)
-            {
-                console.log(data);
-            }
+            cache: false,
+        }).done(function (data) {            
+              if(data === "ok")
+              {
+                $(this).parent().remove();                
+                $("#item"+ id_customer).remove();
+                var deleteCustomer = new FormData();
+                deleteCustomer.append("id_customer", id_customer);        
+              }
+              else
+              {
+                alert("No se pudo llevar a cabo el borrado");
+              }
+            
         });
     }
+});    
+   
 
-}
-
-function getCustomerById(id_customer)
-{
+$(document).on('click', '.updateButton', function(){
+    var id_customer = $(this).data('id');
     $.ajax({
         url:"../backoffice/components/ajax/AjaxCustomer.php",
         method:"POST",
-        data:{id_customer:id_customer},
-        success:function(data)
-        {
+        data:{updateAjax:id_customer},
+        cache: false,
+    }).done(function (data) { 
             var html = 
             '<div class="form-group">'
                 '<input class="form-control" type="text" placeholder="'+ data.name +'">'
@@ -54,11 +61,11 @@ function getCustomerById(id_customer)
             '</div>'
             
             $('update-modal').append(html);
-        }
-    });
-}
+    });       
+    
+});
 
-$('#createCustomer').on('click', '.btn-primary', function(e){
+$(document).on('click', '.createButton', function(){
     //this code will run for all current 
     //and future elements with the class of .btn-success
 
@@ -73,22 +80,23 @@ $('#createCustomer').on('click', '.btn-primary', function(e){
     var password_confirmation = $("input#password_confirmation").val();
 
     if(password === password_confirmation)
-    {
+    {        
         var active = $("input#active").val();
-        var jsonFile = {'name': name , 'surname':surname, 'mail':email,  'phone':phone,
-        'address':address , 'post_code': pc, 'region' : region,
-        'phone' : phone, 'password': password, 'validate' : active
+        var jsonFile = {'name':name , 'surname':surname, 'mail':email,
+        'address':address , 'post_code':pc, 'region':region,  'phone':phone,
+        'password':password, 'validate':active
         };
 
-        // Use Ajax to submit form data
+        
         $.ajax({
             type: "POST",
             url: "../backoffice/components/ajax/AjaxCustomer.php",
-            async:false,
             data:  {Customer:jsonFile},           
             dataType: "json",
         }).done(function (data) {
-                var htmlRow = "<tr>";
+            if(data['id'])
+            {            
+                var htmlRow = "<tr id='item" + data['id'] +"' >;"
                 $.each(jsonFile, function(i, item){
                     if(i !== "password" && i !== "validate")
                     {
@@ -96,33 +104,38 @@ $('#createCustomer').on('click', '.btn-primary', function(e){
                     }
                 });
                 htmlRow += '<td>'+
-                        '<form method="post" id="formDelete">'+
-                            '<button type="submit" name="id_customer" id="id_customer" class="btn btn-danger btn-sm">'+
+                        '<form role="form" method="POST" id="deleteCustomer">'+
+                            '<button type="button" name="deleteCustomer" id="deleteCustomer" class="deleteButton btn btn-danger btn-sm" data-id="'+ data['id'] +'">'+
                             '<span class="glyphicon glyphicon-trash"></span>'+
                             '</button>'+
                         '</form>'+                    
                     '</td>'+
                     '<td>'+  
-                        '<form method="post" id="formUpdate">'+                
+                        '<form role="form" method="POST" id="updateCustomer">'+                
                                 '<p data-placement="top" data-toggle="tooltip" title="Edit">'+
-                                    '<button type="submit" name="update" id="update" class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit">'+
+                                    '<button type="button" name="updateCustomer" id="updateCustomer" class="updateButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit"  data-id="'+ data['id'] +'">'+
                                         '<span class="glyphicon glyphicon-pencil"></span>'+
                                     '</button>'+
                                 '</p>'+
                         '</form>'+
                     '</td>'+
                 '</tr>';
-        $('#customersRow').append(htmlRow);    
-                alert(data["returned_val"]);
+                    $('#customersRow').append(htmlRow);    
+                            alert(data["returned_val"]);
+                            $('#modalCreate').modal('hide');
+            }else{
+                alert("El email introducido ya existe");
+            }
         });
+       
+
     }else{
         alert("Las contraseñas deben ser iguales revisales");
         $("input#password").val() = "";
         $("input#password_confirmation").val() = "";
-
-    }
-   
+    }   
 });
+
 
     
 

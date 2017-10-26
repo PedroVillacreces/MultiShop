@@ -21,16 +21,16 @@ class Customers
                         <td>'.$item['region'].'</td>
                         <td>'.$item['phone'].'</td>
                         <td>
-                            <form method="post" id="formDelete">
-                                <button type="submit" name="id_customer" id="id_customer" onclick= deleteCustomer('.$item['id_customer'].') class="btn btn-danger btn-sm">
+                            <form role="form" method="POST" id="deleteCustomer">
+                                <button type="button" name="deleteCustomer" id="deleteCustomer" class="deleteButton btn btn-danger btn-sm" data-id="'.$item['id_customer'].'">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>                            
                         </td>
                         <td>     
-                            <form method="post" id="formUpdate">                       
+                        <form role="form" method="POST" id="updateCustomer">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="submit" name="update" id="update" class="btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" onclick= getCustomerById('.$item['id_customer'].') >
+                                        <button type="button" name="updateCustomer" id="updateCustomer" class="updateButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_customer'].'">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
@@ -63,6 +63,12 @@ class Customers
     public static function createCustomer($data)
     {
         $response = CustomersModel::createCustomer($data, 'customers');
+        return $response;
+    }
+
+    public static function getCustomerByEmail($data)
+    {
+        $response = CustomersModel::getCustomerByEmail($data, 'customers');
         return $response;
     }
 

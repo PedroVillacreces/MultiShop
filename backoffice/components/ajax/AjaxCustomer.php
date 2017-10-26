@@ -27,7 +27,7 @@ class AjaxCustomer
     {
         $data = $this->id_customer;
         $response = Customers::getByIdCustomers($data);
-        echo $response;
+        echo json_encode(array('Customer' => $response));                              
     }
 
     public function createCustomer()
@@ -42,7 +42,18 @@ class AjaxCustomer
         $data['mail'] = $this->mail;
         $data['validate'] = $this->validate;
         $response = Customers::createCustomer($data);
-        echo json_encode(array('returned_val' => $response));
+        echo json_encode(array('id' => $response['id'], 'message' => $response['message']));                              
+    }
+
+    public function getCustomerByEmail()
+    {
+        $data = $this->mail;
+        $response = Customers::getCustomerByEmail($data);
+        if ($response)
+        {
+            return true;
+        }
+        return false;
     }
 }
 
@@ -54,10 +65,10 @@ if(isset($_POST["id_customer"])){
 
 }
 
-if(isset($_POST["update"])){
+if(isset($_POST["updateAjax"])){
     
     $customer= new AjaxCustomer();
-    $customer -> id_customer = $_POST["id_customer"];
+    $customer -> id_customer = $_POST["updateAjax"];
     $customer -> updateCustomer();
 
 }
@@ -76,4 +87,10 @@ if(isset($_POST["Customer"])){
     $customer-> validate = $_POST["Customer"]["validate"];
     $customer -> createCustomer();
 
+}
+
+if(isset($_POST["mail"]))
+{
+    $customer= new AjaxCustomer();
+    $customer-> mail = $_POST["mail"];
 }
