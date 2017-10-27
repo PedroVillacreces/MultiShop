@@ -133,7 +133,7 @@ include "views/header.php";
             </div>
         </div>
     </div>
-</div>>
+</div>
 
  <!-- /end .modal-create customer --> 
         </div>

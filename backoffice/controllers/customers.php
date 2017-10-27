@@ -9,17 +9,16 @@ class Customers
     {
         $response = CustomersModel::showCustomers("customers");
         
-                foreach($response as $row => $item){
-
-                    echo
-                    '<tr id="item'.$item['id_customer'].'">
-                        <td>'.$item['name'].'</td>
-                        <td>'.$item['surname'].'</td>
-                        <td>'.$item['mail'].'</td>
-                        <td>'.$item['address'].'</td>
-                        <td>'.$item['post_code'].'</td>
-                        <td>'.$item['region'].'</td>
-                        <td>'.$item['phone'].'</td>
+        foreach ($response as $row => $item) {
+            echo
+            '<tr id="item'.$item['id_customer'].'">
+                        <td class="name">'.$item['name'].'</td>
+                        <td class="surname">'.$item['surname'].'</td>
+                        <td class="mail">'.$item['mail'].'</td>
+                        <td class="address">'.$item['address'].'</td>
+                        <td class="post_code">'.$item['post_code'].'</td>
+                        <td class="region">'.$item['region'].'</td>
+                        <td class="phone">'.$item['phone'].'</td>
                         <td>
                             <form role="form" method="POST" id="deleteCustomer">
                                 <button type="button" name="deleteCustomer" id="deleteCustomer" class="deleteButton btn btn-danger btn-sm" data-id="'.$item['id_customer'].'">
@@ -34,12 +33,10 @@ class Customers
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
-                            </form>
-                           
-                        </td>
-                        
-                    </tr>';        
-                }
+                            </form>                           
+                        </td>                        
+                    </tr>';
+        }
     }
 
     public static function deleteCustomers($data)
@@ -72,5 +69,9 @@ class Customers
         return $response;
     }
 
+    public static function doUpdate($data)
+    {
+        $response = CustomersModel::doUpdate($data, 'customers');
+        return $response;
+    }
 }
-
