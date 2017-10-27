@@ -236,10 +236,14 @@ class CustomersModel
 
     public static function getCustomerById($id, $table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_custumer = $id");
-        //$stmt -> bindParam(":id_customer", $id, PDO::PARAM_STR);
-        $stmt -> execute();
-        return $stmt -> fetchAll();
+        $parseInt = intval($id);
+        $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_customer= $parseInt ");
+       
+        $stmt->execute();
+        
+        $result = $stmt -> fetch();
+       
+        return $result;
         $stmt -> close();
     }
 

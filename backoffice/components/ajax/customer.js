@@ -33,37 +33,44 @@ $(document).on('click', '.updateButton', function(){
         method:"POST",
         data:{updateAjax:id_customer},
         cache: false,
-    }).done(function (data) { 
+    }).done(function (data) {
+        var customerAjax = $.parseJSON(data); 
             var html = 
-            '<div class="form-group">'
-                '<input class="form-control" type="text" placeholder="'+ data.name +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder="'+ data.surname +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.mail +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.address +'">'
-             '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.post_code +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.region +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.phone +'">'
-            '</div>'
-            '<div class="form-group">'            
-                '<input class="form-control " type="text" placeholder=" '+ data.validate +'">'
-            '</div>'
-            
-            $('update-modal').append(html);
-    });       
-    
-});
+            '<div class="form-group">'+
+                '<label class="control-label">Nombre</label>'+
+                '<input class="form-control" type="text" placeholder="'+ customerAjax.Customer["name"] +'" value="' + customerAjax.Customer["name"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label class="control-label">Apellidos</label>'+            
+                '<input class="form-control " type="text" placeholder="'+ customerAjax.Customer["surname"] +'" value="' + customerAjax.Customer["surname"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label class="control-label">Email</label>'+            
+                '<input class="form-control " type="text" placeholder=" '+ customerAjax.Customer["mail"] +'" value="' + customerAjax.Customer["mail"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label class="control-label">Dirección</label>'+            
+                '<input class="form-control " type="text" placeholder=" '+ customerAjax.Customer["address"] +'" value="'+ customerAjax.Customer["address"] +'">'+
+             '</div>'+
+            '<div class="form-group">'+   
+                '<label class="control-label">Código Postal</label>'+         
+                '<input class="form-control " type="text" value="'+ customerAjax.Customer["post_code"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+
+                '<label class="control-label">Nombre</label>'+
+                '<input class="form-control " type="text" value="'+ customerAjax.Customer["region"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+     
+                '<label class="control-label">Teléfono</label>'+       
+                '<input class="form-control " type="text" value="'+ customerAjax.Customer["phone"] +'">'+
+            '</div>'+
+            '<div class="form-group">'+      
+                '<label class="control-label">Contraseña</label>'+      
+                '<input class="form-control " type="text" value="'+ customerAjax.Customer["password"] +'">'+
+            '</div>';            
+            $('#update-modal').append(html);
+    });
+});        
 
 $(document).on('click', '.createButton', function(){
     //this code will run for all current 
