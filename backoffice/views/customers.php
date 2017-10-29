@@ -39,7 +39,7 @@ include "views/header.php";
 
 
 
-<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div class="modal fade modalUpdate" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
                 <div class="modal-content">
                         <div class="modal-header">
@@ -49,7 +49,7 @@ include "views/header.php";
                         <div id="update-modal" class="modal-body">
                         </div>
                         <div class="modal-footer ">
-                                <button type="button" class="btn btn-warning btn-lg" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                                <button type="button" class="btn btn-warning btn-lg doUpdate" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
                         </div>
                 </div>  
         </div>     

@@ -26,9 +26,9 @@ class CustomersModel
      * @param $phone
      * @param $password
      */
-    public function __construct($table)
+    public function __construct($id, $table)
     {
-        $row = $this->getCustomerById($table);
+        $row = $this->getCustomerById($id, $table);
         $this->name = $row["name"];
         $this->surname = $row["surname"];
         $this->mail = $row["mail"];
@@ -210,8 +210,11 @@ class CustomersModel
  */
     public static function doUpdate($data, $table)
     {
-        if (!self::getCustomerByEmail($customer['mail'], 'customers')) {
-            $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, address = :address, post_code = :post_code, region = :region, phone = :phone WHERE id_customer = :id_customer");
+        $mail = self::getCustomerByEmail($data['mail'], 'customers');
+
+        if ($mail[0]['mail'] === $data['mail'] || !$mail['mail'])
+        {
+            $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, address = :address, post_code = :post_code, region = :region, phone = :phone, password = :password, validate = :validate WHERE id_customer = :id");
             $stmt -> bindParam(":name", $data["name"], PDO::PARAM_STR);
             $stmt -> bindParam(":surname", $data['surname'], PDO::PARAM_STR);
             $stmt -> bindParam(":mail", $data['mail'], PDO::PARAM_STR);
@@ -221,9 +224,13 @@ class CustomersModel
             $stmt -> bindParam(":phone", $data['phone'], PDO::PARAM_STR);
             $stmt -> bindParam(":password", $data['password'], PDO::PARAM_STR);
             $stmt -> bindParam(":id", $data["id_customer"], PDO::PARAM_INT);
+            $stmt -> bindParam(":validate", $data["validate"], PDO::PARAM_INT);
+            $stmt -> bindParam(":password", $data["password"], PDO::PARAM_STR);
     
-            if ($stmt->execute()) {
+            if ($stmt->execute())
+            {
                 return "ok";
+
             } else {
                 return "error";
             }
@@ -237,12 +244,9 @@ class CustomersModel
     public static function getCustomerById($id, $table)
     {
         $parseInt = intval($id);
-        $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_customer= $parseInt ");
-       
+        $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_customer = $parseInt");
         $stmt->execute();
-        
         $result = $stmt -> fetch();
-       
         return $result;
         $stmt -> close();
     }
@@ -277,7 +281,7 @@ class CustomersModel
         }
     }
 
-    private static function getCustomerByEmail($mail, $table)
+    public static function getCustomerByEmail($mail, $table)
     {
         $stmt = Conexion::connect()->prepare("SELECT id_customer, name, surname, mail, address, post_code, region, phone, validate FROM $table WHERE mail = :mail");
         $stmt -> bindParam(":mail", $mail, PDO::PARAM_STR);

@@ -2,7 +2,6 @@
  * Ajax to delete a customer by Id
  */
 $(document).on("click", '.deleteButton', function () {
-    event.preventDefault();
     if (confirm('¿Estas seguro que desea eliminar al cliente?')) {
         var id_customer = $(this).data('id');
 
@@ -40,38 +39,39 @@ $(document).on('click', '.updateButton', function () {
         cache: false,
     }).done(function (data) {
         var customerAjax = $.parseJSON(data); 
-            var html = 
+            var html =
+            '<input type="hidden" id="id_customer" name="id" value="' + customerAjax.Customer['id_customer'] + '">'+
             '<div class="form-group">'+
                 '<label class="control-label">Nombre</label>'+
-                '<input class="form-control" type="text" placeholder="'+ customerAjax.Customer["name"] +'" value="' + customerAjax.Customer["name"] +'">'+
+                '<input class="form-control" id ="name" type="text" value="' + customerAjax.Customer["name"] +'">'+
             '</div>'+
             '<div class="form-group">'+
                 '<label class="control-label">Apellidos</label>'+            
-                '<input class="form-control " type="text" placeholder="'+ customerAjax.Customer["surname"] +'" value="' + customerAjax.Customer["surname"] +'">'+
+                '<input class="form-control" id="surname" type="text" value="' + customerAjax.Customer["surname"] +'">'+
             '</div>'+
             '<div class="form-group">'+
                 '<label class="control-label">Email</label>'+            
-                '<input class="form-control " type="text" placeholder=" '+ customerAjax.Customer["mail"] +'" value="' + customerAjax.Customer["mail"] +'">'+
+                '<input class="form-control" id="email" type="text" value="' + customerAjax.Customer["mail"] +'">'+
             '</div>'+
             '<div class="form-group">'+
                 '<label class="control-label">Dirección</label>'+            
-                '<input class="form-control " type="text" placeholder=" '+ customerAjax.Customer["address"] +'" value="'+ customerAjax.Customer["address"] +'">'+
+                '<input class="form-control" id="address" type="text" value="'+ customerAjax.Customer["address"] +'">'+
              '</div>'+
             '<div class="form-group">'+   
                 '<label class="control-label">Código Postal</label>'+         
-                '<input class="form-control " type="text" value="'+ customerAjax.Customer["post_code"] +'">'+
+                '<input class="form-control" id="pc" type="text" value="'+ customerAjax.Customer["post_code"] +'">'+
             '</div>'+
             '<div class="form-group">'+
                 '<label class="control-label">Nombre</label>'+
-                '<input class="form-control " type="text" value="'+ customerAjax.Customer["region"] +'">'+
+                '<input class="form-control" id="region" type="text" value="'+ customerAjax.Customer["region"] +'">'+
             '</div>'+
             '<div class="form-group">'+     
                 '<label class="control-label">Teléfono</label>'+       
-                '<input class="form-control " type="text" value="'+ customerAjax.Customer["phone"] +'">'+
+                '<input class="form-control" id="phone" type="text" value="'+ customerAjax.Customer["phone"] +'">'+
             '</div>'+
             '<div class="form-group">'+      
                 '<label class="control-label">Contraseña</label>'+      
-                '<input class="form-control " type="text" value="'+ customerAjax.Customer["password"] +'">'+
+                '<input class="form-control" id="password" type="text" value="'+ customerAjax.Customer["password"] +'">'+
             '</div>';            
             $('#update-modal').append(html);
     });
@@ -106,7 +106,6 @@ $(document).on('click', '.createButton', function () {
             'validate': active
         };
 
-
         $.ajax({
             type: "POST",
             url: "../backoffice/components/ajax/AjaxCustomer.php",
@@ -140,7 +139,7 @@ $(document).on('click', '.createButton', function () {
                     '</td>' +
                     '</tr>';
                 $('#customersRow').append(htmlRow);
-                alert(data["returned_val"]);
+                alert(data["message"]);
                 $('#modalCreate').modal('hide');
             } else {
                 alert("El email introducido ya existe");
@@ -161,6 +160,7 @@ $(document).on('click', '.createButton', function () {
  */
 $(document).on('click', '.doUpdate', function () {
 
+    var id_customer = $("input#id_customer").val();
     var name = $("input#name").val();
     var surname = $("input#surname").val();
     var email = $("input#email").val();
@@ -172,6 +172,7 @@ $(document).on('click', '.doUpdate', function () {
 
     var active = $("input#active").val();
     var jsonFile = {
+        'id_customer' : id_customer,
         'name': name,
         'surname': surname,
         'mail': email,
@@ -179,6 +180,7 @@ $(document).on('click', '.doUpdate', function () {
         'post_code': pc,
         'region': region,
         'phone': phone,
+        'password' : password,
         'validate': active
     };
 
@@ -190,14 +192,12 @@ $(document).on('click', '.doUpdate', function () {
         },
         dataType: "json",
     }).done(function (data) {
-        if (data['id']) {
+        if (data.message === "ok") {
             $.each(jsonFile, function (i, item) {
-                if (i !== "password" && i !== "validate") {
-                    $("#item" + data['id'] + " td.name").html(this.name);
-                }
+                    $("#item" + id_customer + " td."+ i).html(item);
             });
-            alert(data["returned_val"]);
-            $('#modalUpdate').modal('hide');
+            alert("Cliente actualizado correctamente");
+            $('.modalUpdate').modal('hide');
         } else {
             alert("El email introducido ya existe");
         }

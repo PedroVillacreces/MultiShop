@@ -49,14 +49,17 @@ class AjaxCustomer
     {
         $data = $this->mail;
         $response = Customers::getCustomerByEmail($data);
-        if ($response) {
+        if ($response)
+        {
             return true;
         }
+
         return false;
     }
 
     public function doUpdate()
     {
+        $data['id_customer']=$this->id_customer;
         $data['name'] = $this->name;
         $data['surname'] = $this->surname;
         $data['address'] = $this->address;
@@ -67,7 +70,7 @@ class AjaxCustomer
         $data['mail'] = $this->mail;
         $data['validate'] = $this->validate;
         $response = Customers::doUpdate($data);
-        echo json_encode(array('id' => $response['id'], 'message' => $response['message']));
+        echo json_encode(array('message' => $response));
     }
 }
 
@@ -104,6 +107,7 @@ if (isset($_POST["mail"])) {
 
 if (isset($_POST['CustomerUpdate'])) {
     $customer = new AjaxCustomer();
+    $customer->id_customer= $_POST["CustomerUpdate"]["id_customer"];
     $customer-> name =  $_POST["CustomerUpdate"]["name"];
     $customer-> surname = $_POST["CustomerUpdate"]["surname"];
     $customer-> address = $_POST["CustomerUpdate"]["address"];
