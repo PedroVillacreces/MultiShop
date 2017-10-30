@@ -34,6 +34,14 @@ include "views/header.php";
 			</div>
 			</a>
 		</li>
+		<li class="botonesInicio">		
+			<a href="customers">
+			<div style="background:#F640DA">
+			<span class="fa fa-file-text-o"></span>
+			<p>Clientes</p>
+			</div>
+			</a>
+		</li>
 
 	</ul>
 </div>

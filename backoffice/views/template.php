@@ -5,7 +5,7 @@
 	<title>BackEnd</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="views/images/icono.jpg">
-	<link rel="stylesheet" href="components/css/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="components/css/font-awesome.min.css">
 	<link rel="stylesheet" href="components/css/style.css">
 	<link rel="stylesheet" href="components/css/fonts.css">
@@ -38,8 +38,8 @@
 	<script src="components/js/responsive.bootstrap.min.js"></script>
 	<script src="components/js/jquery-ui.min.js"></script>
 	<script src="components/js/sweetalert.min.js"></script>
-	<script src="components/js/script.js"></script>
-	<script src="components/js/validateLogin.js"></script>
+	<script src="components/js/script.js"></script>	
+	<script src="components/ajax/customer.js"></script>
 	
 </body>
 

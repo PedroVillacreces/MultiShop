@@ -15,4 +15,11 @@ class Conexion{
 
 	}
 
+	public static function returnLastId()
+	{
+		$link = new PDO('mysql:dbname=multishop;host=localhost',"root","");
+		$lastId = $link->lastInsertId();
+		return $lastId;
+	}
+
 }
