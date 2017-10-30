@@ -7,28 +7,17 @@ if(!$_SESSION["validate"]){
 include "views/right-nav.php";
 include "views/header.php";
 ?>
-
-<div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state on table rows:</p>            
-  <table class="table table-hover">
-  <thead>
-                    <tr>
-                      <th>Categoría</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>'
-  </table>
+<h2>Categorías</h2>
+<div class="table-responsive">
+<table id="mytable" class="table table-bordred table-striped">
+     <thead>
+          <th>Nombre</th>
+     </thead>
+      <tbody id="categoryRow">
+      <?php
+        $customer = new Category();
+        $customer -> showCategories();
+      ?>
+      </tbody>
+</table>
 </div>

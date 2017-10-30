@@ -4,7 +4,7 @@ require_once "conexion.php";
 /**
  * Undocumented class
  */
-class ProductsModel
+class CategoriesModel
 {
     /**
      * Undocumented function
@@ -14,7 +14,7 @@ class ProductsModel
      */
     public static function showCategories($table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT category FROM $table ORDER BY position ASC");
+        $stmt = Conexion::connect()->prepare("SELECT * FROM $table ORDER BY category ASC");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();
@@ -27,7 +27,7 @@ class ProductsModel
          * @param [type] $table
          * @return void
          */
-    public function addCategory($data, $table)
+    public static function addCategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("INSERT INTO $table (name) VALUES (:name)");
         $stmt -> bindParam(":name", $data, PDO::PARAM_STR);
@@ -48,7 +48,7 @@ class ProductsModel
      * @param [type] $table
      * @return void
      */
-    public function deleteCategory($data, $table)
+    public static function deleteCategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id = :id");
         $stmt -> bindParam(":id", $date["id"], PDO::PARAM_INT);
@@ -67,8 +67,8 @@ class ProductsModel
  * @param [type] $table
  * @return void
  */
-    public function updateCategory($data, $table)
-    {
+    public static function updateCategory($data, $table)
+    {    
             $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name WHERE id = :id");
             $stmt -> bindParam(":name", $data["sendName"], PDO::PARAM_STR);
             $stmt -> bindParam(":id", $data["SendId"], PDO::PARAM_INT);
