@@ -69,9 +69,6 @@ class ProductsModel
  */
     public function updateCategory($data, $table)
     {
-        public function updateSliderModel($data, $table)
-        {
-    
             $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name WHERE id = :id");
             $stmt -> bindParam(":name", $data["sendName"], PDO::PARAM_STR);
             $stmt -> bindParam(":id", $data["SendId"], PDO::PARAM_INT);
@@ -83,6 +80,7 @@ class ProductsModel
             }
     
             $stmt->close();
-        }
+        
     }
+
 }

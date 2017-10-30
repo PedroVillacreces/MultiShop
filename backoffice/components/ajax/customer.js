@@ -145,8 +145,6 @@ $(document).on('click', '.createButton', function () {
                 alert("El email introducido ya existe");
             }
         });
-
-
     } else {
         alert("Las contraseñas deben ser iguales revisales");
         $("input#password").html("");
