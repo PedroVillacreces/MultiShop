@@ -3,33 +3,46 @@
 /**
  * Undocumented class
  */
-class Customers
+class Products
 {
+    public $name;
+    public $id_product;
+    public $price;
+    public $description;
+    public $category;
+    public $subcategory;
+    public $start;
+    public $quantity;
+    public $downloadable;
+
     public function showProducts()
     {
         $response = ProductsModel::showProducts("products");
         
         foreach ($response as $row => $item) {
             echo
-            '<tr id="item'.$item['id_product'].'">
-                        <td class="name">'.$item['name'].'</td>
-                        <td class="surname">'.$item['price'].'</td>
-                        <td class="mail">'.$item['description'].'</td>
-                        <td class="address">'.$item['category'].'</td>
-                        <td class="post_code">'.$item['subcategory'].'</td>
-                        <td class="region">'.$item['start'].'</td>
-                        <td class="phone">'.$item['quantity'].'</td>
+            '<tr id="item'.$item['0'].'">
+                        <td class="name">'.$item['1'].'</td>
+                        <td class="price">'.$item['2'].'</td>
+                        <td class="description">'.$item['3'].'</td>
+                        <td class="category">'.$item['4'].'</td>
+                        <td class="subcategory">'.$item['5'].'</td>
+                        <td class="start">'.$item['6'].'</td>
+                        <td class="quantity">'.$item['7'].'</td>
+                        <td class="downloadable">'.$item['8'].'</td>
                         <td>
                             <form role="form" method="POST" id="deleteProduct">
-                                <button type="button" name="deleteProduct" id="deleteProduct" class="deleteProductButton btn btn-danger btn-sm" data-id="'.$item['id_product'].'">
+                                <button type="submit" name="deleteProduct" id="deleteProduct" class="deleteProductButton btn btn-danger btn-sm">
+                                <input type="hidden" name="deleteId" value="'.$item['0'].'">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>                            
                         </td>
                         <td>     
-                        <form role="form" method="POST" id="updateProduct">                       
+                        <form role="form" method="POST" id="getById">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="updateProduct" id="updateProduct" class="updateProductButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_product'].'">
+                                        <button type="button" name="getById" id="getById" class="updateProductButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_product'].'">
+                                            <input type="hidden" name="updateId" value="'.$item['0'].'">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
@@ -39,21 +52,21 @@ class Customers
         }
     }
 
-    public static function deleteProducts($data)
+    public function deleteProduct()
     {
-        $response = ProductsModel::deleteProduct($data, "products");
+        $response = ProductsModel::deleteProduct($this->id_product, "products");
         return $response;
     }
 
-    public static function updateProducts($data)
-    {
-        $response = ProductsModel::updateProducts($data, 'products');
-        return $response;
-    }
-
-    public static function getByIdProducts($data)
+    public static function getProductById($data)
     {
         $response = ProductsModel::getProductById($data, 'products');
+        return $response;
+    }
+
+    public function updateProducts($data)
+    {
+        $response = ProductsModel::updateProducts($data, 'products');
         return $response;
     }
 
@@ -75,3 +88,28 @@ class Customers
         return $response;
     }
 }
+
+if (isset($_POST["deleteProduct"])) {
+    $message = '¿Está seguro que desea eliminar el Producto?';
+    echo "<script type='text/javascript'>alert($message);</script>";
+    $product = new Products();
+    $product -> id_product = $_POST["deleteId"];
+    $product -> deleteProduct();
+}
+
+if (isset($_POST["updateProduct"]))
+{
+    $product = new Products();
+    $product->id_product = $_POST['id_product'];
+    $product->name = $_POST['name'];
+    $product->price= $_POST['price'];
+    $product->description = $_POST['description'];
+    $product->category = $_POST['category'];
+    $product->subcategory = $_POST['subcategory'];
+    $product->start = $_POST['start'];
+    $product->downloadable = $_POST['downloadable'];
+    $product->quantity = $_POST['quantity'];
+    $product->updateProducts($product);
+
+}
+

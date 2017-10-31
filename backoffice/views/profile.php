@@ -35,7 +35,7 @@ PERFIL
 
 	<h4>Email: correo@correo.com <span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h4>
 
-	<h4>Contraseña: ******* <span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></ph4>
+	<h4>Contraseña: <span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h4>
 
 </div>
 
