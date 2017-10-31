@@ -12,29 +12,40 @@ include "views/header.php";
   <h2>Hover Rows</h2>
   <p>The .table-hover class enables a hover state on table rows:</p>            
   <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-      </tr>
-    </thead>
+      <thead>
+      <th>Nombre</th>
+      <th>Precio</th>
+      <th>Descripción</th>
+      <th>Categoría</th>
+      <th>Subcategoría</th>
+      <th>Iniciar</th>
+      <th>Cantidad</th>
+      <th>Descargable</th>
+      <th>Eliminar</th>
+      <th>Editar</th>
+      </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
+     <?php
+     $products = new Products();
+     $products -> showProducts();
+     ?>
     </tbody>
   </table>
 </div>
+<form role="form" method="POST" id="updateProduct">
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title custom_align" id="Heading">Edición de Producto</h4>
+                </div>
+                <div id="update-modal-products" class="modal-body">
+                </div>
+                <div class="modal-footer ">
+                        <button type="submit" name="updateProduct" class="btn btn-warning btn-lg updateProduct" style="width: 100%;"><span class="glyphicon glyphicon-ok-sign"></span> Actualizar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

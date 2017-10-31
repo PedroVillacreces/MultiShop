@@ -40,6 +40,7 @@
 	<script src="components/js/sweetalert.min.js"></script>
 	<script src="components/js/script.js"></script>	
 	<script src="components/ajax/customer.js"></script>
+	<script src="components/ajax/product.js"></script>
 	
 </body>
 

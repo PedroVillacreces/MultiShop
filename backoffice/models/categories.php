@@ -4,7 +4,7 @@ require_once "conexion.php";
 /**
  * Undocumented class
  */
-class ProductsModel
+class CategoriesModel
 {
     /**
      * Undocumented function
