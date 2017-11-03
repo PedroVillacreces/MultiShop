@@ -17,7 +17,6 @@ class AjaxProduct
     public $mail;
     public $validate;
 
-
     public function getProductById()
     {
         $data = $this->id_product;
