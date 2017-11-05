@@ -67,7 +67,6 @@ class ProductsModel
 
     public static function createProduct($data, $table)
     {
-
             $mysql_conn = Conexion::connect();
             $stmt = $mysql_conn->prepare("INSERT INTO $table (product_name, price, description, id_category, id_subcategory, start, quantity, downloadable) VALUES (:product_name, :price, :description, :id_category, :id_subcategory, :start, :quantity, :downloadable)");
             $stmt -> bindParam(":product_name", $data->name, PDO::PARAM_STR);
@@ -80,7 +79,6 @@ class ProductsModel
             $stmt -> bindParam(":downloadable", $data->downloadable, PDO::PARAM_INT);
             $mysql_conn->beginTransaction();
 
-
             if ($stmt->execute()) {
                 $id = $mysql_conn->lastInsertId();
                 $mysql_conn->commit();
@@ -90,6 +88,5 @@ class ProductsModel
                 return "error";
             }
         }
-
 
 }

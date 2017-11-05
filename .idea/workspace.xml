@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d1a56158-b773-47c0-9fbe-42d6b9cc55c1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/components/ajax/product.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/components/ajax/AjaxSubcategory.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/controllers/subcategories.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/models/subcategories.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/backoffice/views/subcategories.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/controllers/products.php" afterPath="$PROJECT_DIR$/backoffice/controllers/products.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/index.php" afterPath="$PROJECT_DIR$/backoffice/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/models/categories.php" afterPath="$PROJECT_DIR$/backoffice/models/categories.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/models/links.php" afterPath="$PROJECT_DIR$/backoffice/models/links.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/models/products.php" afterPath="$PROJECT_DIR$/backoffice/models/products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/views/products.php" afterPath="$PROJECT_DIR$/backoffice/views/products.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/views/profile.php" afterPath="$PROJECT_DIR$/backoffice/views/profile.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/views/home.php" afterPath="$PROJECT_DIR$/backoffice/views/home.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/views/right-nav.php" afterPath="$PROJECT_DIR$/backoffice/views/right-nav.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backoffice/views/template.php" afterPath="$PROJECT_DIR$/backoffice/views/template.php" />
     </list>
     <ignored path="MultiShop.iws" />
@@ -26,61 +27,65 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DatabaseView">
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="MultiShop" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="customers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/controllers/customers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <element signature="n#showCustomers#0;n#Customers#0;n#!!top" expanded="true" />
-                <element signature="n#doUpdate#0;n#Customers#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="products.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backoffice/controllers/products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="34" column="120" selection-start-line="34" selection-start-column="101" selection-end-line="34" selection-end-column="120" />
+            <state relative-caret-position="329">
+              <caret line="48" column="39" selection-start-line="41" selection-start-column="24" selection-end-line="48" selection-end-column="39" />
               <folding>
-                <element signature="n#getProductById#0;n#Products#0;n#!!top" expanded="true" />
-                <element signature="n#updateProducts#0;n#Products#0;n#!!top" expanded="true" />
-                <marker date="1509473241318" expanded="true" signature="1019:1557" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="1099:1499" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="1244:1463" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="1586:2396" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="1661:2339" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="1780:2303" ph="..." />
-                <marker date="1509473241318" expanded="true" signature="2014:2262" ph="..." />
+                <element signature="n#createProduct#0;n#Products#0;n#!!top" expanded="true" />
+                <element signature="e#3393#3677#0#PHP" expanded="false" />
+                <element signature="e#4200#4669#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="categories.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/views/categories.php">
+      <file leaf-file-name="subcategories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/views/subcategories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="29" />
+            <state relative-caret-position="36">
+              <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="customer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/customer.js">
+      <file leaf-file-name="subcategories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/models/subcategories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="66" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="66" />
-              <folding />
+            <state relative-caret-position="244">
+              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <element signature="n#showSubcategories#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+                <element signature="n#deleteSubcategory#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+                <element signature="n#getSubById#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+                <marker date="1509838831060" expanded="true" signature="268:333" ph="SELECT subca... ${$table}" />
+                <marker date="1509838831060" expanded="true" signature="268:339" ph="SELECT t1.su... ${$table}." />
+                <marker date="1509838831060" expanded="true" signature="268:408" ph="SELECT t1.su... ${$table}" />
+                <marker date="1509838831060" expanded="true" signature="656:747" ph="INSERT INTO ${$table}... " />
+                <marker date="1509838831060" expanded="true" signature="1399:1456" ph="DELETE FROM " />
+                <marker date="1509838831060" expanded="true" signature="1779:1792" ph="select * fro... " />
+                <marker date="1509838831060" expanded="true" signature="1779:1793" ph="select * fro... ${$table}" />
+                <marker date="1509838831060" expanded="true" signature="1779:1823" ph="select * fro... ${$table}" />
+                <marker date="1509838831060" expanded="true" signature="1779:1838" ph="select * fro... ${$table}" />
+                <marker date="1509838831060" expanded="true" signature="2181:2263" ph="UPDATE ${$ta... " />
+                <marker date="1509838831060" expanded="true" signature="2181:2302" ph="UPDATE ${$ta... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,39 +93,52 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backoffice/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="products.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backoffice/models/products.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
               <folding>
                 <element signature="n#showProducts#0;n#ProductsModel#0;n#!!top" expanded="true" />
-                <element signature="n#getProductById#0;n#ProductsModel#0;n#!!top" expanded="true" />
-                <element signature="n#updateProducts#0;n#ProductsModel#0;n#!!top" expanded="true" />
-                <marker date="1509472326082" expanded="true" signature="155:422" ph="select t1.id... ${$table}" />
-                <marker date="1509472326082" expanded="true" signature="685:734" ph="DELETE FROM " />
-                <marker date="1509472326082" expanded="true" signature="1064:1350" ph="select t1.id... ${$table}" />
-                <marker date="1509472326082" expanded="true" signature="1064:1352" ph="select t1.id... ${$table}" />
-                <marker date="1509472326082" expanded="true" signature="1646:1881" ph="UPDATE ${$ta... " />
+                <marker date="1509752987692" expanded="true" signature="155:451" ph="select t1.id... ${$table}" />
+                <marker date="1509752987692" expanded="true" signature="714:763" ph="DELETE FROM " />
+                <marker date="1509752987692" expanded="true" signature="1093:1408" ph="select t1.id... ${$table}" />
+                <marker date="1509752987692" expanded="true" signature="1704:1939" ph="UPDATE ${$ta... " />
+                <marker date="1509752987692" expanded="true" signature="2925:3148" ph="INSERT INTO ${$table}... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/controllers/login.php">
+      <file leaf-file-name="subcategories.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/controllers/subcategories.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+            <state relative-caret-position="146">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding>
-                <element signature="n#loginController#0;n#Login#0;n#!!top" expanded="true" />
+                <element signature="n#showSubcategories#0;n#Subcategories#0;n#!!top" expanded="true" />
+                <element signature="n#getSubcategoryById#0;n#Subcategories#0;n#!!top" expanded="true" />
+                <element signature="n#deleteSubcategory#0;n#Subcategories#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AjaxSubcategory.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxSubcategory.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="n#AjaxSubcategory#0;n#!!top" expanded="true" />
+                <element signature="n#getSubcategoryById#0;n#AjaxSubcategory#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,28 +147,28 @@
       <file leaf-file-name="product.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/product.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
+            <state relative-caret-position="150">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="products.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/views/products.php">
+      <file leaf-file-name="subcategory.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/subcategory.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="631">
-              <caret line="45" column="202" selection-start-line="45" selection-start-column="202" selection-end-line="45" selection-end-column="202" />
+            <state relative-caret-position="364">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AjaxProduct.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php">
+      <file leaf-file-name="conexion.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backoffice/models/conexion.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="195">
+              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,15 +196,26 @@
         <option value="$PROJECT_DIR$/backoffice/controllers/customers.php" />
         <option value="$PROJECT_DIR$/backoffice/components/ajax/customer.js" />
         <option value="$PROJECT_DIR$/backoffice/models/customers.php" />
-        <option value="$PROJECT_DIR$/backoffice/index.php" />
         <option value="$PROJECT_DIR$/backoffice/models/categories.php" />
         <option value="$PROJECT_DIR$/backoffice/views/profile.php" />
-        <option value="$PROJECT_DIR$/backoffice/views/template.php" />
+        <option value="$PROJECT_DIR$/backoffice/components/ajax/product.js" />
+        <option value="$PROJECT_DIR$/backoffice/models/conexion.php" />
+        <option value="$PROJECT_DIR$/backoffice/controllers/products.php" />
         <option value="$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php" />
         <option value="$PROJECT_DIR$/backoffice/views/products.php" />
         <option value="$PROJECT_DIR$/backoffice/models/products.php" />
-        <option value="$PROJECT_DIR$/backoffice/controllers/products.php" />
-        <option value="$PROJECT_DIR$/backoffice/components/ajax/product.js" />
+        <option value="$PROJECT_DIR$/backoffice/controllers/Subcategories.php" />
+        <option value="$PROJECT_DIR$/backoffice/index.php" />
+        <option value="$PROJECT_DIR$/backoffice/views/right-nav.php" />
+        <option value="$PROJECT_DIR$/backoffice/views/home.php" />
+        <option value="$PROJECT_DIR$/backoffice/models/links.php" />
+        <option value="$PROJECT_DIR$/backoffice/views/template.php" />
+        <option value="$PROJECT_DIR$/backoffice/components/ajax/AjaxSubcateogry.php" />
+        <option value="$PROJECT_DIR$/backoffice/views/subcategories.php" />
+        <option value="$PROJECT_DIR$/backoffice/components/ajax/subcategory.js" />
+        <option value="$PROJECT_DIR$/backoffice/controllers/subcategories.php" />
+        <option value="$PROJECT_DIR$/backoffice/models/subcategories.php" />
+        <option value="$PROJECT_DIR$/backoffice/components/ajax/AjaxSubcategory.php" />
       </list>
     </option>
   </component>
@@ -204,9 +233,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="width" value="1024" />
-    <option name="height" value="1280" />
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="825" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -233,6 +262,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,7 +391,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -369,9 +398,8 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.PHP" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RunManager" selected="JavaScript Debug.AjaxCustomer.php">
     <configuration default="false" name="AjaxCustomer.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/MultiShop/backoffice/components/ajax/AjaxCustomer.php">
@@ -448,11 +476,14 @@
       <workItem from="1508592454924" duration="15653000" />
       <workItem from="1509141131750" duration="8254000" />
       <workItem from="1509450848568" duration="13786000" />
+      <workItem from="1509721579677" duration="2976000" />
+      <workItem from="1509748043895" duration="3000" />
+      <workItem from="1509748277749" duration="23122000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37693000" />
+    <option name="totallyTimeSpent" value="63794000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -464,20 +495,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="0" width="1024" height="1280" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25763747" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15879828" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293919" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293919" sideWeight="0.5040733" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3310811" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297568" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33097595" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293919" sideWeight="0.49592668" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281471" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28800675" sideWeight="0.49592668" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28712872" sideWeight="0.49592668" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -535,54 +566,70 @@
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/backoffice/models/products.php</url>
-          <line>20</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/backoffice/models/products.php</url>
-          <line>33</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php</url>
-          <line>33</line>
+          <line>32</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php</url>
-          <line>32</line>
+          <line>31</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php</url>
-          <line>25</line>
+          <line>24</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/backoffice/models/products.php</url>
-          <line>37</line>
-          <option name="timeStamp" value="23" />
+          <url>file://$PROJECT_DIR$/backoffice/controllers/products.php</url>
+          <line>120</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/backoffice/controllers/products.php</url>
-          <line>107</line>
-          <option name="timeStamp" value="24" />
+          <line>23</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/models/products.php</url>
+          <line>12</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/models/subcategories.php</url>
+          <line>23</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/models/subcategories.php</url>
+          <line>21</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/models/products.php</url>
+          <line>67</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/controllers/subcategories.php</url>
+          <line>83</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/backoffice/models/subcategories.php</url>
+          <line>68</line>
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="25" />
+      <option name="time" value="54" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="AjaxSubcategory.php">
+        <watch expression="$query" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/backoffice/models/conexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/customer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -595,123 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="94" column="35" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
-          <folding>
-            <element signature="n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#gestorSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#eliminarSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="34" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/customers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="128" column="99" selection-start-line="128" selection-start-column="87" selection-end-line="128" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="72" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="n#Category#0;n#!!top" expanded="true" />
-            <marker date="1509450870128" expanded="true" signature="281:354" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxCustomer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="64" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="64" />
-          <folding>
-            <element signature="n#AjaxCustomer#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/customers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="67" column="28" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="45" />
-          <folding>
-            <element signature="n#deleteCustomers#0;n#Customers#0;n#!!top" expanded="false" />
-            <element signature="n#updateCustomers#0;n#Customers#0;n#!!top" expanded="false" />
-            <element signature="n#getByIdCustomers#0;n#Customers#0;n#!!top" expanded="false" />
-            <element signature="n#createCustomer#0;n#Customers#0;n#!!top" expanded="false" />
-            <element signature="n#getCustomerByEmail#0;n#Customers#0;n#!!top" expanded="false" />
-            <element signature="n#doUpdate#0;n#Customers#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/models/customers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3345">
-          <caret line="223" column="4" selection-start-line="223" selection-start-column="4" selection-end-line="223" selection-end-column="4" />
-          <folding>
-            <element signature="n#__construct#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getName#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setName#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getSurname#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setSurname#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getMail#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setMail#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getAddress#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setAddress#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPostCode#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setPostCode#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getRegion#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setRegion#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPhone#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setPhone#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPassword#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <marker date="1509453303655" expanded="true" signature="3530:3581" ph="DELETE FROM " />
-            <marker date="1509453303655" expanded="true" signature="4148:4357" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="4148:4358" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="4148:4361" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="5597:5638" ph="SELECT * FRO... ${$table}" />
-            <marker date="1509453303655" expanded="true" signature="5999:6187" ph="INSERT INTO ${$table}... " />
-            <marker date="1509453303655" expanded="true" signature="7492:7607" ph="SELECT id_cu... ${$table}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/customer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/gestorSlide.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="94" column="35" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
-          <folding>
-            <element signature="n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#gestorSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#eliminarSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -726,7 +656,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="34" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="34" />
-          <folding />
+          <folding>
+            <element signature="n#loginController#0;n#Login#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -742,7 +674,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="72" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -750,10 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="n#Category#0;n#!!top" expanded="true" />
-            <marker date="1509450870128" expanded="true" signature="281:354" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -778,7 +705,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +712,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -794,9 +719,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="158" column="30" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -804,6 +726,58 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-580">
           <caret line="39" column="28" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/slider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="106" column="3" selection-start-line="106" selection-start-column="3" selection-end-line="106" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/js/validateLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="40" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/views/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="72" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/js/customer.js" />
+    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/gestorSlide.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="94" column="35" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/customer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="66" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="61" column="7" selection-start-line="61" selection-start-column="7" selection-end-line="62" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -824,103 +798,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/slider.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="106" column="3" selection-start-line="106" selection-start-column="3" selection-end-line="106" selection-end-column="3" />
-          <folding>
-            <element signature="n#deleteSliderController#0;n#Slider#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/js/validateLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="72" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="72" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/js/customer.js" />
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/gestorSlide.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="94" column="35" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="35" />
-          <folding>
-            <element signature="n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#gestorSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-            <element signature="n#eliminarSlideAjax#0;n#Ajax#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/models/conexion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/template.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/profile.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/videos.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="37" column="121" selection-start-line="37" selection-start-column="121" selection-end-line="37" selection-end-column="121" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/views/customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="15" column="166" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="166" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/models/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="210">
+          <caret line="20" column="5" selection-start-line="8" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
           <folding>
-            <element signature="n#CategoriesModel#0;n#!!top" expanded="true" />
-            <marker date="1509454673555" expanded="true" signature="292:341" ph="SELECT categ... ${$table}" />
-            <marker date="1509454673555" expanded="true" signature="696:736" ph="INSERT INTO ${$table}... " />
-            <marker date="1509454673555" expanded="true" signature="1174:1207" ph="DELETE FROM " />
-            <marker date="1509454673555" expanded="true" signature="1623:1668" ph="UPDATE ${$ta... " />
+            <element signature="n#addCategory#0;n#CategoriesModel#0;n#!!top" expanded="true" />
+            <marker date="1509474096845" expanded="true" signature="292:341" ph="SELECT categ... ${$table}" />
+            <marker date="1509474096845" expanded="true" signature="696:736" ph="INSERT INTO ${$table}... " />
+            <marker date="1509474096845" expanded="true" signature="1174:1207" ph="DELETE FROM " />
+            <marker date="1509474096845" expanded="true" signature="1623:1668" ph="UPDATE ${$ta... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/customers.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/models/customers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="53" column="19" selection-start-line="53" selection-start-column="19" selection-end-line="53" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="30">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="n#doUpdate#0;n#CustomersModel#0;n#!!top" expanded="true" />
+            <marker date="1509453303655" expanded="true" signature="3530:3581" ph="DELETE FROM " />
+            <marker date="1509453303655" expanded="true" signature="4148:4357" ph="UPDATE ${$ta... " />
+            <marker date="1509453303655" expanded="true" signature="4148:4358" ph="UPDATE ${$ta... " />
+            <marker date="1509453303655" expanded="true" signature="4148:4361" ph="UPDATE ${$ta... " />
+            <marker date="1509453303655" expanded="true" signature="5597:5638" ph="SELECT * FRO... ${$table}" />
+            <marker date="1509453303655" expanded="true" signature="5999:6187" ph="INSERT INTO ${$table}... " />
+            <marker date="1509453303655" expanded="true" signature="7492:7607" ph="SELECT id_cu... ${$table}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/template.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/categories.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_superglobals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding>
+            <marker date="1509474085635" expanded="true" signature="281:354" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -934,10 +889,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="n#getProductById#0;n#AjaxProduct#0;n#!!top" expanded="false" />
+            <element signature="e#525#672#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/views/home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="447">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/models/links.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -950,149 +924,163 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/categories.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="19" column="1" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-          <folding>
-            <element signature="n#Category#0;n#!!top" expanded="true" />
-            <marker date="1509450870128" expanded="true" signature="281:354" ph="..." />
-          </folding>
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/models/customers.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/template.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="237" column="27" selection-start-line="216" selection-start-column="12" selection-end-line="237" selection-end-column="27" />
-          <folding>
-            <element signature="n#__construct#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getName#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setName#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getSurname#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setSurname#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getMail#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setMail#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getAddress#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setAddress#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPostCode#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setPostCode#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getRegion#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setRegion#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPhone#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#setPhone#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <element signature="n#getPassword#0;n#CustomersModel#0;n#!!top" expanded="true" />
-            <marker date="1509453303655" expanded="true" signature="3530:3581" ph="DELETE FROM " />
-            <marker date="1509453303655" expanded="true" signature="4148:4357" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="4148:4358" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="4148:4361" ph="UPDATE ${$ta... " />
-            <marker date="1509453303655" expanded="true" signature="5597:5638" ph="SELECT * FRO... ${$table}" />
-            <marker date="1509453303655" expanded="true" signature="5999:6187" ph="INSERT INTO ${$table}... " />
-            <marker date="1509453303655" expanded="true" signature="7492:7607" ph="SELECT id_cu... ${$table}" />
-          </folding>
+        <state relative-caret-position="447">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/customers.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/right-nav.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="57" selection-end-column="5" />
-          <folding>
-            <element signature="n#showCustomers#0;n#Customers#0;n#!!top" expanded="true" />
-            <element signature="n#doUpdate#0;n#Customers#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="447">
+          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/controllers/login.php">
+    <entry file="file://$PROJECT_DIR$/backoffice/views/profile.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-          <folding>
-            <element signature="n#loginController#0;n#Login#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="168">
+          <caret line="88" column="11" selection-start-line="88" selection-start-column="11" selection-end-line="101" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/views/suscriptores.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/views/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="631">
-          <caret line="45" column="202" selection-start-line="45" selection-start-column="202" selection-end-line="45" selection-end-column="202" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxProduct.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/customer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="66" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="66" />
+        <state relative-caret-position="285">
+          <caret line="19" column="35" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/controllers/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="34" column="120" selection-start-line="34" selection-start-column="101" selection-end-line="34" selection-end-column="120" />
+        <state relative-caret-position="329">
+          <caret line="48" column="39" selection-start-line="41" selection-start-column="24" selection-end-line="48" selection-end-column="39" />
           <folding>
-            <element signature="n#getProductById#0;n#Products#0;n#!!top" expanded="true" />
-            <element signature="n#updateProducts#0;n#Products#0;n#!!top" expanded="true" />
-            <marker date="1509473241318" expanded="true" signature="1019:1557" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="1099:1499" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="1244:1463" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="1586:2396" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="1661:2339" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="1780:2303" ph="..." />
-            <marker date="1509473241318" expanded="true" signature="2014:2262" ph="..." />
+            <element signature="n#createProduct#0;n#Products#0;n#!!top" expanded="true" />
+            <element signature="e#3393#3677#0#PHP" expanded="false" />
+            <element signature="e#4200#4669#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/product.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="52" column="45" selection-start-line="52" selection-start-column="45" selection-end-line="52" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backoffice/views/categories.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="29" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="29" />
+        <state relative-caret-position="150">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backoffice/models/products.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="52" column="51" selection-start-line="52" selection-start-column="51" selection-end-line="52" selection-end-column="51" />
           <folding>
             <element signature="n#showProducts#0;n#ProductsModel#0;n#!!top" expanded="true" />
-            <element signature="n#getProductById#0;n#ProductsModel#0;n#!!top" expanded="true" />
-            <element signature="n#updateProducts#0;n#ProductsModel#0;n#!!top" expanded="true" />
-            <marker date="1509472326082" expanded="true" signature="155:422" ph="select t1.id... ${$table}" />
-            <marker date="1509472326082" expanded="true" signature="685:734" ph="DELETE FROM " />
-            <marker date="1509472326082" expanded="true" signature="1064:1350" ph="select t1.id... ${$table}" />
-            <marker date="1509472326082" expanded="true" signature="1064:1352" ph="select t1.id... ${$table}" />
-            <marker date="1509472326082" expanded="true" signature="1646:1881" ph="UPDATE ${$ta... " />
+            <marker date="1509752987692" expanded="true" signature="155:451" ph="select t1.id... ${$table}" />
+            <marker date="1509752987692" expanded="true" signature="714:763" ph="DELETE FROM " />
+            <marker date="1509752987692" expanded="true" signature="1093:1408" ph="select t1.id... ${$table}" />
+            <marker date="1509752987692" expanded="true" signature="1704:1939" ph="UPDATE ${$ta... " />
+            <marker date="1509752987692" expanded="true" signature="2925:3148" ph="INSERT INTO ${$table}... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/models/conexion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/views/subcategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="14" column="56" selection-start-line="14" selection-start-column="56" selection-end-line="14" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/models/subcategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="244">
+          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding>
+            <element signature="n#showSubcategories#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+            <element signature="n#deleteSubcategory#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+            <element signature="n#getSubById#0;n#SubcategoriesModel#0;n#!!top" expanded="true" />
+            <marker date="1509838831060" expanded="true" signature="268:333" ph="SELECT subca... ${$table}" />
+            <marker date="1509838831060" expanded="true" signature="268:339" ph="SELECT t1.su... ${$table}." />
+            <marker date="1509838831060" expanded="true" signature="268:408" ph="SELECT t1.su... ${$table}" />
+            <marker date="1509838831060" expanded="true" signature="656:747" ph="INSERT INTO ${$table}... " />
+            <marker date="1509838831060" expanded="true" signature="1399:1456" ph="DELETE FROM " />
+            <marker date="1509838831060" expanded="true" signature="1779:1792" ph="select * fro... " />
+            <marker date="1509838831060" expanded="true" signature="1779:1793" ph="select * fro... ${$table}" />
+            <marker date="1509838831060" expanded="true" signature="1779:1823" ph="select * fro... ${$table}" />
+            <marker date="1509838831060" expanded="true" signature="1779:1838" ph="select * fro... ${$table}" />
+            <marker date="1509838831060" expanded="true" signature="2181:2263" ph="UPDATE ${$ta... " />
+            <marker date="1509838831060" expanded="true" signature="2181:2302" ph="UPDATE ${$ta... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/controllers/subcategories.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding>
+            <element signature="n#showSubcategories#0;n#Subcategories#0;n#!!top" expanded="true" />
+            <element signature="n#getSubcategoryById#0;n#Subcategories#0;n#!!top" expanded="true" />
+            <element signature="n#deleteSubcategory#0;n#Subcategories#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/subcategory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backoffice/components/ajax/AjaxSubcategory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="n#AjaxSubcategory#0;n#!!top" expanded="true" />
+            <element signature="n#getSubcategoryById#0;n#AjaxSubcategory#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
