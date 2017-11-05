@@ -17,6 +17,7 @@ class LinksModels{
 		   $links == "products" ||
 		   $links == "categories" ||
 		   $links == "customers" ||
+           $links == "subcategories" ||
 		   $links == "suscriptores" ||
 		   $links == "mensajes" ||
 		   $links == "perfil" ||

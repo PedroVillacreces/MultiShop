@@ -42,6 +42,16 @@ include "views/header.php";
 			</div>
 			</a>
 		</li>
+		<li class="botonesInicio">
+			<a href="subcategories">
+				<div style="background:#F640DA">
+					<span class="fa fa-file-text-o"></span>
+					<p>Subcategorías</p>
+				</div>
+			</a>
+		</li>
+
+
 
 	</ul>
 </div>
