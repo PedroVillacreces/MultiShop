@@ -1,6 +1,5 @@
 <?php
 
-
 class Users
 {
     public $name;
@@ -11,7 +10,6 @@ class Users
     public $photo;
     public $rol;
     public $id;
-
 
     public function showUsers()
     {
@@ -57,11 +55,7 @@ class Users
 
     public function getUserById($data)
     {
-        $response = UsersModel::getUserById($data, "subcategories");
-        echo
-        '<p>Edición: '.$response['rol'].'
-        '';
-        
+        $response = UsersModel::getUserById($data, "users");
         return $response;
     }
 
@@ -89,7 +83,6 @@ if (isset($_POST["createUser"]))
     $user->rol=$_POST['rol'];
     $user->user_name=$_POST['user_name'];
     $user->createUser($user);
-
 }
 
 if (isset($_POST["deleteUser"]))
@@ -97,7 +90,6 @@ if (isset($_POST["deleteUser"]))
     $subcategory = new Subcategories();
     $subcategory->id_subcategory = $_POST['deleteId'];
     $subcategory->deleteSubcategory($subcategory);
-
 }
 
 if(isset($_POST['updateUser']))

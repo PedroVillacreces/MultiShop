@@ -53,13 +53,29 @@ class UsersModel
     {
         $stmt = Conexion::connect()->prepare("select * from $table WHERE id = :id");
         $stmt ->bindParam(':id', $data, PDO::PARAM_INT);
-        if($stmt->execute()){
+        if($stmt->execute())
+        {
+            return $stmt->fetch();
+        }
+        else
+        {
+            return "error";
+        }
+
+        $stmt->close();
+    }
+
+    public static function getUserByName($data, $table)
+    {
+        $stmt = Conexion::connect()->prepare("select * from $table WHERE user_name = :user_name");
+        $stmt->bindParam(':user_name', $data, PDO::PARAM_STR);
+        if ($stmt->execute())
+        {
             return $stmt->fetch();
         }
         else{
-            return "error";
+            return 'error';
         }
-        $stmt->close();
     }
 
     public static function updateSubcategory($data, $table)
