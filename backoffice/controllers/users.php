@@ -53,7 +53,7 @@ class Users
         return $response;
     }
 
-    public function getUserById($data)
+    public static function getUserById($data)
     {
         $response = UsersModel::getUserById($data, "users");
         return $response;
