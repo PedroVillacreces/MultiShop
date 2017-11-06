@@ -1,23 +1,23 @@
 <?php
-require_once "conexion.php";
 
-class SubcategoriesModel
+require_once "conexion.php";
+/**
+ * Created by PhpStorm.
+ * User: mac
+ * Date: 5/11/17
+ * Time: 11:33
+ */
+class UsersModel
 {
-    /**
-     * Undocumented function
-     *
-     * @param [type] $table
-     * @return void
-     */
-    public static function showSubcategories($table)
+    public static function showUsers($table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT t1.id_subcategory, t1.subcategory_name, t2.category  FROM $table as t1 inner join categories as t2 on t1.id_category = t2.id_category");
+        $stmt = Conexion::connect()->prepare("SELECT id, name, surname, user_name, email, rol, photo, password FROM $table");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();
     }
 
-    public static function createSubcategory($data, $table)
+    public static function createUser($data, $table)
     {
         $mysql_conn = Conexion::connect();
         $stmt = $mysql_conn->prepare("INSERT INTO $table (subcategory_name, id_category) VALUES (:subcategory_name, :id_category)");
@@ -36,7 +36,7 @@ class SubcategoriesModel
         $stmt -> close();
     }
 
-    public static function deleteSubcategory($data, $table)
+    public static function  deleteSubcategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_subcategory = :id_subcategory");
         $stmt -> bindParam(":id_subcategory", $data, PDO::PARAM_INT);
@@ -49,10 +49,10 @@ class SubcategoriesModel
         $stmt->close();
     }
 
-    public static function getSubById($data, $table)
+    public static function getUserById($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("select * from $table WHERE id_subcategory = :id_subcategory");
-        $stmt ->bindParam(':id_subcategory', $data, PDO::PARAM_INT);
+        $stmt = Conexion::connect()->prepare("select * from $table WHERE id = :id");
+        $stmt ->bindParam(':id', $data, PDO::PARAM_INT);
         if($stmt->execute()){
             return $stmt->fetch();
         }

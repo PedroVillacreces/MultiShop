@@ -1,41 +1,31 @@
 <?php
-
 session_start();
-
-if(!$_SESSION["validate"]){
-
-  header("location:login");
-
-  exit();
-
+if (!$_SESSION["validate"]) {
+    header("location:login");
+    exit();
 }
-
-include "views/modules/right-nav.php";
-include "views/modules/header.php";
-
+include "views/right-nav.php";
+include "views/header.php";
 ?>
+
 <!--=====================================
 PERFIL       
 ======================================-->
 
-<div id="editarPerfil" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+<div id="editarPerfil" class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
  
-	<h1>Hola Juanu 
+	<h1>Hola
 	<span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h1>
 
 	<div style="position:relative">
-	<img src="views/images/photo.jpg" class="img-circle pull-right">
+	<img src="" class="img-circle pull-right">
 	<span class="btn btn-info fa fa-pencil" style="font-size:10px; margin-right:10px; position:absolute; right:-20px; top:-50px"></span>
 	</div>
 
 	<hr>
+    <?php
 
-	<h4>Perfil: Administrador 
-	<span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h4>
-
-	<h4>Email: correo@correo.com <span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h4>
-
-	<h4>Contraseña: <span class="btn btn-info fa fa-pencil pull-left" style="font-size:10px; margin-right:10px"></span></h4>
+    ?>
 
 </div>
 
@@ -50,49 +40,22 @@ PERFIL
 	<table id="tablaSuscriptores" class="table table-striped display">
     <thead>
       <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
         <th>Usuario</th>
-        <th>Perfil</th>
         <th>Email</th>
-        <th></th>
+          <th>Rol</th>
+          <th>Foto</th>
+          <th>Contraseña</th>
+          <th>Eliminar</th>
+          <th>Editars</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
-        <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td><span class="btn btn-info fa fa-pencil quitarSuscriptor"></span></td>
-      </tr>
+    <?php
+    $users = new Users();
+    $users->showUsers();
+    ?>
     </tbody>
   </table>
 

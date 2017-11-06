@@ -50,6 +50,14 @@ include "views/header.php";
 				</div>
 			</a>
 		</li>
+		<li class="botonesInicio">
+			<a href="users">
+				<div style="background:#F640DA">
+					<span class="fa fa-file-text-o"></span>
+					<p><Usuarios</p>
+				</div>
+			</a>
+		</li>
 
 
 

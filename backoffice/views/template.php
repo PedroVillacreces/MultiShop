@@ -27,7 +27,6 @@
 		?>		
 
 		</section>
-	
 	</div>
 	<script src="components/js/jquery-2.2.0.min.js"></script>
 	<script src="components/js/bootstrap.min.js"></script>
@@ -42,6 +41,7 @@
 	<script src="components/ajax/customer.js"></script>
 	<script src="components/ajax/product.js"></script>
 	<script src="components/ajax/subcategory.js"></script>
+	<script src="components/ajax/users.js"></script>
 	
 </body>
 
