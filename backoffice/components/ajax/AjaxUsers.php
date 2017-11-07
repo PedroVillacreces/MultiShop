@@ -1,5 +1,8 @@
 <?php
 
+require_once "../../models/users.php";
+require_once "../../controllers/users.php";
+
 class AjaxUsers
 {
     public $id;
@@ -8,14 +11,15 @@ class AjaxUsers
     {
         $data = $this->id;
         $response= Users::getUserById($data);
-        echo json_encode(array('Product' => $response));
+        $user = json_encode($response);
+        echo $user;
     }
 
 }
 
-if(isset($_POST["getById"]))
+if(isset($_POST["UserId"]))
 {
     $user= new AjaxUsers();
-    $user -> id = $_POST["getById"];
+    $user -> id = $_POST["UserId"];
     $user -> getUserById();
 }

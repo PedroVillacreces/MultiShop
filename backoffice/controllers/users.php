@@ -2,6 +2,7 @@
 
 class Users
 {
+    public $id;
     public $name;
     public $user_name;
     public $surname;
@@ -9,7 +10,6 @@ class Users
     public $password;
     public $photo;
     public $rol;
-    public $id;
 
     public function showUsers()
     {
@@ -34,10 +34,10 @@ class Users
                             </form>                            
                         </td>
                         <td>     
-                            <form role="form" method="POST" id="getById">                       
+                            <form role="form" method="POST" id="getIdUser">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="getById" id="getById" class="updateUserButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id'].'">
-                                            <input type="hidden" name="updateId" value="'.$item['0'].'">
+                                        <button type="button" name="getIdUser" id="getById" class="updateUserButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id'].'">
+                                            <input type="hidden" name="getIdUser" value="'.$item['0'].'">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
@@ -61,7 +61,7 @@ class Users
 
     public function deleteUser($data)
     {
-        $response = SubcategoriesModel::deleteSubcategory($data->id_subcategory, "subcategories");
+        $response = UsersModel::deleteUser($data->id, "users");
         return $response;
     }
 
@@ -87,9 +87,9 @@ if (isset($_POST["createUser"]))
 
 if (isset($_POST["deleteUser"]))
 {
-    $subcategory = new Subcategories();
-    $subcategory->id_subcategory = $_POST['deleteId'];
-    $subcategory->deleteSubcategory($subcategory);
+    $user = new Users();
+    $user->id = $_POST['deleteId'];
+    $user->deleteUser($user);
 }
 
 if(isset($_POST['updateUser']))
@@ -99,4 +99,8 @@ if(isset($_POST['updateUser']))
     $subcategory->category = $_POST['category_subcategory'];
     $subcategory->id_subcategory = $_POST['id_subcategory'];
     $subcategory->updateSubcategory($subcategory);
+}
+
+if (isset($_POST["getIdUser"])) {
+    
 }

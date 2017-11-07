@@ -4,7 +4,7 @@
 $(document).on('click', '.updateUserButton', function () {
     var id_user = $(this).data('id');
     $.ajax({
-        url: "../backoffice/components/ajax/AjaxUser.php",
+        url: "../backoffice/components/ajax/AjaxUsers.php",
         method: "POST",
         data: {
             UserId : id_user
@@ -13,44 +13,40 @@ $(document).on('click', '.updateUserButton', function () {
     }).done(function (data) {
         var userAjax = $.parseJSON(data);
         var html =
-            '<input type="hidden" id="id_product" name="id_product" value="' + productAjax.Product['0'] + '">'+
+            '<input type="hidden" id="id" name="id" value="' + userAjax.User['0'] + '">'+
             '<div class="form-group">'+
             '<label class="control-label">Nombre</label>'+
-            '<input class="form-control" name="name" id ="name" type="text" value="' + productAjax.Product["1"] +'">'+
+            '<input class="form-control" name="name" id ="name" type="text" value="' + userAjax.User["1"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Precio</label>'+
-            '<input class="form-control" name ="price" id="price" type="number" value="' + productAjax.Product["2"] +'">'+
+            '<label class="control-label">Apellidos</label>'+
+            '<input class="form-control" name ="surname" id="surname" type="text" value="' + userAjax.User["2"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Descripción</label>'+
-            '<input class="form-control" name="description" id="descripcion" type="text" value="' + productAjax.Product["3"] +'">'+
+            '<label class="control-label">Nombre Usuario</label>'+
+            '<input class="form-control" name="user_name" id="user_name" type="text" value="' + userAjax.User["3"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Categoría</label>'+
-            '<input class="form-control" name="category" id="category" type="text" value="'+ productAjax.Product["4"] +'">'+
+            '<label class="control-label">Email</label>'+
+            '<input class="form-control" name="email" id="email" type="mail" value="'+ userAjax.User["4"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Subcategoría</label>'+
-            '<input class="form-control" name="subcategory" id="subcategory" type="text" value="'+ productAjax.Product["5"] +'">'+
+            '<label class="control-label">Rol</label>'+
+            '<input class="form-control" name="rol" id="rol" type="number" value="'+ userAjax.User["5"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Iniciar</label>'+
-            '<input class="form-control" name="start" id="start" type="text" value="'+ productAjax.Product["6"] +'">'+
+            '<label class="control-label">Foto Perfil</label>'+
+            '<input class="form-control" name="photo" id="photo" type="text" value="'+ userAjax.User["6"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Cantidad</label>'+
-            '<input class="form-control" name="quantity" id="quantity" type="number" value="'+ productAjax.Product["7"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Descargable</label>'+
-            '<input class="form-control" name="downloadable" id="downloadable" type="number" value="'+ productAjax.Product["8"] +'">'+
+            '<label class="control-label">Contraseña</label>'+
+            '<input class="form-control" name="password" id="password" type="password" value="'+ userAjax.User["7"] +'">'+
             '</div>';
         $('#update-modal-products').append(html);
     });
 });
 
-$(document).on('click', '.deleteProductButton', function () {
+$(document).on('click', '.deleteUserButton', function () {
     var agree = confirm("¿Realmente desea eliminarlo? ");
     if (agree) return true ;
     return false;
