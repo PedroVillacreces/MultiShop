@@ -49,7 +49,7 @@ class Users
 
     public function createUser($data)
     {
-        $response = UsersModel::createUser($data, "user");
+        $response = UsersModel::createUser($data, "users");
         return $response;
     }
 
@@ -67,7 +67,7 @@ class Users
 
     public function updateUser($data)
     {
-        $response = SubcategoriesModel::updateSubcategory($data, "subcategories");
+        $response = UsersModel::updateUser($data, "users");
         return $response;
     }
 }
@@ -94,13 +94,14 @@ if (isset($_POST["deleteUser"]))
 
 if(isset($_POST['updateUser']))
 {
-    $subcategory = new Subcategories();
-    $subcategory->name = $_POST['name'];
-    $subcategory->category = $_POST['category_subcategory'];
-    $subcategory->id_subcategory = $_POST['id_subcategory'];
-    $subcategory->updateSubcategory($subcategory);
-}
-
-if (isset($_POST["getIdUser"])) {
-    
+    $user = new Users();
+    $user->id = $_POST['id'];
+    $user->name = $_POST['name'];
+    $user->surname = $_POST['surname'];
+    $user->email = $_POST['email'];
+    $user->password = $_POST['password'];
+    $user->photo=$_POST['photo'];
+    $user->rol = $_POST['rol'];
+    $user->user_name = $_POST['user_name'];
+    $user->updateUser($user);
 }

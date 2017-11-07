@@ -20,9 +20,14 @@ class UsersModel
     public static function createUser($data, $table)
     {
         $mysql_conn = Conexion::connect();
-        $stmt = $mysql_conn->prepare("INSERT INTO $table (subcategory_name, id_category) VALUES (:subcategory_name, :id_category)");
-        $stmt -> bindParam(":subcategory_name", $data->name, PDO::PARAM_STR);
-        $stmt -> bindParam(":id_category", $data->category, PDO::PARAM_INT);
+        $stmt = $mysql_conn->prepare("INSERT INTO $table (name, surname, user_name, email, rol, photo, password) VALUES (:name, :surname, :user_name, :email, :rol, :photo, :password)");
+        $stmt -> bindParam(":name", $data->name, PDO::PARAM_STR);
+        $stmt -> bindParam(":surname", $data->surname, PDO::PARAM_STR);
+        $stmt -> bindParam(":user_name", $data->email, PDO::PARAM_STR);
+        $stmt -> bindParam(":rol", $data->rol, PDO::PARAM_INT);
+        $stmt -> bindParam(":photo", $data->photo, PDO::PARAM_STR);
+        $stmt -> bindParam(":email", $data->email, PDO::PARAM_STR);
+        $stmt -> bindParam(":password", $data->password, PDO::PARAM_STR);
         $mysql_conn->beginTransaction();
 
         if ($stmt->execute()) {
@@ -78,12 +83,17 @@ class UsersModel
         }
     }
 
-    public static function updateSubcategory($data, $table)
+    public static function updateUser($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("UPDATE $table SET subcategory_name = :subcategory_name, id_category = :id_category where id_subcategory = :id_subcategory");
-        $stmt -> bindParam(":subcategory_name", $data->name, PDO::PARAM_STR);
-        $stmt -> bindParam(":id_category", $data->category, PDO::PARAM_INT);
-        $stmt -> bindParam(":id_subcategory", $data->id_subcategory, PDO::PARAM_INT);
+        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, user_name = :user_name, email = :email, rol = :rol, photo= :photo, password= :password where id = :id");
+        $stmt -> bindParam(":name", $data->name, PDO::PARAM_STR);
+        $stmt -> bindParam(":surname", $data->surname, PDO::PARAM_STR);
+        $stmt -> bindParam(":id", $data->id, PDO::PARAM_INT);
+        $stmt -> bindParam(":user_name", $data->email, PDO::PARAM_STR);
+        $stmt -> bindParam(":rol", $data->rol, PDO::PARAM_INT);
+        $stmt -> bindParam(":photo", $data->photo, PDO::PARAM_STR);
+        $stmt -> bindParam(":email", $data->email, PDO::PARAM_STR);
+        $stmt -> bindParam(":password", $data->password, PDO::PARAM_STR);
 
         if ($stmt->execute())
         {

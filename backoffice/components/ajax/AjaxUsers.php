@@ -14,7 +14,6 @@ class AjaxUsers
         $user = json_encode($response);
         echo $user;
     }
-
 }
 
 if(isset($_POST["UserId"]))
