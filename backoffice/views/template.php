@@ -42,6 +42,7 @@
 	<script src="components/ajax/product.js"></script>
 	<script src="components/ajax/subcategory.js"></script>
 	<script src="components/ajax/users.js"></script>
+    <script src="components/ajax/orders.js"></script>
 	
 </body>
 

@@ -58,6 +58,14 @@ include "views/header.php";
 				</div>
 			</a>
 		</li>
+        <li class="botonesInicio">
+            <a href="orders">
+                <div style="background:#F640DA">
+                    <span class="fa fa-file-text-o"></span>
+                    <p>Pedidos</p>
+                </div>
+            </a>
+        </li>
 
 
 

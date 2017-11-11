@@ -22,6 +22,7 @@ class LinksModels{
 		   $links == "mensajes" ||
 		   $links == "perfil" ||
            $links == "users"||
+            $links == "orders"||
 		   $links == "salir"){
 
 			$module = "views/".$links.".php";
