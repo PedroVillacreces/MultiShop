@@ -79,6 +79,7 @@ if (isset($_POST["deleteSubcategory"]))
     $subcategory->deleteSubcategory($subcategory);
 
 }
+
 if(isset($_POST['updateSubcategory']))
 {
     $subcategory = new Subcategories();

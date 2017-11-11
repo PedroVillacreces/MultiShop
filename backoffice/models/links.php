@@ -18,9 +18,11 @@ class LinksModels{
 		   $links == "categories" ||
 		   $links == "customers" ||
            $links == "subcategories" ||
-		   $links == "suscriptores" ||
+		   $links == "profile" ||
 		   $links == "mensajes" ||
 		   $links == "perfil" ||
+           $links == "users"||
+            $links == "orders"||
 		   $links == "salir"){
 
 			$module = "views/".$links.".php";

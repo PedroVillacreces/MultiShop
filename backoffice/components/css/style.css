@@ -495,6 +495,7 @@ PERFIL
 
 #editarPerfil{
 	padding:20px;
+	width: 20% !important;
 }
 
 #editarPerfil img{
@@ -1451,6 +1452,7 @@ Phones
 		width:90%;
 		margin: 40px 10px 0px 10px;
 	}
+
 
 }
 

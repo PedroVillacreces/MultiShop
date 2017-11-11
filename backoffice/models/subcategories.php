@@ -36,7 +36,7 @@ class SubcategoriesModel
         $stmt -> close();
     }
 
-    public static function  deleteSubcategory($data, $table)
+    public static function deleteSubcategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_subcategory = :id_subcategory");
         $stmt -> bindParam(":id_subcategory", $data, PDO::PARAM_INT);
