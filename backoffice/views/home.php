@@ -66,6 +66,14 @@ include "views/header.php";
                 </div>
             </a>
         </li>
+        <li class="botonesInicio">
+            <a href="comments">
+                <div style="background:#F640DA">
+                    <span class="fa fa-file-text-o"></span>
+                    <p>Comentarios</p>
+                </div>
+            </a>
+        </li>
 
 
 

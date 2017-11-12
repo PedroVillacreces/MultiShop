@@ -43,6 +43,7 @@
 	<script src="components/ajax/subcategory.js"></script>
 	<script src="components/ajax/users.js"></script>
     <script src="components/ajax/orders.js"></script>
+    <script src="components/ajax/comments.js"></script>
 	
 </body>
 
