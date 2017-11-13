@@ -44,6 +44,7 @@
 	<script src="components/ajax/users.js"></script>
     <script src="components/ajax/orders.js"></script>
     <script src="components/ajax/comments.js"></script>
+    <script src="components/ajax/slider.js"></script>
 	
 </body>
 

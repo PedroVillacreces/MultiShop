@@ -74,6 +74,14 @@ include "views/header.php";
                 </div>
             </a>
         </li>
+        <li class="botonesInicio">
+            <a href="slider">
+                <div style="background:#F640DA">
+                    <span class="fa fa-file-text-o"></span>
+                    <p>Slider</p>
+                </div>
+            </a>
+        </li>
 
 
 

@@ -41,6 +41,7 @@ COLUMNA BOTONERA
 				<li><a href="users">Usuarios <span class="glyphicon glyphicon-new-window"></span></a></li>
                 <li><a href="orders">Pedidos <span class="glyphicon glyphicon-new-window"></span></a></li>
                 <li><a href="comments">Comentarios <span class="glyphicon glyphicon-new-window"></span></a></li>
+                <li><a href="slider">Slider<span class="glyphicon glyphicon-new-window"></span></a></li>
 			</ul>
 
 		</nav>
