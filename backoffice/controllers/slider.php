@@ -91,7 +91,7 @@ if (isset($_POST["createSlide"]))
         $uploadOk = 0;
     }
 
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    if(strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpeg"
         && $imageFileType != "gif" ) {
         echo "Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF ";
         $uploadOk = 0;
