@@ -1,53 +1,26 @@
-<!--=====================================
-COLUMNA BOTONERA           
-======================================-->
-
 	<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12" id="col1">
-		
 		<div id="logo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				
-			<img src="views/images/logotipo.jpg" class="img-responsive" alt="Image">
-
-
+			<img src="" class="img-responsive" alt="Brand">
 		</div>
-
-		<!--=====================================
-		BOTONERA MOVIL            
-		======================================-->
-
 		<div id="botoneraMovil" class="navbar-header navbar-inverse">
-
 			<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#botonera">
-
 				<span class="icon-bar"></span>
         		<span class="icon-bar"></span>
        			<span class="icon-bar"></span>
-
 			</button>
-		
 		</div>
-
-		<!--====  Fin de BOTONERA MOVIL  ====-->
-
 		<nav id="botonera" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse navbar-collapse text-center">
-					
 			<ul class="nav navbar">
-
-				<li><a href="inicio">Inicio <span class="glyphicon glyphicon-new-window"></span></a></li>
-				<li><a href="slide">Slide <span class="glyphicon glyphicon-new-window"></span></a></li>
-				<li><a href="articulos">Artículos <span class="glyphicon glyphicon-new-window"></span></a></li>
-				<li><a href="customers">Clientes <span class="glyphicon glyphicon-new-window"></span></a></li>
-				<li><a href="subcategories">Subcategorías <span class="glyphicon glyphicon-new-window"></span></a></li>
-				<li><a href="users">Usuarios <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="orders">Pedidos <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="comments">Comentarios <span class="glyphicon glyphicon-new-window"></span></a></li>
-                <li><a href="slider">Slider<span class="glyphicon glyphicon-new-window"></span></a></li>
+				<li><a style="color: white" href="home">Inicio <span class="glyphicon glyphicon-home"></span></a></li>
+				<li><a style="color: white" href="articulos">Artículos <span class="glyphicon glyphicon-list-alt"></span></a></li>
+				<li><a style="color: white" href="customers">Clientes <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a style="color: white" href="categories">Castegorías<span class="glyphicon glyphicon-tasks"></span></a></li>
+				<li><a style="color: white" href="subcategories">Subcategorías <span class="glyphicon glyphicon-import"></span></a></li>
+				<li><a style="color: white" href="users">Usuarios <span class="glyphicon glyphicon-user"></span></a></li>
+                <li><a style="color: white" href="orders">Pedidos <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                <li><a style="color: white" href="comments">Comentarios <span class="glyphicon glyphicon-thumbs-down"></span></a></li>
+                <li><a style="color: white" href="slider">Slider<span class="glyphicon glyphicon-list"></span></a></li>
 			</ul>
-
 		</nav>
-
-		<a href="../index.php" target="_blank"><button type="button" class="btn btn-primary">Ver sitio</button></a>
-
 	</div>
 
-<!--====  FIn de COLUMNA BOTONERA  ====-->

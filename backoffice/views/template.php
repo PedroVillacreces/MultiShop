@@ -22,8 +22,8 @@
 	<div class="container-fluid">
 		<section class="row">
 		<?php			
-			$modulos = new Links();
-			$modulos -> linksController();
+			$links = new Links();
+			$links -> linksController();
 		?>		
 
 		</section>
