@@ -22,8 +22,8 @@
 	<div class="container-fluid">
 		<section class="row">
 		<?php			
-			$modulos = new Links();
-			$modulos -> linksController();
+			$links = new Links();
+			$links -> linksController();
 		?>		
 
 		</section>
@@ -44,6 +44,7 @@
 	<script src="components/ajax/users.js"></script>
     <script src="components/ajax/orders.js"></script>
     <script src="components/ajax/comments.js"></script>
+    <script src="components/ajax/slider.js"></script>
 	
 </body>
 

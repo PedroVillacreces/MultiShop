@@ -1,39 +1,12 @@
 
 <div id="cabezote" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
-
-	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-		
-		<ul>
-			<li  style="background: #333">
-				<a href="mensajes.html" style="color: #fff">
-      			<i class="fa fa-envelope"></i> 
-      			<span>1</span> 
-    			</a>
-			</li>
-
-			<li  style="background: #333">
-				<a href="suscriptores.html" style="color: #fff">
-      			<i class="fa fa-bell"></i>  
-      			<span>1</span>
-    			</a>
-			</li>
-			
-		</ul>
-
-	</div>
-
 	<div id="time" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-		
-
-		<div class="text-center">Lunes, 12 de Septiembre de 2016</div>
-		<div class="text-center">12:56:00 pm</div>
-
+		<div class="text-center">Aquí vamos a añadir la fecha</div>
+		<div class="text-center">Aquí vamos a añadir la hora</div>
 	</div>
 
-	<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
-		
-		<img src="views/images/photo.jpg" class="img-circle">
-		
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 pull-right">
+		<img src="" class="img-circle" alt="Profile">
 		<p id="member"><?php echo $_SESSION["user_name"];?> <span class="fa fa-chevron-down"></span>
 			<br>
 			<ol id="admin">

@@ -17,66 +17,63 @@ include "views/header.php";
 		<hr>	
 	<ul>
 
-		<li class="botonesInicio">		
+		<li class="">
 			<a href="slide">
-			<div style="background:#4CF53A">
-			<span class="fa fa-toggle-right"></span>
-			<p>Slide</p>
+			<div style="background:black">
+                <p style="color: white;">Slide</p>
 			</div>
 			</a>
 		</li>
 
-		<li class="botonesInicio">		
+		<li class="">
 			<a href="products">
-			<div style="background:#F640DA">
-			<span class="fa fa-file-text-o"></span>
-			<p>Artículos</p>
+			<div style="background:black">
+                <p style="color: white;">Artículos</p>
 			</div>
 			</a>
 		</li>
-		<li class="botonesInicio">		
+		<li class="">
 			<a href="customers">
-			<div style="background:#F640DA">
-			<span class="fa fa-file-text-o"></span>
-			<p>Clientes</p>
+			<div style="background:black">
+                <p style="color: white;">Clientes</p>
 			</div>
 			</a>
 		</li>
-		<li class="botonesInicio">
+		<li class="">
 			<a href="subcategories">
-				<div style="background:#F640DA">
-					<span class="fa fa-file-text-o"></span>
-					<p>Subcategorías</p>
+				<div style="background:black">
+                    <p style="color: white;">Subcategorías</p>
 				</div>
 			</a>
 		</li>
-		<li class="botonesInicio">
+		<li class="">
 			<a href="users">
-				<div style="background:#F640DA">
-					<span class="fa fa-file-text-o"></span>
-					<p>Usuarios</p>
+				<div style="background:black">
+                    <p style="color: white;">Usuarios</p>
 				</div>
 			</a>
 		</li>
-        <li class="botonesInicio">
+        <li class="">
             <a href="orders">
-                <div style="background:#F640DA">
-                    <span class="fa fa-file-text-o"></span>
-                    <p>Pedidos</p>
+                <div style="background:black">
+                    <p style="color: white;">Pedidos</p>
                 </div>
             </a>
         </li>
-        <li class="botonesInicio">
+        <li class="">
             <a href="comments">
-                <div style="background:#F640DA">
-                    <span class="fa fa-file-text-o"></span>
-                    <p>Comentarios</p>
+                <div style="background:black">
+                    <p style="color: white;">Comentarios</p>
                 </div>
             </a>
         </li>
-
-
-
+        <li class="">
+            <a href="slider">
+                <div style="background:black">
+                    <p style="color: white;">Slider</p>
+                </div>
+            </a>
+        </li>
 	</ul>
 </div>
 
