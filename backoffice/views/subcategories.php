@@ -7,33 +7,29 @@ if (!$_SESSION["validate"]) {
 include "views/right-nav.php";
 include "views/header.php";
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Administración de Subcategorías</h4>
-            <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal"
-                    data-target="#modalSubcategoryCreate" name="create">Nueva Subcategoría
-            </button>
-            <div class="table-responsive">
-                <table id="mytable" class="table table-bordred table-striped">
-                    <thead>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Eliminar</th>
-                    <th>Editar</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                    $subcategory = new Subcategories();
-                    $subcategory->showSubcategories();
-                    ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <hr>
+    <div class="table-responsive">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalSubcategoryCreate" name="create" >Nueva Subcategoría</button>
+        <hr>
+        <table id="tableSubcategories" class="table table-striped display">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $subcategory = new Subcategories();
+            $subcategory->showSubcategories();
+            ?>
+            </tbody>
+        </table>
     </div>
 </div>
-
 <form role="form" method="POST" id="updateSubcategory">
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"
          aria-hidden="true">

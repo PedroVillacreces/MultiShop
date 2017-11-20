@@ -7,38 +7,37 @@ if (!$_SESSION["validate"]) {
 include "views/right-nav.php";
 include "views/header.php";
 ?>
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h4>Administración de Productos</h4>
-            <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal"
-                    data-target="#modalProductCreate" name="create">Nuevo Producto
-            </button>
-            <div class="table-responsive">
-                <table id="mytable" class="table table-bordred table-striped">
-                    <thead>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                    <th>Descripción</th>
-                    <th>Categoría</th>
-                    <th>Subcategoría</th>
-                    <th>Iniciar</th>
-                    <th>Cantidad</th>
-                    <th>Descargable</th>
-                    <th>Eliminar</th>
-                    <th>Editar</th>
-                    </thead>
-                    <tbody>
-                    <?php
-                    $products = new Products();
-                    $products->showProducts();
-                    ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+<div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <hr>
+    <div class="table-responsive">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalProductCreate" name="create" >Nuevo Producto</button>
+        <hr>
+        <table id="tableProducts" class="table table-striped display">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Categoría</th>
+                <th>Subcategoría</th>
+                <th>Iniciar</th>
+                <th>Cantidad</th>
+                <th>Descargable</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $products = new Products();
+            $products->showProducts();
+            ?>
+            </tbody>
+        </table>
     </div>
 </div>
+
+
 
 <form role="form" method="POST" id="updateProduct">
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"

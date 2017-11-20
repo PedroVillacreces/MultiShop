@@ -7,36 +7,34 @@ if (!$_SESSION["validate"]) {
 include "views/right-nav.php";
 include "views/header.php";
 ?>
-
-<div class="container">
-    <div class="row">
-        
-        <div class="col-md-12">
-        <h4>Administración Clientes</h4>        
-        <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#modalCreate" name="create" onclick="">Nuevo Cliente</button>
-        
-        <div class="table-responsive">
-              <table id="mytable" class="table table-bordred table-striped">
-                   <thead>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Email</th>
-                        <th>Dirección</th>
-                        <th>Código Postal</th>
-                        <th>Región</th>
-                        <th>Teléfono</th>
-                        <th>Eliminar</th>
-                        <th>Editar</th>
-                   </thead>
-                    <tbody id="customersRow">
-                    <?php
-                      $customer = new Customers();
-                      $customer -> showCustomers();
-                    ?>
-                    </tbody>
-            </table>
-
-
+<div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <hr>
+    <div class="table-responsive">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCreate" name="create" >Nueva Cliente</button>
+        <hr>
+        <table id="tableSubcategories" class="table table-striped display">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Código Postal</th>
+                <th>Región</th>
+                <th>Teléfono</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+            $customer = new Customers();
+            $customer -> showCustomers();
+            ?>
+            </tbody>
+        </table>
+    </div>
+</div>
 
 <div class="modal fade modalUpdate" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
         <div class="modal-dialog">
@@ -134,6 +132,4 @@ include "views/header.php";
     </div>
 </div>
  <!-- /end .modal-create customer --> 
-        </div>
-    </div>
-</div>
+

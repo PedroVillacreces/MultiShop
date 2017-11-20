@@ -16,15 +16,6 @@ include "views/header.php";
 	</div>
 		<hr>	
 	<ul>
-
-		<li class="">
-			<a href="slide">
-			<div style="background:black">
-                <p style="color: white;">Slide</p>
-			</div>
-			</a>
-		</li>
-
 		<li class="">
 			<a href="products">
 			<div style="background:black">

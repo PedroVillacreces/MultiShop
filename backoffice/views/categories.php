@@ -7,28 +7,22 @@ if(!$_SESSION["validate"]){
 include "views/right-nav.php";
 include "views/header.php";
 ?>
+<div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <hr>
+    <div class="table-responsive">
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCategoryCreate" name="create" >Nuevo Producto</button>
+        <hr>
+        <table id="tableCategories" class="table table-striped display">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Eliminar</th>
+                <th>Editar</th>
+            </tr>
+            </thead>
+            <tbody>
 
-<div class="container">
-  <h2>Hover Rows</h2>
-  <p>The .table-hover class enables a hover state on table rows:</p>            
-  <table class="table table-hover">
-  <thead>
-                    <tr>
-                      <th>Categoría</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    
-                    <tr>
-                      <td>Mary</td>
-                      <td>Moe</td>
-                      <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>July</td>
-                      <td>Dooley</td>
-                      <td>july@example.com</td>
-                    </tr>
-                  </tbody>'
-  </table>
+            </tbody>
+        </table>
+    </div>
 </div>
