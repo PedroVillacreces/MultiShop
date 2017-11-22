@@ -36,4 +36,3 @@ include "views/header.php";
         </table>
     </div>
 </div>
-

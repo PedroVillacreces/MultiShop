@@ -14,7 +14,7 @@ class CategoriesModel
      */
     public static function showCategories($table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT category FROM $table ORDER BY position ASC");
+        $stmt = Conexion::connect()->prepare("SELECT * FROM $table");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();

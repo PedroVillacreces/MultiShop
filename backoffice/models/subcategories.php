@@ -11,7 +11,7 @@ class SubcategoriesModel
      */
     public static function showSubcategories($table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT t1.id_subcategory, t1.subcategory_name, t2.category  FROM $table as t1 inner join categories as t2 on t1.id_category = t2.id_category");
+        $stmt = Conexion::connect()->prepare("SELECT t1.id_subcategory, t1.subcategory_name, t2.id_category, t2.category  FROM $table as t1 inner join categories as t2 on t1.id_category = t2.id_category");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();

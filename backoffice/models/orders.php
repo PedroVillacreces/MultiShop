@@ -8,11 +8,16 @@ class OrdersModel
 
     public static function showOrders($table)
     {
-        $stmt = Conexion::connect()->prepare("select t1.id_delivery, t1.delivery_date, t1.amount, t1.payment, t1.dispath, t1.status,
-                                              t4.name
+        $stmt = Conexion::connect()->prepare("select t1.id_delivery, t1.delivery_date, t1.amount, t4.name, t2.type, t3.status, t5.status
                                                 from $table as t1
                                                 inner join customers as t4
-                                                on t1.id_customer = t4.id_customer");
+                                                on t1.id_customer = t4.id_customer
+                                                inner join payments as t2
+                                                on t1.id_payment = t2.id_payment
+                                                inner join delivery_status as t3
+                                                on t1.id_status = t3.id_delivery_status
+                                                inner join dispatch_status as t5
+                                                on t1.id_dispath = t5.id_dispatch_status");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();

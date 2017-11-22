@@ -2,7 +2,7 @@
 		<div id="logo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 			<img src="" class="img-responsive" alt="Brand">
 		</div>
-		<div id="botoneraMovil" class="navbar-header navbar-inverse">
+		<div id="" class="navbar-header navbar-inverse">
 			<button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#botonera">
 				<span class="icon-bar"></span>
         		<span class="icon-bar"></span>

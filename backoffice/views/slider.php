@@ -20,7 +20,6 @@ include "views/header.php";
                 <th>Texto pie de foto</th>
                 <th>Texto de cabera de foto</th>
                 <th>Eliminar</th>
-                <th>Editar</th>
             </tr>
             </thead>
             <tbody>

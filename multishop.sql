@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.26-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.4.0.5185
+-- HeidiSQL Version:             9.4.0.5187
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -11,1182 +11,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
-
--- Dumping database structure for information_schema
-CREATE DATABASE IF NOT EXISTS `information_schema` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `information_schema`;
-
--- Dumping structure for table information_schema.ALL_PLUGINS
-CREATE TEMPORARY TABLE IF NOT EXISTS `ALL_PLUGINS` (
-  `PLUGIN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `PLUGIN_VERSION` varchar(20) NOT NULL DEFAULT '',
-  `PLUGIN_STATUS` varchar(16) NOT NULL DEFAULT '',
-  `PLUGIN_TYPE` varchar(80) NOT NULL DEFAULT '',
-  `PLUGIN_TYPE_VERSION` varchar(20) NOT NULL DEFAULT '',
-  `PLUGIN_LIBRARY` varchar(64) DEFAULT NULL,
-  `PLUGIN_LIBRARY_VERSION` varchar(20) DEFAULT NULL,
-  `PLUGIN_AUTHOR` varchar(64) DEFAULT NULL,
-  `PLUGIN_DESCRIPTION` longtext,
-  `PLUGIN_LICENSE` varchar(80) NOT NULL DEFAULT '',
-  `LOAD_OPTION` varchar(64) NOT NULL DEFAULT '',
-  `PLUGIN_MATURITY` varchar(12) NOT NULL DEFAULT '',
-  `PLUGIN_AUTH_VERSION` varchar(80) DEFAULT NULL
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.APPLICABLE_ROLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `APPLICABLE_ROLES` (
-  `GRANTEE` varchar(190) NOT NULL DEFAULT '',
-  `ROLE_NAME` varchar(128) NOT NULL DEFAULT '',
-  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT '',
-  `IS_DEFAULT` varchar(3) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.CHANGED_PAGE_BITMAPS
-CREATE TEMPORARY TABLE IF NOT EXISTS `CHANGED_PAGE_BITMAPS` (
-  `dummy` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.CHARACTER_SETS
-CREATE TEMPORARY TABLE IF NOT EXISTS `CHARACTER_SETS` (
-  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
-  `DEFAULT_COLLATE_NAME` varchar(32) NOT NULL DEFAULT '',
-  `DESCRIPTION` varchar(60) NOT NULL DEFAULT '',
-  `MAXLEN` bigint(3) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.CLIENT_STATISTICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `CLIENT_STATISTICS` (
-  `CLIENT` varchar(64) NOT NULL DEFAULT '',
-  `TOTAL_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `CONCURRENT_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `CONNECTED_TIME` bigint(21) NOT NULL DEFAULT '0',
-  `BUSY_TIME` double NOT NULL DEFAULT '0',
-  `CPU_TIME` double NOT NULL DEFAULT '0',
-  `BYTES_RECEIVED` bigint(21) NOT NULL DEFAULT '0',
-  `BYTES_SENT` bigint(21) NOT NULL DEFAULT '0',
-  `BINLOG_BYTES_WRITTEN` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_READ` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_SENT` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_DELETED` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_INSERTED` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_UPDATED` bigint(21) NOT NULL DEFAULT '0',
-  `SELECT_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `UPDATE_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `OTHER_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `COMMIT_TRANSACTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `ROLLBACK_TRANSACTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `DENIED_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `LOST_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `ACCESS_DENIED` bigint(21) NOT NULL DEFAULT '0',
-  `EMPTY_QUERIES` bigint(21) NOT NULL DEFAULT '0',
-  `TOTAL_SSL_CONNECTIONS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MAX_STATEMENT_TIME_EXCEEDED` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.COLLATIONS
-CREATE TEMPORARY TABLE IF NOT EXISTS `COLLATIONS` (
-  `COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
-  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
-  `ID` bigint(11) NOT NULL DEFAULT '0',
-  `IS_DEFAULT` varchar(3) NOT NULL DEFAULT '',
-  `IS_COMPILED` varchar(3) NOT NULL DEFAULT '',
-  `SORTLEN` bigint(3) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.COLLATION_CHARACTER_SET_APPLICABILITY
-CREATE TEMPORARY TABLE IF NOT EXISTS `COLLATION_CHARACTER_SET_APPLICABILITY` (
-  `COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
-  `CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.COLUMNS
-CREATE TEMPORARY TABLE IF NOT EXISTS `COLUMNS` (
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ORDINAL_POSITION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `COLUMN_DEFAULT` longtext,
-  `IS_NULLABLE` varchar(3) NOT NULL DEFAULT '',
-  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `CHARACTER_MAXIMUM_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `CHARACTER_OCTET_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `NUMERIC_PRECISION` bigint(21) unsigned DEFAULT NULL,
-  `NUMERIC_SCALE` bigint(21) unsigned DEFAULT NULL,
-  `DATETIME_PRECISION` bigint(21) unsigned DEFAULT NULL,
-  `CHARACTER_SET_NAME` varchar(32) DEFAULT NULL,
-  `COLLATION_NAME` varchar(32) DEFAULT NULL,
-  `COLUMN_TYPE` longtext NOT NULL,
-  `COLUMN_KEY` varchar(3) NOT NULL DEFAULT '',
-  `EXTRA` varchar(27) NOT NULL DEFAULT '',
-  `PRIVILEGES` varchar(80) NOT NULL DEFAULT '',
-  `COLUMN_COMMENT` varchar(1024) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.COLUMN_PRIVILEGES
-CREATE TEMPORARY TABLE IF NOT EXISTS `COLUMN_PRIVILEGES` (
-  `GRANTEE` varchar(190) NOT NULL DEFAULT '',
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.ENABLED_ROLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `ENABLED_ROLES` (
-  `ROLE_NAME` varchar(128) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.ENGINES
-CREATE TEMPORARY TABLE IF NOT EXISTS `ENGINES` (
-  `ENGINE` varchar(64) NOT NULL DEFAULT '',
-  `SUPPORT` varchar(8) NOT NULL DEFAULT '',
-  `COMMENT` varchar(160) NOT NULL DEFAULT '',
-  `TRANSACTIONS` varchar(3) DEFAULT NULL,
-  `XA` varchar(3) DEFAULT NULL,
-  `SAVEPOINTS` varchar(3) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.EVENTS
-CREATE TEMPORARY TABLE IF NOT EXISTS `EVENTS` (
-  `EVENT_CATALOG` varchar(64) NOT NULL DEFAULT '',
-  `EVENT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `EVENT_NAME` varchar(64) NOT NULL DEFAULT '',
-  `DEFINER` varchar(189) NOT NULL DEFAULT '',
-  `TIME_ZONE` varchar(64) NOT NULL DEFAULT '',
-  `EVENT_BODY` varchar(8) NOT NULL DEFAULT '',
-  `EVENT_DEFINITION` longtext NOT NULL,
-  `EVENT_TYPE` varchar(9) NOT NULL DEFAULT '',
-  `EXECUTE_AT` datetime DEFAULT NULL,
-  `INTERVAL_VALUE` varchar(256) DEFAULT NULL,
-  `INTERVAL_FIELD` varchar(18) DEFAULT NULL,
-  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
-  `STARTS` datetime DEFAULT NULL,
-  `ENDS` datetime DEFAULT NULL,
-  `STATUS` varchar(18) NOT NULL DEFAULT '',
-  `ON_COMPLETION` varchar(12) NOT NULL DEFAULT '',
-  `CREATED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_ALTERED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_EXECUTED` datetime DEFAULT NULL,
-  `EVENT_COMMENT` varchar(64) NOT NULL DEFAULT '',
-  `ORIGINATOR` bigint(10) NOT NULL DEFAULT '0',
-  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
-  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
-  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.FILES
-CREATE TEMPORARY TABLE IF NOT EXISTS `FILES` (
-  `FILE_ID` bigint(4) NOT NULL DEFAULT '0',
-  `FILE_NAME` varchar(64) DEFAULT NULL,
-  `FILE_TYPE` varchar(20) NOT NULL DEFAULT '',
-  `TABLESPACE_NAME` varchar(64) DEFAULT NULL,
-  `TABLE_CATALOG` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) DEFAULT NULL,
-  `TABLE_NAME` varchar(64) DEFAULT NULL,
-  `LOGFILE_GROUP_NAME` varchar(64) DEFAULT NULL,
-  `LOGFILE_GROUP_NUMBER` bigint(4) DEFAULT NULL,
-  `ENGINE` varchar(64) NOT NULL DEFAULT '',
-  `FULLTEXT_KEYS` varchar(64) DEFAULT NULL,
-  `DELETED_ROWS` bigint(4) DEFAULT NULL,
-  `UPDATE_COUNT` bigint(4) DEFAULT NULL,
-  `FREE_EXTENTS` bigint(4) DEFAULT NULL,
-  `TOTAL_EXTENTS` bigint(4) DEFAULT NULL,
-  `EXTENT_SIZE` bigint(4) NOT NULL DEFAULT '0',
-  `INITIAL_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `MAXIMUM_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `AUTOEXTEND_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `CREATION_TIME` datetime DEFAULT NULL,
-  `LAST_UPDATE_TIME` datetime DEFAULT NULL,
-  `LAST_ACCESS_TIME` datetime DEFAULT NULL,
-  `RECOVER_TIME` bigint(4) DEFAULT NULL,
-  `TRANSACTION_COUNTER` bigint(4) DEFAULT NULL,
-  `VERSION` bigint(21) unsigned DEFAULT NULL,
-  `ROW_FORMAT` varchar(10) DEFAULT NULL,
-  `TABLE_ROWS` bigint(21) unsigned DEFAULT NULL,
-  `AVG_ROW_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `INDEX_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `DATA_FREE` bigint(21) unsigned DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `UPDATE_TIME` datetime DEFAULT NULL,
-  `CHECK_TIME` datetime DEFAULT NULL,
-  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
-  `STATUS` varchar(20) NOT NULL DEFAULT '',
-  `EXTRA` varchar(255) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.GEOMETRY_COLUMNS
-CREATE TEMPORARY TABLE IF NOT EXISTS `GEOMETRY_COLUMNS` (
-  `F_TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `F_TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `F_TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `F_GEOMETRY_COLUMN` varchar(64) NOT NULL DEFAULT '',
-  `G_TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `G_TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `G_TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `G_GEOMETRY_COLUMN` varchar(64) NOT NULL DEFAULT '',
-  `STORAGE_TYPE` tinyint(2) NOT NULL DEFAULT '0',
-  `GEOMETRY_TYPE` int(7) NOT NULL DEFAULT '0',
-  `COORD_DIMENSION` tinyint(2) NOT NULL DEFAULT '0',
-  `MAX_PPR` tinyint(2) NOT NULL DEFAULT '0',
-  `SRID` smallint(5) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.GLOBAL_STATUS
-CREATE TEMPORARY TABLE IF NOT EXISTS `GLOBAL_STATUS` (
-  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_VALUE` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.GLOBAL_VARIABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `GLOBAL_VARIABLES` (
-  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_VALUE` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INDEX_STATISTICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INDEX_STATISTICS` (
-  `TABLE_SCHEMA` varchar(192) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(192) NOT NULL DEFAULT '',
-  `INDEX_NAME` varchar(192) NOT NULL DEFAULT '',
-  `ROWS_READ` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_BUFFER_PAGE
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_BUFFER_PAGE` (
-  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `BLOCK_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `SPACE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGE_TYPE` varchar(64) DEFAULT NULL,
-  `FLUSH_TYPE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `FIX_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `IS_HASHED` varchar(3) DEFAULT NULL,
-  `NEWEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `OLDEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `ACCESS_TIME` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `TABLE_NAME` varchar(1024) DEFAULT NULL,
-  `INDEX_NAME` varchar(1024) DEFAULT NULL,
-  `NUMBER_RECORDS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DATA_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `COMPRESSED_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGE_STATE` varchar(64) DEFAULT NULL,
-  `IO_FIX` varchar(64) DEFAULT NULL,
-  `IS_OLD` varchar(3) DEFAULT NULL,
-  `FREE_PAGE_CLOCK` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_BUFFER_PAGE_LRU
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_BUFFER_PAGE_LRU` (
-  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LRU_POSITION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `SPACE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGE_TYPE` varchar(64) DEFAULT NULL,
-  `FLUSH_TYPE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `FIX_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `IS_HASHED` varchar(3) DEFAULT NULL,
-  `NEWEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `OLDEST_MODIFICATION` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `ACCESS_TIME` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `TABLE_NAME` varchar(1024) DEFAULT NULL,
-  `INDEX_NAME` varchar(1024) DEFAULT NULL,
-  `NUMBER_RECORDS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DATA_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `COMPRESSED_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `COMPRESSED` varchar(3) DEFAULT NULL,
-  `IO_FIX` varchar(64) DEFAULT NULL,
-  `IS_OLD` varchar(3) DEFAULT NULL,
-  `FREE_PAGE_CLOCK` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_BUFFER_POOL_STATS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_BUFFER_POOL_STATS` (
-  `POOL_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `POOL_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `FREE_BUFFERS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `OLD_DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MODIFIED_DATABASE_PAGES` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PENDING_DECOMPRESS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PENDING_READS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PENDING_FLUSH_LRU` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PENDING_FLUSH_LIST` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGES_MADE_YOUNG` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGES_NOT_MADE_YOUNG` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGES_MADE_YOUNG_RATE` double NOT NULL DEFAULT '0',
-  `PAGES_MADE_NOT_YOUNG_RATE` double NOT NULL DEFAULT '0',
-  `NUMBER_PAGES_READ` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NUMBER_PAGES_CREATED` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NUMBER_PAGES_WRITTEN` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `PAGES_READ_RATE` double NOT NULL DEFAULT '0',
-  `PAGES_CREATE_RATE` double NOT NULL DEFAULT '0',
-  `PAGES_WRITTEN_RATE` double NOT NULL DEFAULT '0',
-  `NUMBER_PAGES_GET` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `HIT_RATE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `YOUNG_MAKE_PER_THOUSAND_GETS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NOT_YOUNG_MAKE_PER_THOUSAND_GETS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NUMBER_PAGES_READ_AHEAD` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NUMBER_READ_AHEAD_EVICTED` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `READ_AHEAD_RATE` double NOT NULL DEFAULT '0',
-  `READ_AHEAD_EVICTED_RATE` double NOT NULL DEFAULT '0',
-  `LRU_IO_TOTAL` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LRU_IO_CURRENT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `UNCOMPRESS_TOTAL` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `UNCOMPRESS_CURRENT` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CHANGED_PAGES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CHANGED_PAGES` (
-  `space_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `page_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `start_lsn` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `end_lsn` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMP
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMP` (
-  `page_size` int(5) NOT NULL DEFAULT '0',
-  `compress_ops` int(11) NOT NULL DEFAULT '0',
-  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
-  `compress_time` int(11) NOT NULL DEFAULT '0',
-  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
-  `uncompress_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMPMEM
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMPMEM` (
-  `page_size` int(5) NOT NULL DEFAULT '0',
-  `buffer_pool_instance` int(11) NOT NULL DEFAULT '0',
-  `pages_used` int(11) NOT NULL DEFAULT '0',
-  `pages_free` int(11) NOT NULL DEFAULT '0',
-  `relocation_ops` bigint(21) NOT NULL DEFAULT '0',
-  `relocation_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMPMEM_RESET
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMPMEM_RESET` (
-  `page_size` int(5) NOT NULL DEFAULT '0',
-  `buffer_pool_instance` int(11) NOT NULL DEFAULT '0',
-  `pages_used` int(11) NOT NULL DEFAULT '0',
-  `pages_free` int(11) NOT NULL DEFAULT '0',
-  `relocation_ops` bigint(21) NOT NULL DEFAULT '0',
-  `relocation_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMP_PER_INDEX
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMP_PER_INDEX` (
-  `database_name` varchar(192) NOT NULL DEFAULT '',
-  `table_name` varchar(192) NOT NULL DEFAULT '',
-  `index_name` varchar(192) NOT NULL DEFAULT '',
-  `compress_ops` int(11) NOT NULL DEFAULT '0',
-  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
-  `compress_time` int(11) NOT NULL DEFAULT '0',
-  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
-  `uncompress_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMP_PER_INDEX_RESET
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMP_PER_INDEX_RESET` (
-  `database_name` varchar(192) NOT NULL DEFAULT '',
-  `table_name` varchar(192) NOT NULL DEFAULT '',
-  `index_name` varchar(192) NOT NULL DEFAULT '',
-  `compress_ops` int(11) NOT NULL DEFAULT '0',
-  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
-  `compress_time` int(11) NOT NULL DEFAULT '0',
-  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
-  `uncompress_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_CMP_RESET
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_CMP_RESET` (
-  `page_size` int(5) NOT NULL DEFAULT '0',
-  `compress_ops` int(11) NOT NULL DEFAULT '0',
-  `compress_ops_ok` int(11) NOT NULL DEFAULT '0',
-  `compress_time` int(11) NOT NULL DEFAULT '0',
-  `uncompress_ops` int(11) NOT NULL DEFAULT '0',
-  `uncompress_time` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_BEING_DELETED
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_BEING_DELETED` (
-  `DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_CONFIG
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_CONFIG` (
-  `KEY` varchar(193) NOT NULL DEFAULT '',
-  `VALUE` varchar(193) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_DEFAULT_STOPWORD
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_DEFAULT_STOPWORD` (
-  `value` varchar(18) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_DELETED
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_DELETED` (
-  `DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_INDEX_CACHE
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_INDEX_CACHE` (
-  `WORD` varchar(337) NOT NULL DEFAULT '',
-  `FIRST_DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LAST_DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DOC_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `POSITION` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_FT_INDEX_TABLE
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_FT_INDEX_TABLE` (
-  `WORD` varchar(337) NOT NULL DEFAULT '',
-  `FIRST_DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LAST_DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DOC_COUNT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DOC_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `POSITION` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_LOCKS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_LOCKS` (
-  `lock_id` varchar(81) NOT NULL DEFAULT '',
-  `lock_trx_id` varchar(18) NOT NULL DEFAULT '',
-  `lock_mode` varchar(32) NOT NULL DEFAULT '',
-  `lock_type` varchar(32) NOT NULL DEFAULT '',
-  `lock_table` varchar(1024) NOT NULL DEFAULT '',
-  `lock_index` varchar(1024) DEFAULT NULL,
-  `lock_space` bigint(21) unsigned DEFAULT NULL,
-  `lock_page` bigint(21) unsigned DEFAULT NULL,
-  `lock_rec` bigint(21) unsigned DEFAULT NULL,
-  `lock_data` varchar(8192) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_LOCK_WAITS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_LOCK_WAITS` (
-  `requesting_trx_id` varchar(18) NOT NULL DEFAULT '',
-  `requested_lock_id` varchar(81) NOT NULL DEFAULT '',
-  `blocking_trx_id` varchar(18) NOT NULL DEFAULT '',
-  `blocking_lock_id` varchar(81) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_METRICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_METRICS` (
-  `NAME` varchar(193) NOT NULL DEFAULT '',
-  `SUBSYSTEM` varchar(193) NOT NULL DEFAULT '',
-  `COUNT` bigint(21) NOT NULL DEFAULT '0',
-  `MAX_COUNT` bigint(21) DEFAULT NULL,
-  `MIN_COUNT` bigint(21) DEFAULT NULL,
-  `AVG_COUNT` double DEFAULT NULL,
-  `COUNT_RESET` bigint(21) NOT NULL DEFAULT '0',
-  `MAX_COUNT_RESET` bigint(21) DEFAULT NULL,
-  `MIN_COUNT_RESET` bigint(21) DEFAULT NULL,
-  `AVG_COUNT_RESET` double DEFAULT NULL,
-  `TIME_ENABLED` datetime DEFAULT NULL,
-  `TIME_DISABLED` datetime DEFAULT NULL,
-  `TIME_ELAPSED` bigint(21) DEFAULT NULL,
-  `TIME_RESET` datetime DEFAULT NULL,
-  `STATUS` varchar(193) NOT NULL DEFAULT '',
-  `TYPE` varchar(193) NOT NULL DEFAULT '',
-  `COMMENT` varchar(193) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_MUTEXES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_MUTEXES` (
-  `NAME` varchar(4000) NOT NULL DEFAULT '',
-  `CREATE_FILE` varchar(4000) NOT NULL DEFAULT '',
-  `CREATE_LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `OS_WAITS` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_COLUMNS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_COLUMNS` (
-  `TABLE_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(193) NOT NULL DEFAULT '',
-  `POS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MTYPE` int(11) NOT NULL DEFAULT '0',
-  `PRTYPE` int(11) NOT NULL DEFAULT '0',
-  `LEN` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_DATAFILES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_DATAFILES` (
-  `SPACE` int(11) unsigned NOT NULL DEFAULT '0',
-  `PATH` varchar(4000) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_FIELDS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_FIELDS` (
-  `INDEX_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(193) NOT NULL DEFAULT '',
-  `POS` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_FOREIGN
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_FOREIGN` (
-  `ID` varchar(193) NOT NULL DEFAULT '',
-  `FOR_NAME` varchar(193) NOT NULL DEFAULT '',
-  `REF_NAME` varchar(193) NOT NULL DEFAULT '',
-  `N_COLS` int(11) unsigned NOT NULL DEFAULT '0',
-  `TYPE` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_FOREIGN_COLS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_FOREIGN_COLS` (
-  `ID` varchar(193) NOT NULL DEFAULT '',
-  `FOR_COL_NAME` varchar(193) NOT NULL DEFAULT '',
-  `REF_COL_NAME` varchar(193) NOT NULL DEFAULT '',
-  `POS` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_INDEXES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_INDEXES` (
-  `INDEX_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(193) NOT NULL DEFAULT '',
-  `TABLE_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `TYPE` int(11) NOT NULL DEFAULT '0',
-  `N_FIELDS` int(11) NOT NULL DEFAULT '0',
-  `PAGE_NO` int(11) NOT NULL DEFAULT '0',
-  `SPACE` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_SEMAPHORE_WAITS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_SEMAPHORE_WAITS` (
-  `THREAD_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `OBJECT_NAME` varchar(4000) DEFAULT NULL,
-  `FILE` varchar(4000) DEFAULT NULL,
-  `LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `WAIT_TIME` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `WAIT_OBJECT` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `WAIT_TYPE` varchar(16) DEFAULT NULL,
-  `HOLDER_THREAD_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `HOLDER_FILE` varchar(4000) DEFAULT NULL,
-  `HOLDER_LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `CREATED_FILE` varchar(4000) DEFAULT NULL,
-  `CREATED_LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `WRITER_THREAD` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `RESERVATION_MODE` varchar(16) DEFAULT NULL,
-  `READERS` int(11) unsigned NOT NULL DEFAULT '0',
-  `WAITERS_FLAG` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LOCK_WORD` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `LAST_READER_FILE` varchar(4000) DEFAULT NULL,
-  `LAST_READER_LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `LAST_WRITER_FILE` varchar(4000) DEFAULT NULL,
-  `LAST_WRITER_LINE` int(11) unsigned NOT NULL DEFAULT '0',
-  `OS_WAIT_COUNT` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_TABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_TABLES` (
-  `TABLE_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(655) NOT NULL DEFAULT '',
-  `FLAG` int(11) NOT NULL DEFAULT '0',
-  `N_COLS` int(11) NOT NULL DEFAULT '0',
-  `SPACE` int(11) NOT NULL DEFAULT '0',
-  `FILE_FORMAT` varchar(10) DEFAULT NULL,
-  `ROW_FORMAT` varchar(12) DEFAULT NULL,
-  `ZIP_PAGE_SIZE` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_TABLESPACES
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_TABLESPACES` (
-  `SPACE` int(11) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(655) NOT NULL DEFAULT '',
-  `FLAG` int(11) unsigned NOT NULL DEFAULT '0',
-  `FILE_FORMAT` varchar(10) DEFAULT NULL,
-  `ROW_FORMAT` varchar(22) DEFAULT NULL,
-  `PAGE_SIZE` int(11) unsigned NOT NULL DEFAULT '0',
-  `ZIP_PAGE_SIZE` int(11) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_SYS_TABLESTATS
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_SYS_TABLESTATS` (
-  `TABLE_ID` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(193) NOT NULL DEFAULT '',
-  `STATS_INITIALIZED` varchar(193) NOT NULL DEFAULT '',
-  `NUM_ROWS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `CLUST_INDEX_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `OTHER_INDEX_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MODIFIED_COUNTER` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `AUTOINC` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `REF_COUNT` int(11) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_TABLESPACES_ENCRYPTION
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_TABLESPACES_ENCRYPTION` (
-  `SPACE` int(11) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(655) DEFAULT NULL,
-  `ENCRYPTION_SCHEME` int(11) unsigned NOT NULL DEFAULT '0',
-  `KEYSERVER_REQUESTS` int(11) unsigned NOT NULL DEFAULT '0',
-  `MIN_KEY_VERSION` int(11) unsigned NOT NULL DEFAULT '0',
-  `CURRENT_KEY_VERSION` int(11) unsigned NOT NULL DEFAULT '0',
-  `KEY_ROTATION_PAGE_NUMBER` bigint(21) unsigned DEFAULT NULL,
-  `KEY_ROTATION_MAX_PAGE_NUMBER` bigint(21) unsigned DEFAULT NULL,
-  `CURRENT_KEY_ID` int(11) unsigned NOT NULL DEFAULT '0',
-  `ROTATING_OR_FLUSHING` int(1) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_TABLESPACES_SCRUBBING
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_TABLESPACES_SCRUBBING` (
-  `SPACE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `NAME` varchar(655) DEFAULT NULL,
-  `COMPRESSED` int(11) unsigned NOT NULL DEFAULT '0',
-  `LAST_SCRUB_COMPLETED` datetime DEFAULT NULL,
-  `CURRENT_SCRUB_STARTED` datetime DEFAULT NULL,
-  `CURRENT_SCRUB_ACTIVE_THREADS` int(11) unsigned DEFAULT NULL,
-  `CURRENT_SCRUB_PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `CURRENT_SCRUB_MAX_PAGE_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.INNODB_TRX
-CREATE TEMPORARY TABLE IF NOT EXISTS `INNODB_TRX` (
-  `trx_id` varchar(18) NOT NULL DEFAULT '',
-  `trx_state` varchar(13) NOT NULL DEFAULT '',
-  `trx_started` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `trx_requested_lock_id` varchar(81) DEFAULT NULL,
-  `trx_wait_started` datetime DEFAULT NULL,
-  `trx_weight` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_mysql_thread_id` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_query` varchar(1024) DEFAULT NULL,
-  `trx_operation_state` varchar(64) DEFAULT NULL,
-  `trx_tables_in_use` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_tables_locked` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_lock_structs` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_lock_memory_bytes` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_rows_locked` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_rows_modified` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_concurrency_tickets` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_isolation_level` varchar(16) NOT NULL DEFAULT '',
-  `trx_unique_checks` int(1) NOT NULL DEFAULT '0',
-  `trx_foreign_key_checks` int(1) NOT NULL DEFAULT '0',
-  `trx_last_foreign_key_error` varchar(256) DEFAULT NULL,
-  `trx_adaptive_hash_latched` int(1) NOT NULL DEFAULT '0',
-  `trx_adaptive_hash_timeout` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `trx_is_read_only` int(1) NOT NULL DEFAULT '0',
-  `trx_autocommit_non_locking` int(1) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.KEY_CACHES
-CREATE TEMPORARY TABLE IF NOT EXISTS `KEY_CACHES` (
-  `KEY_CACHE_NAME` varchar(192) NOT NULL DEFAULT '',
-  `SEGMENTS` int(3) unsigned DEFAULT NULL,
-  `SEGMENT_NUMBER` int(3) unsigned DEFAULT NULL,
-  `FULL_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `BLOCK_SIZE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `USED_BLOCKS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `UNUSED_BLOCKS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DIRTY_BLOCKS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `READ_REQUESTS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `READS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `WRITE_REQUESTS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `WRITES` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.KEY_COLUMN_USAGE
-CREATE TEMPORARY TABLE IF NOT EXISTS `KEY_COLUMN_USAGE` (
-  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ORDINAL_POSITION` bigint(10) NOT NULL DEFAULT '0',
-  `POSITION_IN_UNIQUE_CONSTRAINT` bigint(10) DEFAULT NULL,
-  `REFERENCED_TABLE_SCHEMA` varchar(64) DEFAULT NULL,
-  `REFERENCED_TABLE_NAME` varchar(64) DEFAULT NULL,
-  `REFERENCED_COLUMN_NAME` varchar(64) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.PARAMETERS
-CREATE TEMPORARY TABLE IF NOT EXISTS `PARAMETERS` (
-  `SPECIFIC_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `SPECIFIC_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `SPECIFIC_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ORDINAL_POSITION` int(21) NOT NULL DEFAULT '0',
-  `PARAMETER_MODE` varchar(5) DEFAULT NULL,
-  `PARAMETER_NAME` varchar(64) DEFAULT NULL,
-  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `CHARACTER_MAXIMUM_LENGTH` int(21) DEFAULT NULL,
-  `CHARACTER_OCTET_LENGTH` int(21) DEFAULT NULL,
-  `NUMERIC_PRECISION` int(21) DEFAULT NULL,
-  `NUMERIC_SCALE` int(21) DEFAULT NULL,
-  `DATETIME_PRECISION` bigint(21) unsigned DEFAULT NULL,
-  `CHARACTER_SET_NAME` varchar(64) DEFAULT NULL,
-  `COLLATION_NAME` varchar(64) DEFAULT NULL,
-  `DTD_IDENTIFIER` longtext NOT NULL,
-  `ROUTINE_TYPE` varchar(9) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.PARTITIONS
-CREATE TEMPORARY TABLE IF NOT EXISTS `PARTITIONS` (
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `PARTITION_NAME` varchar(64) DEFAULT NULL,
-  `SUBPARTITION_NAME` varchar(64) DEFAULT NULL,
-  `PARTITION_ORDINAL_POSITION` bigint(21) unsigned DEFAULT NULL,
-  `SUBPARTITION_ORDINAL_POSITION` bigint(21) unsigned DEFAULT NULL,
-  `PARTITION_METHOD` varchar(18) DEFAULT NULL,
-  `SUBPARTITION_METHOD` varchar(12) DEFAULT NULL,
-  `PARTITION_EXPRESSION` longtext,
-  `SUBPARTITION_EXPRESSION` longtext,
-  `PARTITION_DESCRIPTION` longtext,
-  `TABLE_ROWS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `AVG_ROW_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DATA_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `INDEX_LENGTH` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `DATA_FREE` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `UPDATE_TIME` datetime DEFAULT NULL,
-  `CHECK_TIME` datetime DEFAULT NULL,
-  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
-  `PARTITION_COMMENT` varchar(80) NOT NULL DEFAULT '',
-  `NODEGROUP` varchar(12) NOT NULL DEFAULT '',
-  `TABLESPACE_NAME` varchar(64) DEFAULT NULL
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.PLUGINS
-CREATE TEMPORARY TABLE IF NOT EXISTS `PLUGINS` (
-  `PLUGIN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `PLUGIN_VERSION` varchar(20) NOT NULL DEFAULT '',
-  `PLUGIN_STATUS` varchar(16) NOT NULL DEFAULT '',
-  `PLUGIN_TYPE` varchar(80) NOT NULL DEFAULT '',
-  `PLUGIN_TYPE_VERSION` varchar(20) NOT NULL DEFAULT '',
-  `PLUGIN_LIBRARY` varchar(64) DEFAULT NULL,
-  `PLUGIN_LIBRARY_VERSION` varchar(20) DEFAULT NULL,
-  `PLUGIN_AUTHOR` varchar(64) DEFAULT NULL,
-  `PLUGIN_DESCRIPTION` longtext,
-  `PLUGIN_LICENSE` varchar(80) NOT NULL DEFAULT '',
-  `LOAD_OPTION` varchar(64) NOT NULL DEFAULT '',
-  `PLUGIN_MATURITY` varchar(12) NOT NULL DEFAULT '',
-  `PLUGIN_AUTH_VERSION` varchar(80) DEFAULT NULL
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.PROCESSLIST
-CREATE TEMPORARY TABLE IF NOT EXISTS `PROCESSLIST` (
-  `ID` bigint(4) NOT NULL DEFAULT '0',
-  `USER` varchar(128) NOT NULL DEFAULT '',
-  `HOST` varchar(64) NOT NULL DEFAULT '',
-  `DB` varchar(64) DEFAULT NULL,
-  `COMMAND` varchar(16) NOT NULL DEFAULT '',
-  `TIME` int(7) NOT NULL DEFAULT '0',
-  `STATE` varchar(64) DEFAULT NULL,
-  `INFO` longtext,
-  `TIME_MS` decimal(22,3) NOT NULL DEFAULT '0.000',
-  `STAGE` tinyint(2) NOT NULL DEFAULT '0',
-  `MAX_STAGE` tinyint(2) NOT NULL DEFAULT '0',
-  `PROGRESS` decimal(7,3) NOT NULL DEFAULT '0.000',
-  `MEMORY_USED` int(7) NOT NULL DEFAULT '0',
-  `EXAMINED_ROWS` int(7) NOT NULL DEFAULT '0',
-  `QUERY_ID` bigint(4) NOT NULL DEFAULT '0',
-  `INFO_BINARY` blob,
-  `TID` bigint(4) NOT NULL DEFAULT '0'
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.PROFILING
-CREATE TEMPORARY TABLE IF NOT EXISTS `PROFILING` (
-  `QUERY_ID` int(20) NOT NULL DEFAULT '0',
-  `SEQ` int(20) NOT NULL DEFAULT '0',
-  `STATE` varchar(30) NOT NULL DEFAULT '',
-  `DURATION` decimal(9,6) NOT NULL DEFAULT '0.000000',
-  `CPU_USER` decimal(9,6) DEFAULT NULL,
-  `CPU_SYSTEM` decimal(9,6) DEFAULT NULL,
-  `CONTEXT_VOLUNTARY` int(20) DEFAULT NULL,
-  `CONTEXT_INVOLUNTARY` int(20) DEFAULT NULL,
-  `BLOCK_OPS_IN` int(20) DEFAULT NULL,
-  `BLOCK_OPS_OUT` int(20) DEFAULT NULL,
-  `MESSAGES_SENT` int(20) DEFAULT NULL,
-  `MESSAGES_RECEIVED` int(20) DEFAULT NULL,
-  `PAGE_FAULTS_MAJOR` int(20) DEFAULT NULL,
-  `PAGE_FAULTS_MINOR` int(20) DEFAULT NULL,
-  `SWAPS` int(20) DEFAULT NULL,
-  `SOURCE_FUNCTION` varchar(30) DEFAULT NULL,
-  `SOURCE_FILE` varchar(20) DEFAULT NULL,
-  `SOURCE_LINE` int(20) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.REFERENTIAL_CONSTRAINTS
-CREATE TEMPORARY TABLE IF NOT EXISTS `REFERENTIAL_CONSTRAINTS` (
-  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
-  `UNIQUE_CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `UNIQUE_CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `UNIQUE_CONSTRAINT_NAME` varchar(64) DEFAULT NULL,
-  `MATCH_OPTION` varchar(64) NOT NULL DEFAULT '',
-  `UPDATE_RULE` varchar(64) NOT NULL DEFAULT '',
-  `DELETE_RULE` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `REFERENCED_TABLE_NAME` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.ROUTINES
-CREATE TEMPORARY TABLE IF NOT EXISTS `ROUTINES` (
-  `SPECIFIC_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ROUTINE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `ROUTINE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `ROUTINE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ROUTINE_TYPE` varchar(9) NOT NULL DEFAULT '',
-  `DATA_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `CHARACTER_MAXIMUM_LENGTH` int(21) DEFAULT NULL,
-  `CHARACTER_OCTET_LENGTH` int(21) DEFAULT NULL,
-  `NUMERIC_PRECISION` int(21) DEFAULT NULL,
-  `NUMERIC_SCALE` int(21) DEFAULT NULL,
-  `DATETIME_PRECISION` bigint(21) unsigned DEFAULT NULL,
-  `CHARACTER_SET_NAME` varchar(64) DEFAULT NULL,
-  `COLLATION_NAME` varchar(64) DEFAULT NULL,
-  `DTD_IDENTIFIER` longtext,
-  `ROUTINE_BODY` varchar(8) NOT NULL DEFAULT '',
-  `ROUTINE_DEFINITION` longtext,
-  `EXTERNAL_NAME` varchar(64) DEFAULT NULL,
-  `EXTERNAL_LANGUAGE` varchar(64) DEFAULT NULL,
-  `PARAMETER_STYLE` varchar(8) NOT NULL DEFAULT '',
-  `IS_DETERMINISTIC` varchar(3) NOT NULL DEFAULT '',
-  `SQL_DATA_ACCESS` varchar(64) NOT NULL DEFAULT '',
-  `SQL_PATH` varchar(64) DEFAULT NULL,
-  `SECURITY_TYPE` varchar(7) NOT NULL DEFAULT '',
-  `CREATED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_ALTERED` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
-  `ROUTINE_COMMENT` longtext NOT NULL,
-  `DEFINER` varchar(189) NOT NULL DEFAULT '',
-  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
-  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
-  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SCHEMATA
-CREATE TEMPORARY TABLE IF NOT EXISTS `SCHEMATA` (
-  `CATALOG_NAME` varchar(512) NOT NULL DEFAULT '',
-  `SCHEMA_NAME` varchar(64) NOT NULL DEFAULT '',
-  `DEFAULT_CHARACTER_SET_NAME` varchar(32) NOT NULL DEFAULT '',
-  `DEFAULT_COLLATION_NAME` varchar(32) NOT NULL DEFAULT '',
-  `SQL_PATH` varchar(512) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SCHEMA_PRIVILEGES
-CREATE TEMPORARY TABLE IF NOT EXISTS `SCHEMA_PRIVILEGES` (
-  `GRANTEE` varchar(190) NOT NULL DEFAULT '',
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SESSION_STATUS
-CREATE TEMPORARY TABLE IF NOT EXISTS `SESSION_STATUS` (
-  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_VALUE` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SESSION_VARIABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `SESSION_VARIABLES` (
-  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_VALUE` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SPATIAL_REF_SYS
-CREATE TEMPORARY TABLE IF NOT EXISTS `SPATIAL_REF_SYS` (
-  `SRID` smallint(5) NOT NULL DEFAULT '0',
-  `AUTH_NAME` varchar(512) NOT NULL DEFAULT '',
-  `AUTH_SRID` int(5) NOT NULL DEFAULT '0',
-  `SRTEXT` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.STATISTICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `STATISTICS` (
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `NON_UNIQUE` bigint(1) NOT NULL DEFAULT '0',
-  `INDEX_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `INDEX_NAME` varchar(64) NOT NULL DEFAULT '',
-  `SEQ_IN_INDEX` bigint(2) NOT NULL DEFAULT '0',
-  `COLUMN_NAME` varchar(64) NOT NULL DEFAULT '',
-  `COLLATION` varchar(1) DEFAULT NULL,
-  `CARDINALITY` bigint(21) DEFAULT NULL,
-  `SUB_PART` bigint(3) DEFAULT NULL,
-  `PACKED` varchar(10) DEFAULT NULL,
-  `NULLABLE` varchar(3) NOT NULL DEFAULT '',
-  `INDEX_TYPE` varchar(16) NOT NULL DEFAULT '',
-  `COMMENT` varchar(16) DEFAULT NULL,
-  `INDEX_COMMENT` varchar(1024) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.SYSTEM_VARIABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `SYSTEM_VARIABLES` (
-  `VARIABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `SESSION_VALUE` varchar(2048) DEFAULT NULL,
-  `GLOBAL_VALUE` varchar(2048) DEFAULT NULL,
-  `GLOBAL_VALUE_ORIGIN` varchar(64) NOT NULL DEFAULT '',
-  `DEFAULT_VALUE` varchar(2048) DEFAULT NULL,
-  `VARIABLE_SCOPE` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `VARIABLE_COMMENT` varchar(2048) NOT NULL DEFAULT '',
-  `NUMERIC_MIN_VALUE` varchar(21) DEFAULT NULL,
-  `NUMERIC_MAX_VALUE` varchar(21) DEFAULT NULL,
-  `NUMERIC_BLOCK_SIZE` varchar(21) DEFAULT NULL,
-  `ENUM_VALUE_LIST` longtext,
-  `READ_ONLY` varchar(3) NOT NULL DEFAULT '',
-  `COMMAND_LINE_ARGUMENT` varchar(64) DEFAULT NULL
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `TABLES` (
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `ENGINE` varchar(64) DEFAULT NULL,
-  `VERSION` bigint(21) unsigned DEFAULT NULL,
-  `ROW_FORMAT` varchar(10) DEFAULT NULL,
-  `TABLE_ROWS` bigint(21) unsigned DEFAULT NULL,
-  `AVG_ROW_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `MAX_DATA_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `INDEX_LENGTH` bigint(21) unsigned DEFAULT NULL,
-  `DATA_FREE` bigint(21) unsigned DEFAULT NULL,
-  `AUTO_INCREMENT` bigint(21) unsigned DEFAULT NULL,
-  `CREATE_TIME` datetime DEFAULT NULL,
-  `UPDATE_TIME` datetime DEFAULT NULL,
-  `CHECK_TIME` datetime DEFAULT NULL,
-  `TABLE_COLLATION` varchar(32) DEFAULT NULL,
-  `CHECKSUM` bigint(21) unsigned DEFAULT NULL,
-  `CREATE_OPTIONS` varchar(2048) DEFAULT NULL,
-  `TABLE_COMMENT` varchar(2048) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TABLESPACES
-CREATE TEMPORARY TABLE IF NOT EXISTS `TABLESPACES` (
-  `TABLESPACE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `ENGINE` varchar(64) NOT NULL DEFAULT '',
-  `TABLESPACE_TYPE` varchar(64) DEFAULT NULL,
-  `LOGFILE_GROUP_NAME` varchar(64) DEFAULT NULL,
-  `EXTENT_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `AUTOEXTEND_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `MAXIMUM_SIZE` bigint(21) unsigned DEFAULT NULL,
-  `NODEGROUP_ID` bigint(21) unsigned DEFAULT NULL,
-  `TABLESPACE_COMMENT` varchar(2048) DEFAULT NULL
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TABLE_CONSTRAINTS
-CREATE TEMPORARY TABLE IF NOT EXISTS `TABLE_CONSTRAINTS` (
-  `CONSTRAINT_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `CONSTRAINT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `CONSTRAINT_NAME` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `CONSTRAINT_TYPE` varchar(64) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TABLE_PRIVILEGES
-CREATE TEMPORARY TABLE IF NOT EXISTS `TABLE_PRIVILEGES` (
-  `GRANTEE` varchar(190) NOT NULL DEFAULT '',
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TABLE_STATISTICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `TABLE_STATISTICS` (
-  `TABLE_SCHEMA` varchar(192) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(192) NOT NULL DEFAULT '',
-  `ROWS_READ` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_CHANGED` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_CHANGED_X_INDEXES` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.TRIGGERS
-CREATE TEMPORARY TABLE IF NOT EXISTS `TRIGGERS` (
-  `TRIGGER_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TRIGGER_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TRIGGER_NAME` varchar(64) NOT NULL DEFAULT '',
-  `EVENT_MANIPULATION` varchar(6) NOT NULL DEFAULT '',
-  `EVENT_OBJECT_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `EVENT_OBJECT_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `EVENT_OBJECT_TABLE` varchar(64) NOT NULL DEFAULT '',
-  `ACTION_ORDER` bigint(4) NOT NULL DEFAULT '0',
-  `ACTION_CONDITION` longtext,
-  `ACTION_STATEMENT` longtext NOT NULL,
-  `ACTION_ORIENTATION` varchar(9) NOT NULL DEFAULT '',
-  `ACTION_TIMING` varchar(6) NOT NULL DEFAULT '',
-  `ACTION_REFERENCE_OLD_TABLE` varchar(64) DEFAULT NULL,
-  `ACTION_REFERENCE_NEW_TABLE` varchar(64) DEFAULT NULL,
-  `ACTION_REFERENCE_OLD_ROW` varchar(3) NOT NULL DEFAULT '',
-  `ACTION_REFERENCE_NEW_ROW` varchar(3) NOT NULL DEFAULT '',
-  `CREATED` datetime DEFAULT NULL,
-  `SQL_MODE` varchar(8192) NOT NULL DEFAULT '',
-  `DEFINER` varchar(189) NOT NULL DEFAULT '',
-  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
-  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
-  `DATABASE_COLLATION` varchar(32) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.USER_PRIVILEGES
-CREATE TEMPORARY TABLE IF NOT EXISTS `USER_PRIVILEGES` (
-  `GRANTEE` varchar(190) NOT NULL DEFAULT '',
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `PRIVILEGE_TYPE` varchar(64) NOT NULL DEFAULT '',
-  `IS_GRANTABLE` varchar(3) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.USER_STATISTICS
-CREATE TEMPORARY TABLE IF NOT EXISTS `USER_STATISTICS` (
-  `USER` varchar(128) NOT NULL DEFAULT '',
-  `TOTAL_CONNECTIONS` int(11) NOT NULL DEFAULT '0',
-  `CONCURRENT_CONNECTIONS` int(11) NOT NULL DEFAULT '0',
-  `CONNECTED_TIME` int(11) NOT NULL DEFAULT '0',
-  `BUSY_TIME` double NOT NULL DEFAULT '0',
-  `CPU_TIME` double NOT NULL DEFAULT '0',
-  `BYTES_RECEIVED` bigint(21) NOT NULL DEFAULT '0',
-  `BYTES_SENT` bigint(21) NOT NULL DEFAULT '0',
-  `BINLOG_BYTES_WRITTEN` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_READ` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_SENT` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_DELETED` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_INSERTED` bigint(21) NOT NULL DEFAULT '0',
-  `ROWS_UPDATED` bigint(21) NOT NULL DEFAULT '0',
-  `SELECT_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `UPDATE_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `OTHER_COMMANDS` bigint(21) NOT NULL DEFAULT '0',
-  `COMMIT_TRANSACTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `ROLLBACK_TRANSACTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `DENIED_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `LOST_CONNECTIONS` bigint(21) NOT NULL DEFAULT '0',
-  `ACCESS_DENIED` bigint(21) NOT NULL DEFAULT '0',
-  `EMPTY_QUERIES` bigint(21) NOT NULL DEFAULT '0',
-  `TOTAL_SSL_CONNECTIONS` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `MAX_STATEMENT_TIME_EXCEEDED` bigint(21) NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.VIEWS
-CREATE TEMPORARY TABLE IF NOT EXISTS `VIEWS` (
-  `TABLE_CATALOG` varchar(512) NOT NULL DEFAULT '',
-  `TABLE_SCHEMA` varchar(64) NOT NULL DEFAULT '',
-  `TABLE_NAME` varchar(64) NOT NULL DEFAULT '',
-  `VIEW_DEFINITION` longtext NOT NULL,
-  `CHECK_OPTION` varchar(8) NOT NULL DEFAULT '',
-  `IS_UPDATABLE` varchar(3) NOT NULL DEFAULT '',
-  `DEFINER` varchar(189) NOT NULL DEFAULT '',
-  `SECURITY_TYPE` varchar(7) NOT NULL DEFAULT '',
-  `CHARACTER_SET_CLIENT` varchar(32) NOT NULL DEFAULT '',
-  `COLLATION_CONNECTION` varchar(32) NOT NULL DEFAULT '',
-  `ALGORITHM` varchar(10) NOT NULL DEFAULT ''
-) ENGINE=Aria DEFAULT CHARSET=utf8 PAGE_CHECKSUM=0;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.XTRADB_INTERNAL_HASH_TABLES
-CREATE TEMPORARY TABLE IF NOT EXISTS `XTRADB_INTERNAL_HASH_TABLES` (
-  `INTERNAL_HASH_TABLE_NAME` varchar(100) NOT NULL DEFAULT '',
-  `TOTAL_MEMORY` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `CONSTANT_MEMORY` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `VARIABLE_MEMORY` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.XTRADB_READ_VIEW
-CREATE TEMPORARY TABLE IF NOT EXISTS `XTRADB_READ_VIEW` (
-  `READ_VIEW_UNDO_NUMBER` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `READ_VIEW_LOW_LIMIT_TRX_NUMBER` varchar(18) NOT NULL DEFAULT '',
-  `READ_VIEW_UPPER_LIMIT_TRX_ID` varchar(18) NOT NULL DEFAULT '',
-  `READ_VIEW_LOW_LIMIT_TRX_ID` varchar(18) NOT NULL DEFAULT ''
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table information_schema.XTRADB_RSEG
-CREATE TEMPORARY TABLE IF NOT EXISTS `XTRADB_RSEG` (
-  `rseg_id` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `space_id` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `zip_size` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `page_no` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `max_size` bigint(21) unsigned NOT NULL DEFAULT '0',
-  `curr_size` bigint(21) unsigned NOT NULL DEFAULT '0'
-) ENGINE=MEMORY DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
 
 -- Dumping database structure for multishop
 CREATE DATABASE IF NOT EXISTS `multishop` /*!40100 DEFAULT CHARACTER SET latin1 COLLATE latin1_spanish_ci */;
@@ -1199,7 +23,16 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id_category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.categories: ~5 rows (approximately)
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+REPLACE INTO `categories` (`id_category`, `category`) VALUES
+	(1, 'Pantalones'),
+	(2, 'Vestidos'),
+	(4, 'Bolsos'),
+	(5, 'Zapatos'),
+	(6, 'Camisas');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.codes
 CREATE TABLE IF NOT EXISTS `codes` (
   `id_code` int(3) NOT NULL AUTO_INCREMENT,
@@ -1211,7 +44,10 @@ CREATE TABLE IF NOT EXISTS `codes` (
   CONSTRAINT `FK_id_customer_code` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.codes: ~0 rows (approximately)
+/*!40000 ALTER TABLE `codes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `codes` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.comments
 CREATE TABLE IF NOT EXISTS `comments` (
   `id_comment` int(11) NOT NULL AUTO_INCREMENT,
@@ -1232,9 +68,14 @@ CREATE TABLE IF NOT EXISTS `comments` (
   CONSTRAINT `FK3_id_category_comment` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`),
   CONSTRAINT `FK_id_customer_comment` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`),
   CONSTRAINT `FK_id_product_comment` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.comments: ~1 rows (approximately)
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+REPLACE INTO `comments` (`id_comment`, `date`, `name`, `comment`, `score`, `mail`, `url`, `id_customer`, `id_product`, `id_category`, `status`) VALUES
+	(1, '2017-11-22 23:06:27', 'pedro villacreces', 'unas zapas mu bonitas', 5, 'pedro@gmail.com', 'www.google.es', 39, 49, 4, 0);
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.customers
 CREATE TABLE IF NOT EXISTS `customers` (
   `id_customer` int(3) NOT NULL AUTO_INCREMENT,
@@ -1248,36 +89,84 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `password` varchar(20) NOT NULL,
   `validate` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_customer`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.customers: ~2 rows (approximately)
+/*!40000 ALTER TABLE `customers` DISABLE KEYS */;
+REPLACE INTO `customers` (`id_customer`, `name`, `surname`, `mail`, `address`, `post_code`, `region`, `phone`, `password`, `validate`) VALUES
+	(39, 'testdeprueba2', 'test9', 'test9', 'adafdas', '13500', 'dasfsdfsd', '54564665', '1234', 1),
+	(41, 'testdeprueba2', 'test9', 'Ã±lÃ±lÃ±@lkjlk.es', 'adafdas', '13500', 'dasfsdfsd', '54564665', '1234', 1);
+/*!40000 ALTER TABLE `customers` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.deliveries
 CREATE TABLE IF NOT EXISTS `deliveries` (
-  `id_delivery` int(5) NOT NULL,
+  `id_delivery` int(5) NOT NULL AUTO_INCREMENT,
   `delivery_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_customer` int(3) NOT NULL,
   `amount` double NOT NULL,
-  `payment` varchar(50) DEFAULT NULL,
-  `dispath` int(11) DEFAULT NULL,
-  `status` int(11) NOT NULL,
+  `id_payment` int(11) DEFAULT NULL,
+  `id_dispath` int(11) DEFAULT NULL,
+  `id_status` int(11) NOT NULL,
   PRIMARY KEY (`id_delivery`),
   KEY `FK_id_customer_delivery` (`id_customer`),
-  CONSTRAINT `FK_id_customer_delivery` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`)
+  KEY `FK_id_payment` (`id_payment`),
+  KEY `FK_id_dispath` (`id_dispath`),
+  KEY `FK_id_status` (`id_status`),
+  CONSTRAINT `FK_id_customer_delivery` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`),
+  CONSTRAINT `FK_id_dispath` FOREIGN KEY (`id_dispath`) REFERENCES `dispatch_status` (`id_dispatch_status`),
+  CONSTRAINT `FK_id_payment` FOREIGN KEY (`id_payment`) REFERENCES `payments` (`id_payment`),
+  CONSTRAINT `FK_id_status` FOREIGN KEY (`id_status`) REFERENCES `delivery_status` (`id_delivery_status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.deliveries: ~0 rows (approximately)
+/*!40000 ALTER TABLE `deliveries` DISABLE KEYS */;
+/*!40000 ALTER TABLE `deliveries` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.delivery_details
 CREATE TABLE IF NOT EXISTS `delivery_details` (
   `id_product` int(11) NOT NULL,
   `quantity` int(1) NOT NULL DEFAULT '0',
   `id_delivery` int(5) NOT NULL,
-  PRIMARY KEY (`id_product`,`id_delivery`),
-  KEY `FK_delivery_details` (`id_delivery`),
-  CONSTRAINT `FK_delivery_details` FOREIGN KEY (`id_delivery`) REFERENCES `deliveries` (`id_delivery`) ON DELETE CASCADE,
+  PRIMARY KEY (`id_product`),
+  KEY `FK_id_delivery` (`id_delivery`),
+  CONSTRAINT `FK_id_delivery` FOREIGN KEY (`id_delivery`) REFERENCES `deliveries` (`id_delivery`) ON DELETE CASCADE,
   CONSTRAINT `FKdelivery_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.delivery_details: ~0 rows (approximately)
+/*!40000 ALTER TABLE `delivery_details` DISABLE KEYS */;
+/*!40000 ALTER TABLE `delivery_details` ENABLE KEYS */;
+
+-- Dumping structure for table multishop.delivery_status
+CREATE TABLE IF NOT EXISTS `delivery_status` (
+  `id_delivery_status` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) COLLATE latin1_spanish_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_delivery_status`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- Dumping data for table multishop.delivery_status: ~2 rows (approximately)
+/*!40000 ALTER TABLE `delivery_status` DISABLE KEYS */;
+REPLACE INTO `delivery_status` (`id_delivery_status`, `status`) VALUES
+	(1, 'Pagado'),
+	(2, 'Sin Pagar');
+/*!40000 ALTER TABLE `delivery_status` ENABLE KEYS */;
+
+-- Dumping structure for table multishop.dispatch_status
+CREATE TABLE IF NOT EXISTS `dispatch_status` (
+  `id_dispatch_status` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(50) COLLATE latin1_spanish_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_dispatch_status`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- Dumping data for table multishop.dispatch_status: ~4 rows (approximately)
+/*!40000 ALTER TABLE `dispatch_status` DISABLE KEYS */;
+REPLACE INTO `dispatch_status` (`id_dispatch_status`, `status`) VALUES
+	(1, 'Procesando'),
+	(2, 'Entregado'),
+	(3, 'En Camino'),
+	(4, 'Devuelto');
+/*!40000 ALTER TABLE `dispatch_status` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.images
 CREATE TABLE IF NOT EXISTS `images` (
   `id_image` int(4) NOT NULL AUTO_INCREMENT,
@@ -1289,7 +178,108 @@ CREATE TABLE IF NOT EXISTS `images` (
   CONSTRAINT `FK_id_product_image` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
 ) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.images: ~81 rows (approximately)
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+REPLACE INTO `images` (`id_image`, `name`, `priority`, `id_product`) VALUES
+	(16, '1465580105_01.jpg', 1, 18),
+	(17, '1465580105_02.jpg', 2, 18),
+	(18, '1465580105_03.jpg', 3, 18),
+	(19, '1465580732_01.jpg', 1, 19),
+	(20, '1465580732_02.jpg', 2, 19),
+	(21, '1465580732_03.jpg', 3, 19),
+	(22, '1465581222_01.jpg', 1, 20),
+	(23, '1465581222_02.jpg', 2, 20),
+	(24, '1465581459_01.jpg', 1, 21),
+	(25, '1465581459_02.jpg', 2, 21),
+	(26, '1465582056_01.jpg', 1, 22),
+	(27, '1465582056_02.png', 2, 22),
+	(28, '1465582237_01.jpg', 1, 23),
+	(29, '1465582564_01.jpg', 1, 24),
+	(30, '1465582564_02.jpg', 2, 24),
+	(31, '1465582564_03.jpg', 3, 24),
+	(32, '1465582820_01.png', 1, 25),
+	(35, '1465637005_01.jpg', 1, 27),
+	(36, '1465637005_02.jpg', 2, 27),
+	(37, '1465637902_01.jpg', 1, 28),
+	(38, '1465637902_02.jpg', 2, 28),
+	(39, '1465638278_01.jpg', 1, 29),
+	(40, '1465638278_02.jpg', 2, 29),
+	(41, '1465638852_01.jpg', 1, 30),
+	(42, '1465638852_02.jpg', 2, 30),
+	(43, '1465639339_01.jpg', 1, 31),
+	(44, '1465639339_02.jpg', 2, 31),
+	(45, '1465639339_03.jpg', 3, 31),
+	(46, '1465639741_01.jpg', 1, 32),
+	(47, '1465639741_02.jpg', 2, 32),
+	(48, '1465640739_01.jpg', 1, 33),
+	(49, '1465640739_02.jpg', 2, 33),
+	(50, '1465640739_03.jpg', 3, 33),
+	(51, '1465641583_01.jpg', 1, 34),
+	(52, '1465641583_02.jpg', 2, 34),
+	(53, '1465641583_03.jpg', 3, 34),
+	(54, '1465641979_01.jpg', 1, 35),
+	(55, '1465641979_02.jpg', 2, 35),
+	(56, '1465642740_01.jpg', 1, 36),
+	(57, '1465642740_02.jpg', 2, 36),
+	(58, '1465643939_01.jpg', 1, 37),
+	(59, '1465643939_02.jpg', 2, 37),
+	(60, '1465656482_01.jpg', 1, 38),
+	(61, '1465657419_01.jpg', 1, 39),
+	(62, '1465657419_02.jpg', 2, 39),
+	(63, '1465812952_01.jpg', 1, 40),
+	(64, '1465812952_02.jpg', 2, 40),
+	(65, '1465813587_01.jpg', 1, 41),
+	(66, '1465813587_02.jpg', 2, 41),
+	(67, '1465814209_01.jpg', 1, 42),
+	(68, '1465814209_02.jpg', 2, 42),
+	(69, '1465814209_03.jpg', 3, 42),
+	(70, '1465815403_01.jpg', 1, 43),
+	(71, '1465815765_01.jpg', 1, 44),
+	(72, '1465815765_02.jpg', 2, 44),
+	(76, '1465816386_01.jpg', 1, 46),
+	(77, '1465816386_02.jpg', 2, 46),
+	(78, '1465816386_03.jpg', 3, 46),
+	(79, '1465817043_01.jpg', 1, 47),
+	(80, '1465817043_02.jpg', 2, 47),
+	(81, '1465817472_01.jpg', 1, 48),
+	(82, '1465817472_02.jpg', 2, 48),
+	(83, '1465817472_03.jpg', 3, 48),
+	(84, '1465824933_01.jpg', 1, 49),
+	(85, '1465825298_01.jpg', 1, 50),
+	(86, '1465825298_02.jpg', 2, 50),
+	(87, '1465825298_03.jpg', 3, 50),
+	(88, '1465826211_01.jpg', 1, 51),
+	(89, '1465826211_02.jpg', 2, 51),
+	(90, '1465826211_03.jpg', 3, 51),
+	(91, '1465826894_01.jpg', 1, 52),
+	(92, '1465826894_02.jpg', 2, 52),
+	(93, '1465826894_03.jpg', 3, 52),
+	(94, '1465827828_01.jpg', 1, 53),
+	(95, '1465827828_02.jpg', 2, 53),
+	(96, '1465827828_03.jpg', 3, 53),
+	(97, '1465828927_01.jpg', 1, 54),
+	(98, '1465828927_02.jpg', 2, 54),
+	(99, '1482338541_01.jpg', 1, 61),
+	(100, '1482338541_02.jpg', 2, 61),
+	(101, '1482338541_03.jpg', 3, 61);
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+
+-- Dumping structure for table multishop.payments
+CREATE TABLE IF NOT EXISTS `payments` (
+  `id_payment` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(50) COLLATE latin1_spanish_ci NOT NULL,
+  PRIMARY KEY (`id_payment`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+
+-- Dumping data for table multishop.payments: ~4 rows (approximately)
+/*!40000 ALTER TABLE `payments` DISABLE KEYS */;
+REPLACE INTO `payments` (`id_payment`, `type`) VALUES
+	(1, 'Tarjeta de Crédito'),
+	(2, 'Transferencia Bancaria'),
+	(3, 'Paypal'),
+	(4, 'Contrareembolso');
+/*!40000 ALTER TABLE `payments` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.products
 CREATE TABLE IF NOT EXISTS `products` (
   `id_product` int(3) NOT NULL AUTO_INCREMENT,
@@ -1306,7 +296,47 @@ CREATE TABLE IF NOT EXISTS `products` (
   CONSTRAINT `FK_id_product_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
 ) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.products: ~36 rows (approximately)
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+REPLACE INTO `products` (`id_product`, `product_name`, `price`, `description`, `id_category`, `id_subcategory`, `start`, `quantity`, `downloadable`) VALUES
+	(18, 'Epson EcoTank ET-14000 Impresora A3 Color ', 599, 'Te presentamos la EcoTank ET-1400 de Epson, una impresora A3+ a un precio competitivo y sin complicaciones para oficinas pequeÃ±as y domÃ©sticas. Incluye miles de pÃ¡ginas de tinta y ofrece el coste por pÃ¡gina A3 mÃ¡s bajo del mercado1. Esta impresora A3+ EcoTank ofrece grandes rendimientos a un coste muy bajo gracias a sus depÃ³sitos de tinta de gran capacidad. Sin complicaciones ni imprevistos, el modelo ET-14000 no sÃ³lo resulta econÃ³mico, sino tambiÃ©n muy fÃ¡cil de mantener.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    ImpresiÃ³n a muy bajo coste: El coste por pÃ¡gina A3 mÃ¡s bajo del mercado\r\n    ImpresiÃ³n continua: Con tinta para imprimir hasta 7.100 pÃ¡ginas en negro y 5.700 en color\r\n    Sin cartuchos de tinta: Sistema de recarga fÃ¡cil de depÃ³sitos de tinta\r\n    Imprime hasta A3+: Ideal para oficinas pequeÃ±as y domÃ©sticas\r\n    Dos depÃ³sitos de tinta negra: Reduce las recargas y aumenta la velocidad de impresiÃ³n monocromo aÃºn mÃ¡s\r\n    Di adiÃ³s a los cartuchos de tinta: Lo mejor del modelo ET-14000 son los depÃ³sitos de tinta de gran capacidad que integra, que se han diseÃ±ado recientemente y eliminan la necesidad de utilizar cartuchos. De hecho, este modelo cuenta con dos depÃ³sitos de tinta negra, por lo que se reducen las complicaciones y multiplica el nÃºmero de impresiones que puedes hacer antes de la siguiente carga, en comparaciÃ³n con otras impresoras de inyecciÃ³n de tinta. Aparte de eliminar la necesidad de utilizar cartuchos de tinta, el modelo ET-14000 incluye dos botellas de tinta negra, ademÃ¡s del pack de botellas de tinta de color de 70 ml originales de Epson. Las botellas de tinta hacen que rellenar los depÃ³sitos sea sencillo, limpio y rÃ¡pido.\r\n    ImpresiÃ³n de muy bajo coste hasta A3+: Las botellas de tinta incluidas pueden imprimir hasta 7.100 pÃ¡ginas en negro y 5.700 en color2, por lo que ofrecen el coste por pÃ¡gina A3 mÃ¡s bajo del mercado\r\n    Resultados rÃ¡pidos y de gran calidad: El modelo ET-14000 usa la tecnologÃ­a Micro Piezo exclusiva de Epson para obtener impresiones con una calidad excelente. Asimismo, el uso de dos depÃ³sitos de tinta negra ayuda a impulsar la velocidad de impresiÃ³n. Las impresiones monocromo se llevan a cabo a una velocidad de 15 pÃ¡ginas por minuto mientras que las pÃ¡ginas en color se imprimen a una velocidad de 5,5 por minuto\r\n\r\nEspecificaciones:\r\n\r\n    TecnologÃ­a\r\n        MÃ©todo de impresiÃ³n Cabezal de impresiÃ³n Epson Micro Piezo?\r\n        ConfiguraciÃ³n inyectores 360 Inyectores negro, 59 Inyectores por color\r\n        TamaÃ±o mÃ¡ximo gota 3 pl, Con tecnologÃ­a de gotas de tinta de tamaÃ±o variable\r\n        TecnologÃ­a de tinta Epson Dye Ink\r\n        ResoluciÃ³n de impresiÃ³n 5.760 x 1.440 ppp\r\n        CategorÃ­a Consumo individual\r\n    ImpresiÃ³n\r\n        Velocidad de impresiÃ³n ISO/IEC 24734 15 PÃ¡ginas/minuto Monocromo, 5,5 PÃ¡ginas/minuto Color\r\n        Velocidad de impresiÃ³n 17 PÃ¡ginas/minuto Color (Papel Normal 75 g/mÂ²), 30 PÃ¡ginas/minuto Monocromo (Papel Normal 75 g/mÂ²)\r\n        Colores Magenta, Amarillo, Cian, Negro\r\n    Manejo de papel y sustratos\r\n        NÃºmero de bandejas de papel 1\r\n        Formatos papel A3+, A3, A4, A5, A6, B4, B5, C6 (sobre), DL (sobre), No. 10 (sobre), 10 x 15 cm, 13 x 18 cm, 13 x 20 cm, Personalizado, Legal\r\n        DÃºplex Manual\r\n        Capacidad de la bandeja de salida 40 Hojas\r\n        Capacidad bandeja papel 100 Hojas EstÃ¡ndar, 20 Hojas fotogrÃ¡ficas\r\n        GestiÃ³n de soportes DÃºplex manual\r\n    General\r\n        consumo de energÃ­a 1,6 vatio (modo de ahorro), 20 vatio (impresiÃ³n)\r\n        Voltaje de suministro CA 100 V - 240 V,50 Hz - 60 Hz\r\n        Dimensiones del producto 705? x 322 x 215 mm (ancho x profundidad x altura)\r\n        Peso 12,2 kg\r\n        nivel de ruido 5,3 B (A) con Epson Premium Glossy Photo Paper / modo Photo RPM. - 38 dB (A) con Epson Premium Glossy Photo Paper / modo Photo RPM.\r\n        Sistemas operativos compatibles Mac OS 10.5.8 o posterior, Windows 7, Windows 8, Windows 8.1, Windows Vista, Windows XP, XP Professional x64 EdiciÃ³n\r\n        Interfaces USB\r\n        Incluye 4 botellas de tinta individuales de 70 ml (Bk, C, Y, M) mÃ¡s 1 botella adicional de tinta negra, Equipo, Cable de alimentaciÃ³n, Instrucciones de instalaciÃ³n, Software (CD), Certificado de garantÃ­a.', 4, -1, 0, -1, b'0'),
+	(19, 'HP Officejet Pro X451DW Duplex+WiFi ', 239, 'Aumente la eficiencia de los grupos de trabajo con esta impresora inalÃ¡mbrica de alta productividad, y nueva generaciÃ³n. Imprima en color con calidad profesional y hasta el doble de velocidad[1] reduciendo a la mitad el coste por pÃ¡gina de impresoras lÃ¡ser [2] usando la TecnologÃ­a HP PageWide.\r\n\r\nIdeal para equipos de trabajo de pequeÃ±as y medianas empresas que necesitan impresiones de calidad profesional a bajo coste por pÃ¡gina y a gran velocidad, con la flexibilidad de la conectividad inalÃ¡mbrica/ mÃ³vil y gestiÃ³n de la impresora basada en web.\r\n\r\nCaracterÃ­sticas\r\n\r\nImprima hasta el doble de velocidad[1] y reduzca a la mitad el coste[2] de las impresoras lÃ¡ser.\r\n\r\n    Produzca impresiones de calidad con tintas originales HP y ahorre hasta un 50% en costes de impresiÃ³n en comparaciÃ³n con las impresoras lÃ¡ser[2] de color.\r\n    Imprima a una velocidad hasta dos veces superior a la de las impresoras lÃ¡ser con la misma tecnologÃ­a utilizada en las prensas digitales PageWide de tope de gama.[1]\r\n    Consiga mÃ¡s con funciones que incrementan la productividad general de la oficina como el nuevo modo oficina general (55 ppm) y la impresiÃ³n a doble cara.\r\n\r\nProporcione a los grupos de trabajo la potencia para hacer mÃ¡s con esta impresora fÃ¡cil de administrar.\r\n\r\n    Acceda de una manera rÃ¡pida y sencilla a herramientas y tareas de impresiÃ³n a travÃ©s del panel de control y la clara pantalla grÃ¡fica.\r\n    Controle los ajustes y supervise el estado de forma remota, con herramientas de gestiÃ³n lÃ­deres del sector como HP Web Jetadmin.\r\n    Mantenga su productividad: imprima hasta 9.200 pÃ¡ginas por cartucho[4] y cargue hasta 1.050 hojas a la vez con la bandeja de papel opcional.[5]\r\n    Elija HP para impresiones fiables de grupos de trabajo: diseÃ±ado para volÃºmenes de hasta 2.800 pÃ¡ginas por mes.\r\n\r\nConectese, imprima y sea productivo: en la oficina o de viaje.[3]\r\n\r\n    AÃ±ada esta impresora de alto rendimiento a su red corporativa, cableada o inalÃ¡mbrica, para mejorar su eficiencia.\r\n    Comparta el rendimiento a travÃ©s de los grupos de trabajo usando portÃ¡tiles, tablets y dispositivos portÃ¡tiles[6]: incluso sin necesidad de red o router.[7]\r\n    Disfrute de la flexibilidad de ser capaz de imprimir desde un smartphone o tablet desde casi cualquier lugar con HP ePrint.[8]\r\n\r\nConserve los recursos sin sacrificar el rendimiento.\r\n\r\n    Controle los costes: los dispositivos con certificaciÃ³n ENERGY STARÂ® usan hasta un 50% menos de energÃ­a que las impresoras lÃ¡ser en color.[9]\r\n    Ahorre hasta un 50% en papel con la impresiÃ³n automÃ¡tica a dos caras y mantenga la eficiencia a velocidades punta.\r\n    Conserve los recursos con las tintas originales HP de pigmento que requieren menos embalaje que los cartuchos de tÃ³ner.\r\n    Reduzca el impacto medioambiental: recicle con facilidad los cartuchos de tinta originales HP a travÃ©s de HP Planet Partners.[10]\r\n\r\n[1]ComparaciÃ³n basada en las especificaciones publicadas por el fabricante del modo de color mÃ¡s veloz disponible (marzo de 2012) e incluye equipos multifuncionales lÃ¡ser de color < 1.000 ? e impresoras lÃ¡ser color < 800 ? sin IVA en marzo de 2012, basado en cuota de mercado publicada por IDC en Q1 de 2012 y pruebas internas de HP de la impresora en modo de color mÃ¡s veloz disponible (ejemplo de 4 pÃ¡ginas en la categorÃ­a de documentos probados con ISO 24734). Para obtener mÃ¡s informaciÃ³n, consulte www.hp.com/go/printerspeeds.\r\n\r\n[2]Coste por pÃ¡gina (CPP) se basa en la mayorÃ­a de equipos multifuncionales lÃ¡ser en color < 1.000 ? e impresoras lÃ¡ser a color < 800 ? sin IVA en marzo de 2012, rendimiento ISO basado en impresiÃ³n continua en modo predeterminado basado en cuota de mercado publicada por IDC en Q1 de 2012. Las comparaciones del CPP de los consumibles de lÃ¡ser se basan en las especificaciones publicadas de los cartuchos de los fabricantes con capacidades disponibles similares. CPP basado en el precio de venta estimado de los cartuchos de tinta HP 970XL/6470XL. Tenga en cuenta que los precios pueden variar. Los rendimientos reales varÃ­an de acuerdo con la impresora utilizada, las imÃ¡genes impresas y otros factores. Para obtener mÃ¡s informaciÃ³n, consulte www.hp.com/go/learnaboutsupplies\r\n\r\n[3]Requiere una conexiÃ³n de Internet en la impresora con conexiÃ³n web HP y registro de cuenta en HP ePrint (para obtener una lista de impresoras aptas, tipos de documentos e imÃ¡genes compatibles y otros detalles HP ePrint, consulte www.hp.com/go/eprintcenter). Los dispositivos mÃ³viles requieren conexiÃ³n a Internet y capacidad de correo electrÃ³nico. Es posible que se requiera punto de acceso inalÃ¡mbrico. Se pueden aplicar planes de datos que se han comprado por separado o las tarifas de uso. Los tiempos de impresiÃ³n y las velocidades de conexiÃ³n pueden variar.\r\n\r\n[4] Volumen de pÃ¡gina basado en cartucho de tinta negra HP 970XL.\r\n[5] Capacidad de hasta 1.050 hojas con bandeja opcional de papel accesorio 1x500 no incluida; se vende por separado.\r\n[6] El rendimiento inalÃ¡mbrico depende del ambiente fÃ­sico y de la distancia desde el punto de acceso. Las funciones inalÃ¡mbricas son solo compatibles con routers de 2,4 GHz.\r\n[7]Es posible que necesite una app o un controlador para usar HP wireless direct; para obtener mÃ¡s informaciÃ³n, visite www.hpconnected.com.\r\n[8]Requiere una conexiÃ³n de Internet en la impresora con conexiÃ³n web HP y registro de cuenta en HP ePrint (para obtener una lista de impresoras aptas, tipos de documentos e imÃ¡genes compatibles y otros detalles HP ePrint, consulte www.hp.com/go/eprintcenter). Los dispositivos mÃ³viles requieren conexiÃ³n a Internet y capacidad de correo electrÃ³nico. Es posible que se requiera punto de acceso inalÃ¡mbrico. Se pueden aplicar planes de datos que se han comprado por separado o las tarifas de uso. Los tiempos de impresiÃ³n y las velocidades de conexiÃ³n pueden variar.\r\n[9]La mayorÃ­a de impresoras lÃ¡ser a color de menos de 800 euros, IVA no incluido, agosto de 2012, cartuchos Officejet Pro de mÃ¡xima capacidad. Consumo de energÃ­a basado en pruebas de HP. Los costes reales y el consumo de energÃ­a pueden variar. MÃ¡s informaciÃ³n en http://www.hp.com/go/officejet.\r\n[10] La disponibilidad del programa varÃ­a. Actualmente, el programa de devoluciÃ³n y reciclaje de cartuchos HP originales estÃ¡ disponible en 47 paÃ­ses, territorios y regiones de Asia, Europa, NorteamÃ©rica y SudamÃ©rica a travÃ©s del programa HP Partners. Para obtener mÃ¡s informaciÃ³n, visite www.hp.com/recycle.\r\n\r\nEspecificaciones\r\n\r\n    Velocidad de impresiÃ³n en blanco y negro:\r\n        LÃ¡ser ISO anÃ¡logo:Hasta 36 ppm\r\n        Borrador:Hasta 55 ppm\r\n    Velocidad de impresiÃ³n a color:\r\n        LÃ¡ser ISO anÃ¡logo:Hasta 36 ppm\r\n        Borrador:Hasta 55 ppm\r\n    Nota a pie de pÃ¡gina sobre el rendimiento de pÃ¡ginas:\r\n    Media segÃºn la norma ISO/IEC 24711 o metodologÃ­a de prueba de HP e impresiÃ³n continua. El rendimiento real varÃ­a considerablemente segÃºn el contenido de las pÃ¡ginas impresas y de otros factores. Parte de la tinta del cartucho incluido se utiliza para iniciar la impresora. Para mÃ¡s informaciÃ³n sobre el rendimiento en pÃ¡ginas visite www.hp.com/go/learnaboutsupplies o vea el embalaje del producto\r\n    Calidad de impresiÃ³n en negro (Ã³ptima): ResoluciÃ³n optimizada de hasta 1200 x 1200 ppp con 600 x 600 de entrada\r\n    Ciclo de trabajo (mensual, A4): Hasta 50,000 pÃ¡ginas\r\n    TecnologÃ­a de impresiÃ³n: TecnologÃ­a HP Pagewide con tintas pigmentadas\r\n    Calidad de impresiÃ³n en color (Ã³ptima): ResoluciÃ³n optimizada de hasta 2400 x 1200 ppp con 600 x 600 de entrada\r\n    Pantalla: MGD de 5,08 cm (pantalla grÃ¡fica monocroma)\r\n    Velocidad del procesador: 792 MHz\r\n    NÃºmero de cartuchos de impresiÃ³n: 4 (1 de cada color: negro, cian, magenta y amarillo)\r\n    Lenguajes de impresiÃ³n: HP PCL 5c, HP PCL 6, PDF nativo, emulaciÃ³n HP Postscript Nivel 3\r\n    Conectividad\r\n        ConectividadFunciÃ³n HP ePrint:\r\n        Capacidad de impresiÃ³n mÃ³vil\r\n        HP ePrint, Mobile Apps, Google Cloud Print, Wireless direct printing, Apple AirPrint?\r\n        (HP ePrint requiere una conexiÃ³n a Internet para la impresora y un registro de cuenta para los Servicios Web de HP. Los tiempos de impresiÃ³n pueden variar. Para obtener una lista de los documentos y tipos de imagen compatibles, consulte hp.com/go/eprintcenter. AirPrint?, el logotipo de AirPrint son marcas comerciales de AppleÂ® Inc. registradas en los EE. UU. y en otros paÃ­ses. AirPrint requiere que la impresora estÃ© conectada a la misma red que el dispositivo Apple. El rendimiento inalÃ¡mbrico depende del entorno fÃ­sico y de la distancia desde el punto de acceso. Para obtener soluciones adicionales, consulte hp.com/go/mobile-printing-solutions.)\r\n        Capacidad inalÃ¡mbrica: SÃ­\r\n        Conectividad, estÃ¡ndar:\r\n            1 host USB 2.0 de alta velocidad\r\n            1 Dispositivo USB 2.0 de alta velocidad\r\n            1 red Gigabit Ethernet 10/100Base-TX\r\n            EstaciÃ³n 802.11 b/g/n\r\n            Punto de acceso 802.11 b/g\r\n        Conectividad, opcional:\r\n            Admite los siguientes servidores Jetdirect externos\r\n            SÃ³lo impresiÃ³n: Servidor de impresiÃ³n externo (J7988G) en1700 HP Jetdirect, servidor de impresiÃ³n externo Fast-Ethernet HP Jetdirect en3700 para perifÃ©ricos de USB 2.0 de alta velocidad aptos para red (J7942G), 802.11b/g inalÃ¡mbrica ew2400 HP Jetdirect y servidor de impresiÃ³n externo Fast Ethernet (USB 2.0, 10/100Base-TX, 802.11b/g) (J7951G), servidor de impresiÃ³n inalÃ¡mbrica 802.11b/g (J8021A) ew2500 HP Jetdirect\r\n            Otros accesorios admitidos: Apple AirPort Express, Apple AirPort Extreme, Apple Airport TimeCapsule\r\n    Requisitos mÃ­nimos del sistema\r\n    Windows 8, Windows 7: procesador de 1 GHz de 32 bits (x86) o 64 bits (x64), espacio de disco duro de 2 GB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, Internet Explorer; Windows Vista: procesador de 800 MHz de 32 bits (x86) o 64 bits (x64), espacio de disco duro de 2 GB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, Internet Explorer; WindowsÂ® XP (SP3) o superior (solo 32 bits): cualquier procesador IntelÂ® PentiumÂ® II, CeleronÂ® o compatible, de 233 MHz o superior, espacio en disco de 750 MB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, Internet Explorer 6 o posterior; Linux: Si precisa mÃ¡s informaciÃ³n, consulte hplip.net; SAP: Para obtener mÃ¡s informaciÃ³n, consulte hp.com/go/sap/drivers;\r\n    Mac OS X v10.6, OS X Lion, OS X Mountain Lion; Procesador IntelÂ® Core?; 1 GB de espacio disponible en el disco duro; Unidad de CD-ROM/DVD o conexiÃ³n a Internet; Puerto USB\r\n    Sistemas operativos compatibles:\r\n    Windows 8, Windows 7, Windows Vista, Windows XP (SP3, 32 bits), Mac OS X v10.6, Mac OS X Lion, Mac OS X Mountain Lion, Linux (hplip.net)\r\n    Especificaciones de memoria\r\n        Compatibilidad con tarjetas de memoria: Nada\r\n        Memoria, estÃ¡ndar: 512 MB\r\n        Memoria, mÃ¡ximo: 512 MB\r\n    Manejo de papel\r\n        Entrada de gestiÃ³n de papel, estÃ¡ndar:\r\n            Bandeja de entrada de 500 hojas\r\n            Bandeja multiuso de 50 hojas\r\n        Salida de gestiÃ³n de papel, estÃ¡ndar: Bandeja de salida de 300 hojas (boca abajo)\r\n        ImpresiÃ³n a doble cara: AutomÃ¡tica (estÃ¡ndar)\r\n        Capacidad de entrada de sobre: Hasta 37 sobres\r\n        ImpresiÃ³n sin bordes: No\r\n        TamaÃ±os de material admitidos: Bandeja 1: A4; A5; A6; B5 (JIS); B6 (JIS); 10 x 15 cm; L; sobres (B5; C5; C6; DL). Bandeja 2: A4; A5; B5 (JIS); sobres (B5; C5; DL). Bandeja 3: A4; A5; B5 (JIS)\r\n        Tipos de soportes: Papel normal (ligero, intermedio, gramaje medio, gramaje pesado, gramaje extra, preperforado, reciclado, bond, otros papeles normales de inyecciÃ³n de tinta); Papeles fotogrÃ¡ficos HP Advanced (satinado, brillante, suave, satinado, mate, otro papel fotogrÃ¡fico de inyecciÃ³n de tinta); sobres; etiquetas; tarjetas; HP Brochure mate; y otros papeles especiales para inyecciÃ³n de tinta HP (satinado para folletos, folletos, mate para prospectos estilo trÃ­ptico, Hagaki, tarjetas de felicitaciÃ³n, otros papeles especiales para inyecciÃ³n de tinta)\r\n    Requisitos de energÃ­a y operaciÃ³n\r\n        AlimentaciÃ³n: TensiÃ³n de entrada: de 100 a 240 VCA (+/- 10%), 50/60 Hz (+/- 3 Hz)\r\n        Consumo energÃ©tico: 100 vatios (mÃ¡ximo), 70 vatios de media (impresiÃ³n), 9,5 vatios (lista), 4,5 vatios (suspensiÃ³n), 0.95 vatios (apagado automÃ¡tico), 0,2 vatios (apagado manual).\r\n        Rendimiento de energÃ­a: CertificaciÃ³n ENERGY STARÂ®\r\n        Dimensiones y peso: 517 x 399 x 380 mm\r\n        Peso: 17.1 kg\r\n        Peso del embalaje: 20,5 kg\r\n\r\nContenido de la caja\r\n\r\n    Impresora HP Officejet X451dw\r\n    Cartucho de configuraciÃ³n de tinta negra Officejet HP 970\r\n    Cartuchos de configuraciÃ³n de tinta Officejet HP 971 (cian, magenta, amarillo)\r\n    Software de impresora y guÃ­a para usuario en CD-ROM\r\n    GuÃ­a de introducciÃ³n\r\n    PÃ³ster de configuraciÃ³n\r\n    Cable de alimentaciÃ³n', 4, -1, 0, -1, b'0'),
+	(20, 'HP LaserJet Pro M252DW LÃ¡ser DÃºplex Color WiFi', 223, 'Te presentamos en PcComponentes la LaserJet Pro M252DW de HP, una impresora lÃ¡ser a color con funciÃ³n dÃºplex y tecnologÃ­a WiFi. Estas impresoras estÃ¡n creadas para funcionar con el tÃ³ner quÃ­micamente mÃ¡s avanzado: los nuevos cartuchos de tÃ³ner Original HP con JetIntelligence. Esta impresora compacta ha sido diseÃ±ada para responder a las necesidades de tu empresa en crecimiento.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Impresora lÃ¡ser color. Memoria 256 MB.\r\n    ImpresiÃ³n automÃ¡tica a doble cara. Velocidad de impresiÃ³n hasta 18 ppm, A4\r\n    Pantalla tÃ¡ctil en color de 7,6 cm (3 pulgada) con aplicaciones empresariales\r\n    NFC touch-to-print, impresiÃ³n inalÃ¡mbrica directa, HP ePrint, Apple AirPrint, certificaciÃ³n Mopria\r\n    ConexiÃ³n en red Fast Ethernet, 802.11b/g/n inalÃ¡mbrico\r\n    Acelere las tareas, utilizando una gama de funciones de productividad y flujo de trabajo, al mismo tiempo que produce impresiones de calidad profesional consistente. Esta impresora estÃ¡ equipada con las herramientas que necesita para realizar el trabajo rÃ¡pidamente: Cree documentos en color de calidad profesional y acelere las tareas con la impresiÃ³n rÃ¡pida y automÃ¡tica a dos caras. Ahorro de tiempo de acceso, aplicaciones empresariales integradas, simplemente toque y arrastre por la pantalla tÃ¡ctil de 7,6 cm. Imprima rÃ¡pidamente hasta 18 pÃ¡ginas por minuto: esta impresora se activa desde el modo de ahorro de energÃ­a e imprime mÃ¡s rÃ¡pido que cualquier otra impresora de su clase. Imprima fÃ¡cilmente documentos Microsoft WordÂ® y PowerPointÂ®, ahora directamente desde la unidad USB.\r\n    Controle las apremiantes necesidades de negocio, ya sea que en la oficina o en sus viajes.La ampla gama de caracterÃ­sticas de impresiÃ³n mÃ³vil HP le permite trabajar de forma segura desde donde le lleven los negocios: Imprima con un toque de su dispositivo mÃ³vil habilitado para NFC, sin necesidad de una red. Cuente con Wireless Direct Printing en la oficina, desde dispositivos mÃ³viles, sin necesidad de acceder a la red. Imprima fÃ¡cilmente desde diferentes smartphones y tablets; generalmente no se necesita configuraciÃ³n ni aplicaciones.\r\n    Saque todo lo mejor de su impresora. Obtenga mÃ¡s pÃ¡ginas de gran calidad que nunca, con los cartuchos de tÃ³ner originales de HP con JetIntelligence.[9]Ayude a asegurar un mÃ¡ximo rendimiento de impresiÃ³n y obtenga la autÃ©ntica calidad de HP por la que pagÃ³ ? sin igual en la competencia: Obtenga mÃ¡s pÃ¡ginas que nunca antes, utilizando los cartuchos HP originales de tÃ³ner de color de alto rendimiento con JetIntelligence. Cuente con calidad profesional a altas velocidades, el tÃ³ner HP ColorSphere 3 funciona mejor con su impresora HP. Obtenga la autÃ©ntica calidad de HP por la que paga con la tecnologÃ­a antifraude. Imprima de forma instantÃ¡nea con los cartuchos de tÃ³ner preinstalados. Sustituya los cartuchos opcionales de alta capacidad.\r\n    Gestione sin problemas el flujo de informaciÃ³n a y desde sus dispositivos, utilizando un eficiente flujo de trabajo y las soluciones de impresiÃ³n de HP JetAdvantage. Aumente la seguridad de la impresora y los datos y permanezca conectado a su trabajo con las capacidades por cable e inalÃ¡mbricas: Proteja los datos y gestione con facilidad los dispositivos con un conjunto de funciones de seguridad y gestiÃ³n esenciales. Aceda, imprima y comparta recursos fÃ¡cilmente con Ethernet y red inalÃ¡mbrica. Aumente la seguridad, restablezca el control y ayude a evitar gastos adicionales con HP JetAdvantage Private Print.', 4, -1, 0, -1, b'0'),
+	(21, 'Canon Pixma iX6850 A3 WiFi', 199, 'Esta impresora A3+ para oficina de alto rendimiento ofrece conectividad Wi-Fi y Ethernet, ademÃ¡s de impresiÃ³n desde dispositivos mÃ³viles. Los 5 depÃ³sitos de tinta independientes ofrecen de forma eficaz documentos empresariales y fotografÃ­as de calidad excelente.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Impresora empresarial A3+ ultracompacta y de alto rendimiento\r\n    FÃ¡cil de compartir con conectividad inalÃ¡mbrica y Ethernet\r\n    Impresiones de excelente calidad sin residuos con sistema de 5 tintas independientes, sustituibles individualmente\r\n    ImpresiÃ³n sÃºper rÃ¡pida de documentos: A4 ISO ESAT 14,5 ipm en blanco y negro/10,4 ipm en color\r\n    Imprime mÃ¡s por menos con las tintas opcionales XL y XXL\r\n\r\nEspecificaciones:\r\n\r\n    ESPECIFICACIONES DE IMPRESIÃ“N\r\n        ResoluciÃ³n de impresiÃ³n Hasta 9.600Â¹ x 2.400 ppp\r\n        TecnologÃ­a de impresiÃ³n 5 tintas independientes (PGBK, BK, C, M, Y)\r\n        Cabezal de impresiÃ³n FINE de inyecciÃ³n de tinta con gotas de 1 picolitro (mÃ­n.)\r\n        Tintas ChromaLife100+\r\n        Velocidad de impresiÃ³n en blanco y negro Aprox. 14,5 ipmÂ¹\r\n        Velocidad de impresiÃ³n en color Aprox. 10,4 ipmÂ¹\r\n        Velocidad de impresiÃ³n de fotografÃ­as 10 x 15 cm sin bordes: aprox. 36 segundosÂ¹\r\n        A3+ con bordes: aprox. 120 segundosÂ¹\r\n        ImpresiÃ³n sin bordes SÃ­ (A3+, A3, A4, LTR, LDR, 25 x 30 cm, 20 x 25 cm, 13 x 18 cm, 10 x 15 cm)\r\n        ImpresiÃ³n a dos caras Funcionamiento manual\r\n    TINTAS COMPATIBLES\r\n        Cartuchos de tinta estÃ¡ndar PGI-550PGBK (negro pigmentado)\r\n        CLI-551BK (negro)\r\n        CLI-551C (cian)\r\n        CLI-551M (magenta)\r\n        CLI-551Y (amarillo)\r\n        Cartuchos de tinta XL opcionales PGI-555PGBK XXL (negro pigmentado XXL)\r\n        PGI-550PGBK XL (negro pigmentado XL)\r\n        CLI-551BK XL (negro XL)\r\n        CLI-551C XL (cian XL)\r\n        CLI-551M XL (magenta XL)\r\n        CLI-551Y XL (amarillo XL)\r\n    RENDIMIENTOS DE TINTA\r\n        PBK (negro pigmentado) EstÃ¡ndar: 375 pÃ¡ginas de documentos o 2.390 fotos\r\n        XL opcional: 620 pÃ¡ginas de documentos o 4.720 fotos\r\n        XXL opcional: 1.000 pÃ¡ginas de documentos o 7,685 fotos\r\n        BK (negro) EstÃ¡ndar: 1.645* pÃ¡ginas de documentos o 384 fotos\r\n        XL opcional: 5.000* pÃ¡ginas de documentos o 845 fotos\r\n        C (Cian) EstÃ¡ndar: 337 pÃ¡ginas de documentos o 125 fotos\r\n        XL opcional: 700 pÃ¡ginas de documentos o 283 fotos\r\n        M (Magenta) EstÃ¡ndar: 324 pÃ¡ginas de documentos o 138 fotos\r\n        XL opcional: 670 pÃ¡ginas de documentos o 340 fotos\r\n        Y (Amarillo) EstÃ¡ndar: 331 pÃ¡ginas de documentos o 120 fotos\r\n        XL opcional: 700 pÃ¡ginas de documentos o 293 fotos\r\n        Compuesto (promedio de CMY) CMY estÃ¡ndar: 331 pÃ¡ginas de documentos o 127 fotos\r\n        CMY XL opcional: 690 pÃ¡ginas de documentos o 303 fotos\r\n        EstÃ¡ndares de prueba ISO/IEC 24711 para pÃ¡ginas de documento A4 en color\r\n        ISO/IEC 29102 para fotos sin bordes de 10 x 15 cm en color\r\n        Valores obtenidos realizando una impresiÃ³n continua\r\n        * Rendimiento adicional estimado\r\n    COMPATIBILIDAD DE PAPEL\r\n        Tipos de papel Papel normal\r\n        Sobres (DL, COM10)\r\n        Canon Pro Platinum (PT-101)\r\n        Canon Pro Luster (LU-101)\r\n        Canon FotogrÃ¡fico Brillo II (PP-201)\r\n        Canon Plus Semi Brillante (SG-101)\r\n        Canon Brillo "Uso Diario" (GP-501)\r\n        Canon Mate (MP-101)\r\n        Papel Canon de Alta ResoluciÃ³n (HR-101N)\r\n        Etiquetas FotogrÃ¡ficas Adhesivas Canon (PS-101)\r\n        Transfer para camisetas de Canon (TR-301)\r\n        Entrada mÃ¡xima de papel MÃ¡x. 150 hojas de papel normal\r\n        MÃ¡x. 20 hojas de papel fotogrÃ¡fico\r\n        TamaÃ±os del papel A3+, A3, A4, A5, B4, B5, LTR, LGL, LDR, 25 x 30 cm, 20 x 25 cm, 13 x 18 cm, 10 x 15 cm\r\n        Gramaje del papel Papel normal: 64 - 105 g/mÂ²\r\n        Papel fotogrÃ¡fico de Canon hasta 300 g/mÂ² (PT-101)\r\n    INTERFAZ\r\n        Conexiones con cable Hi-Speed USB\r\n        Ethernet: 10/100Mbps (conmutaciÃ³n automÃ¡tica)\r\n        Conexiones inalÃ¡mbricas Wi-Fi IEEE802.11 b/g/nÂ¹\r\n        Compatibilidad de aplicaciones AplicaciÃ³n PIXMA Printing SolutionsÂ¹\r\n        Apple AirPrint\r\n        Google Cloud Print\r\n    SOFTWARE\r\n        Sistemas operativos compatibles Windows 8.1 / 8 / 7 / Vista SP1 y SP2 / XP SP3 32 bits\r\n        Mac OS X v10.6.8 o posterior\r\n        Sistemas mÃ³viles compatibles iOS (aplicaciÃ³n PIXMA Printing Solutions, AirPrint)\r\n        Android (aplicaciÃ³n PIXMA Printing Solutions)\r\n        Windows RT\r\n        Requisitos mÃ­nimos del sistema Windows: Internet Explorer 8, conexiÃ³n a Internet o CD-ROM\r\n        Mac: Safari 5 y conexiÃ³n a Internet\r\n        Pantalla: 1024 x 768 XGA\r\n        Software incluido Driver de la impresora\r\n        My Image Garden\r\n        Quick Menu\r\n        Easy-WebPrint EX (plug-in para IE8 o superior)\r\n    CARACTERÃSTICAS FÃSICAS\r\n        Dimensiones (An x Pr x Al) 584 x 310 x 159 mm\r\n        Peso 8,1 kg\r\n        Fuente de alimentaciÃ³n CA 100-240 V, 50/60 Hz\r\n        Consumo de energÃ­a En espera: aprox. 2,0 W (conexiÃ³n Wi-Fi al PC)\r\n        Apagada: aprox. 0,3 W\r\n        Imprimiendo: aproximadamente 24 WÂ¹\r\n        Niveles de ruido Aprox. 44,0 dB (A)Â¹\r\n        Entorno operativo recomendado Temperatura: 15-30 Â°C\r\n        Humedad: 10 - 80% HR (sin condensaciÃ³n)\r\n        Rendimiento hasta 12.000 pÃ¡ginas / mes', 4, -1, 0, -1, b'0'),
+	(22, 'Canon Pixma iP7250 Impresora WiFi', 71, 'Impresora fotogrÃ¡fica de alto rendimiento con 5 tintas individuales, conectividad Wi-Fi e impresiÃ³n desde smartphone. DiseÃ±o de perfil bajo con dos bandejas de papel completamente integradas, impresiÃ³n a doble cara automÃ¡tica y Direct Disc Print.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Alto rendimiento, diseÃ±o elegante\r\n    Con conectividad Wi-Fi y 5 depÃ³sitos de tinta individuales, esta impresora fotogrÃ¡fica de alto rendimiento es perfecta para realizar impresiones de fotografÃ­as, documentos y CD rÃ¡pidas y de alta calidad. Es muy fÃ¡cil acceder a ella desde cualquier parte de la casa, incluso desde dispositivos mÃ³viles. El nuevo y elegante cuerpo de perfil bajo con bandeja de salida de apertura automÃ¡tica hace que sea ideal si cuentas con un espacio limitado.\r\n    Preparado para smartphone y tablet\r\n    La conectividad Wi-Fi y la aplicaciÃ³n Canon PRINT facilitan la impresiÃ³n con un smartphone o tablet, prÃ¡cticamente desde cualquier parte del hogar. TambiÃ©n se pueden imprimir directamente fotos, correos electrÃ³nicos, pÃ¡ginas Web y otros documentos desde dispositivos de Apple, como iPhone, iPad y iPod touch, mediante Apple AirPrint.\r\n    GestiÃ³n de soportes avanzada\r\n    Los cassettes de papel dobles totalmente integrados permiten cargar diferentes tamaÃ±os y tipos de papel al mismo tiempo. Con Direct Disc Print puedes diseÃ±ar e imprimir etiquetas directamente sobre discos Blu-ray, CD y DVD compatibles, asÃ­ como crear portadas a juego para organizarlos y compartirlos fÃ¡cilmente con familiares y amigos.\r\n    ImpresiÃ³n fotogrÃ¡fica mÃ¡s creativa\r\n    Ahora es mÃ¡s fÃ¡cil y rÃ¡pido que nunca imprimir fotos con My Image Garden y disfrutar de todo el potencial de tu PIXMA. Los recuerdos vuelven a cobrar vida ya que sus capacidades de organizaciÃ³n de fotos, incluido el reconocimiento de caras, te permiten encontrar fÃ¡cilmente todas las fotos almacenadas en tu PC, incluso aquellas que ya habÃ­as olvidado, y combinarlas en un bonito collage para su impresiÃ³n. Con la aplicaciÃ³n Print Your Days, puedes organizar e imprimir fotos directamente desde Facebook.\r\n    Salida rÃ¡pida\r\n    Para lograr magnÃ­ficos niveles de detalle e impresiÃ³n rÃ¡pida de documentos e imÃ¡genes en casa, esta impresora fotogrÃ¡fica cuenta con un cabezal de impresiÃ³n de 1 picolitro y 9.600 ppp lÃ­der de su categorÃ­a. Cuenta con una rÃ¡pida velocidad de impresiÃ³n A4 ISO ESAT de 15 ipm en blanco y negro y de 10 ipm en color, y produce una fotografÃ­a de 10x15 cm sin bordes con una extraordinaria calidad de laboratorio fotogrÃ¡fico en aprox. 21 segundos.\r\n    Ahorro de papel y energÃ­a\r\n    El modo de impresiÃ³n a doble cara automÃ¡tica ahorra papel a la vez que crea documentos de aspecto mÃ¡s profesional. Ahorra energÃ­a con el encendido/apagado automÃ¡tico, que apaga automÃ¡ticamente la impresora tras un tiempo seleccionado y la vuelve a encender de forma cÃ³moda al comenzar a imprimir.\r\n    Imprime mÃ¡s por menos\r\n    Reduce los residuos y ahorra de forma mÃ¡s eficiente con los depÃ³sitos de tinta individuales, ya que solo tendrÃ¡s que cambiar el color que se haya agotado. Puedes ahorrar dinero con las tintas XL, que imprimen hasta 2,2 veces mÃ¡s pÃ¡ginas que las estÃ¡ndar antes de tener que sustituirlas, lo que resulta perfecto si imprimes mucho.', 4, -1, 1, -1, b'0'),
+	(23, 'Canon Pixma IP2850 Blanca', 36, 'Esta impresora compacta ofrece impresiÃ³n asequible y de alta calidad gracias a la tecnologÃ­a FINE de Canon y a los cartuchos de tinta XL opcionales. Gracias a la conectividad USB, es una impresora de sobremesa personal perfecta.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Impresora asequible para el hogar\r\n    Una impresora para el hogar fÃ¡cil de usar y asequible con dos cartuchos de tinta, ideal para la impresiÃ³n de documentos cotidianos y fotografÃ­as ocasionales. Su conectividad USB sencilla y su diseÃ±o compacto hacen que sea la opciÃ³n perfecta para una impresora de sobremesa personal.\r\n    Impresiones de calidad\r\n    Imprime imÃ¡genes y documentos de alta calidad con un impresionante nivel de detalle gracias a la tecnologÃ­a FINE de Canon y al sistema de tinta hÃ­brido. El cartucho de color utiliza tintas pigmentadas para ofrecer impresiones con colores vivos, mientras que el cartucho de tinta negra contiene tinta de pigmento para imprimir texto nÃ­tido y definido.\r\n    Ahorra dinero en tinta\r\n    Imprime mÃ¡s por menos. Los cartuchos XL ofrecen una cantidad notablemente superior de pÃ¡ginas y duran mÃ¡s entre sustituciones de tinta, por lo que son ideales si imprimes con frecuencia, y pueden ofrecer hasta un 30% de ahorro por pÃ¡gina en comparaciÃ³n con sus equivalentes estÃ¡ndar.\r\n    My Image Garden\r\n    Gracias a My Image Garden es sencillo organizar e imprimir tus fotos. Las funciones avanzadas, como el reconocimiento de la cara, te permiten buscar todas las imÃ¡genes de tu PC, incluso aquellas que habÃ­as olvidado, para usarlas para crear atractivos diseÃ±os nuevos para tu impresiÃ³n.\r\n    ImpresiÃ³n Web inteligente\r\n    La funciÃ³n de Recorte automÃ¡tico del software plug-in Easy-WebPrint EX para Internet Explorer facilita imprimir solo lo que necesitas de la Web. Recorta informaciÃ³n seleccionada de varias pÃ¡ginas Web e imprime en una Ãºnica pÃ¡gina para ahorrar papel.\r\n    Ahorro de energÃ­a\r\n    La funciÃ³n de apagado automÃ¡tico apaga la impresora si no se usa durante un periodo de tiempo establecido, para ahorrar energÃ­a. La funciÃ³n de encendido automÃ¡tico resulta muy cÃ³moda, ya que enciende la impresora al comenzar a imprimir. El modo silencioso reduce notablemente el ruido durante su funcionamiento para una impresiÃ³n casi silenciosa en el hogar.\r\n\r\nEspecificaciones:\r\n\r\n    ESPECIFICACIONES DE IMPRESIÃ“N\r\n        ResoluciÃ³n de impresiÃ³n Hasta 4.800Â¹ x 600 ppp\r\n        TecnologÃ­a de impresiÃ³n 2 cartuchos FINE (BK, CL)\r\n        Sistema de inyecciÃ³n de tinta con gotas de 2 picolitros (mÃ­n.)\r\n        Velocidad de impresiÃ³n en blanco y negro Aprox. 8,0 ipmÂ¹\r\n        Velocidad de impresiÃ³n en color Aprox. 4,0 ipmÂ¹\r\n        ImpresiÃ³n sin bordes No disponible\r\n        ImpresiÃ³n a dos caras Funcionamiento manual\r\n    TINTAS COMPATIBLES\r\n        Cartuchos de tinta estÃ¡ndar\r\n            PG-545 (negro pigmentado)\r\n            CL-546 (color)\r\n        Cartuchos de tinta XL opcionales\r\n            PG-545XL (negro pigmentado XL)\r\n            CL-546XL (color XL)\r\n    RENDIMIENTOS DE TINTA\r\n        BK (negro pigmentado)\r\n            EstÃ¡ndar: 180 pÃ¡ginas de documentos\r\n            XL opcional: 400 pÃ¡ginas de documentos\r\n        CL (Color - CMY)\r\n            EstÃ¡ndar: 180 pÃ¡ginas de documentos\r\n            XL opcional: 300 pÃ¡ginas de documentos\r\n        EstÃ¡ndares de prueba\r\n            ISO/IEC 24711 para pÃ¡ginas de documento A4 en color\r\n            Valores obtenidos realizando una impresiÃ³n continua\r\n    COMPATIBILIDAD DE PAPEL\r\n        Tipos de papel\r\n            Papel normal\r\n            Sobres (DL, COM10)\r\n            Canon FotogrÃ¡fico Brillo II (PP-201)\r\n            Canon Brillo "Uso Diario" (GP-501)\r\n        Entrada mÃ¡xima de papel\r\n            MÃ¡x. 60 hojas de papel normal\r\n            MÃ¡x. 10 hojas de papel fotogrÃ¡fico\r\n        TamaÃ±os del papel\r\n            Papel normal, A4, A5, B5, LTR, LGL\r\n            Papel fotogrÃ¡fico: 13 x 18 cm, 10 x 15 cm\r\n        Gramaje del papel\r\n            Papel normal: 64 - 105 g/mÂ²\r\n            Papel fotogrÃ¡fico de Canon hasta 275 g/mÂ² (PP-201)\r\n    CONECTIVIDAD\r\n        Conexiones con cable Hi-Speed USB\r\n        Conexiones inalÃ¡mbricas No disponible\r\n    SOFTWARE\r\n        Sistemas operativos compatibles\r\n            Windows 8.1 / 8 / 7 / Vista SP1 y SP2 / XP SP3 32 bits\r\n            Mac OS X v10.6.8 o posterior\r\n        Sistemas mÃ³viles compatibles Windows RT\r\n        Requisitos mÃ­nimos del sistema\r\n            Windows: Internet Explorer 8, conexiÃ³n a Internet o CD-ROM\r\n            Mac: Safari 5 y conexiÃ³n a Internet\r\n            Pantalla: 1024 x 768 XGA\r\n        Software incluido\r\n            Driver de la impresora\r\n            My Image Garden\r\n            Quick Menu\r\n            Easy-WebPrint EX (plug-in para IE8 o superior)\r\n    CARACTERÃSTICAS FÃSICAS\r\n        Dimensiones (An x Pr x Al) 426 x 235 x 134 mm\r\n        Peso Aprox. 2,3 kg\r\n        Fuente de alimentaciÃ³n CA 100-240 V, 50/60 Hz\r\n        Consumo de energÃ­a\r\n            En espera: aprox. 0,8 W\r\n            Apagada: aprox. 0,5 W\r\n            Imprimiendo: aproximadamente 8,0 WÂ¹\r\n        Entorno operativo recomendado\r\n            Temperatura: 15-30 Â°C\r\n            Humedad: 10 - 80% HR (sin condensaciÃ³n).', 4, -1, 0, -1, b'0'),
+	(24, 'HP DeskJet 1110 Blanca', 52.95, 'Impresora de etiquetas profesional que permite imprimir etiquetas de hasta 62 mm. de ancho. Hasta 68 etiquetas por minuto, sin atascos de papel, sin cartuchos de tinta ni tÃ³ner y sin desperdiciar una sola etiqueta. \r\n\r\nCaracterÃ­sticas:\r\n\r\n    Velocidad de impresiÃ³n de hasta 68 etiquetas por minuto\r\n    ImpresiÃ³n de cÃ³digos de barras\r\n    ConexiÃ³n a bases de datos\r\n    ImpresiÃ³n de logotipos e imÃ¡genes\r\n    Corte de cinta automÃ¡tico\r\n    Ancho mÃ¡ximo de etiqueta de 62 mm\r\n\r\nEspecificaciones:\r\n\r\n    TecnologÃ­a TÃ©rmica directa\r\n    ConexiÃ³n Integrada USB\r\n    Velocidad de impresiÃ³n Hasta 68 etiquetas por minuto\r\n    ResoluciÃ³n de impresiÃ³n 300 x 600\r\n    Software Software de ediciÃ³n de etiquetas P-touch Editor 5.0\r\n    Controladores\r\n        Mac Mac OS 10.2.9-10.5.1\r\n        Windows Windows 2000/Profesional/XP/Vista/7\r\n    ImpresiÃ³n de cÃ³digos de barras SÃ­\r\n    ConexiÃ³n a Bases de Datos SÃ­\r\n    ImpresiÃ³n de logotipos e imÃ¡genes SÃ­\r\n    Corte de cinta AutomÃ¡tico\r\n    Consumibles Rollo de etiquetas DK\r\n    Ancho mÃ¡ximo de etiqueta 62 mm\r\n    Incluye\r\n        1 rollo inicial de cinta de papel continuo autoadhesivo blanco DK22205 (62mm. x 8m.)\r\n        1 rollo inicial de etiquetas autoadhesivas de papel blancas DK11201 (29 x 90 mm., 100 etiquetas)\r\n        Bandeja recoge etiquetas integrada\r\n        Cables de alimentaciÃ³n y USB\r\n        CD software y controladores de impresiÃ³n para Windows y Mac.\r\n        GuÃ­a de configuraciÃ³n rÃ¡pida - GuÃ­a de consumibles disponibles\r\n        Hojas de limpieza\r\n        Manual del usuario\r\n    Dimensiones (ancho x fondo x alto) 143 x 133 x 240', 4, -1, 0, -1, b'0'),
+	(25, 'HP Officejet 4650 MultifunciÃ³n', 69.94, 'MantÃ©n tu actividad con la forma mÃ¡s fÃ¡cil para imprimir desde tu smartphone o tablet, en cualquier lugar de su casa. RÃ¡pidamente, configura esta Todo-en-uno e imprime pÃ¡ginas impecables, incluso cuando no estÃ©s allÃ­. Imprime de forma asequible con una multifuncional fiable con la que puedes contar. ObtÃ©n resultados de alta calidad en cada pÃ¡gina. Realice fÃ¡cilmente las tareas en su casa o en el trabajo con esta Todo-en-uno versÃ¡til. Gestione fÃ¡cilmente los trabajos de impresiÃ³n desde la pantalla tÃ¡ctil, y copie, escanee y enviÃ© por fax documentos de varias pÃ¡ginas. Incluso puede elegir impresiones a dos caras o fotos sin bordes.\r\n\r\nEspecificaciones:\r\n\r\n    Sistemas operativos compatibles Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista OS X v10.8 Mountain Lion, OS X v10.9 Mavericks, OS X v10.10 Yosemite\r\n    Sistemas operativos de red compatibles Windows 10, Windows 8.1, Windows 8, Windows 7, Windows Vista OS X v10.8 Mountain Lion, OS X v10.9 Mavericks, OS X v10.10 Yosemite\r\n    TecnologÃ­a con funciones de ahorro de energÃ­a TecnologÃ­a HP de apagado automÃ¡tico\r\n    Procesador Velocidad del procesador 360 MHz\r\n    Funciones Impres, copia, escÃ¡ner, fax\r\n    Sensor de papel automÃ¡tico SÃ­\r\n    ImpresiÃ³n sin bordes SÃ­ (hasta 216 x 297 mm)\r\n    ImpresiÃ³n a doble cara AutomÃ¡tica (estÃ¡ndar)\r\n    Ciclo de trabajo (mensual, A4) Hasta 1200 pÃ¡ginas\r\n    Volumen de pÃ¡ginas mensuales recomendado De 100 a 400 (impresiÃ³n)\r\n    De 20 a 100 (escaneo)\r\n    Bandejas de papel, mÃ¡ximo 1\r\n    Bandejas de papel, estÃ¡ndar 1\r\n    Colores de impresiÃ³n SÃ­\r\n    Controladores de impresora incluidos HP PCL 3 GUI\r\n    Lenguajes de impresiÃ³n HP PCL 3 GUI\r\n    PrecisiÃ³n en la alineaciÃ³n vertical 0,042 mm\r\n    TecnologÃ­a de impresiÃ³n InyecciÃ³n tÃ©rmica de tinta HP\r\n    GestiÃ³n de soportes de impresiÃ³n\r\n        Capacidad de entrada mÃ¡xima (hojas) Hasta 100 hojas\r\n        Capacidad de entrada mÃ¡xima (tarjetas) Hasta 40 tarjetas\r\n        Capacidad de entrada de sobre Hasta 10 sobres\r\n        Capacidad de entrada mÃ¡xima (fotografÃ­as de 10 x 15 cm) Hasta 30 hojas\r\n        Capacidad de entrada Hasta 100 hojas\r\n        Capacidad de entrada de papel de serie (tarjetas) Hasta 40 tarjetas\r\n        ManipulaciÃ³n de los medios de salida acabados Alimentador de hojas\r\n        Capacidad de salida mÃ¡xima (papel fotogrÃ¡fico) Hasta 10 hojas\r\n        Capacidad de salida mÃ¡xima (sobres) Hasta 5 sobres\r\n        Capacidad de salida mÃ¡xima (hojas) Hasta 25 hojas\r\n        Capacidad de salida Hasta 25 hojas\r\n        Capacidad de salida estÃ¡ndar (sobres) Hasta 5 sobres\r\n    Entrada de gestiÃ³n de papel, estÃ¡ndar\r\n    Bandeja de entrada de 100 hojas, alimentador automÃ¡tico de documentos (ADF) de 35 hojas\r\n    Salida de gestiÃ³n de papel, estÃ¡ndar Bandeja de salida de 25 hojas\r\n    Soportes de impresiÃ³n compatibles\r\n        TamaÃ±os de soportes, personalizados De 76,2 x 127 mm a 215 x 355 mm (sÃ­mplex) De 76,2 x 140 mm a 215 x 309 mm (dÃºplex automÃ¡tico)\r\n        TamaÃ±os de soporte estÃ¡ndar (dÃºplex) A4\r\n            A5\r\n            A6\r\n            B5\r\n        TamaÃ±os de material admitidos A4\r\n            A5\r\n            B5\r\n            DL\r\n            C6\r\n            A6\r\n        Tipos de soportes Papel normal, papel fotogrÃ¡fico, papel para folletos\r\n        Gramaje de papel compatible De 64 a 90 g/mÂ²\r\n        Gramaje recomendado A4: de 75 a 90 g/mÂ²\r\n            Sobres HP: de 75 a 90 g/mÂ²\r\n            Tarjetas HP: hasta 200 g/mÂ²\r\n            Papel fotogrÃ¡fico HP Premium Plus: hasta 300 g/mÂ²\r\n    Ãrea de impresiÃ³n\r\n        Ãrea de impresiÃ³n mÃ¡xima 215,9 x 355,6 mm\r\n            Margen inferior (A4) 3,0 mm\r\n            Margen izquierdo (A4) 3,0 mm\r\n            Margen derecho (A4) 3,0 mm\r\n            Margen superior (A4) 3,0 mm\r\n    ResoluciÃ³n de impresiÃ³n\r\n        Calidad de impresiÃ³n en negro (Ã³ptima) Ofrece hasta 1.200 x 1.200 ppp (cuando imprime desde un ordenador)\r\n        Calidad de impresiÃ³n en color (Ã³ptima) ResoluciÃ³n optimizada de hasta 4.800 x 1.200 ppp en color (cuando se imprime desde un ordenador con papel fotogrÃ¡fico HP y 1.200 ppp de entrada)\r\n    Velocidad de impresiÃ³n\r\n        Velocidad de impresiÃ³n en negro (ISO, equivalente al lÃ¡ser) Hasta 9,5 ppm\r\n        Velocidad de impresiÃ³n en color (ISO, equivalente al lÃ¡ser) Hasta 6,8 ppm\r\n        Velocidad de impresiÃ³n en negro (borrador, A4) Hasta 20 ppm\r\n        Velocidad de impresiÃ³n en negro (normal, A4) Hasta 9,5 ppm\r\n        Velocidad de impresiÃ³n en color (borrador, A4) Hasta 16 ppm\r\n        Velocidad de impresiÃ³n en color (normal, A4) Hasta 6,8 ppm\r\n        Velocidad de impresiÃ³n en color (normal, fotos de 10x15) En sÃ³lo 51 segundos\r\n    Hora de impresiÃ³n\r\n        Primera pÃ¡gina impresa en negro (A4, lista) En sÃ³lo 18 segundos\r\n        Primera pÃ¡gina impresa en color (A4, lista) En sÃ³lo 20 segundos\r\n    Especificaciones de la copiadora\r\n        Capacidad para copias en color\r\n        Copias, mÃ¡ximo 20\r\n        ConfiguraciÃ³n de reducciÃ³n/ampliaciÃ³n de copias De 25 a 400%\r\n        Ajustes de la copiadora Iniciar copia en negro\r\n            Iniciar copia en color\r\n            NÃºmero de copias\r\n            Doble cara\r\n            Tipo papel\r\n            Redimensionar\r\n            Copia de tarjeta de ID\r\n            MÃ¡s claro/MÃ¡s oscuro\r\n    ResoluciÃ³n de copiado\r\n        ResoluciÃ³n de copia (texto en negro) 600 x 300 ppp\r\n        ResoluciÃ³n de copia (texto color y grÃ¡ficos) 600 x 300 ppp\r\n        ResoluciÃ³n de copia (grÃ¡ficos en negro) 600 x 300 ppp\r\n    Velocidad de copiado\r\n        Vel. de impresiÃ³n en negro (equivalente al lÃ¡ser) Hasta 7,5 cpm\r\n        Vel. de impresiÃ³n en color (equivalente al lÃ¡ser) Hasta 4 cpm\r\n    CaracterÃ­sticas tÃ©cnicas del escÃ¡ner\r\n        Profundidad de bits 24 bits\r\n        Volumen mensual recomendado de digitalizaciÃ³n de pÃ¡ginas De 20 a 100\r\n        Gama de escala o ampliaciÃ³n de imÃ¡genes 25 a 400% en incrementos del 1%\r\n        Capacidad del alimentador automÃ¡tico de documentos EstÃ¡ndar, 35 hojas\r\n        DigitalizaciÃ³n en color\r\n        Formato del archivo de digitalizaciÃ³n TIFF, JPEG, PNG, BMP, PDF, RTF, TXT\r\n        Niveles de escala de grises 256\r\n        Modos de entrada de digitalizaciÃ³n Escaneo y copia de panel frontal, software HP Scan\r\n        TamaÃ±o de escaneado (plano), mÃ¡ximo 216 x 297 mm\r\n        TecnologÃ­a de exploraciÃ³n CIS\r\n        VersiÃ³n Twain VersiÃ³n 2.1\r\n        Tipo de escÃ¡ner De superficie plana, alimentador automÃ¡tico de documentos (ADF)\r\n    ResoluciÃ³n del escÃ¡ner\r\n        ResoluciÃ³n de exploraciÃ³n mejorada Hasta 1200 x 1200 ppp\r\n        ResoluciÃ³n de escaneado, hardware Hasta 1.200 ppp x 1.200 ppp\r\n        ExenciÃ³n de responsabilidad de resoluciÃ³n de escaneado mejorada Hasta 1200 x 1200 ppp\r\n        ResoluciÃ³n de escaneo, Ã³ptica 1.200 ppp\r\n    Velocidad de escaneado\r\n        Velocidad de escaneo ADF (imagen mÃ©trica) El ADD no admite escaneo doble\r\n        Velocidad de escaneo (normal, A4) 4 ppm en color, 8 ppm monocromo\r\n    Especificaciones del remitente digital\r\n    Formatos de archivo, compatibles\r\n        PDF\r\n        BMP\r\n        PNG\r\n        TIF\r\n        JPG\r\n        Funciones estÃ¡ndar de envÃ­o digital\r\n            Escaneo a archivo (PDF o JPG)\r\n            Escaneo a correo electrÃ³nico (PDF o JPG)\r\n            Escaneo de uso diario (escaneo a PDF)\r\n            Capacidad de envÃ­o por correo electrÃ³nico SÃ­, PC necesario\r\n    Especificaciones de fax\r\n        Fax SÃ­, color\r\n        EnvÃ­o diferido de faxes\r\n        ReenvÃ­o de fax\r\n        Memoria de fax Hasta 99 pÃ¡ginas\r\n        Sondeo\r\n        Indicadores de velocidad, mÃ¡ximo nÃºmero Hasta 50 nÃºmeros\r\n    ResoluciÃ³n del fax\r\n        ResoluciÃ³n del fax Hasta 300 x 300 ppp\r\n        ResoluciÃ³n (blanco y negro, modo estÃ¡ndar) 1.200 x 1.200 ppp\r\n    Velocidad de fax\r\n        Velocidad de transmisiÃ³n de fax 4 seg. por pÃ¡gina\r\n    Memoria\r\n        Memoria, estÃ¡ndar DDR1 de 64 MB\r\n        Memoria, mÃ¡ximo DDR1 de 64 MB\r\n    Especificaciones de pantalla\r\n        Pantalla Pantalla LCD monocromÃ¡tica de alta resoluciÃ³n 5,5 cm (2,2 pulgadas)\r\n    Conectividad y comunicaciones\r\n        Capacidad de impresiÃ³n mÃ³vil Cuenta con conexiÃ³n directa inalÃ¡mbrica y WiFi local para permitir la impresiÃ³n mÃ³vil a travÃ©s de HP ePrint, Apple AirPrint?, asÃ­ como otras soluciones. CertificaciÃ³n Mopria. Admite la impresiÃ³n desde la mayorÃ­a de los smartphones y tablets con estos sistemas operativos: Android, iOS, Blackberry, Symbian, Windows 8, Windows RT y Windows 10 Mobile.\r\n        ConexiÃ³n inalÃ¡mbrica HP automÃ¡tica\r\n        Conectividad, estÃ¡ndar\r\n            1 USB 2.0 de alta velocidad\r\n            1 Wi-Fi 802.11n\r\n        FunciÃ³n HP ePrint\r\n        Protocolos de red, compatibles TCP/IP\r\n        Preparado para red EstÃ¡ndar (WiFi 802.11b/g/n integrada)\r\n        Capacidades de red 802.11 b/g/n inalÃ¡mbrica incorporada\r\n        "Plug and play" ConexiÃ³n inalÃ¡mbrica automÃ¡tica\r\n        Capacidad inalÃ¡mbrica\r\n    Peso 6,55 kg\r\n    Dimensiones (P x A x L) 445 x 369 x 190 mm', 4, -1, 0, -1, b'0'),
+	(27, 'Brother MFC-L2700DW MultifunciÃ³n LÃ¡ser Monocromo WiFi/Fax', 159, 'Combina las funciones de impresora, fax, copiadora y escÃ¡ner en un solo equipo de altas prestaciones y tamaÃ±o compacto, que incluye alimentador automÃ¡tico de documentos con capacidad para 35 hojas para facilitar las tareas de fax, copia y escaneado de documentos de pÃ¡ginas mÃºltiples. AdemÃ¡s, incorpora WiFi y tarjeta de red cableada para compartir el equipo y conexiÃ³n mÃ³vil, ademÃ¡s de Wi-Fi Direct, para poder imprimir desde smartphones y tablets\r\nPara ahorrar en costes, el MFC-L2700DW incluye unidad de impresiÃ³n a doble cara automÃ¡tica para ahorrar papel imprimiendo por las dos caras, ademÃ¡s, puede utilizar un tÃ³ner de larga duraciÃ³n para 2.600 pÃ¡ginas para contener los costes de impresiÃ³n al mÃ­nimo. Su velocidad de 26ppm y su capacidad de papel de 250 hojas le permiten sacar adelante los momentos punta de impresiÃ³n en pequeÃ±os grupos de trabajo.\r\nSu mantenimiento es muy sencillo gracias a la carga frontal de los consumibles y, para un mayor ahorro y reducciÃ³n de residuos, el tÃ³ner y el tambor son independientes para sustituir solo en consumible agotado. Incluye un tÃ³ner con capacidad para hasta 700 pÃ¡ginas\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Red cableada y WiFi\r\n    Wi-Fi Direct y conexiÃ³n mÃ³vil\r\n    Modo ahorro de energÃ­a y ahorro de tÃ³ner\r\n    Funciones simultÃ¡neas para ahorrar tiempo\r\n\r\nEspecificaciones:\r\n\r\n    TecnologÃ­a Impresora laser electrofotogrÃ¡fica\r\n    Doble cara AutomÃ¡tica SÃ­\r\n    Memoria EstÃ¡ndar 32MB\r\n    ConexiÃ³n Integrada USB 2.0 Hi Speed, Ethernet 10/100 Base-TX, WiFi 802,11 b/g/n\r\n    Entrada de papel EstÃ¡ndar 250\r\n    Bandeja multipropÃ³sito Capacidad 1 hoja\r\n    Salida de papel Cara abajo Hasta 100 hojas\r\n    Alimentador AutomÃ¡tico de Documentos (ADF) Capacidad Hasta 35 hojas\r\n    EscÃ¡ner Tipo Plano\r\n    Velocidad de impresiÃ³n\r\n        Monocromo Hasta 26 ppm\r\n        Doble cara Hasta 13 caras por minuto (6,5 pÃ¡ginas por minuto) ppm\r\n    ResoluciÃ³n Hasta HQ1200 (2400 x 600ppp), 600x600ppp ppp\r\n    Controladores\r\n        Windows: Windows 8/ 7/ Vista/ XP Home / XP Professional (32&64 bit), Server 2003, Server 2003 x64 Edition, Vista, Server 2008, Server 2008 R2, Server 2012, Server 2012 R2 (WindowsÂ® Server sÃ³lo impresiÃ³n en red)\r\n        Macintosh: OS X v10.7.5, 10.8.x, 10.9.x (Descarga gratuita opcional desde http://solutions.brother.com)\r\n        Linux: Sistema de impresiÃ³n CUPS (entornos x86/x64), controlador de impresiÃ³n Linux para sistemas de impresiÃ³n LPD/LPRng (entornos x86/x64) (Descarga gratuita opcional desde http://solutions.brother.com)\r\n    MÃ³dem 33,600 kbps\r\n    PÃ¡ginas en memoria Hasta 400 pÃ¡ginas (ITU-T Test Chart, ResoluciÃ³n estÃ¡ndar, JBIG)\r\n    PC Fax EnvÃ­a faxes directamente desde tu PC (WindowsÂ® & Apple MacintoshÂ® - requiere software de Brother)\r\n    Modo de correciÃ³n de errores (ECM) Cuando los equipos comparten la funciÃ³n MCE, detecta errores en lÃ­nea durante la transmisiÃ³n y reenvÃ­a las pÃ¡ginas con error\r\n    Rellamada automÃ¡tica EnvÃ­a el fax recibido en memoria a otro nÃºmero de fax preprogramado\r\n    Escala de grises 256 niveles\r\n    Memoria de transmisiÃ³n/recepciÃ³n sin papel Hasta 400 pÃ¡ginas (ITU-T Test Chart, ResoluciÃ³n estÃ¡ndar, JBIG)\r\n    MultidifusiÃ³n EnvÃ­a el mismo fax hasta a 258 destinos diferentes (MultidifusiÃ³n manual: 50 destinos)\r\n    Velocidad de copia Monocromo Hasta 26 cpm\r\n    Tiempo de 1Âª copia Menos de 10 segundos\r\n    ResoluciÃ³n Hasta 600 x 600 ppp\r\n    NÃºmero de copias Hasta 99 copias del original / Apila o clasifica\r\n    Ratio de ampliaciÃ³n / reducciÃ³n 25% a 400% en incrementos del 1%\r\n    Tipo de escÃ¡ner Plano\r\n    ResoluciÃ³n Ã“ptica Hasta 600 x 2.400 ppp\r\n    Profundidad de color 30bit interno/ 24bit externo bit\r\n    Escala de grises 256 niveles\r\n    Compatibilidad TWAIN TWAIN, WIA (WindowsÃ¢XP/Vista/7 / 8 )\r\n    Tecla de "Escanear a" Escanea a e-mail, imagen, OCR , archivo , SharePoint & EvernoteÂ®\r\n    Consumo de energÃ­a\r\n        En funcionamiento Menos de Imprimiendo: 480W / 313W con ?Modo silencioso? activado W\r\n        En espera Menos de 6,6 W\r\n        En reposo Menos de 1,1 W\r\n    Dimensiones (ancho x fondo x alto) 409 (An)x 398,5(F) x 316,5 (Al) mm\r\n    Peso 11,4 kg.', 4, -1, 0, -1, b'0'),
+	(28, 'Samsung M2675F MultifunciÃ³n LÃ¡ser Monocromo', 108, '\r\n\r\nTe presentamos la Samsung M2675F, una multifunciÃ³n LÃ¡ser con grandes prestaciones.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Ahorra tiempo gracias a su velocidad de impresiÃ³n\r\n    Impresiones con la mejor calidad\r\n    MÃ¡s resoluciÃ³n en textos e imÃ¡genes\r\n    Realce de bordes\r\n    Soporte para distintos tipos de gramajes\r\n    Ahorra tÃ³ner y papel gracias a sus opciones de impresiÃ³n\r\n    Menos consumo de energÃ­a con Easy Eco Driver\r\n    Reduce costes con un econÃ³mico sistema de tÃ³ner por separado\r\n    Controla todas las funciones de tu impresora gracias a su gestor de impresiÃ³n\r\n\r\nEspecificaciones:\r\n\r\n    General\r\n        Funciones EstÃ¡ndar Imprimir, Copiar, Escanear, Fax\r\n        Procesador 600 MHz\r\n        Panel de operaciÃ³n LCD 2 lÃ­neas\r\n        Memoria EstÃ¡ndar 128 MB\r\n        Interfaz EstÃ¡ndar USB 2.0 Alta Velocidad\r\n        Consumo elÃ©ctrico 400 W (Imprimiendo) / 50 W (En espera) / 1,1 W (Ahorro)\r\n        Nivel de ruido Menos de 50 dBA (Imprimiendo) / Menos de 52 dBA (Copiando en platina) / Menos de 53 dBA (Copiando ADF) / Menos de 26 dBA (En espera)\r\n        Dimensiones (An x Prof x Al) 401 x 362 x 367 mm (15,8" x 14,2" x 14,4")\r\n        Peso 11,3 kg (25 lbs)\r\n        Ciclo de trabajo mensual mÃ¡x. Hasta 12.000 pÃ¡ginas\r\n    ImpresiÃ³n\r\n        Velocidad Velocidad(Mono) Hasta 26 ppm en A4 (27 ppm en Carta)\r\n        Tiempo de salida de la primera pÃ¡gina Tiempo de salida de la primera pÃ¡gina (monocromo) Menos de 8,5 segundos (Desde modo preparado)\r\n        ResoluciÃ³n 4.800 x 600 dpi efectivo\r\n        EmulaciÃ³n SPL (Samsung Printer Language)\r\n        ImpresiÃ³n DÃºplex Manual\r\n        Sistema Operativo Windows 8 / 7 / Vista / XP / 2000 / 2008R2 / 2008 / 2003, Mac OS X 10.5 - 10.8, Various Linux\r\n    Copia\r\n        Velocidad Velocidad(Mono) Hasta 26 cpm en A4 (27 cpm en Carta)\r\n        Tiempo de salida de la primera copia Tiempo de salida de la primera copia (monocromo) Menos de 15 segundos (ADF) / Menos de 14 segundos (Platina)\r\n        ReducciÃ³n / AmpliaciÃ³n 25 - 400% (ADF, Platina)\r\n        Multi Copia 1 - 99 pÃ¡ginas\r\n        Funciones de copia Copia ID / 2-up / 4-up / Copia ColaciÃ³n / Auto ajuste\r\n    EscÃ¡ner\r\n        Compatibilidad TWAIN Standard / WIA Standard\r\n        MÃ©todo Color CIS\r\n        ResoluciÃ³n (Ã³ptica) Hasta 1.200 x 1.200 dpi\r\n        ResoluciÃ³n (Aumentada) Hasta 4.800 x 4.800 dpi\r\n        Destinos escÃ¡ner Cliente (PC)\r\n    Fax\r\n        Compatibilidad ITU-T G3 / ECM\r\n        Velocidad del mÃ³dem 33,6 Kbps\r\n        Memoria 8 MB (600 pÃ¡ginas)\r\n        MarcaciÃ³n automÃ¡tica 200 Localizaciones\r\n        Funciones FAX MarcaciÃ³n On hook / Rellamada / Rellamada Ãºltimo nÃºmero / ReducciÃ³n automÃ¡tica / Multi envÃ­o / EnvÃ­o demorado / Renvio de fax / DifusiÃ³n de hasta 209 ubicaciones\r\n    Manejo del Papel\r\n        Capacidad Entrada Cassette 250 hojas\r\n        Bandeja Multiuso 1 hoja\r\n        Tipos de papel Cassette Normal / Fino / Grueso / Cartulina / Reciclado / Archivo / Bond\r\n        Bandeja Multiuso Normal / Fino / Grueso / Cartulina / Transparencia / Preimpreso / Reciclado / Archivo / Bond / Etiqueta / Sobre / Sobre grueso / AlgodÃ³n / Coloreado\r\n        TamaÃ±os de papel Cassette A4 / A5 / A6 / Carta / Legal / Ejecutivo / Folio / Oficio / ISO B5 / JIS B5\r\n        Bandeja Multiuso A4 / A5 / A6 / Carta / Legal / Ejecutivo / Folio / Oficio / ISO B5 / JIS B5 / Sobre (Monarch, No-10, DL, C5, C6) / Custom (76 x 127 mm - 216 x 356 mm / 3" x 5" - 8,5" x 14")\r\n        Peso del papel Cassette 60 - 163 g/mÂ² (16 - 43 lbs)\r\n        Bandeja Multiuso 60 - 220 g/mÂ² (16 - 58 lbs)\r\n        Capacidad Salida 120 hojas Cara Abajo, 1 hoja Cara Arriba\r\n        adf Tipo ADF\r\n        Capacidad de documentos 40 hojas\r\n        TamaÃ±os del documento Ancho: 142 - 216 mm (5,6 - 8,5") / Largo: 148 - 356 mm (5,8 - 14")\r\n    Consumibles\r\n        Toner Negro EstÃ¡ndar: 1.200 pÃ¡ginas / Alta Capacidad: 3.000 pÃ¡ginas - Rendimiento del cartucho declarado de acuerdo con ISO / IEC 19752\r\n        Unidad de Imagen / Tambor Negro Rendimiento 9.000 pÃ¡ginas estÃ¡ndar.', 4, -1, 1, -1, b'0'),
+	(29, 'Brother MFC-L2740DW MultifunciÃ³n Laser Monocromo WiFi/Fax', 269, 'Si necesitas un equipo que ofrezca rapidez en sus funciones para realizar las tareas en el menor tiempo posible y ademÃ¡s, la contenciÃ³n de gastos es un elemento importante para ti, es tu equipo ideal.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Todas las funciones a doble cara para ahorrar tanto papel como tiempo, consumibles independientes, tÃ³ner de larga duraciÃ³n para 2.600 pÃ¡ginas y bloqueo de funciones con limitaciÃ³n de volumen de impresiÃ³n por usuario.\r\n    Ahorra tiempo con la pantalla tÃ¡ctil de 6,8 cm para navegar facilmente por todas las funciones del equipo, el alimentador automÃ¡tico de documentos para agilizar las tareas de copia, escÃ¡ner y fax y utiliza Brother Apps para que tus tareas diarÃ­as sean mÃ¡s sencillas.\r\n    Con la red cableada y WiFi incorporada de fÃ¡cil instalaciÃ³n podrÃ¡s compatir el equipo con otros usuarios y proteger la informaciÃ³n con la impresiÃ³n segura, que requiere introducir un nÃºmero PIN en el panel de control del equipo. AdemÃ¡s, cuenta con conexiÃ³n con dispositivos mÃ³viles y Wi-Fi Direct para una mayor flexibilidad y acceso a sitios web para subir y descargar informaciÃ³n.\r\n\r\nEspecificaciones:\r\n\r\n    General\r\n        Tipo de impresora Monocromo\r\n        Funciones Imprimir, Copia y escaneado, Fax\r\n        Pantalla Pantalla color tÃ¡ctil\r\n        TamaÃ±o de pantalla 6,8 cm\r\n        TamaÃ±o mÃ¡ximo del papel A4\r\n        Memoria 64 MB\r\n        TecnologÃ­a LÃ¡ser\r\n    Aplicaciones Brother\r\n        Escaneado de nota\r\n        Trazar contornos y copiar\r\n        Trazar contornos y escanear\r\n    ConexiÃ³n\r\n        ConexiÃ³n Red cableada, InalÃ¡mbrica\r\n        Interfaz de USB USB 2.0 Hi Speed\r\n        Wi-Fi Direct\r\n        Interfaz de red cableada Ethernet 10Base-T/100Base-TX\r\n        Interfaz de red inalÃ¡mbrica WiFi 802.11 b/g/n\r\n    Conectividad mÃ³vil\r\n        Admitido AirPrint, Cortado Cloud Print, Google Cloud Print, iPrint&Scan\r\n    Copiando\r\n        Copia a 2 caras\r\n        ResoluciÃ³n 600 x 600 ppp\r\n        Velocidad 30 cpm\r\n        Velocidad de copia a 2 caras A4 15 copias por minuto\r\n        RelaciÃ³n de ampliaciÃ³n / reducciÃ³n 25% - 400% en incrementos del 1%\r\n        N en 1\r\n    Dimensiones y pesos\r\n        Con cartÃ³n 567(An) x 517(F) x 435(Al) mm\r\n        Sin cartÃ³n 409(An) x 398,5(F) x 316,5(Al) mm\r\n        Peso 11,8 kg\r\n        Con cartÃ³n 14,8 kg\r\n    Medioambiental\r\n        AcreditaciÃ³n medioambiental Blue Angel\r\n        AcreditaciÃ³n medioambiental Energy Star \r\n        AcreditaciÃ³n medioambiental Nordic Swan \r\n        PresiÃ³n acÃºstica Imprimiendo - 50 dBA, Preparado - 33 dBA\r\n        Consumo elÃ©ctrico tÃ­pico 1,402 kWh/semana\r\n    EnvÃ­o de fax\r\n        EnvÃ­o de fax a 2 caras automÃ¡tico SÃ­\r\n        MÃ³dem de fax 33.6 kbps\r\n        Fax por Internet SÃ­\r\n        PC Fax EnvÃ­o y recepciÃ³n (RecepciÃ³n sÃ³lo para WindowsÂ®)\r\n    Red\r\n        ImpresiÃ³n segura\r\n        Bloqueo seguro de funciones v2 (v3)\r\n        Wi-Fi Direct?\r\n        Red cableada NC-8700h\r\n        Seguridad de red cableada APOP, SMTP-AUTH, SNMP v3\r\n        Aplicaciones inalÃ¡mbricas\r\n        Red inalÃ¡mbrica WiFi 802.11 b/g/n\r\n        Asistencia de configuraciÃ³n inalÃ¡mbrica\r\n    Entrega de papel\r\n        Entrada de papel 250 hojas\r\n        Salida de papel 100 hojas\r\n    ImpresiÃ³n\r\n        Velocidad de impresiÃ³n estÃ¡ndar A4 Hasta 30 pÃ¡ginas por minuto\r\n        ResoluciÃ³n HQ1200 (2.400 x 600 ppp)\r\n        Velocidad de impresiÃ³n en blanco y negro a 2 caras A4 Hasta 15 pÃ¡ginas por minuto\r\n        Emulaciones PCL6, BR-Script3\r\n        Tiempo de salida de la primera impresiÃ³n Menos de 8.5 segundos\r\n        Volumen mensual recomendado 250-2.000 pÃ¡ginas\r\n    Escaneado\r\n        Escaneado a 2 caras\r\n        ResoluciÃ³n 600 x 2.400 ppp\r\n        Escanear a E-mail, imagen, OCR, archivo, SharePoint, Evernote, FTP, E-mail server y Cloud\r\n        Velocidad 2.41 segundos (Letter)/ 2.56 segundos (A4)\r\n        Tipo de escÃ¡ner CIS doble\r\n    Soluciones\r\n        Admitido\r\n            AirPrint\r\n            b-guard\r\n            Box\r\n            Br-Docs\r\n            Cortado Cloud Print\r\n            Dropbox\r\n            Evernote\r\n            Evernote Business\r\n            Facebook\r\n            Flickr\r\n            Google Cloud Print\r\n            Google Drive\r\n            iPrint&Scan\r\n            Managed Print Services\r\n            OneDrive\r\n            OneNote\r\n            Picassa\r\n    Consumibles y accesorios\r\n        TÃ³ner de larga duraciÃ³n TN2320: 2.600 pÃ¡ginas\r\n        TÃ³ner 1.200 pÃ¡ginas\r\n        TÃ³ner estÃ¡ndar TN2310: 1.200 pÃ¡ginas.', 4, -1, 0, -1, b'0'),
+	(30, 'HP Officejet Pro 8610 MultifunciÃ³n', 119, 'Color profesional a menor coste. Imprime color con calidad profesional con un coste por pÃ¡g. hasta 50 % mÃ¡s bajo que las impresoras lÃ¡ser. Imprime mediante la pantalla tÃ¡ctil, a travÃ©s de su red inalÃ¡mbrica o directamente desde dispositivos mÃ³viles con HP ePrint.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Imprima documentos en color de calidad profesional y hasta un 50% menos de coste por pÃ¡gina comparado con las lÃ¡ser.\r\n        Cree documentos en color de alta calidad con hasta 50 % menos de coste por pÃ¡gina que las lÃ¡ser.\r\n        Imprima documentos de aspecto profesional con negro nÃ­tido y definido y color vibrante y duradero usando tintas pigmentadas originales HP .\r\n        Consiga realizar el trabajo rÃ¡pidamente con velocidades de impr. de hasta 19 ppm en negro, 14,5 ppm en color.\r\n        Cree folletos a doble cara, fotos sin bordes, folletos impresionantes y otros materiales de marketing.\r\n    Imprima desde la oficina o en sus viajes a travÃ©s de su smartphone, tablet u ordenador portÃ¡til.\r\n        Imprima de forma inalÃ¡mbrica desde su dispositivo mÃ³vil, sin necesidad de router o acceso a red local.\r\n        Disfrute de impresiÃ³n fÃ¡cil desde su smartphone, tablet y ordenador portÃ¡til cuando estÃ© de viaje, con HP ePrint.\r\n        Imprima documentos, mensajes de correo electr., fotos y mucho mÃ¡s, cuando le sea mÃ¡s conveniente.\r\n        Comparta herramientas de impresiÃ³n de alta productividad a travÃ©s de la oficina con conectividad Ethernet 10/100.\r\n    Consiga hacer mÃ¡s con una gama de herramientas profesionales que aumentan la eficiencia.\r\n        Toque y pase por la pantalla tÃ¡ctil para acceder a aplic. que ahorran tiempo y gestionar tareas de impr., copia, escaneo y fax.\r\n        Aumente la productividad con la impresiÃ³n a dos caras y el alimentador automÃ¡tico de documentos de 35 pÃ¡ginas.\r\n        Escaneo a correo electrÃ³nico, carpetas de red y nube: la bÃºsqueda de directorio LDAP localiza el destino del correo electrÃ³nico.\r\n        Maneje trabajos de impresiÃ³n de gran volumen con confianza: hasta un ciclo de trabajo de 30.000 pÃ¡ginas mensuales.\r\n\r\nEspecificaciones:\r\n\r\n    Sistemas operativos compatibles\r\n        Windows 8.1, Windows 8, Windows 7, Windows Vista, Windows XP (SP3)* o superior (solo 32 bits): *Admite solo 32 bits\r\n        Mac OS X v10.6, v10.7, v10.8 o v10.9\r\n        Linux (para mÃ¡s informaciÃ³n, visite http://hplipopensource.com/hplip-web/index.html)\r\n    Procesador\r\n        Velocidad del procesador 600 MHz\r\n    Especificaciones de la impresora\r\n        Funciones\r\n        Imprimir, copiar, escanear, enviar fax, web\r\n        Compatibilidad con multitarea SÃ­\r\n        Sensor de papel automÃ¡tico No\r\n        ImpresiÃ³n sin bordes SÃ­, hasta 210 x 297 mm (A4)\r\n        Admite impresiÃ³n directa ImpresiÃ³n por puerto USB frontal\r\n        ImpresiÃ³n a doble cara AutomÃ¡tica (estÃ¡ndar)\r\n        Ciclo de trabajo (mensual, A4) Hasta 30000 pÃ¡ginas\r\n        Volumen de pÃ¡ginas mensuales recomendado de 250 a 1500 pÃ¡ginas (impresiÃ³n)\r\n        Nota Volumen de pÃ¡ginas mensuales recomendado HP recomienda mantener el nÃºmero de pÃ¡ginas impresas o digitalizadas a imÃ¡genes por mes en este rango para obtener el rendimiento Ã³ptimo, con base en factores que incluyen los intervalos de sustituciÃ³n de consumibles y la vida Ãºtil del producto durante un perÃ­odo de garantÃ­a ampliado.\r\n        Nota Ciclo de trabajo El ciclo de trabajo viene definido como el nÃºmero mÃ¡ximo de pÃ¡ginas por mes de salida de imÃ¡genes.\r\n        Alimentador de sobres No\r\n        Bandejas de papel, mÃ¡ximo 2\r\n        Bandejas de papel, estÃ¡ndar 1\r\n        Colores de impresiÃ³n SÃ­\r\n        Controladores de impresora incluidos\r\n            HP PCL 3 GUI\r\n            HP PCL 3 mejorado\r\n        Lenguajes de impresiÃ³n\r\n            HP PCL3 GUI,\r\n            HP PCL 3 Mejorado\r\n        GestiÃ³n de impresoras\r\n            HP Web Jetadmin\r\n            Servidor Web incorporado\r\n        TecnologÃ­a de impresiÃ³n InyecciÃ³n tÃ©rmica de tinta HP\r\n        Nota SureSupply HP SureSupply le alerta de cuando debe sustituir un cartucho de impresiÃ³n y le ayuda a adquirirlo localmente o a travÃ©s de Internet. Para obtener mÃ¡s informaciÃ³n, visite http://www.hp.com/learn/suresupply. SÃ³lo disponible con consumibles HP originales Requiere acceso a Internet.\r\n        Admite SureSupply SÃ­\r\n    Soportes de impresiÃ³n compatibles\r\n        TamaÃ±os de soportes, personalizados de 76,2 x 127 a 215,9 x 355,6 mm\r\n        TamaÃ±os de soporte estÃ¡ndar (dÃºplex) A4 A5 A6 B5\r\n        TamaÃ±os de material admitidos A4 A5 A6 B5(JIS) Sobre (DL, C5, C6)\r\n        Tipos de soportes\r\n            Papel normal, Papel blanco brillante HP, Papel para presentaciones HP Premium, Mate, Papeles fotogrÃ¡ficos HP Premium Plus, Papeles fotogrÃ¡ficos HP Advanced, Papel fotogrÃ¡fico satinado HP Everyday, Otros papeles fotogrÃ¡ficos, Otras tarjetas de felicitaciÃ³n, Papel Inkjet HP Professional de 180 g satinado/mate, Otros papeles de prospecto\r\n        Gramaje de papel compatible\r\n            Bandeja 1: de 60 a 105 g/mÂ² (papel normal)\r\n            de 220 a 280 g/mÂ², (papel fotogrÃ¡fico)\r\n            de 75 a 90 g/mÂ², (sobre)\r\n            de 163 a 200 g/mÂ², (tarjeta)\r\n        Gramaje recomendado\r\n            de 60 a 105 g/mÂ² (papel normal)\r\n            de 220 a 280 g/mÂ², (papel fotogrÃ¡fico)\r\n            de 75 a 90 g/mÂ², (sobre)\r\n            de 163 a 200 g/mÂ², (tarjeta)\r\n    Ãrea de impresiÃ³n\r\n        Ãrea de impresiÃ³n mÃ¡xima 209 x 349 mm\r\n        Margen inferior (A4) 3,3 mm\r\n        Margen izquierdo (A4) 3,3 mm\r\n        Margen derecho (A4) 3,3 mm\r\n        Margen superior (A4) 3,3 mm\r\n    ResoluciÃ³n de impresiÃ³n\r\n        Calidad de impresiÃ³n en negro (Ã³ptima) Hasta 1200 x 1200 ppp optimizados en papel normal desde 600 x 600 de ppp de entrada\r\n        Calidad de impresiÃ³n en color (Ã³ptima) Hasta 4800 x 1200 ppp optimizados en papel fotogrÃ¡fico HP Advanced, desde 1200 x 1200 ppp de entrada\r\n    Hora de impresiÃ³n\r\n        Primera pÃ¡gina impresa en negro (A4, lista) En sÃ³lo 12 segundos\r\n        Primera pÃ¡gina impresa en color (A4, lista) En sÃ³lo 13 segundos\r\n    Especificaciones de la copiadora\r\n        Capacidad para copias en color SÃ­\r\n        Copias, mÃ¡ximo Hasta 99 copias\r\n        ConfiguraciÃ³n de reducciÃ³n/ampliaciÃ³n de copias De 25 a 400%\r\n        Ajustes de la copiadora\r\n            Copias\r\n            Dos caras\r\n            MÃ¡s claro/mÃ¡s oscuro\r\n            HP Copy Fix\r\n            Copia de identificaciÃ³n\r\n            Cambiar el tamaÃ±o\r\n            Calidad\r\n            TamaÃ±o del papel\r\n            Tipo de papel\r\n            Compaginar\r\n            Desplazar margen\r\n            Recortar\r\n            Vista previa de copia\r\n            SelecciÃ³n de bandeja\r\n            Mejoras\r\n    ResoluciÃ³n de copiado\r\n        ResoluciÃ³n de copia (texto en negro) Hasta 1200 x 600 ppp\r\n        ResoluciÃ³n de copia (texto color y grÃ¡ficos) Hasta 1200 x 600 ppp\r\n        ResoluciÃ³n de copia (grÃ¡ficos en negro) Hasta 1200 x 600 ppp\r\n    Velocidad de copiado\r\n        Velocidad de copia en negro (borrador, A4) Hasta 31 cpm\r\n        Vel. de impresiÃ³n en negro (equivalente al lÃ¡ser) Hasta 13 cpm\r\n        Vel. de impresiÃ³n en color (equivalente al lÃ¡ser) Hasta 11 cpm\r\n        Velocidad de copia en color (borrador, A4) Hasta 31 cpm\r\n    CaracterÃ­sticas tÃ©cnicas del escÃ¡ner\r\n        Profundidad de bits 24 bits\r\n        Capacidad del alimentador automÃ¡tico de documentos EstÃ¡ndar, 35 hojas\r\n        DigitalizaciÃ³n en color SÃ­\r\n        Formato del archivo de digitalizaciÃ³n Escanee el tipo de archivo admitido por el software: Mapa de bits (.bmp), JPEG (.jpg), PDF (.pdf), PNG (.png), texto enriquecido (.rtf), PDF con bÃºsqueda (.pdf), texto (.txt), TIFF (.tif)\r\n        Niveles de escala de grises 256\r\n        Modos de entrada de digitalizaciÃ³n Escaneo, copia y fax en panel delantero o desde el software\r\n        Opciones de escaneado (ADF) SÃ­mplex (una cara)\r\n        TamaÃ±o de escaneado (ADF), mÃ¡ximo 215 x 355 mm\r\n        TamaÃ±o de escaneado (plano), mÃ¡ximo 216 x 280 mm\r\n        TecnologÃ­a de exploraciÃ³n (CIS) Sensor de imagen de contacto\r\n        VersiÃ³n Twain VersiÃ³n 1,9\r\n        Tipo de escÃ¡ner Superficie plana, alimentador automÃ¡tico de documentos (ADF)\r\n    ResoluciÃ³n del escÃ¡ner\r\n        ResoluciÃ³n de escaneado, hardware Hasta 1200 x 1200 ppp\r\n        ResoluciÃ³n de escaneo, Ã³ptica Hasta 1200 ppp\r\n    Especificaciones de fax\r\n        Rellamada automÃ¡tica SÃ­\r\n        Compatible con reducciÃ³n automÃ¡tica de fax SÃ­\r\n        Fax SÃ­, color\r\n        EnvÃ­o diferido de faxes SÃ­\r\n        ReenvÃ­o de fax SÃ­\r\n        Barrera contra fax no deseado SÃ­, necesita ID de llamada\r\n        Memoria de fax Hasta 100 pÃ¡ginas\r\n        Observaciones sobre la memoria\r\n        Basado en la imagen de prueba nÂº 1 de ITU-T con resoluciÃ³n estÃ¡ndar. Con pÃ¡ginas mÃ¡s complejas o una mayor resoluciÃ³n se tardarÃ¡ mÃ¡s y se utilizarÃ¡ mÃ¡s memoria.\r\n        Opciones de envÃ­o de fax (ADF) Doble cara\r\n        Admite interfaz de PC SÃ­, soporte de software HP proporcionado\r\n        Admite detecciÃ³n de timbre distintivo SÃ­\r\n        Indicadores de velocidad, mÃ¡ximo nÃºmero Hasta 99 nÃºmeros\r\n    ResoluciÃ³n del fax\r\n        ResoluciÃ³n (fotografÃ­a en negro, escala de grises) 300 x 300 ppp\r\n        ResoluciÃ³n de fax en color (fino) 200 x 200 ppp\r\n        ResoluciÃ³n de fax en color (estÃ¡ndar) 200 x 200 ppp\r\n        ResoluciÃ³n de fax en negro 203 x 196 ppp, 256 niveles de gris\r\n        ResoluciÃ³n (blanco y negro, modo estÃ¡ndar) 203 x 98 ppp\r\n    Velocidad de fax\r\n        Velocidad de transmisiÃ³n de fax 4 seg. por pÃ¡gina\r\n        Nota de fax Basado en la imagen de prueba nÂº 1 de ITU-T con resoluciÃ³n estÃ¡ndar. Con pÃ¡ginas mÃ¡s complejas o una mayor resoluciÃ³n se tardarÃ¡ mÃ¡s y se utilizarÃ¡ mÃ¡s memoria.\r\n    Especificaciones de la cÃ¡mara\r\n        Compatible con PictBridge No\r\n        DescripciÃ³n de PictBridge No\r\n        Formato del archivo de salida\r\n            PDF\r\n            TIFF\r\n            JPEG\r\n        Nota ImpresiÃ³n de acciÃ³n de vÃ­deo No\r\n        Admite impresiÃ³n de acciÃ³n de vÃ­deo No\r\n    Cartuchos y cabezales de impresiÃ³n\r\n        Tipos de tinta compatibles Basada en colorantes (negro y color)\r\n        Nota a pie de pÃ¡gina sobre el rendimiento de pÃ¡ginas Para mÃ¡s informaciÃ³n sobre el rendimiento en pÃ¡ginas visite www.hp.com/go/learnaboutsupplies o vea el embalaje del producto\r\n        NÃºmero de cartuchos de impresiÃ³n 4 (1 de cada color: negro, cian, magenta y amarillo)\r\n    Memoria\r\n        Memoria, estÃ¡ndar 128 MB\r\n        Memoria, mÃ¡ximo 128 MB\r\n    Especificaciones de pantalla\r\n        Pantalla tÃ¡ctil de 6,75 cm CGD (Pantalla grÃ¡fica en color)\r\n    BaterÃ­a y alimentaciÃ³n\r\n        AlimentaciÃ³n Voltaje de entrada: de 100 a 240 VCA (+/- 10%), 50/60 Hz\r\n        Tipo de fuente de alimentaciÃ³n Fuente de alimentaciÃ³n universal interna\r\n        Consumo energÃ©tico MÃ¡ximo 29 vatios, 0,15 vatios (apagado manual), 6,40 vatios (en espera), 2,10 vatios (suspensiÃ³n). Consumo elÃ©ctrico tÃ­pico (TEC): 0,42 kWh/semana.\r\n        Consumo de energÃ­a (copia activa) 29 vatios\r\n        Observaciones sobre el consumo de energÃ­a Las medidas de potencia se basan en el procedimiento de prueba ENERGY STARÂ® OM con una entrada de 230 VCA a 50 Hz.\r\n    Especificaciones Rack and Power\r\n        NÃºmero de consumo elÃ©ctrico tÃ­pico (TEC) 0,42 kWh/semana\r\n    Pesos\r\n        Peso 11,9 kg (con duplexor)\r\n    Requisitos del sistema\r\n        Requisitos mÃ­nimos del sistema para Macintosh\r\n            Mac OS X v10.6\r\n            v10.7\r\n            v10.8 o v10.9: 1 GB de espacio libre en el disco duro\r\n            CD-ROM/DVD o conexiÃ³n a Internet\r\n            USB\r\n        Requisitos mÃ­nimos del sistema\r\n            Windows 7, 8, 8.1: Procesador de 1 GHz y 32 bits (x86) o 64 bits (x64), 2 GB de espacio disponible en el disco duro, Internet Explorer, CD-ROM/DVD o Internet, USB\r\n            Windows Vista: Procesador de 800 MHz y 32 bits (x86) o 64 bits (x64), 2 GB de espacio disponible en el disco duro, Internet Explorer, CD-ROM/DVD o Internet, USB\r\n            Windows XP SP3 (solo 32 bits): IntelÂ® PentiumÂ® II, CeleronÂ® o procesador compatible de 233 MHz, 750 MB de espacio disponible en el disco duro, Internet Explorer 6, CD-ROM/DVD o Internet, USB\r\n    CaracterÃ­sticas tÃ©cnicas\r\n        CaracterÃ­stica\r\n            Hasta 19 ppm en negro, ISO (A4)\r\n            Hasta 14,5 ppm en color, ISO (A4)\r\n        CaracterÃ­stica impresiÃ³n dÃºplex\r\n        CaracterÃ­stica Hasta 30.000 pÃ¡ginas (A4)\r\n        CaracterÃ­stica de 250 a 1500 pÃ¡ginas (impresiÃ³n)\r\n    GestiÃ³n de la seguridad\r\n        GestiÃ³n de seguridad\r\n            ConfiguraciÃ³n del firewall del dispositivo\r\n            Bloqueo del panel de control\r\n            ProtecciÃ³n de contraseÃ±a EWS, SSL/TLS (HTTPS)\r\n', 4, -1, 0, -1, b'0'),
+	(31, 'Brother DCP-J562DW MultifunciÃ³n WiFi ', 90, 'Equipo de tinta consumo WiFi con impresiÃ³n automÃ¡tica a doble cara.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Accede directamente desde la pantalla tÃ¡ctil del equipo, con la conexiÃ³n Cloud, a sitios web predeterminados como Facebook, Picasa, Dropbox para subir y descargar informaciÃ³n.\r\n    Utiliza el DCP-J562DW con todos tus dispositivos - ordenadores, smartphones y tablets - con la conexiÃ³n mÃ³vil y las mÃºltiples opciones compatibles como Brother iPrint&Scan, Brother Print Services Plugin para Android, AirPrint y Google Cloud Print. AdemÃ¡s con WiFi Direct la comunicaciÃ³n con dispositivos mÃ³viles es muy rÃ¡pida y sencilla.\r\n    Un equipo que se adapta al ritmo que necesitas. Con el modo bk, podrÃ¡s trabajar temporalmente en monocromo si se agotan uno o varios cartuchos de color para atender tus trabajos urgentes y ademÃ¡s, puede realizar varias funciones a la vez para evitar tiempos de espera.\r\n    Pensado para contribuir al ahorro, cuenta con impresiÃ³n automÃ¡tica a doble cara para reducir el consumo de papel y admite 4 cartuchos individuales XL.\r\n\r\nEspecificaciones:\r\n\r\n    General\r\n        Tipo de impresora Color\r\n        Funciones Imprimir, Copia y escaneado\r\n        Pantalla Pantalla color tÃ¡ctil\r\n        TamaÃ±o de pantalla 6,8 cm\r\n        TamaÃ±o mÃ¡ximo del papel A4\r\n        Memoria 128 MB\r\n        TecnologÃ­a InyecciÃ³n de tinta\r\n    Brother Apps\r\n        Creative Center\r\n        Escaneado de nota\r\n        Office Doc Creator\r\n        Delinear y copiar\r\n        Delinear y escanear\r\n    Conectividad\r\n        Conectividad Red inalÃ¡mbrica\r\n        Interfaz USB USB 2.0 Hi-Speed\r\n        Wi-Fi Direct\r\n        Interfaz de red inalÃ¡mbrica 802.11 b/g/n\r\n    Conectividad mÃ³vil\r\n        Compatible iPrint&Scan, Google Cloud Print, AirPrint, WiFi Direct, Android Plugin y Cortado WorkPlace\r\n    Copia\r\n        ResoluciÃ³n Hasta 1.200 x 2.400 ppp (monocromo y color)\r\n        Velocidad 5,6/2,7cpm (ISO/IEC 29183)\r\n        Ratio de ampliaciÃ³n / reducciÃ³n 25% - 400% en incrementos del 1%\r\n        Copia N en 1\r\n    Dimensiones y pesos\r\n        Dimensiones 400(An) x 341(F) x 151(Al)mm\r\n        Peso 7,2 kg\r\n    Consumo de energÃ­a\r\n        Funcionamiento 19 vatios\r\n        Modo lista 3 vatios\r\n        HibernaciÃ³n 0.8 vatios\r\n        Apagado 0.2 vatios\r\n    Medio Ambiente\r\n        CertificaciÃ³n medioambiental Blue Angel\r\n        AcreditaciÃ³n medioambiental Energy Star\r\n        CertificaciÃ³n medioambiental Nordic Swan\r\n        Nivel de presiÃ³n sonora Funcionamiento? 50 dBA\r\n    Incluye\r\n        Contenido Cartuchos de tinta ? Negro, cian, magenta y Amarillo. Controlador y software para WindowsÂ® y MacintoshÂ® (CD ROM). Cable de alimentaciÃ³n elÃ©ctrica. GuÃ­a de configuraciÃ³n rÃ¡pida\r\n    Especificaciones de los soportes\r\n        Tipos y gramajes Bandeja de entrada: Normal, inyecciÃ³n de tinta, CuchÃ© ? Glossy, Reciclado. Ranura de alimentaciÃ³n manual: Normal, inyecciÃ³n de tinta, CuchÃ© ? Glossy, Reciclado. Bandeja de papel fotogrÃ¡fico: Normal, inyecciÃ³n de tinta, CuchÃ© ? Glossy, Reciclado. DÃºplex: Normal. Bandeja de entrada: 64-220 g/m2 ( 260 g/m2 utilizando papel Brother BP71). Ranura de alimentaciÃ³n manual: 64-300 g/m2. Bandeja de papel fotogrÃ¡fico: 64-220 g/m2 ( 260 g/m2 utilizando papel Brother BP71) DÃºplex: 64-105 g/m2\r\n        TamaÃ±os Bandeja de entrada: A4, LTR, EXE, A5, A6, Foto 10x15cm, Foto 13x18cm, Tarjeta 13x20 cm, sobres (C5, Com-10, DL, Monarca). Ranura de alimentaciÃ³n manual: A4, LTR, EXE, A5, A6, Foto 9x13cm, Foto 10x15cm, Foto 13x18cm, Tarjeta 13x20 cm, sobres (C5, Com-10, DL, Monarca). Bandeja de papel fotogrÃ¡fico: Foto 9x13cm, Foto 10x15cm. DÃºplex: A4/LTR/EXE/A5\r\n    Red\r\n        Red WiFi 802.11b/g/n\r\n        Seguridad de red WiFi SSID (32 caracteres), WEP 64/128, WPA-PSK (TKIP/AES), WPA2-PSK(AES)\r\n    Sistemas operativos y software\r\n        Software incluido - Mac Brother ControlCentre2\r\n        Software incluido - Windows Brother ControlCentre4\r\n        Compatible WindowsÂ® XP/Vista/7/8/Windows ServerÂ® 2003/2003 R2/2008/2008 R2/ 2012 / 2012 R2(Windows ServerÂ® sÃ³lo impresiÃ³n)OS X v10.8.5/10.9.x/10.10.x\r\n    Manejo de papel\r\n        Entrada de papel 100 hojas (80 g/m2)\r\n        Salida de papel 50 hojas (80 g/m2)\r\n    ImpresiÃ³n\r\n        ResoluciÃ³n 6.000 x 1.200 ppp (Vertical x Horizontal)\r\n        Velocidad - comparable lÃ¡ser (ISO/IEC 24734) 12/6 ppm mono/color\r\n        ImpresiÃ³n automÃ¡tica a doble cara\r\n        TamaÃ±o de gota 1.5 picolitro\r\n        Volumen mensual recomendado 50-1.000 pÃ¡ginas al mes\r\n    Escaneado\r\n        ResoluciÃ³n Hasta 1.200 x 2.400 ppp (Ã³ptica) y Hasta 19.200 x 19.200 ppp (interpolada con software Brother)\r\n        Escanea a Imagen, e-mail, archivo, tarjetas de memoria y servicios web\r\n        Velocidad 3,37 segundos en monocromo y 4,27 segundos en color (A4, 100 x 100 ppp)\r\n        Tipo de escÃ¡ner CIS\r\n    Soluciones\r\n        Compatible Brother iPrint&Scan, Google Cloud Print, Apple Air Print, Android Plugin, ConexiÃ³n Cloud y Cortado WorkPlace\r\n    Consumibles y accesorios\r\n        Papel Brother BP71GA4, BP71GP\r\n        Cartuchos de tinta de larga duraciÃ³n Negro (LC223BKBP) - 550 pÃ¡ginas A4. Cian (LC223CBP) - 550 pÃ¡ginas A4. Magenta (LC223MBP) - 550 pÃ¡ginas A4. Amarillo (LC223YBP) - 550 pÃ¡ginas A4. Pack de 4 cartuchos de tinta Innobella? Negro, Cian, Magenta y Amarillo (LC223VALBP) - 550 pÃ¡ginas A4\r\n        Cartuchos de tinta estÃ¡ndar Negro (LC221BKBP) - 260 pÃ¡ginas A4. Cian (LC221CBP) - 260 pÃ¡ginas A4. Magenta (LC221MBP) - 260 pÃ¡ginas A4. Amarillo (LC221YBP) - 260 pÃ¡ginas A4. Pack de 4 cartuchos de tinta Innobella? Negro, Cian, Magenta y Amarillo (LC221VALBP) - Aproximadamente 260 pÃ¡ginas A4\r\n    ImpresiÃ³n/escaneado directo\r\n        Imprimir desde Imprime y escanea, sin necesidad de ordenador, a travÃ©s de tarjetas de memoria compatibles.', 4, -1, 0, -1, b'0'),
+	(32, 'Canon Pixma MX475 WiFi/Fax/Duplex', 50, 'Equipo Todo en Uno para oficina domÃ©stica con conectividad inalÃ¡mbrica y alimentador automÃ¡tico de documentos Imprime, copia, escanea y envÃ­a fax con facilidad con este asequible equipo Todo en Uno Wi-Fi. Comparte funciones entre mÃºltiples PC y dispositivos mÃ³viles y disfruta de los rentables cartuchos de tinta XL opcionales.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Equipo Todo en Uno asequible con funciones de impresiÃ³n, copia, escaneo y fax\r\n    Conectividad inalÃ¡mbrica para compartir con facilidad tanto en el hogar como en la oficina\r\n    Procesamiento rÃ¡pido de documentos de varias pÃ¡ginas con el alimentador automÃ¡tico de documentos de 30 pÃ¡ginas\r\n    Compatible con la aplicaciÃ³n PIXMA Printing Solutions, Google Cloud Print y Apple AirPrint\r\n    Disfruta de una velocidad de impresiÃ³n de documentos A4 de 9,7 ipm en blanco y negro/5,5 ipm en color\r\n\r\nEspecificaciones:\r\n\r\n    ESPECIFICACIONES DE IMPRESIÃ“N\r\n        ResoluciÃ³n de impresiÃ³n Hasta 4.800Â¹ x 1200 ppp\r\n        TecnologÃ­a de impresiÃ³n 2 cartuchos FINE (BK, CL)\r\n        Sistema de inyecciÃ³n de tinta con gotas de 2 picolitros (mÃ­n.)\r\n        Tintas ChromaLife100\r\n        Velocidad de impresiÃ³n de documentos en blanco y negro Aprox. 9,7 ipmÂ¹\r\n        Velocidad de impresiÃ³n de documentos en color Aprox. 5,5 ipmÂ¹\r\n        Velocidad de impresiÃ³n de fotografÃ­as 10 x 15 cm sin bordes: aprox. 46 segundosÂ¹\r\n        ImpresiÃ³n sin bordes SÃ­ (A4, LTR, 20 x 25 cm, 13 x 18 cm, 10 x 15 cm)\r\n        ImpresiÃ³n a dos caras Manual\r\n    ESPECIFICACIONES DE ESCANEO\r\n        Tipo de escÃ¡ner EscÃ¡ner plano con ADF y color CIS\r\n        ResoluciÃ³n del escÃ¡ner (Ã³ptica) Hasta 1.200 x 2.400 pppÂ¹\r\n        Velocidad de escaneo A4 Aprox. 15 segundosÂ¹\r\n        TamaÃ±o mÃ¡ximo del documento EscÃ¡ner plano: A4, LTR (216 x 297 mm)\r\n        ADF: A4, LTR, LGL\r\n        OCR SÃ­\r\n        Profundidad de escaneo (entrada / salida) Color: 48 bits / 24 bits\r\n        Escala de grises: 16 bits / 8 bits\r\n    ESPECIFICACIONES DE COPIA\r\n        Velocidad de copia de documentos en color sFCOT: aprox. 24 segundosÂ¹\r\n        sESAT: aprox. 4,7 ipmÂ¹\r\n        sESAT ADF: aprox. 4,3 ipmÂ¹\r\n        Copias mÃºltiples De 1 a 99 pÃ¡ginas\r\n        Copia con zoom 25-400%\r\n        Funciones de copia Copia de documentos, copia fotogrÃ¡fica, copia con ajuste a pÃ¡gina, copia sin bordes\r\n        Ajustes de calidad de copia Alta, EstÃ¡ndar, RÃ¡pida\r\n    ESPECIFICACIONES DE FAX\r\n        Tipo de fax SÃºper G3 / Color\r\n        ResoluciÃ³n del fax Blanco y negro: hasta 300 x 300 ppp\r\n        Color: 200 x 200 ppp\r\n        Velocidad de fax Blanco y negro: aprox. 3 segundos (33,6 kbps)Â¹\r\n        Color: aprox. 1 min. (33,6 kbps)Â¹\r\n        Memoria del fax Hasta 50 pÃ¡ginas\r\n    TINTAS COMPATIBLES\r\n        Cartuchos de tinta estÃ¡ndar PG-540 (negro)\r\n        CL-541 (color)\r\n        Cartuchos de tinta XL opcionales PG-540XL (negro XL)\r\n        CL-541XL (color XL)\r\n    RENDIMIENTOS DE TINTA\r\n        BK (negro pigmentado) EstÃ¡ndar: 180 pÃ¡ginas de documentos o 2.465 fotos*\r\n        XL opcional: 600 pÃ¡ginas de documentos o 7.560 fotos*\r\n        CL (Color - CMY) EstÃ¡ndar: 180 pÃ¡ginas de documentos o 69 fotos\r\n        XL opcional: 400 pÃ¡ginas de documentos o 150 fotos\r\n        EstÃ¡ndares de prueba ISO/IEC 24711 para pÃ¡ginas de documento A4 en color\r\n        ISO/IEC 29102 para fotos sin bordes de 10 x 15 cm en color\r\n        Valores obtenidos realizando una impresiÃ³n continua\r\n        * Rendimiento adicional estimado\r\n    COMPATIBILIDAD DE PAPEL\r\n        Tipos de papel Papel normal\r\n        Sobres (DL, COM10)\r\n        Canon Pro Platinum (PT-101)\r\n        Canon Pro Luster (LU-101)\r\n        Canon FotogrÃ¡fico Brillo II (PP-201)\r\n        Canon Plus Semi Brillante (SG-101)\r\n        Canon Brillo "Uso Diario" (GP-501)\r\n        Canon Mate (MP-101)\r\n        Papel Canon de Alta ResoluciÃ³n (HR-101N)\r\n        Etiquetas FotogrÃ¡ficas Adhesivas Canon (PS-101)\r\n        Transfer para camisetas de Canon (TR-301)\r\n        Entrada mÃ¡xima de papel MÃ¡x. 100 hojas de papel normal\r\n        MÃ¡x. 20 hojas de papel fotogrÃ¡fico\r\n        TamaÃ±os del papel A4, A5, B5, LTR, LGL, 20 x 25 cm, 13 x 18 cm, 10 x 15 cm\r\n        Gramaje del papel Papel normal: 64 - 105 g/mÂ²\r\n        Papel fotogrÃ¡fico de Canon hasta 300 g/mÂ² (PT-101)\r\n    CONECTIVIDAD\r\n        Conexiones con cable Hi-Speed USB\r\n        Conexiones inalÃ¡mbricas Wi-Fi IEEE802.11 b/g/nÂ¹\r\n        Modo de punto de acceso\r\n        Compatibilidad de aplicaciones AplicaciÃ³n PIXMA Printing SolutionsÂ¹\r\n        Apple AirPrint\r\n        Google Cloud Print\r\n    SOFTWARE\r\n        Sistemas operativos compatibles Windows 8.1 / 8 / 7 / Vista SP1 y SP2 / XP SP3 32 bits\r\n        Mac OS X v10.6.8 o posterior\r\n        Sistemas mÃ³viles compatibles iOS (aplicaciÃ³n PIXMA Printing Solutions, AirPrint)\r\n        Android (aplicaciÃ³n PIXMA Printing Solutions)\r\n        Windows RT\r\n        Requisitos mÃ­nimos del sistema Windows: Internet Explorer 8, conexiÃ³n a Internet o CD-ROM\r\n        Mac: Safari 5 y conexiÃ³n a Internet\r\n        Pantalla: 1024 x 768 XGA\r\n        Software incluido Driver MP con Scanning Utility\r\n        Quick Menu\r\n        My Image Garden\r\n        Easy-WebPrint EX (plug-in para IE8 o superior)\r\n    CARACTERÃSTICAS FÃSICAS\r\n        Tipo y tamaÃ±o de pantalla Pantalla LCD de matriz de puntos completa\r\n        Idiomas en pantalla InglÃ©s, alemÃ¡n, francÃ©s, italiano, espaÃ±ol, holandÃ©s, portuguÃ©s, noruego, sueco, danÃ©s, finlandÃ©s, ruso, checo, hÃºngaro, polaco, esloveno, turco, griego, eslovaco, estonio, letÃ³n, lituano, ucraniano, rumano, bÃºlgaro, croata, japonÃ©s, chino simplificado, chino tradicional, coreano, indonesio\r\n        Alimentador automÃ¡tico de documentos Hasta 30 hojas\r\n        Dimensiones (An x Pr x Al) 458 x 385 x 200 mm\r\n        Peso 8,4 kg\r\n        Fuente de alimentaciÃ³n CA 100-240 V, 50/60 Hz\r\n        Consumo de energÃ­a En espera: aprox. 1,0 W (conexiÃ³n Wi-Fi al PC)\r\n        Apagada: aprox. 0,3 W\r\n        Copia: aprox. 18 WÂ¹\r\n        Niveles de ruido Aprox. 43,0 dB (A)Â¹\r\n        Entorno operativo recomendado Temperatura: 15-30 Â°C\r\n        Humedad: 10 - 80% HR (sin condensaciÃ³n)\r\n        Rendimiento hasta 3.000 pÃ¡ginas / mes\r\n        ResoluciÃ³n de impresiÃ³n Â¹ Las gotas de tinta pueden situarse con una separaciÃ³n mÃ­nima de 1/4800 pulgadas.\r\n        Velocidad de impresiÃ³n de documentos en blanco y negro Â¹ La velocidad de impresiÃ³n del documento en papel normal se mide de acuerdo con la media de ESAT en la prueba de la categorÃ­a de oficina de la norma ISO/IEC 24734.\r\n        Velocidad de impresiÃ³n de documentos en color Â¹ La velocidad de impresiÃ³n del documento en papel normal se mide de acuerdo con la media de ESAT en la prueba de la categorÃ­a de oficina de la norma ISO/IEC 24734.\r\n        Velocidad de impresiÃ³n de fotografÃ­as Â¹ La velocidad de impresiÃ³n fotogrÃ¡fica se basa en la configuraciÃ³n de driver predeterminada utilizando el estÃ¡ndar ISO/JIS-SCID N2 en Papel fotogrÃ¡fico brillo II de Canon y sin tener en cuenta el tiempo de procesamiento de los datos en el equipo host.\r\n        ResoluciÃ³n del escÃ¡ner (Ã³ptica) Â¹ La resoluciÃ³n Ã³ptica es una medida de la resoluciÃ³n mÃ¡xima de muestreo por hardware, basada en la norma ISO 14473. Al escanear en alta resoluciÃ³n, el tamaÃ±o del escaneo estÃ¡ limitado.\r\n        Velocidad de escaneo A4 Â¹ La velocidad de escaneo de documentos en color se mide a travÃ©s del ISO/IEC 24735, anexo C, grÃ¡fico de pruebas A. La velocidad de escaneo indica el tiempo transcurrido desde el momento en que se pulsa el botÃ³n del driver del escÃ¡ner hasta que la pantalla de estado se apaga.\r\n        Velocidad de copia de documentos en color Â¹ La velocidad de copia de documentos en color se mide de acuerdo con la media de sFCOT y sESAT en la prueba de rendimiento del estÃ¡ndar ISO/IEC 29183.\r\n        Velocidad de fax Â¹ La velocidad de transmisiÃ³n por fax se basa en el ajuste predeterminado con el grÃ¡fico ITU-T nÂº 1 para blanco y negro, y la hoja de prueba de fax en color de Canon para color. La velocidad de transmisiÃ³n real puede variar segÃºn la complejidad del documento, la configuraciÃ³n de fax en el extremo de recepciÃ³n y las condiciones de la lÃ­nea telefÃ³nica, etc.\r\n        Conexiones inalÃ¡mbricas Â¹ Banda de frecuencia de Wi-Fi: 2,4 GHz\r\n        Compatibilidad de aplicaciones Â¹ PIXMA Printing Solutions es la aplicaciÃ³n gratuita de Canon para smartphones y tablets. No disponible en determinados paÃ­ses o regiones.\r\n        Consumo de energÃ­a Â¹ Al copiar ISO/JIS-SCID N2 (impresiÃ³n con una impresora de inyecciÃ³n de tinta) en papel normal de tamaÃ±o A4 con los ajustes predeterminados.\r\n        Niveles de ruido Â¹ Al imprimir el patrÃ³n ISO/JIS-SCID N2 en Papel FotogrÃ¡fico Brillo II de 10 x 15 cm con los ajustes predeterminados.\r\n', 4, -1, 1, -1, b'0'),
+	(33, 'HP Officejet 3830 All-in-One Wifi', 54, 'Haz mÃ¡s cosas con la forma mÃ¡s fÃ¡cil para imprimir desde tu smartphone o Tablet. Simplifica las tareas, al tiempo que ahorras tiempo y dinero con esta multifuncional asequible y fÃ¡cil de usar con fax. Se adapta en casi cualquier espacio y funciona silenciosamente en el fondo.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Consigue impresiÃ³n mÃ³vil fÃ¡cil.\r\n    Empieza a imprimir y conÃ©ctate rÃ¡pidamente con una configuraciÃ³n sencilla desde tu smartphone, tablet o PC.\r\n    Conecta tu smartphone o tablet directamente a tu impresora e imprime fÃ¡cilmente sin acceder a una red.\r\n    Gestiona las tareas de impresiÃ³n y escanea en tus desplazamientos con la aplicaciÃ³n mÃ³vil HP All-in-One Printer Remote.\r\n    Imprime fÃ¡cilmente desde una gran variedad de smartphones y tablets.1 Sus pÃ¡ginas tienen un aspecto fantÃ¡stico, incluso si no estÃ¡s ahÃ­.\r\n    Disfruta de una impresiÃ³n asequible en casa.\r\n    Llena de valor: imprime hasta el doble de pÃ¡ginas con los cartuchos de tinta original HP de alta capacidad.\r\n    ObtÃ©n impresiones de alta calidad, una y otra vez, con una multifuncional, diseÃ±ada y creada para ser fiable.\r\n    Consigue todo lo que necesitas, de forma instantÃ¡nea.\r\n    Toma el control de tus tareas y termina en menos tiempo con la pantalla fÃ¡cil de usar de 5,5 cm (2,2 pulgadas).\r\n    Copia, escanea y envÃ­a por fax documentos de varias pÃ¡ginas rÃ¡pidamente con el alimentador automÃ¡tico de documentos de 35 pÃ¡ginas.\r\n    Acceda a pÃ¡ginas para colorear, recetas, cupones y mucho mÃ¡s con los Imprimibles HP gratuitos: entregados segÃºn su horario.\r\n    Sin esperas: comienza a imprimir directamente con instalaciÃ³n sencilla. ConÃ©ctate directamente a tu red inalÃ¡mbrica.\r\n    Cuenta con un producto diseÃ±ado para adaptarse a tu vida.\r\n    Ahorra espacio con una multifuncional compacta, diseÃ±ada para adaptarse a tu escritorio, en una estanterÃ­a o a cualquier sitio que lo necesites.\r\n    Imprime en cualquier habitaciÃ³n que elijas, sin causar interrupciones. El modo silencioso opcional te ayuda a mantener el ruido al mÃ­nimo.\r\n\r\nEspecificaciones:\r\n\r\n    Funciones ImpresiÃ³n, copia, escaneo, conexiÃ³n inalÃ¡mbrica, fax\r\n    Especificaciones de impresiÃ³n\r\n        Velocidad de impresiÃ³n en negro:\r\n            ISO: Hasta 8,5 ppm\r\n            Borrador: Hasta 20 ppm\r\n        Velocidad de impresiÃ³n en color:\r\n            ISO:Hasta 6 ppm\r\n            Borrador:Hasta 16 ppm\r\n        ImpresiÃ³n de la primera pÃ¡gina (lista)\r\n            Negro: En sÃ³lo 14 segundos\r\n            Color: En sÃ³lo 17 segundos\r\n        Ciclo de trabajo (mensual, A4) Hasta 1.000 pÃ¡ginas\r\n        Volumen de pÃ¡ginas mensuales recomendado 100 a 250\r\n        TecnologÃ­a de impresiÃ³n InyecciÃ³n tÃ©rmica de tinta HP\r\n        Controladores de impresora incluidos HP PCL 3 GUI\r\n        Calidad de impresiÃ³n (Ã³ptima)\r\n            Color: ResoluciÃ³n optimizada de hasta 4.800 x 1.200 ppp en color (cuando se imprime desde un ordenador con papel fotogrÃ¡fico HP y 1.200 ppp de entrada)\r\n            Negro: Hasta 1.200 x 1.200 ppp de reproducciÃ³n\r\n        Pantalla monocromÃ¡tica tÃ¡ctil de 5,5 cm (2,2 pulgadas)\r\n        Velocidad del procesador 180 MHz\r\n        NÃºmero de cartuchos de impresiÃ³n 2 (1 negro, 1 tricolor)\r\n        Lenguajes de impresiÃ³n HP PCL 3 GUI; PCLm (HP Apps/UPD); URF (AirPrint)\r\n        Sensor de papel automÃ¡tico\r\n    Conectividad\r\n        Capacidad inalÃ¡mbrica\r\n        Conectividad, estÃ¡ndar\r\n            1 USB 2.0 alta velocidad\r\n            Wi-Fi 802.11b/g/n\r\n        Requisitos mÃ­nimos del sistema\r\n            WindowsÂ® 8.1, 8, 7: Procesador de 1 GHz de 32 bits (x86) o 64 bits (x64), espacio de disco duro de 2 GB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, MicrosoftÂ® Internet Explorer\r\n            WindowsÂ® VistaÂ®: Procesador de 800 MHz de 32 bits (x86) o 64 bits (x64), espacio de disco duro de 2 GB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, MicrosoftÂ® Internet Explorer 8\r\n            WindowsÂ® XP SP3 o superior (32 bits solamente): cualquier procesador IntelÂ® PentiumÂ® II, CeleronÂ® o 233 MHz compatible, espacio en disco disponible de 850 MB, unidad de CD-ROM/DVD o conexiÃ³n a Internet, puerto USB, MicrosoftÂ® Internet Explorer 8\r\n            OS X v10.8 Mountain Lion, OS X v10.9 Mavericks, OS X v10.10 Yosemite\r\n            1 GB de espacio libre en el disco duro\r\n            Internet\r\n            USB\r\n            Sistemas operativos compatibles\r\n                WindowsÂ® 8.1, WindowsÂ® 8, WindowsÂ® 7\r\n                OS X v10.8 Mountain Lion, OS X v10.9 Mavericks, OS X v10.10 Yosemite\r\n    Movilidad\r\n        FunciÃ³n HP ePrint\r\n        Capacidad de impresiÃ³n mÃ³vil\r\n            Presenta conectividad WiFi Direct y conectividad WiFi local para habilitar la impresiÃ³n mÃ³vil a travÃ©s de Apple AirPrint?, asÃ­ como otras soluciones. Admite la impresiÃ³n desde la mayorÃ­a de los smartphones y tablets con estos sistemas operativos: Android, iOS, Blackberry, Symbian, Windows 8, Windows RT 2\r\n    Especificaciones de memoria\r\n        Memoria, estÃ¡ndar 512 MB DDR1, 128 MB de memoria Flash\r\n        Memoria, mÃ¡ximo 512 MB DDR1, 128 MB de memoria Flash\r\n    Manejo de papel\r\n        Entrada de gestiÃ³n de papel, estÃ¡ndar Bandeja entrada 60 hojas\r\n        Entrada de gestiÃ³n de papel, opcional No corresponde\r\n        Salida de gestiÃ³n de papel, estÃ¡ndar Bandeja de salida de 25 hojas\r\n        Salida de gestiÃ³n de papel, opcional No corresponde\r\n        ImpresiÃ³n a doble cara Manual (soporte para controlador suministrado)\r\n        TamaÃ±os de material admitidos\r\n            A4\r\n            B5\r\n            A6\r\n            Sobre DL\r\n        Tipos de soportes Papel normal, papel fotogrÃ¡fico, papel para folletos, sobres y otros papeles especiales de inyecciÃ³n de tinta\r\n        Gramajes de soportes, recomendados 75 g/mÂ²\r\n        Gramajes de soportes, admitidos A4: de 60 a 90 g/mÂ²; Sobres HP: de 75 a 90 g/mÂ²; Tarjetas HP: hasta 200 g/mÂ²; Papel fotogrÃ¡fico HP de 10 x 15 cm: hasta 300 g/mÂ²\r\n        ImpresiÃ³n sin bordes\r\n    Especificaciones del escÃ¡ner\r\n        Tipo de escÃ¡ner De superficie plana, alimentador automÃ¡tico de documentos (ADF)\r\n        Formato del archivo de digitalizaciÃ³n PDF, BMP, JPG, GIF, TIF, PNG\r\n        ResoluciÃ³n de escaneo, Ã³ptica Hasta 1200 ppp\r\n        Profundidad de bits 24 bits\r\n        TamaÃ±o de escaneado (plano), mÃ¡ximo 216 x 297 mm\r\n        Capacidad del alimentador automÃ¡tico de documentos EstÃ¡ndar, 35 hojas\r\n        Funciones estÃ¡ndar de envÃ­o digital Escaneado directo a PC\r\n        Modos de entrada de digitalizaciÃ³n Escaneo, copia y fax en el panel delantero\r\n    Especificaciones de la copiadora\r\n        ResoluciÃ³n de copia (texto en negro) Hasta 600 x 300 ppp\r\n        ResoluciÃ³n de copia (texto color y grÃ¡ficos) Hasta 600 x 300 ppp\r\n        Copias, mÃ¡ximo Hasta 20 copias\r\n    Especificaciones del fax\r\n        Fax color\r\n        ResoluciÃ³n del fax Hasta 300 x 300 ppp\r\n        Indicadores de velocidad, mÃ¡ximo nÃºmero Hasta 50 nÃºmeros\r\n    Requisitos de energÃ­a y operaciÃ³n\r\n        AlimentaciÃ³n TensiÃ³n de entrada: de 100 a 240 VCA (+/- 10%), 50/60 Hz (+/- 3 Hz)\r\n        Consumo de energÃ­a 10 vatios (mÃ¡ximo), 0,1 vatios (apagado), 2,83 vatios (espera), 1,17 vatios (reposo) 1\r\n        Rendimiento de energÃ­a CertificaciÃ³n ENERGY STARÂ®\r\n        Margen de temperaturas operativas 5 a 40 ÂºC\r\n        Intervalo de humedad en funcionamiento De 20 a 80% HR\r\n    Dimensiones y peso\r\n        Dimensiones mÃ­nimas (ancho x fondo x alto) 450 x 364 x 224,4 mm\r\n        Peso 5,61 kg\r\n    Contenido de la caja\r\n        Impresora multifuncional HP OfficeJet 3830\r\n        Cartucho de tinta HP 302 negro (aprox. 190 pÃ¡ginas)\r\n        Cartucho de tinta HP 302 tricolor (aprox. 165 pÃ¡ginas)\r\n        CD de software\r\n        PÃ³ster de configuraciÃ³n\r\n        Cable de alimentaciÃ³n\r\n        Cable de telÃ©fono.', 4, -1, 0, -1, b'0'),
+	(34, 'PcCom BattleBox VR NVIDIA i7-6700K/16GB/2TB+500GB SSD/GTX980Ti ', 1895, 'La nueva lÃ­nea de Pcs de sobremesa para trabajos audiovisuales, creado tras un amplio trabajo de investigaciÃ³n para ofrecer el mayor rendimiento y optimizaciÃ³n para nuestros clientes. Ensamblados por nuestros expertos de montaje, los nuevos PcCom ofrecen un rendimiento increÃ­ble, con mÃ¡xima velocidad, capacidad de ampliaciÃ³n y un amplio abanico de posibilidades dentro de la gama, en la que podrÃ¡s elegir el producto Ã³ptimo segÃºn las necesidades y el tipo de Pc que estas buscando.\r\n\r\nTe ofrecemos la posibilidad de disfrutar de un completo ordenador, a un precio excepcional. PcCom Gaming Nvidia posee una combinaciÃ³n de excelentes componentes de alta calidad y una serie de caracterÃ­sticas prÃ¡cticas para satisfacer tus necesidades informÃ¡ticas. Con una optimizaciÃ³n mÃ¡xima, te ofrecemos una mÃ¡quina excelente para tus trabajos audiovisuales a un precio increible.\r\n\r\nEspecificaciones: \r\n\r\n    Torre NZXT Noctis 450 USB 3.0 Negra\r\n    Fuente de alimentaciÃ³n Seasonic X-850 850W 80 Plus Gold Modular / EVGA Supernova G2 850W 80 Plus Gold Modular - SegÃºn disponibilidad\r\n    Procesador Intel i7-6700K 4.0Ghz Box\r\n    Ventilador Corsair Cooling Hydro Series H110i GT\r\n    Placa Base MSI Z170A Gaming M7   \r\n    Disco duro\r\n        Samsung 850 Evo SSD Series 500GB SATA3\r\n        Seagate Desktop 7200.14 2TB SATA3 64MB\r\n    Memoria G.Skill Ripjaws V Red DDR4 2400 PC4-19200 16GB 2x8GB CL15\r\n    No incluye lector \r\n    GrÃ¡fica EVGA GeForce GTX 980 Ti FTW Gaming ACX 2.0+ 6GB GDDR5 / MSI GeForce GTX 980 Ti Gaming 6GB GDDR5 - SegÃºn disponibilidad\r\n        Dual -link DVI -I / DVI -D\r\n        DisplayPort x 3\r\n        HDMI x 1  \r\n    Conexiones delanteras:\r\n        2 x USB 2.0\r\n        2 x USB 3.0\r\n    Conexiones traseras\r\n        1 x teclado PS / 2 / puerto de ratÃ³n\r\n        1 x DisplayPort\r\n        1 x puerto HDMI\r\n        1 x USB, con soporte para USB 3.1\r\n        1 x puerto USB 3.1\r\n        5 x puertos USB 3.0 / 2.0\r\n        2 x puertos RJ-45\r\n        1 x S Ã³ptica PDIF Conector\r\n        5 x conectores de audio (Salida de altavoz central / subwoofer, Rear Speaker Out, Line In / Mic, salida de lÃ­nea, auriculares)\r\n    Dimensiones (alto x ancho x prof.) 220mm x 567mm x 544mm\r\n\r\nNOTA1: No incluye sistema operativo, se entrega listo para ser instalado el que desee.\r\n\r\nNOTA2: El equipo se entrega con todos los accesorios, manuales, drivers, etc que incluyen todos los componentes instalados, asÃ­ como sus cajas originales.\r\n\r\nEste PC se entrega montado y testeado por profesionales con amplia experiencia, testeado y con un acabado excelente, para tener el mÃ­nimo nivel sonoro y la mÃ¡xima ventilaciÃ³n de los componentes instalados. El precio incluye todos los Ãºtiles y accesorios utilizados para el perfecto montaje. AdemÃ¡s el embalaje para el envÃ­o es extremadamente resistente y estÃ¡ probado ante grandes impactos, por lo que no debe temer por el envÃ­o.', 2, -1, 0, 50, b'0'),
+	(35, 'PcCom Gaming RedDragon Hero Plus i7-6700K/16GB/2TB+SSD250GB/GTX 980Ti', 1789, 'La nueva lÃ­nea de Pcs de sobremesa con componentes para juegos creada tras un amplio trabajo de investigaciÃ³n para ofrecer el mayor rendimiento y optimizaciÃ³n en el juego para nuestros clientes. Ensamblados por nuestros expertos de montaje, los nuevos PcCom ofrecen un rendimiento increÃ­ble, con mÃ¡xima velocidad, capacidad de ampliaciÃ³n y un amplio abanico de posibilidades dentro de la gama, en la que podrÃ¡ elegir el producto Ã³ptimo segÃºn las necesidades y el tipo de Pc que estÃ¡ buscando. \r\n\r\nRedDragon\r\n\r\nLa bestia de todas las bestias. Una mÃ¡quina indomable que te brindarÃ¡ una sensaciÃ³n de potencia descomunal a la hora de jugar. Creada y ensamblada con la mayor precisiÃ³n y los mejores componentes del momento, el PcCom RedDragon posee unas condiciones inigualables para el juego, superando ampliamente los requisitos tÃ©cnicos requeridos por los juegos que actualmente van apareciendo en el mercado.\r\n\r\nEspecificaciones:\r\n\r\n    Torre NZXT H440 Negra/Roja \r\n    Fuente de alimentaciÃ³n Antec HCG-750 M-EC 750W 80 Plus Bronze Modular \r\n    Procesador Intel i7-6700K 4.0Ghz   \r\n    Ventilador CPU Corsair Cooling Hydro Series H110i / Corsair Cooling Hydro Series H80i GT - SegÃºn disponibilidad\r\n    Placa Base Asus Maximus VIII Hero  \r\n    Disco duro \r\n        Seagate Desktop 7200.14 2TB SATA3 64MB\r\n        Kingston SSDNow V300 240GB \r\n    Memoria G.Skill Ripjaws V Red DDR4 2400 PC4-19200 16GB 2x8GB CL15    \r\n    Grabadora Samsung SE-208GB Grabadora DVD UltraSlim Externa Roja\r\n    GrÃ¡fica EVGA GeForce GTX 980 Ti FTW Gaming ACX 2.0+ 6GB GDDR5 / MSI GeForce GTX 980 Ti Gaming 6GB GDDR5 - SegÃºn disponibilidad\r\n        Dual -link DVI -I / DVI -D\r\n        DisplayPort x 3\r\n        HDMI x 1\r\n    Conexiones delanteras: \r\n        2 x USB 3.0\r\n        2 x USB2.0\r\n        1 x MicrÃ³fono \r\n        1 x Altavoces/auricular frontal\r\n    Conexiones traseras\r\n        1 x PS / 2 para teclado / ratÃ³n combo de puerto (s)\r\n        1 x DisplayPort\r\n        1 x HDMI\r\n        1 x puerto LAN (RJ45) (s)\r\n        1 x USB 3.1 (negro) Tipo-C\r\n        1 x USB 3.1 (rojo) Tipo-A\r\n        2 x USB 3.0 (azul)\r\n        4 x USB 2.0\r\n        1 x S Ã³ptico / PDIF\r\n        5 x jack de audio (s)\r\n        1 x USB BotÃ³n Flashback BIOS (s) \r\n    Dimensiones 220mm x 567mm x 544mm \r\n\r\nNOTA1: No incluye sistema operativo, se entrega listo para ser instalado el que desee.\r\n\r\nNOTA2: El equipo se entrega con todos los accesorios, manuales, drivers, etc que incluyen todos los componentes instalados, asÃ­ como sus cajas originales.\r\n\r\nEste PC se entrega montado y testeado por profesionales con amplia experiencia, testeado y con un acabado excelente, para tener el mÃ­nimo nivel sonoro y la mÃ¡xima ventilaciÃ³n de los componentes instalados. El precio incluye todos los Ãºtiles y accesorios utilizados para el perfecto montaje. AdemÃ¡s el embalaje para el envÃ­o es extremadamente resistente y estÃ¡ probado ante grandes impactos, por lo que no debe temer por el envÃ­o.', 2, -1, 1, -1, b'0'),
+	(36, 'Asus ROG G20AJ i7-4790/16GB/GTX760/1TB+128SSD', 1350, 'El ROG G20 estÃ¡ diseÃ±ado para dominar el segmento de sobremesas gaming compactos, y ya ha sido aclamado por la crÃ­tica internacional recibiendo los premios Best Choice of the Year y Golden Awards en la Computex 2014. El G20 presenta una compacta carcasa de 12,5 litros de volumen que incorpora un procesador IntelÂ® Core? i7 de 4.Âª generaciÃ³n y una grÃ¡fica NVIDIAÂ® GeForceÂ® GTX 780 para poner a tu disposiciÃ³n rendimiento imparable para juegos y entretenimiento domÃ©stico en calidad WQHD. A pesar de estos elevados niveles de rendimiento, el G20 ofrece una increÃ­ble eficiencia energÃ©tica. En el modo Eco Energy solo consume 20 W para ofrecerte un ahorro energÃ©tico mÃ¡s del 50 % superior a la media del sector1. Incluye ademÃ¡s Aegis, la aplicaciÃ³n exclusiva de ASUS que te permite monitorizar los parÃ¡metros del sistema.\r\n\r\nEl G20 estÃ¡ diseÃ±ado sin ranuras de ventilaciÃ³n laterales exteriores. Su diseÃ±o tÃ©rmico aprovecha las virtudes de la convecciÃ³n natural con un canal de aire oculto que garantiza una gestiÃ³n tÃ©rmica eficiente en sesiones de juego maratonianas. AdemÃ¡s, funciona con un nivel de ruido muy bajo, de tan solo 22 dB en inactividad. En su exterior, el G20 hace gala de un diseÃ±o atrevido, con un acabado en negro mate, lÃ­neas agresivas, marcas inspiradas en la cultura maya y efectos de iluminaciÃ³n personalizables que exhiben hasta ocho millones de colores.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Versatilidad en una carcasa de 12,5 litros de volumen\r\n    El ROG G20 es un sistema para gaming y entretenimiento destinado a dominar el segmento de sistemas de sobremesa gaming compactos. A pesar de su tamaÃ±o compacto, el G20 ofrece todo el rendimiento que cabrÃ­a esperar de un sistema para gaming hardcore\r\n    Armado para la victoria\r\n    El ROG G20 puede dotarse con un procesador hasta Intel Core i7 de 4.Âª generaciÃ³n para ofrecerte niveles de rendimiento gaming y multitarea sin precedentes. Te permite asumir las tareas mÃ¡s exigentes y jugar con las configuraciones mÃ¡s altas, ver vÃ­deos en 4K UHD y hasta crear sitios web espectaculares y modelos 3D profesionales.\r\n    Calidad visual impactante\r\n    Contempla las imÃ¡genes mÃ¡s impresionantes con una de las tarjetas grÃ¡fica NVIDIA GeForce GTX mÃ¡s modernas. El ROG G20 te sumerge en un mundo de color e imÃ¡genes a resoluciÃ³n WQHD 2560 Ã— 1440 permitiÃ©ndote jugar a juegos en su configuraciÃ³n mÃ¡s alta hasta en cuatro monitores a la vez. NVIDIA 3D Vision Surround te ofrece una experiencia 3D estereoscÃ³pica en la que te sumergirÃ¡s.\r\n    Ultrasilencioso\r\n    El G20 no solo es potente, tambiÃ©n es extremadamente silencioso. No te molestarÃ¡ cuando dejes descargando tus juegos durante toda la noche, con solo 22dB en modo inactivo, es mÃ¡s silencionso que una biblioteca.\r\n    Efectos de iluminaciÃ³n personalizables hasta con ocho millones de colores\r\n    El ROG G20 presenta un atrevido diseÃ±o en acabado mate negro, lÃ­neas agresivas y marcas inspiradas en la cultura maya. Los efectos de iluminaciÃ³n personalizables exhiben hasta ocho millones de colores a lo largo del chasis para reflejar las sensaciones del juego al que estÃ©s jugando y asÃ­ trasladar tu experiencia gaming a un nivel totalmente nuevo.\r\n    Sonido alucinante con audio gaming optimizado mediante SonicMaster\r\n    Dejando a un lado el aspecto visual, los mejores sobremesas gaming potencian tus experiencias de juego a travÃ©s del sonido. SonicMaster te sitÃºa justo en el centro de la batalla mediante una combinaciÃ³n Ãºnica de hardware y software de ajuste de audio. Los disparos resuenan, las explosiones reverberan y hasta las pisadas se convierten en pistas auditivas que podrÃ¡s usar a tu favor en el campo de batalla. SumÃ©rgete en la batalla con tus altavoces o auriculares3. La tecnologÃ­a de procesamiento del sonido ROG AudioWizard ofrece a los ordenadores de sobremesa ROG una capa adicional de mejora de audio, con hasta cinco modos personalizables a los que puede accederse fÃ¡cilmente sobre la marcha.\r\n\r\nEspecificaciones:\r\n\r\n    Procesador IntelÂ® Core? i7-4790 3.6GHz\r\n    Chipset Intel H97\r\n    Memoria RAM 16GB DDR3 1600MHz (2 x 8GB)\r\n    Disco duro 1TB SATA Hard Drive (7200RPM) + 128GB SATA SSD\r\n    BahÃ­as\r\n        1 x 3.5" HDD\r\n        1 x 2.5" SSD\r\n    Almacenamiento Ã³ptico SuperMulti DVD RW\r\n    Controlador grÃ¡fico NVIDIA GeForce GTX760 2GB (1HDMI,2DVI,1DP)\r\n    Conectividad\r\n        LAN RJ45\r\n        802.11a/b/g/n/ac\r\n        Bluetooth V4.0\r\n    Conexiones\r\n        Frontal\r\n            2 x USB 3.0\r\n            1 x Microfono\r\n            1 x Auriculares\r\n        Trasero\r\n            1 x RJ45 LAN\r\n            1 x 8 channel Audio\r\n            1 x HDMI-Out\r\n            2 x USB 3.0\r\n            4 x USB 2.0\r\n            2 x Power jack\r\n    Sistema operativo Windows 8.1 64bit\r\n    Dimensiones (Ancho x Profundidad x Altura) 104 x 340 x 358 mm\r\n    Peso 10.77Kg\r\n    Color Negro\r\n', 2, -1, 1, -1, b'0'),
+	(37, 'PcCom Gaming Bronze Ultra i3-6100/8GB/SSD 120GB + 1TB/GTX 960 ', 649, 'La nueva lÃ­nea de Pcs de sobremesa para juegos creada tras un amplio trabajo de investigaciÃ³n para ofrecer el mayor rendimiento y optimizaciÃ³n en el juego para nuestros clientes. Ensamblados por nuestros expertos de montaje, los nuevos PcCom ofrecen un rendimiento increÃ­ble, con mÃ¡xima velocidad, capacidad de ampliaciÃ³n y un amplio abanico de posibilidades dentro de la gama, en la que podrÃ¡s elegir el producto Ã³ptimo segÃºn las necesidades y el tipo de Pc que estas buscando. \r\n\r\nGaming Bronze\r\n\r\nEste Pc de sobremesa estÃ¡ equipado con un procesador de primerÃ­sima calidad, grÃ¡ficos impresionantes y una serie de caracterÃ­sticas atractivas para satisfacer todas sus necesidades de entretenimiento y multitarea de una manera satisfactoria. Disfruta jugando en tu Pc por una relaciÃ³n calidad/precio inigualable.\r\n\r\nEspecificaciones:\r\n\r\n    Torre Antec GX505 Window USB 3.0 Blue\r\n    Fuente de alimentaciÃ³n Tacens Radix VII AG 600W 80 Plus Silver / Thermaltake Smart SE 530W - SegÃºn disponibilidad\r\n    Procesador Intel Core i3-6100 3.7GHz Box\r\n    Placa Base MSI H110M PRO-D \r\n    Disco duro \r\n        Seagate Barracuda 7200.14 1TB SATA3\r\n        Kingston SSDNow 120GB\r\n    Memoria G.Skill Aegis DDR4 2133 PC4-17000 8GB CL15 \r\n    Grabadora DVD Sata Negra \r\n    GrÃ¡fica MSI GTX960 4GD5T OC 4GB DDR5 \r\n        Dual-link DVI -I x 1\r\n        HDMI x 1 (versiÃ³n 1.4a)\r\n        DisplayPort x 3 (versiÃ³n 1.2/2.0)\r\n    Conexiones delanteras: \r\n        2 x USB 3.0\r\n        HD-Audio In / Out\r\n        1 x Control del ventilador (alto / apagado / bajo)\r\n    Conexiones traseras\r\n        1 x PS/2 keyboard/ mouse port\r\n        4 x USB 2.0 ports\r\n        2 x USB 3.1 Gen1 ports\r\n        1 x DVI-D port\r\n        1 x LAN (RJ45) port\r\n        3 x audio jacks\r\n    Dimensiones (alto x ancho x prof.)  205 x 469 x 481 mm\r\n\r\nNOTA1: No incluye sistema operativo, se entrega listo para ser instalado el que desee.\r\n\r\nNOTA2: El equipo se entrega con todos los accesorios, manuales, drivers, etc que incluyen todos los componentes instalados, asÃ­ como sus cajas originales.\r\n\r\nEste PC se entrega montado y testeado por profesionales con amplia experiencia y con un acabado excelente, para tener el mÃ­nimo nivel sonoro y la mÃ¡xima ventilaciÃ³n de los componentes instalados. El precio incluye todos los Ãºtiles y accesorios utilizados para el perfecto montaje. AdemÃ¡s el embalaje para el envÃ­o es extremadamente resistente y estÃ¡ probado ante grandes impactos, por lo que no debe temer por el envÃ­o.\r\n\r\nEl testeo consta de varias fases, revisando todos y cada uno de los componentes mediante software especializado para estas tareas.  ', 2, -1, 1, -1, b'0'),
+	(38, 'MSI Vortex G65 6QF(SLI)-048ES Intel i7-6700K/64GB/1TB+512SSD/2xGTX980', 4399, '\r\n    Procesador IntelÂ® Core i7-6700K (2.53 GHz, 3 MB)\r\n    Memoria RAM 64GB DDR4 SODIMM (4x16GB)\r\n    Disco duro 1TB (7200 rpm S-ATA) + 512 Gb Super Raid 4 (2x256GB NVMe M.2 SSD PCIe Gen3 X4)\r\n    Controlador grÃ¡fico 2x Nvidia GTX 980 8GB GDDR5\r\n    Conectividad\r\n        LAN 10/100/1000 Killer Double Shot Pro\r\n        Bluetooth V4.1 High Speed\r\n    Conexiones\r\n        2 x Mini Display Port\r\n        2 x HDMI\r\n        2 x Thuderbolt 3\r\n        1 x salida de auriculares\r\n        1 x entrada de micrÃ³fono\r\n        2 x USB 3.1 Type-C\r\n        4 x USB 3.0\r\n        2 x RJ45\r\n    Lector de Tarjetas 3 en 1 (SD, SDHC, MMC)\r\n    Sistema operativo Microsoft Windows 10 64bits\r\n    Dimensiones (Ancho x Profundidad x Altura)\r\n    Peso\r\n    Color Negro.', 2, -1, 0, -1, b'0'),
+	(39, 'MSI Nightblade MI2-081XES Intel Core i7-6700/16GB/2TB+128GB SSD/GTX960', 1199, 'Un PC Gamer como este MSI Nightblade es tu compaÃ±ero ideal en el campo de batalla. Los chicos de MSI han ensamblado en el chasis metÃ¡lico de este ordenador gaming una potente selecciÃ³n de componentes con los que mover a tope los juegos mÃ¡s exigentes.\r\nDe mostrarte los graficazos que esperas se encargan su procesador Intel Core i7 y la Nvidia GeForce GTX 960 OC con 4GB DDR5. La fluidez corre por cuenta de 16GB DDR4 y un fantÃ¡stico disco duro de 2TB potenciado gracias a la incorporaciÃ³n de un disco duro SSD de 128GB para que la experiencia gamer sea total.Una caja espaciosa que instala un avanzado sistema de refrigeraciÃ³n para tener a punto tu equipo para largas e intensas jornadas de juego indiscriminado.\r\n\r\nEl diseÃ±o de los ordenadores gaming suele ser bastante farragoso, pero en el caso del MSI Nightblade la distribuciÃ³n se convierte en tu principal aliado a la hora de intercambiar componentes ya sea por sustituciÃ³n o ampliaciÃ³n Â¡MÃ¡s RAM que se acerca otro shooter triple AAA!\r\n\r\nMSI ha cuidado hasta el Ãºltimo aspecto para que tu inmersiÃ³n sea total, por ello el sonido cuenta con un amplificador especial Audio Boost que potencia el rendimiento y la calidad de tus auriculares.\r\n\r\n    Procesador IntelÂ® Core i7-6700 (3.4 GHz, 3 MB)\r\n    Memoria RAM 16GB DDR4 DIMM \r\n    Disco duro 2 TB (7200 rpm S-ATA)+128GB SSD\r\n    Almacenamiento Ã³ptico Super Multi Dual Layer (S-ATA)\r\n    Controlador grÃ¡fico NVIDIA GeForce GTX 960 OC 4GB GDDR5\r\n    Conectividad\r\n        LAN 10/100/1000\r\n        802.11 ac a/b/g/n\r\n        Bluetooth V4.0 High Speed\r\n    Conexiones\r\n        1 x DVI\r\n        1 x HDMI\r\n        1 x salida de auriculares\r\n        1 x entrada de micrÃ³fono\r\n        4 x USB 3.0\r\n        6 x USB 2.0\r\n        1 x RJ45\r\n        1 x Display port\r\n    Lector de Tarjetas FreeDOS\r\n    Dimensiones (Ancho x Profundidad x Altura)  127,6 x 234,8 x 340,6 mm\r\n    Peso 6.4 kg\r\n    Color Negro.', 2, -1, 0, -1, b'0'),
+	(40, 'PcCom Gaming Revolution Ultra i5 6600K/8GB/1TB/GTX960 4GB', 829, 'La nueva lÃ­nea de Pcs de sobremesa para juegos creada tras un amplio trabajo de investigaciÃ³n para ofrecer el mayor rendimiento y optimizaciÃ³n en el juego para nuestros clientes. Ensamblados por nuestros expertos de montaje, los nuevos PcCom ofrecen un rendimiento increÃ­ble, con mÃ¡xima velocidad, capacidad de ampliaciÃ³n y un amplio abanico de posibilidades dentro de la gama, en la que podrÃ¡s elegir el producto Ã³ptimo segÃºn las necesidades y el tipo de Pc que estas buscando.\r\n\r\nGaming Revolution\r\nEste Pc de sobremesa estÃ¡ equipado con un procesador 1151 de Ãºltima generaciÃ³n, grÃ¡ficos impresionantes gracias a su GTX 960 con 4GB DDR5 y una serie de caracterÃ­sticas atractivas para satisfacer todas sus necesidades de entretenimiento y multitarea . Disfruta jugando en tu Pc Gaming por una relaciÃ³n calidad/precio inigualable.\r\n\r\nEspecificaciones:\r\n\r\n    Torre Nox Coolbay Sx Devil Usb 3.0 Ventana\r\n    Fuente de alimentaciÃ³n Tacens Radix VII AG 700W 80 Plus Silver / Enermax MaxPro 700W 80 Plus - SegÃºn disponibilidad\r\n    Procesador Intel i5-6600K 3.5Ghz Box\r\n    Ventilador CPU Cooler Master Hyper 212 EVO\r\n    Placa Base MSI Z170A PC Mate\r\n    Disco duro Seagate Barracuda 7200.14 1TB SATA3 64MB\r\n    Memoria G.Skill Ripjaws V Red DDR4 2400 PC4-19200 8GB 2x4GB CL15\r\n    Grabadora DVD Sata Negra\r\n    GrÃ¡fica MSI GTX960 4GD5T OC 4GB DDR5 -SegÃºn disponibilidad\r\n        1 x DVI-I\r\n        1 x DVI-D\r\n        3 x DisplayPort\r\n        1 x HDMI\r\n    Conexiones delanteras: \r\n        1 x USB 3.0\r\n        1 x USB 2.0\r\n        1 x Altavoces/auricular frontal\r\n    Conexiones traseras\r\n        1 x PS/2 mouse port\r\n        1 x PS/2 keyboard port\r\n        1 x VGA port\r\n        1 x DVI-D port\r\n        1 x HDMI? port\r\n        1 x LAN (RJ45) port\r\n        4 x USB 3.1 Gen1 ports\r\n        2 x USB 3.1 Gen2 ports\r\n        3 x audio jacks\r\n    Dimensiones (alto x ancho x prof.)  185 x 445 x 490 mm \r\n\r\nNOTA1: No incluye sistema operativo, se entrega listo para ser instalado el que desee.\r\n\r\nNOTA2: El equipo se entrega con todos los accesorios, manuales, drivers, etc que incluyen todos los componentes instalados, asÃ­ como sus cajas originales.\r\n\r\nEste PC se entrega montado y testeado por profesionales con amplia experiencia, testeado y con un acabado excelente, para tener el mÃ­nimo nivel sonoro y la mÃ¡xima ventilaciÃ³n de los componentes instalados. El precio incluye todos los Ãºtiles y accesorios utilizados para el perfecto montaje. AdemÃ¡s el embalaje para el envÃ­o es extremadamente resistente y estÃ¡ probado ante grandes impactos, por lo que no debe temer por el envÃ­o.', 2, -1, 0, -1, b'0'),
+	(41, 'Acer Predator XZ350CU 35 2K LED Curvo', 849, 'Te presentamos uno de los mejores monitores Gaming del mercado. El Acer XZ350CU es un monitor Curvo con tecnologÃ­a LED de 35" que te ofrece una impresionante imagen con resoluciÃ³n 2K y con un tiempo de respuesta rÃ¡pido de tÃ¡n solo 4ms\r\n\r\nEspecificaciones:\r\n\r\n    Pantalla\r\n        TamaÃ±o de Pantalla 88,9 cm (35")\r\n        Modo de Pantalla WQHD\r\n        Tiempo de Respuesta 4 ms\r\n        RelaciÃ³n de aspecto 21:9\r\n        TecnologÃ­a de iluminaciÃ³n de Fondo LED\r\n        TecnologÃ­a de Pantalla Vertical Alignment (VA)\r\n        CaracterÃ­sticas ComfyView\r\n        Enlace de Alta DefiniciÃ³n MÃ³vil (MHL)\r\n        InclinaciÃ³n de la pantalla ajustable\r\n        Ãngulo de inclinaciÃ³n -5Â°a25Â°\r\n        Altura de Pantalla Ajustable\r\n    VÃ­deo\r\n        ResoluciÃ³n mÃ¡x. 2560 x 1440\r\n        Ãndice de refresco estÃ¡ndar 144 Hz\r\n        Colores Admitidos 16,7 Millones de colores\r\n        RelaciÃ³n de Contraste 100,000,000:1\r\n        Brillo 300 cd/mÂ²\r\n        TecnologÃ­a anti-fragmentaciÃ³n FreeSync\r\n    Audio\r\n        Altavoces\r\n    Interfaces/Puertos\r\n        HDMI\r\n        USB\r\n    DescripciÃ³n de la AlimentaciÃ³n\r\n        Clase de eficiencia energÃ©tica B\r\n        Consumo de EnergÃ­a Anual 76 kWh\r\n        Consumo de energÃ­a 52 W\r\n        Consumo energÃ©tico en funcionamiento (Energy Star) 52 W\r\n    CaracterÃ­sticas FÃ­sicas\r\n        Color Negro.', 5, -1, 0, 10, b'0'),
+	(42, 'BenQ BL3201PT LED 32 Ultra HD 4K', 899, 'Te presentamos el monitor BenQ BL3201PT Ultra HD 4K, el primer monitor 32" 4K creado para diseÃ±adores.\r\n\r\nEl El BL3201PT de BenQ es una impresionante pantalla con tecnologÃ­a IPS y la Ãºltima generaciÃ³n de resoluciÃ³n Ultra HD 4K. Este monitor se ha creado para dar un apoyo contÃ­nuo al mundo de la ilustraciÃ³n y trabajo visual, animaciÃ³n, ediciÃ³n de video...AsÃ­ profesionales con una precisiÃ³n meticulosa en los detalles pueden trabajar con una precisiÃ³n perfecta y lograr una alta productividad.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Monitores profesionales de ingenierÃ­a para el diseÃ±o de precisiÃ³n\r\n    DiseÃ±ado para satisfacer las crecientes demandas de gran tamaÃ±o de ultra-alta definiciÃ³n, el BL3201PT cuenta con una "pantalla 4K2K de 32" construido con tecnologÃ­a IPS avanzado de BenQ, para proporcionar a los profesionales de CAD / CAM, animaciÃ³n, ediciÃ³n de video y artes grÃ¡ficas reproducciones del color ultra precisos y mÃ¡s del 300% del espacio de trabajo para mejorar su eficiencia y la productividad en el trabajo.\r\n    100% sRGB con tecnologÃ­a IPS\r\n    Cada color se entrega con la mejor precisiÃ³n en cada detalle y en cada Ã¡ngulo de visiÃ³n posible para una experiencia visual increÃ­ble. Con un panel de 10 bits que hace que mÃ¡s de mil millones de colores se muestre con los colores mÃ¡s ricos y mÃ¡s vivos.\r\n    178 Â° / 178 Â° ultra-amplios Ã¡ngulos de visiÃ³n\r\n    BenQ ha creado una pantalla visual fiel a los colores y detalles desde prÃ¡cticamente cualquier perspectiva(izquierda, derecha, arriba y abajo) 100% sRGB con tecnologÃ­a IPS Ultra-Vivid para imÃ¡genes que superan el rendimiento del color de los monitores 72% NTSC estÃ¡ndar con tonalidades excepcionalmente ricos y tonos vibrantes. ? color Shift-libre del indicador  Para la una definiciÃ³n del color mÃ¡s consistente con reducciÃ³n de la visibilidad de cambio de color entre Ã¡ngulos de visiÃ³n normal y oblicuos.\r\n    Para aquellos que tienen un ojo para el detalle y precisiÃ³n CAD / CAM\r\n    Ingenieros y diseÃ±adores de CAD / CAM son profesionales que trabajan con informaciÃ³n muy detallada, dÃ¡ndole a este monitor una claridad magnÃ­fica y una precisiÃ³n del color absolutamente vital para garantizar el diseÃ±o de precisiÃ³n. BL Series de BenQ ofrece una serie de soluciones de visualizaciÃ³n para un rendimiento maximizado, incluyendo el modo de CAD / CAM para llevar a cabo hasta el mÃ­nimo detalle para ver en Pro / E, SolidWorks, AutoCAD, CATIA u otro software CAD / CAM. Reconociendo la multitarea y la naturaleza colaborativa del trabajo, se incluyen caracterÃ­sticas bien pensadas que soportan una amplia gama de opciones de visualizaciÃ³n para asegurar una alta productividad y puede ser preservado mientras los usuarios ejecutan varias tareas al mismo tiempo o comparar y discutir el trabajo de diseÃ±o con sus colegas.\r\n    AnimaciÃ³n\r\n    El BenQ BL3201PT ha sido tambiÃ©n diseÃ±ado para profesionales que trabajan dando vida al arte en movimiento, por lo que incluso el mÃ¡s mÃ­nimo detalle da suma importancia para la entrega de las creaciones animadas. Para responder a las exigencias visuales de los animadores mÃ¡s sofisticados, los monitores BenQ Serie BL le dan consistencia y precisiÃ³n sin concesiones para la visualizaciÃ³n de todos los matices de colores a travÃ©s de una amplia gama de configuraciones de calibraciÃ³n de imÃ¡genes optimizadas, incluyendo el modo de animaciÃ³n de brillo para mejorar el resultado final. Para distinguir texturas detalladas en Ã¡reas oscuras no tan fÃ¡ciles, BenQ ha desarrollado un modo de animaciÃ³n para mejorar el brillo en las zonas oscuras sin sobreexponer zonas brillantes. Esto permite a los animadores afinar su creaciÃ³n de animaciones sin esfuerzo. 10 niveles de ajuste del brillo de la pantalla revelan detalles de las Ã¡reas oscuras para el diseÃ±o mÃ¡s preciso.\r\n    Artes GrÃ¡ficas\r\n    Un monitor de alta calidad con alta resoluciÃ³n, alta precisiÃ³n del color y de la fidelidad y de una amplia gama de opciones de conectividad de alta velocidad es lo que hace un compaÃ±ero perfecto para los profesionales de la industria de las artes grÃ¡ficas, incluyendo diseÃ±adores grÃ¡ficos, retocadores y fotÃ³grafos. Con la mÃ¡s alta resoluciÃ³n en 3840x2160 4K2K con 100% sRGB y tecnologÃ­a IPS avanzado de BenQ, la Serie BL presenta resultados de color consistentes y fiables con cada detalle y precisiÃ³n para una experiencia de visualizaciÃ³n brillante desde prÃ¡cticamente cualquier perspectiva. Una variedad de opciones de conectividad y ver tambiÃ©n permite a los usuarios trabajar con mÃºltiples dispositivos y realizar complejos trabajos multitarea con facilidad.\r\n\r\nEspecificaciones:\r\n\r\n    Pantalla\r\n        Back Ligth LED\r\n        TamaÃ±o LCD 32"\r\n        RelaciÃ³n de aspecto 16:9\r\n        resoluciÃ³n mÃ¡xima 3840 x 2160\r\n        Area de visualizaciÃ³n 708,5 x 398,5\r\n        Pixel Pitch 0.1845mm\r\n        Brillo 350 (tip.)\r\n        Contraste nativo 1000:1\r\n        DCR 20M: 1\r\n        Tipo de panel TecnologÃ­a IPS\r\n        Ãngulo de visiÃ³n (L/R;T/D) (CR> =10) 178Âº/178Âº\r\n        Tiempo de respuesta (Tr + Tf) 4ms (GtG)\r\n        Profundidad de color 10bits\r\n        Colores de la pantalla 1.07 mil millones\r\n        Gama de colores 100% sRGB\r\n    Audio/Video Entradas/ Salidas\r\n        Conector de entrada DVI-DL/ HDMI1.4 *2 / DP1.2 /mDP1.2 headphone jack / line in\r\n        Altavoz 2 x 5W\r\n    Potencia\r\n        Consumo 79W\r\n        Consumo (on Mode) 0.5W\r\n    Dimensiones y Peso\r\n        Dimensiones 640.2 x 740.3 x 213.4\r\n        Dimensiones con soporte de pared 436.4x740.3x65.6\r\n        Peso 12.5 Kg\r\n    CaracterÃ­sticas especiales\r\n        CAD / modo CAM\r\n        Modo de AnimaciÃ³n\r\n        Auto Pivot\r\n        TecnologÃ­a sin parpadeos\r\n        Controlador OSD\r\n        Luz bajo Azul\r\n        SenseyeÂ® Senseye 3\r\n        WindowsÂ® 7 Compatible\r\n        WindowsÂ® 8 Compatible\r\n        WindowsÂ® 8.1 Compatible\r\n        Mac OS Compatible\r\n        HDCP\r\n        Temperatura de color Modo rojizo / Normal / Azulado / usuario\r\n        Montaje en pared VESA 100x100mm\r\n        Giratoria (izquierda / derecha) 45/45\r\n        Hub USB USB3.0 * 3 (traseros) / USB 3.0 * 2 (Side) / Mini USB * 1\r\n        InclinaciÃ³n (arriba / abajo) -5 ~ 20\r\n        Pivote 90 Â°\r\n        Alta de Ajuste (mm) 150mm\r\n        Interruptor de CA\r\n        K Locker\r\n    Accesorios incluidos\r\n        Cable de seÃ±al DVI-DL, DP1.2, HDMI1.4, USB 3.0, cable de audio\r\n        TCO TCO 6.0\r\n        EnergyStar6.0 6.0.', 5, -1, 1, -1, b'0'),
+	(43, 'LG 34UC98-W 34 LED Curvo', 949, 'Te presentamos el 34UC98-W de LG, un monitor de 34" curvo con retroiluminaciÃ³n LED y resoluciÃ³n 3440 x 1440 QHD\r\n\r\nEspecificaciones:\r\n\r\n    Pantalla\r\n        TamaÃ±o: 34? Curved Led IPS\r\n        ResoluciÃ³n: 3440 X 1440\r\n        Formato/Aspecto 21:9\r\n        Contraste Original/DinÃ¡mico 1000:1 / mega\r\n        Brillo 300 cd/m2\r\n        Tiempo de Respuesta 5ms\r\n        Ãngulo de VisiÃ³n:\r\n        Cr ? 10 178/178\r\n        Cr ? 5 TBD\r\n    Conexiones\r\n        Entrada: HDMI x 2\r\n        DisplayPort, Salida de auriculares, USB, USB 3.0 x 2, ThunderBolt x 2\r\n        Altavoces integrados (MaxxAudio) 7W X 2\r\n    Frecuencias de escaneado\r\n        Horizontal 30~83kHz\r\n        Vertical 56~75kHz\r\n    AlimentaciÃ³n\r\n        100~240 V\r\n        Consumo:\r\n        Normal 70W\r\n        Ahorro de energÃ­a 1.2 W\r\n        Apagado 0.3W\r\n    CaracterÃ­sticas generales\r\n        Lenguaje del menÃº 17 Idiomas: InglÃ©s, AlemÃ¡n, FrancÃ©s,\r\n        EspaÃ±ol, Italiano, Sueco, FinlandÃ©s, PortuguÃ©s, Polaco,\r\n        Ruso, Griego, Chino, JaponÃ©s, Coreano, Ucraniano,\r\n        PortuguÃ©s\r\n    Otras prestaciones\r\n        Picture Mode, Reader Mode, DAS ;pde\r\n        Plug & Play DDC/CI, Color Calibrated\r\n        ResoluciÃ³n automÃ¡tica, On Screen Control,\r\n        Screen Split With PIP , Black Stabilizer\r\n        Smart Energy saving\r\n        VESA compatible (100mm x 100mm)\r\n    Dimensiones\r\n        Con Soporte 817.6 x 230.4 x 451,4 (7,8 Kg)\r\n        Sin soporte 817.6 x 88.7 x 360.8 (6.2 Kg).', 5, -1, 0, -1, b'0'),
+	(44, 'Dell UltraSharp S2715H 27 LED', 279, 'MantÃ©ngase conectado. Disfrute del entretenimiento. ÂºSumÃ©rjase en la claridad y el increÃ­ble audio de la pantalla panorÃ¡mica con un monitor multimedia fiable que se conecta sin problemas a las opciones de entretenimiento que mÃ¡s le gustan.\r\n\r\n    Entretenimiento en casa mejorado: disfrute de la gran intensidad del audio integrado y de la nitidez de las imÃ¡genes en una pantalla panorÃ¡mica que casi no tiene bordes.\r\n    VisualizaciÃ³n y conexiÃ³n a su manera: personalice el escritorio con opciones de montaje flexibles, y mire pelÃ­culas y reproduzca mÃºsica desde su tableta o telÃ©fono inteligente.\r\n    Rendimiento fiable con eficiencia ecolÃ³gica: logre tranquilidad con el servicio de recambio por adelantado1, la garantÃ­a de hardware2 y un rendimiento eficiente respetuoso con el medio ambiente.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Una impresionante experiencia de audio y vÃ­deo. Mejore la experiencia informÃ¡tica en casa con atractivas funciones multimedia y de entretenimiento. Calidad de imagen de gran nitidez. El audio de gran intensidad y la perfecta visualizaciÃ³n de la pantalla panorÃ¡mica en un monitor casi sin bordes son excelentes para cualquier entorno domÃ©stico.\r\n        MÃ¡s realismo. MÃ¡s diversiÃ³n: Ã¡ngulo de visiÃ³n ultraamplio de 178Â°/178Â° en una nÃ­tida pantalla Full HD (1920 x 1080) de 27".\r\n        Sin bordes: logre una visualizaciÃ³n perfecta con varios monitores en casa gracias a la carcasa ultracompacta con una anchura de 6,05 mm.\r\n        Colores precisos y uniformes: vea el contenido multimedia nÃ­tido y claro gracias a una gama de colores del 85 %3 para una visualizaciÃ³n Ã³ptima sin perderse detalles\r\n        Sonido ganador: disfrute de un audio intenso y repleto de matices desde su monitor con los dos altavoces de 3 W. AdemÃ¡s, con los puertos HDMI (MHL), puede escuchar mÃºsica por streaming directamente desde su telÃ©fono inteligente o tableta.\r\n        PrÃ¡cticos controles: acceda fÃ¡cilmente a las opciones de encendido, brillo y contraste y a los modos predefinidos personalizables.\r\n    Opciones de visualizaciÃ³n y conectividad flexibles. ConÃ©ctese sin problemas a sus dispositivos de mano y logre una mÃ¡xima comodidad de visualizaciÃ³n con una amplia variedad de opciones.\r\n        ConÃ©ctese a lo que mÃ¡s le gusta: realice el streaming de audio y vÃ­deo desde su tableta o telÃ©fono inteligente, o visualice contenido en la pantalla de un monitor mÃ¡s grande, con el puerto HDMI (MHL). AdemÃ¡s, disfrute de la comodidad de cargar su dispositivo de mano al mismo tiempo.\r\n        Montaje: retire la pantalla de la base y colÃ³quela en la pared usando un kit de soporte mural compatible con VESA de 100 x 100 mm (equipo de venta por separado) o coloque la pantalla en el brazo para un monitor Dell si desea despejar su escritorio.\r\n        InclinaciÃ³n completa: incline el monitor 5Â° hacia adelante o 21Â° hacia atrÃ¡s para personalizarlo fÃ¡cilmente segÃºn su Ã¡ngulo de visiÃ³n preferido.\r\n    Rendimiento fiable y de gran eficiencia energÃ©tica.\r\n        Termine con el tiempo de inactividad : disfrute de la tranquilidad de recibir un monitor de reemplazo al siguiente dÃ­a laborable si dispone de una garantÃ­a de hardware2 y servicio de recambio por adelantado1 durante 3 aÃ±os.\r\n        DiseÃ±ado para cuidar el planeta. Hecho para usted: fabricado a partir de materiales respetuosos con el medio ambiente, como un 25 % de materiales reciclados en el chasis, lÃ¡minas sin BFR/PVC en las tarjetas de circuitos, vidrio sin arsÃ©nico y una pantalla LED sin mercurio.\r\n        MÃ¡s potencia. Menos consumo de energÃ­a: cumple con los estÃ¡ndares mÃ¡s recientes: ENERGY STAR, EPEAT Gold y TCO Certified Displays. AdemÃ¡s, permite ahorrar energÃ­a con caracterÃ­sticas ecolÃ³gicas tales como Power Nap.\r\n\r\nEspecificaciones:\r\n\r\n    Pantalla\r\n        Color: Negro\r\n        TamaÃ±o de imagen visible (diagonal): 60,5 cm\r\n        27" (tamaÃ±o de imagen visible amplio de 27")\r\n        ResoluciÃ³n Ã³ptima: 1920 x 1080 a 60 Hz\r\n        RelaciÃ³n de aspecto: PanorÃ¡mica (16:9)\r\n        Dispositivos integrados: Altavoces integrados\r\n        SeparaciÃ³n entre pÃ­xeles: 0,3114 mm x 0,3114 mm\r\n        Brillo: 250 cd/m2 (tÃ­pico)\r\n        Compatibilidad con colores: 16,7 millones de colores\r\n        RelaciÃ³n de contraste: 1000:1 (tÃ­pica) y relaciÃ³n de contraste dinÃ¡mica: 8 000 000:1 (mÃ¡x.)\r\n        TecnologÃ­a de retroiluminaciÃ³n: LED\r\n        Ãngulo de visiÃ³n: (178Â° vertical/178Â° horizontal)\r\n        Capacidad de ajuste:\r\n        InclinaciÃ³n, tendido de cables integrado\r\n        Interfaz del soporte del monitor panorÃ¡mico: VESA (100 mm)\r\n        Tiempo de respuesta: 6 ms (gris a gris)\r\n        Tipo de pantalla, superficie: In Plane Switching (conmutaciÃ³n en el mismo plano), brillante\r\n        Tipo de pantalla: Monitor de pantalla plana panorÃ¡mica\r\n        Revestimiento de la pantalla: Brillante con revestimiento duro (3H)\r\n    Conectividad\r\n        1 VGA (Video Graphics Array ?matriz grÃ¡fica de vÃ­deo?\r\n        2 x USB 2.0\r\n        1 HDMI (MHL)\r\n        1 entrada de audio (para VGA)\r\n        1 conector para auriculares\r\n    Salida de audio 2 de 9 W\r\n    Seguridad\r\n        Ranura para candado de seguridad (candado con cable a la venta por separado)\r\n        Ranura para candado antirrobo en la base (a la pantalla)\r\n    Dimensiones y Peso\r\n        Dimensiones (con la base)\r\n            Altura: 445 mm (17,52")\r\n            Anchura: 611,2 mm (24,06")\r\n            Profundidad: 196 mm (7,72")\r\n        Ãrea de pantalla predeterminada (horizontal x vertical): 20,75" x 11,67" 527,04 mm x 296,46 mm\r\n        Peso\r\n        Peso (solo pantalla, para soporte VESA):4,86 kg kg\r\n    CaracterÃ­sticas ambientales y conformidad normativa\r\n        Electricidad\r\n        TensiÃ³n requerida: De 100 a 240 V CA/50 o 60 Hz Â± 3 Hz/1,2 A (tÃ­pica)\r\n        Consumo de energÃ­a (en funcionamiento): 18 W (tÃ­pico), 36 W (mÃ¡x.)\r\n        Consumo de energÃ­a (modo de espera/modo suspendido): < 0,5 W\r\n    Especificaciones ambientales\r\n        Intervalo de temperaturas de funcionamiento: De 0 Â°C a 40 Â°C (de 32 Â°F a 104 Â°F)\r\n        Intervalo de temperaturas en reposo:\r\n            Almacenamiento: de -20 Â°C a 60 Â°C (de -4 Â°F a 140 Â°F)\r\n            Transporte: de -20 Â°C a 60 Â°C (de -4 Â°F a 140 Â°F)\r\n        Intervalo de humedad de funcionamiento: Del 10 al 80 % (sin condensaciÃ³n)\r\n        Intervalo de humedad en reposo:\r\n            Almacenamiento: del 5 al 90 % (sin condensaciÃ³n)\r\n            Transporte: del 5 al 90 % (sin condensaciÃ³n)\r\n        Altitud de funcionamiento: 5000 m (16?400 pies) mÃ¡x.\r\n        Altitud en reposo: 12 192 m (40 000 pies) mÃ¡xima\r\n        Conformidad con estÃ¡ndares\r\n            ENERGY STAR 6\r\n            EPEAT Gold\r\n            CECP\r\n            Conformidad con la Directiva RoHS\r\n            TCO Certified Displays\r\n            Seguridad del producto, EMC e informes ambientales (en inglÃ©s)\r\n            PÃ¡gina de inicio de conformidad normativa de Dell (en inglÃ©s)\r\n            Dell y el medioambiente (en inglÃ©s)\r\n            Energy Star\r\n    Especificaciones: detalles del servicio y asistencia\r\n        3 aÃ±os de servicio de recambio por adelantado y garantÃ­a de hardware\r\n    Elementos incluidos\r\n        Monitor con base\r\n        Tapa para cables\r\n        Cable de alimentaciÃ³n\r\n        Adaptador de corriente\r\n        Cable HDMI\r\n        Medios con documentaciÃ³n y controladores\r\n        GuÃ­a rÃ¡pida de instalaciÃ³n\r\n        InformaciÃ³n sobre seguridad.', 5, -1, 1, 7, b'0'),
+	(46, 'BenQ XL2730Z 27 LED 144Hz QHD', 599, 'El monitor gaming de prÃ³xima generaciÃ³n XL2730Z estÃ¡ diseÃ±ado para sacar lo mejor de cada jugador. Los nuevos procedimientos se han establecido para mejorar la experiencia de juego mÃ¡s fluida y rÃ¡pida con la incorporaciÃ³n de caracterÃ­sticas de movimiento y de juego rÃ¡pido perfectos en el nuevo XL2730Z. La combinaciÃ³n impecable de resoluciÃ³n QHD, frecuencia de actualizaciÃ³n de 144Hz, el tiempo de respuesta de 1 ms GTG y tecnologÃ­a estÃ¡ndar VESA adaptativo-Sync con los mÃ¡s poderosos engranajes de juego para un control preciso e intuitivo de instalaciÃ³n y cuidado de los ojos ayudarÃ¡ a jugadores profesionales y entusiastas de los juegos al dominio del juego una y otra vez.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Monitor Gaming Profesional digno de un Rey Un testimonio potente de la experiencia de BenQ, la pasiÃ³n y la incesante bÃºsqueda de la innovaciÃ³n radical de nuestras pantallas es el principio de nuestra filosofÃ­a ?El Juego estÃ¡ en los Detalles", el XL2730Z asombra al mundo Gaming por su rendimiento de pantalla dominante para el juego competitivo. Ahora con la colaboraciÃ³n de los mejores equipos profesionales en I+D y leyendas del juego de renombre mundial, BenQ ha vuelto a alcanzar nuevos hitos en su Ãºltima creaciÃ³n del monitor para juegos profesionales.\r\n    Detalles mÃ¡s Finos y Mayor Espacio de VisiÃ³n gracias al QHD de Alta ResoluciÃ³n 2560x1440 Un monitor QHD ofrece hasta un 77% mÃ¡s de espacio de pantalla que un monitor estÃ¡ndar 1920x1080 Full HD, mientras que le da una mayor claridad y un detalle mÃ¡s fino. AsÃ­ que cada movimiento que haga tu adversario estarÃ¡ bajo tu visiÃ³n ? sin espacio para escapar.\r\n    144Hz Ultra Alta Frecuencia de ActualizaciÃ³n para un Movimiento Sin Distorsiones a 144 Frames Por Segundo Una visiÃ³n impecable de las acciones de movimiento rÃ¡pido y transiciones drÃ¡maticas garantiza un juego mÃ¡s fluido en todo momento. Sin trazos molestos para que puedas vencer a cualquier oponente con la mÃ¡xima precisiÃ³n.\r\n    Compite con Velocidad Input Lag-Free de 1ms GTG Ultra RÃ¡pido Tiempo de Respuesta RÃ¡pido tiempo de respuesta de 1ms GTG significa menor input lag para una experiencia de juego mejorada. AcciÃ³n en rÃ¡pido movimiento y transiciones dramÃ¡ticas son renderizadas con suavidad y sin los molestos efectos de manchas o imÃ¡genes fantasma. Controla tu destino en el juego y no lo deje en manos de un monitor lento.\r\n    Equipado con VESA Standard Adaptive-Sync y una Fluidez Visual AMD FreeSync Increible Minimizar la fragmentaciÃ³n y el entrecortamiento con un bajo input lag. El nuevo XL2730Z incorpora la tecnologÃ­a VESA Standard Adaptive-Sync para su compatibilidad con todas las tarjetas grÃ¡ficas Freesync-compatible AMD Radeon? con el fin de ofrecer un rendimiento sin entrecortamiento.\r\n    Motion Blur Reduction aporta Extra Claridad a travÃ©s de Juegos de AcciÃ³n RÃ¡pida La nueva tecnologÃ­a Motion Blur Reduction de BenQ (ReducciÃ³n del Desenfoque de Movimiento) mejora aÃºn mÃ¡s la experiencia de juego ultra-suave, librÃ¡ndolo de imÃ¡genes borrosas, sobre todo para los juegos llenos de acciÃ³n como los de FPS en el que cada milisegundo cuenta. Con Motion Blur Reduction, los jugadores ya no sufrirÃ¡n pÃ©rdidas de tiempo ni molestias en el juego por la mala calidad de la visiÃ³n creada por el desenfoque de movimiento y el retraso en la imagen. Con esta nueva tecnologÃ­a, los jugadores tendrÃ¡n a su favor el tiempo de reacciÃ³n idÃ³neo, para lograr en Ãºltima instancia una victoria impecable.\r\n    Color Vibrance le Ofrece 20 Niveles de Ajustes de Intensidad de Color Es absolutamente vital que el XL2730Z ofrezca la flexibilidad que necesita para obtener el rendimiento del color que buscas. Esta es la razÃ³n por la que BenQ ha integrado en el monitor 20 niveles de ajustes de color "Vibrance" para cumplir con los requerimientos de visualizaciÃ³n Gamer y preferencias para todos los tipos de juego. Esta caracterÃ­stica Ãºnica es accesible a travÃ©s del menÃº On Screen Display (OSD) o Display Pilot para una mayor comodidad.\r\n    Personaliza tus Preferencias de VisualizaciÃ³n El Modo Display y Smart Scaling, te permiten cambiar el tamaÃ±o y el diseÃ±o del monitor segÃºn sea tu gusto y para simular cualquier experiencia en el juego. Utilizando la funciÃ³n Display Mode, el monitor puede cambiar fÃ¡cilmente entre 8 tamaÃ±os distintos de pantalla de 17", 19", 19"W, 21.5", 22"W, 23"W, 23.6"W a 24"W. Si usted tambiÃ©n busca ajustes adicionales para personalizar el tamaÃ±o de la pantalla, tambiÃ©n puede tomar ventaja con la funciÃ³n Smart Scaling. La funciÃ³n Smart Scaling le da la flexibilidad de escalar libremente el contenido de la pantalla a cualquier tamaÃ±o personalizado. Con un solo monitor, puede simular cualquier modo de juego y la prÃ¡ctica en diferentes tamaÃ±os de pantallas para los torneos. Utilice el Modo Diplay y Smart Scaling conjuntamente para obtener la mejor visiÃ³n posible para cualquier aplicaciÃ³n o juego.\r\n    El Black eQualizer para Visibilidad Total La mala visibilidad en las escenas oscuras puede costar incluso a los jugadores mÃ¡s habilidosos su juego. Para aportar un nivel de control sin precedentes de control y visibilidad para los juegos en consola, el XL2730Z estÃ¡ construido con la tecnologÃ­a de motor de color propia Black eQualizer, que maximiza la iluminaciÃ³n de escenas oscuras sin sobreexponer las zonas brillantes. Esto ayuda a preservar los detalles vitales, lo que te permite detectar a tus enemigos fÃ¡cilmente en combate crÃ­tico y reaccionar rÃ¡pidamente ante cualquier situaciÃ³n. AdemÃ¡s con la claridad visual maximizada, tambiÃ©n experimentarÃ¡s mÃ¡s comodidad visual y menos fatiga en la vista durante los juegos intensos o despuÃ©s de un largo dÃ­as de prÃ¡ctica.\r\n    ErgonomÃ­a Avanzada para Cada SituaciÃ³n Para asegurarse de que los jugadores puedan duplicar exactamente la misma configuraciÃ³n del monitor con la mayor precisiÃ³n, eficiencia y conveniencia, BenQ ha ampliado la escala de ajustes en el diseÃ±o de la ergonomÃ­a del XL2730Z. El soporte ajustable en altura tiene ahora una escala de 14 distintos niveles con un marcador de movimiento. Esta escala se aÃ±ade tambiÃ©n en la pantalla, que se inclina hacia adelanta y hacia atrÃ¡s a 0Âº, 10Âº y 20Âº, y el giro de izquierda a derecha en una amplia gama de Ã¡ngulos. Cada XL2730Z puede ser tu XL2730Z personal.\r\n    S Switch Arc con un DiseÃ±o Redondo para Mayor Comodidad El S Switch Arc es un controlador externo que viene con botones predefinidos que se pueden personalizar con ajustes de visualizaciÃ³n personales para el juego, el trabajo o el entretenimiento. El S Switch Arc no sÃ³lo es una tecla de acceso rÃ¡pido para el Modo Auto Game, sino que tambiÃ©n tiene un aspecto redondo para una sujeciÃ³n mÃ¡s natural y cÃ³moda que permita a los jugadores navegar mejor entre los modos de juego.\r\n    VisualizaciÃ³n Display Pilot para Navegar en la Pantalla La nueva actualizaciÃ³n de la funciÃ³n Display Pilot permite a los usuarios realizar todos los ajustes de visualizaciÃ³n en la pantalla, ademÃ¡s proporciona acceso directo a Game Mode Loader para bajar e instalar modos preestablecidos de su juego preferido, o bien las configuraciones que utilice su jugador profesional favorito al instante.\r\n    Ajuste Auto Game Mode para Mayor Facilidad y Comodidad El Auto Game Mode permite al XL2730Z detectar el gÃ©nero del juego que se estÃ¡ reproduciendo y cambiar automÃ¡ticamente a la configuraciÃ³n de visualizaciÃ³n idÃ³nea para el modo del juego correspondiente.TambiÃ©n estÃ¡ diseÃ±ado para hacer recomendaciones de nuevos modos de juego disponibles para descargar. Esta caracterÃ­stica Ãºnica es accesible a travÃ©s del menÃº en pantalla (OSD) el establecimiento, asÃ­ como el software Display Pilot o el S Switch que tiene incorporado una tecla de acceso rÃ¡pido para este modo.\r\n    Modo Game to Go para un Acceso Universal a Donde Vaya Para evitar a los jugadores la molestia de tener que volver a descargar y restablecer los modos de juego, el XL2730Z permite a los jugadores guardar los modos de juego en una unidad flash USB para un transporte fÃ¡cil y simple. TambiÃ©n puede compartir sus propios modos de juego con todo el mundo a travÃ©s de la nube de almacenamiento o las plataformas de medios sociales. Esta innovadora caracterÃ­stica permite a las comunidades de juegos compartir y colaborar fÃ¡cilmente.\r\n    DiseÃ±o del Soporte de la Base con MÃ¡xima Estabilidad La nueva base angular y compacta que se alinea perfectamente paralela a la superficie del escritorio y al monitor para equilibrar a la pantalla. El diseÃ±o del soporte de la base de nueva generaciÃ³n, ofrece un nuevo nivel de estabilidad para el modo de juego mÃ¡s constante con estrictas pruebas y resultados de giros y choques. AdemÃ¡s, el ancho y la profundidad mÃ¡s reducida acortan la distancia entre el teclado y el monitor, con lo que le acerca mÃ¡s que nunca al juego.\r\n    DiseÃ±o MetÃ¡lico del Asa mÃ¡s Atractivo y ErgonÃ³mico El soporte del monitor con un recubrimiento de aleaciÃ³n de aluminio se muestra sofisticado y evoca la majestuosidad del juego. AdemÃ¡s, estÃ¡ optimizado ergonÃ³micamente con un asa superior ancha para que sea cÃ³modo de agarrar, por lo que el monitor serÃ¡ mÃ¡s fÃ¡cil de transportar de un lugar a otro.\r\n    Soporte de Auriculares RetrÃ¡ctil ofrece Flexibilidad y Dureza Extra La colocaciÃ³n de un soporte para auriculares retrÃ¡ctil en la parte izquierda de la pantalla del monitor contribuye a tener sus auriculares al alcance de la mano. El material del soporte para auriculares es de aleaciÃ³n de aluminio que ofrece una fuerza y una dureza extra, para mejorar la durabilidad.\r\n    Low Blue Light para una Mayor Salud Visual Practique largas horas de juego con una visiÃ³n clara y confortable o compita con las mejores condiciones de visiÃ³n con la nueva tecnologÃ­a Low Blue Light de BenQ. Las pantallas de los monitores producen luz de espectro azul, siendo esta una de las causas importantes que pueden producir daÃ±o ocular, fatiga visual, dolores de cabeza y trastornos del sueÃ±o. Gracias a los diferentes niveles bajos de luz azul ajustables, los jugadores pueden proteger mejor sus ojos. De esta forma no serÃ¡ necesario utilizar gafas tintadas de color amarillo para la protecciÃ³n adicional para los ojos, y el juego podrÃ¡ ser claro, cÃ³modo y sin complicaciones!\r\n    TecnologÃ­a Gaming-comfort Flicker-free para Mayor Confort en el Juego Desarrollado en colaboraciÃ³n con jugadores profesionales, el XL2430T se ha actualizado para eliminar el parpadeo en todos los niveles de brillo. Esta tecnologÃ­a reduce efectivamente la fatiga ocular y eleva el rendimiento del juego a travÃ©s de un confort visual extremo, incluso para los jugadores mÃ¡s incondicionales que dedican largas horas a juegos de acciÃ³n. Armado con la tecnologÃ­a Gaming-comfort Flicker-free, el monitor gaming de BenQ es un arma Ã©pica sobre sus rivales finales.\r\n    Monitores Oficiales en la Intel Extreme Masters  Built for the ultimate victory, the BenQ XL Series is the official global tournament monitors of Intel Extreme Masters Season 2014/2015.\r\n    Compatible con WindowsÂ® 8/8.1  El XL2730Z ha pasado la certificaciÃ³n WindowsÂ® 8/8.1 y son totalmente compatibles con sistemas WindowsÂ® 8/8.1 color. Conecte el XL2730Z a su ordenador, y WindowsÂ® 8/8.1 lo reconocerÃ¡ al instante, haciendo que la configuraciÃ³n y la conexiÃ³n se realice sin ningÃºn esfuerzos.\r\n    TecnologÃ­a y DiseÃ±o Galardonados El XL2730Z no sÃ³lo estÃ¡ diseÃ±ado pensando en su durabilidad, robustez y funcionalidad, sino que su apariencia elegante tambiÃ©n se ha ganado varios premios internacionales de diseÃ±o: ?Red Dot Designt Award 2014.\r\n\r\nEspecificaciones:\r\n\r\n    Color: negro y rojo.\r\n    Panel:\r\n        Tipo: LED.\r\n        TamaÃ±o del LCD: 27 pulgadas.\r\n        RelaciÃ³n de aspecto: 16:9.\r\n        ResoluciÃ³n (mÃ¡x.): 2560x1440\r\n        Ãrea de visualizaciÃ³n (mm): 596.74x 335.66\r\n        TamaÃ±o de pÃ­xel (mm): 0.233\r\n        Brillo (tÃ­pico): 350.\r\n        Contraste nativo (tip.): 1000:1.\r\n        DCR (Dynamic Contrast Ratio) (tÃ­pico): 12M: 1.\r\n        Tipo de panel: TN.\r\n        Ãngulo de visiÃ³n (I / D; Ar / Ab) (CR> = 10): 170 Â° / 160 Â°.\r\n        Tiempo de respuesta (Tr + Tf) typ: 1 ms (GTG).\r\n        Colores de la pantalla: 16,7 Mil.\r\n        Gama de colores: 72% NTSC.\r\n    Audio / Video, Entradas / Salidas:\r\n        Frecuencia hor. (KHz):\r\n            VGA / HDMI: 24 ~ 120.\r\n            DVI-DL / DP: 56 ~ 144.\r\n        Frecuencia ver. (Hz):\r\n            VGA / HDMI: 24 ~ 120.\r\n            DVI-DL / DP: 56 ~ 144.\r\n        Ancho de banda de vÃ­deo (MHz): 600.\r\n        Conectores de entrada: D-sub / DVI-DL / HDMI 2.0x1 HDMI 1.4x1/ DP1.2\r\n        Conectores de salida: Toma de auriculares / Mic jack.\r\n    AlimentaciÃ³n:\r\n        Fuente de alimentaciÃ³n (90 ~ 264 AC): integrada.\r\n        Consumo (Energy Star): 23.2W.\r\n        Consumo (encendido) 50.0W.\r\n        Consumo (en espera) 0.5W\r\n    Dimensiones y peso:\r\n        Dimensiones (mm x An x P): 703*486*245\r\n        Dimensiones con montaje en pared (AlxAnxPr mm): 372.6x633.7x61.0\r\n        Peso neto (kg) 7.5\r\n        Peso bruto (kg) 10.8\r\n    Funciones especiales:\r\n        ReducciÃ³n Motion Blur.\r\n        TecnologÃ­a anti-parpadeos.\r\n        Luz azul baja.\r\n        SenseyeÂ® 3.\r\n        AMA.\r\n        Windows 7 Compatible.\r\n        Windows 8 Compatible.\r\n        Windows Â® 8.1 Compatible.\r\n        HDCP.\r\n        Temperatura de color: rojizo, normal, azulado, usuario.\r\n        Idioma OSD: 17 idiomas.\r\n        Anclaje de pared VESA: 100x100mm.\r\n        Giratorio (izquierda / derecha): 45 Â° / 45 Â°.\r\n        Hub USB:\r\n            USB3.0: Downstream x2 (side); Upstream x1\r\n            USB2.0: Downstream x1 ; Upstream x1 (S switch Arc)\r\n            mini USB :Yes\r\n        InclinaciÃ³n (arriba / abajo): -5 Â° ~ 20 Â°.\r\n        Pivot: 90Â°.\r\n        Ajuste de altura (mm): 140mm.\r\n        Modo InstantÃ¡nea.\r\n        K Locker.\r\n        eQualizer negro.\r\n        Modo de visualizaciÃ³n.\r\n        Modo de juego Auto.\r\n        Modo de juego to Go.\r\n        Escalado inteligente.\r\n        Modo FPS.\r\n        Modo RTS.\r\n        Modo Game Loader.\r\n        DisplayPilot.\r\n    Accesorios incluidos:\r\n        Cable de seÃ±al: DVI-DL, USB 3.0.\r\n        EnergyStar 6.0.', 5, -1, 1, -1, b'0'),
+	(47, 'Asus PG348Q 34 WLED UWQHD', 1299, 'El ROG Swift PG348Q es un monitor para gaming de 34 pulgadas con resoluciÃ³n UWQHD 3440 x 1440, una imagen mÃ¡s detallada y mÃ¡s espacio en pantalla que los monitores WQHD. Con una relaciÃ³n de aspecto 21:9, este monitor curvado ofrece una experiencia gaming panorÃ¡mica ultrarrealista. Los 100 Hz de frecuencia de refresco y la tecnologÃ­a NVIDIA G-SYNC eliminan cualquier rastro de retrasos y los saltos en la imagen para asegurar el gaming mÃ¡s fluido y rÃ¡pido posible. Su diseÃ±o sin marco lo hace ideal para configuraciones multipantalla.\r\n\r\nEspecificaciones:\r\n\r\n    Pantalla\r\n        TamaÃ±o panel(diagonal) 34? (86.72cm)(21:9)\r\n        Ãrea de visiÃ³n de pantalla 819.3 x 363.0mm\r\n        Panel Backlight/ Type WLED / IPS\r\n        Curva de panel 3800R\r\n        SaturaciÃ³n de color 100% sRGB\r\n        ResoluciÃ³n \r\n            DP: 3440 x 1440 (up to 100Hz)\r\n            HDMI: 3440 x 1440 (up to 50Hz)\r\n        Pixel Pitch 0.2325mm (109ppi)\r\n        Brillo (Max.) 300 cd/m2\r\n        Contraste Ratio (Max.) 1,000:1\r\n        Ãngulo de VisiÃ³n (CR?10) 178Â°(H) / 178Â°(V)\r\n        Colores 1.07 Billion (10-bit)\r\n        Tiempo de respuesta 5ms\r\n    Video\r\n        NVIDIAÂ® Technology G-SYNC Technology\r\n        Trace Free Technology\r\n        4 Modos de control de temperatura\r\n        HDCP\r\n        GameVisual Yes (FPS,RTS/RPG, Racing , sRGB, Cinema, Standard modes)\r\n        GamePlus Yes (Crosshair, Timer, FPS Counter)\r\n    Audio\r\n        Altavoces EstÃ©reo\r\n    Gaming Hotkeys\r\n        5-way OSD Navigation Joystick\r\n        GamePlus\r\n        Turbo key (60-100Hz)\r\n    Input / Output\r\n        2 x DisplayPort1.2\r\n        4 x HDMI1.4\r\n        4x USB 3.0\r\n        1 x Auriculares\r\n     Frequencia\r\n        SeÃ±al de frecuencia digital\r\n            DP: 73~88KHz(H) / 30~100Hz (V) \r\n            HDMI: 30~140KHz(H) / 24~60Hz (V)\r\n    Consumo\r\n        Power On <100W (ES 6.0)\r\n        Power Saving/Off <0.5W\r\n        Voltaje 100?240V, 50 / 60 Hz\r\n    DiseÃ±o\r\n        Plasma Copper + Armor Titanium\r\n        Montaje Vesa 100x100\r\n    Dimensiones y Peso\r\n        Dimensiones 829 x 558 x 297 mm\r\n        Peso 14.9Kg.', 5, -1, 0, -1, b'0'),
+	(48, 'Philips 275P4VYKEB 27 LED UltraHD 5K', 1500, 'Percibe los detalles como nunca antes con el nuevo monitor Philips 5K UHD. Los 14,7 millones de pÃ­xeles proporcionan unas imÃ¡genes realmente nÃ­tidas para que disfrutes al mÃ¡ximo de los detalles. La tecnologÃ­a PerfectKolor garantiza unos colores precisos y uniformes en todo momento.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    ResoluciÃ³n 5K Ultra HD (5120 x 2880) para imÃ¡genes muy definidas\r\n    14,7 millones de pÃ­xeles para un mayor detalle y nitidez. Con la resoluciÃ³n 5K Ultra HD, cuatro veces la Quad HD, podrÃ¡s ver detalles como nunca para conseguir perfectos resultados.\r\n    TecnologÃ­a panorÃ¡mica LED PLS para obtener gran precisiÃ³n de imagen y color\r\n    La pantalla PLS utiliza una avanzada tecnologÃ­a que te ofrece unos Ã¡ngulos de visualizaciÃ³n extra anchos de 178/178 grados, lo que hace posible ver la pantalla desde casi cualquier Ã¡ngulo, incluso en el modo de articulaciÃ³n de 90 grados. Al contrario que los paneles TN, las pantallas PLS te ofrecen imÃ¡genes nÃ­tidas y colores vivos asombrosos, lo que las hace perfectas no solo para fotos, pelÃ­culas y exploraciÃ³n web, sino tambiÃ©n para aplicaciones profesionales que exijan precisiÃ³n de colores y brillo consistente en todo momento.\r\n    ReducciÃ³n de la vista cansada gracias a la tecnologÃ­a sin parpadeo\r\n    Debido a la manera en que se controla el brillo en las pantallas con retroiluminaciÃ³n LED, algunos usuarios pueden experimentar un parpadeo en la pantalla que causa fatiga visual. La tecnologÃ­a sin parpadeo de Philips aplica una nueva soluciÃ³n para regular el brillo y reducir el parpadeo con el fin de ofrecer una visualizaciÃ³n mÃ¡s cÃ³moda.\r\n    EstÃ¡ndares de color profesional 99 % AdobeRGB, 100 % sRGB\r\n    El color perfecto, lo sabrÃ¡s al verlo. Estos nuevos monitores incorporan paneles brillantes de alta calidad para un color rico y preciso desde cualquier Ã¡ngulo. Color coherente con los colores profesionales del sector, 99 % Adobe RGB y 100 % sRGB. La precisiÃ³n del color con una calibraciÃ³n de fÃ¡brica lista para usar te da confianza desde el principio. Ajusta el color a los estÃ¡ndares precisos con un ajuste de color personalizado con seis ejes. Ahorra tiempo y dinero con los monitores de Philips con tecnologÃ­a PerfectKolor.\r\n    1074 millones de colores para suaves gradaciones de color y detalles\r\n    La pantalla de 10 bits proporciona una rica profundidad del color con 1074 millones de colores y procesamiento interno de 12 bits para recrear colores suaves y naturales sin gradaciones ni franjas de colores.\r\n    SmartUniformity para imÃ¡genes coherentes\r\n    Las fluctuaciones del brillo y el color en las pantallas LCD son un fenÃ³meno comÃºn. El modo Philips SmartUniformity ofrece imÃ¡genes precisas en tÃ©rminos de brillo, lo cual es importante para fotografÃ­a, diseÃ±o e impresiÃ³n. Con un color mÃ©trico para evaluar la precisiÃ³n de los colores, este modo estÃ¡ calibrado para proporcionar una uniformidad en la luminosidad media superior al 95 %. Al seleccionar este modo se producirÃ¡n imÃ¡genes uniformes y precisas.\r\n    SmartErgoBase permite realizar ajustes ergonÃ³micos fÃ¡ciles de utilizar\r\n    La SuperErgoBase ofrece una cÃ³moda visualizaciÃ³n ergonÃ³mica e incluye un sistema de gestiÃ³n de cables. La base es ajustable en altura, inclinaciÃ³n y Ã¡ngulo de giro, permitiendo colocar el monitor en la posiciÃ³n mÃ¡s cÃ³moda y asÃ­ evitar el cansancio fÃ­sico tras un largo dÃ­a de trabajo. AdemÃ¡s, el sistema de gestiÃ³n de cables elimina los lÃ­os de cables y mantiene el lugar de trabajo ordenado y con un aspecto profesional.\r\n    Webcam con micrÃ³fono para conectarte y colaborar\r\n    La webcam y el micrÃ³fono integrados te permiten ver a tus compaÃ±eros y clientes y comunicarte con ellos. Esta sencilla soluciÃ³n te permite colaborar y compartir, lo que ahorra un preciado tiempo y los costes relacionados con los viajes.\r\n    Altavoces estÃ©reo incorporados para contenido multimedia\r\n    Un par de altavoces estÃ©reo de alta calidad integrados en el dispositivo de visualizaciÃ³n. Los altavoces son visibles cuando son de proyecciÃ³n frontal, no cuando son de proyecciÃ³n inferior, superior o posterior, etc., en funciÃ³n del modelo y el diseÃ±o.\r\n    El USB 3.0 permite transferir datos a gran velocidad y cargar smartphones\r\n    El USB 3.0 de gran velocidad tiene una tasa de transferencia de datos de 5,0 gbit/s, casi 10 veces mÃ¡s rÃ¡pido que el USB estÃ¡ndar 2.0, y reduce el tiempo de transferencia de datos, ahorrÃ¡ndote tiempo y dinero. Con un mayor ancho de banda, tasas de transferencia de datos de gran velocidad, una mejor administraciÃ³n de la energÃ­a y un rendimiento general superior, el USB 3.0 establece el estÃ¡ndar global mÃ¡s reciente y te permite utilizar dispositivos de almacenamiento de gran capacidad. Gracias a la tecnologÃ­a Sync-N-Go, ya no tendrÃ¡s que depender del ancho de banda para ser libre. Tu inversiÃ³n en dispositivos USB 2.0 estÃ¡ protegida y es compatible con versiones anteriores.\r\n\r\nEspecificaciones:\r\n\r\n    Imagen/Pantalla\r\n        Tipo de panel LCD LCD PLS (brillo)\r\n        Tipo de retroiluminaciÃ³n Sistema White LED\r\n        TamaÃ±o de panel 27 pulgadas / 68,6 cm\r\n        Ãrea de visualizaciÃ³n efectiva 596,74 (H) x 335,66 (V)\r\n        RelaciÃ³n de aspecto 16:9\r\n        ResoluciÃ³n Ã³ptima 5120 x 2880 a 60 Hz (requiere cable DP dual), 3840 x 2160 a 60 Hz (requiere cable DP sencillo)*\r\n        Tiempo de respuesta (tÃ­pico) 8 (gris a gris) ms\r\n        Brillo 300 cd/mÂ²\r\n        RelaciÃ³n de contraste (tÃ­pica) 1000:1\r\n        SmartContrast 50 000 000:1\r\n        Punto de pÃ­xel 0,117 X 0,117 mm\r\n        Ãngulo de visiÃ³n 178Â° (H) / 178Â° (V) / @ C/D > 10\r\n        Mejora de la imagen SmartImage\r\n        Colores de pantalla 1,07 G (valor real de 10 bits)\r\n        Gama de colores 99 % en Adobe RGB\r\n        Frecuencia de escaneado 174 kHz (H) / 60 Hz (V)\r\n        sRGB\r\n    Conectividad\r\n        Entrada de seÃ±al DisplayPort (dos puertos)\r\n        USB 3 USB 3.0 (1 W/carga rÃ¡pida)*\r\n        Entrada sincronizada\r\n    Audio (entrada/salida)\r\n    Salida de auriculares\r\n        CÃ³modas funciones\r\n        Altavoces integrados 2 x 2 W\r\n    Webcam integrada CÃ¡mara de 2 megapÃ­xeles con micrÃ³fono y piloto LED\r\n    Soporte\r\n        Ajuste de altura 150 mm\r\n        ArticulaciÃ³n 90 grados\r\n        Pedestal -65/+65 grado\r\n        InclinaciÃ³n -5/20 grado\r\n    Potencia\r\n        Modo ECO 45,1 W (tÃ­p.)\r\n        En modo 68,9 W (tÃ­p.) (prueba EnergyStar 6.0)\r\n        Modo de espera < 0,5 W\r\n        Modo desactivado < 0,5 W\r\n    Indicador LED de alimentaciÃ³n\r\n    AlimentaciÃ³n Externa 100-240 V CA, 50-60 Hz\r\n    Desarrollo sostenible\r\n    ProtecciÃ³n del medio ambiente y ahorro de energÃ­a\r\n    EnergyStar 6.0\r\n    EPEAT Gold*\r\n    TCO Edge\r\n    RoHS\r\n    Material de embalaje reciclable 100 %\r\n    PlÃ¡stico reciclado tras ser usado por el consumidor 65 %\r\n    Carcasa\r\n        Bisel frontal Negro/plata\r\n        Cubierta posterior Negro\r\n        Pie Negro\r\n        Acabado Textura\r\n    Dimensiones\r\n        Producto con soporte (mm) 639 x 580 x 273 mm\r\n        Producto sin soporte (mm) 639 x 405 x 64 mm\r\n    Peso\r\n        Producto con soporte (kg) 8,11 kg\r\n        Producto sin soporte (kg) 5,32 kg.', 5, -1, 0, -1, b'0'),
+	(49, 'Acer Aspire E5-573 Intel Core i3-4005U/4GB/500GB/15.6', 328, 'Este portÃ¡til barato Acer E5-573 disfruta de unas caracterÃ­sticas especialmente diseÃ±adas para satisfacer todas tus necesidades profesionales y personales.\r\n\r\nCon un fantÃ¡stico procesador Intel Core i3, este es uno de los portÃ¡tiles baratos mÃ¡s potentes y versÃ¡tiles del mercado. Consigue el mejor rendimiento gracias a sus 4GB de memoria RAM DDR3 y una tarjeta grÃ¡fica integrada Intel HD Graphics 4400. Un Acer Aspire E5-573 que fusiona lo mejor de los portÃ¡tiles buenos y baratos de Acer con una pequeÃ±a faceta gaming.\r\n\r\nGracias al lector de tarjetas SD del Acer Aspire E5, podrÃ¡s transferir y almacenar fÃ¡cilmente los documentos de tu smartphone en su disco duro de 500GB. Si eres un apasionado de las descargas, siempre puedes ampliar  la capacidad de este portÃ¡til Acer con un disco duro externo de los muchos que tenemos disponibles.\r\n\r\nPara disfrutar al mÃ¡ximo de tus pelÃ­culas favoritas, el equipo cuenta con un Display de 15.6 pulgadas LED HD con resoluciÃ³n 1366 x 768 y en un formato 16:9, ideal para tener una pequeÃ±a sala de cine portÃ¡til en casa.\r\n\r\nEste Aspire E5-573 instala una baterÃ­a de 4 celdas Li-ion y cuenta con una serie de conexiones muy completa, algo que cada vez es mÃ¡s comÃºn en los ordenadores portÃ¡tiles baratos.\r\n\r\nSi te animas a comprar Acer Aspire E5-573, saber que viene con Windows 10 a 64 bits instalados, que sus medidas son 381.6 x 256 x 24.9 ~ 29.2mm y su peso es de 2.4Kg.\r\n\r\n \r\nAcer Aspire E5-573 especificaciones\r\n\r\n    Procesador Intel Core i3-4005U (1.7 GHz,)\r\n    Memoria RAM 4GB DDR3L SODIMM (1x4GB) Max 16GB\r\n    Disco duro 500GB (5400 rpm S-ATA)\r\n    Display 15.6" LED HD (1366 x 768) 16:9\r\n    Controlador grÃ¡fico Intel HD Graphics 4400\r\n    Conectividad\r\n        LAN 10/100/1000\r\n        802.11 ac a/b/g/n\r\n    CÃ¡mara de portÃ¡til SÃ­\r\n    MicrÃ³fono SÃ­\r\n    BaterÃ­a 4 celdas Ion de litio\r\n    Conexiones\r\n        1 x VGA\r\n        1 x HDMI\r\n        1 x Combo Audio\r\n        2 x USB 3.0\r\n        1 x USB 2.0\r\n        1 x RJ45\r\n    Lector de Tarjetas SD\r\n    Sistema operativo Microsoft Windows 10 64bits\r\n    Dimensiones (Ancho x Profundidad x Altura) 381.6 x 256 x 24.9 ~ 29.2mm\r\n    Peso 2.4 kg\r\n    Color Negro/Amarillo.', 1, -1, 1, 2, b'0'),
+	(50, 'Acer Aspire E5-573G-501Z i5-5200U/8GB/128GB SSD/15.6', 558, 'Este portÃ¡til barato Acer E5-573 disfruta de unas caracterÃ­sticas especialmente diseÃ±adas para satisfacer todas tus necesidades profesionales y personales.\r\n\r\nCon un fantÃ¡stico procesador Intel Core i5, este es uno de los portÃ¡tiles baratos mÃ¡s potentes y versÃ¡tiles del mercado. Consigue el mejor rendimiento gracias a sus 8GB de memoria RAM DDR3 y una tarjeta grÃ¡fica integrada Intel HD Graphics 5500. Un Acer Aspire E5-573 que fusiona lo mejor de los portÃ¡tiles buenos y baratos de Acer con una pequeÃ±a faceta gaming.\r\n\r\nGracias al lector de tarjetas SD del Acer Aspire E5, podrÃ¡s transferir y almacenar fÃ¡cilmente los documentos de tu smartphone en su disco duro SSD de 128GB. Si eres un apasionado de las descargas, siempre puedes ampliar  la capacidad de este portÃ¡til Acer con un disco duro externo de los muchos que tenemos disponibles.\r\n\r\nPara disfrutar al mÃ¡ximo de tus pelÃ­culas favoritas, el equipo cuenta con un Display de 15.6 pulgadas LED HD con resoluciÃ³n 1366 x 768 y en un formato 16:9, ideal para tener una pequeÃ±a sala de cine portÃ¡til en casa.\r\n\r\nEste Aspire E5-573 instala una baterÃ­a de 4 celdas Li-ion y cuenta con una serie de conexiones muy completa, algo que cada vez es mÃ¡s comÃºn en los ordenadores portÃ¡tiles baratos.\r\n\r\nSi te animas a comprar Acer Aspire E5-573, saber que viene con Windows 10 Home a 64 bits instalados, que sus medidas son 381.6 x 256 x 24.9 ~ 29.2mm y su peso es de 2.4Kg. Â¡Y no te olvides de llevarlo a todas partes de la forma mÃ¡s cÃ³moda gracias a la mochila portÃ¡til!\r\n\r\n \r\nAcer Aspire E5-573 especificaciones\r\n\r\n    Procesador Intel Core i5-5200U(2.20 GHz,)\r\n    Memoria RAM 8GB DDR3L SODIMM \r\n    Disco duro 128GB SSD\r\n    Display 15.6" LED HD (1366 x 768) 16:9\r\n    Controlador grÃ¡fico Intel HD Graphics 5500\r\n    Conectividad\r\n        LAN 10/100/1000\r\n        802.11 ac a/b/g/n\r\n    CÃ¡mara de portÃ¡til\r\n    MicrÃ³fono\r\n    BaterÃ­a 4 celdas Ion de litio\r\n    Conexiones\r\n        1 x VGA\r\n        1 x HDMI\r\n        1 x Combo Audio\r\n        2 x USB 3.0\r\n        1 x USB 2.0\r\n        1 x RJ45\r\n        Lector de Tarjetas\r\n    Sistema operativo Microsoft  Windows 10 Home\r\n    Dimensiones (Ancho x Profundidad x Altura) 381.6 x 256 x 24.9 ~ 29.2mm\r\n    Peso 2.4 kg\r\n    Color Negro y Blanco.', 1, -1, 1, 2, b'0'),
+	(51, 'MSI WT72 6QM-646ES Xeon E3-1505M V5/32GB/1TB+256SSD/M5000M/17.3', 5599, 'Te presentamos el WorkStation WT72 6QM-646ES de MSI, un WorkStation para los mÃ¡s exigentes en su trabajo. Con un procesador Intel Xeon E3, 32GB de RAM y 1TB + 256GB SSD de disco duro y una tarjeta Quadro M5000M de 8GB. Esta workstation cuenta con certificaciÃ³n ISV para AutoCAD, SolidWorks y PTC Creo.\r\n\r\nEspecificaciones:\r\n\r\n    Procesador IntelÂ® Xeon E3-1505M v5 (2.8 GHz, 8 MB)\r\n    Memoria RAM 32GB DDR4 ECC SODIMM (4x8GB)\r\n    Disco duro 1TB (7200 rpm S-ATA)+ 256GB SSD Super Raid 4 (M.2 PCIe Gen3 x4)\r\n    Almacenamiento Ã³ptico Bluray\r\n    Display 17.3" LED FullHD (1920 x 1080) 16:9 Gloss\r\n    Controlador grÃ¡fico Nvidia Quadro M5000M 8GB GDDR5\r\n    Conectividad\r\n        LAN 10/100/1000 Killer LAN\r\n        802.11 ac a/b/g/n\r\n        Bluetooth V4.0 High Speed\r\n    CÃ¡mara de portÃ¡til SÃ­\r\n    MicrÃ³fono SÃ­\r\n    BaterÃ­a 9 celdas Ion de litio\r\n    Conexiones\r\n        1 x Thunderbolt 3\r\n        1 x salida de auriculares\r\n        1 x entrada de micrÃ³fono\r\n        1 x USB 3.1\r\n        6 x USB 3.0\r\n        1 x RJ45\r\n    Lector de Tarjetas 3 en 1 (SD, SDHC, MMC)\r\n    Sistema operativo Microsoft Windows 10 Pro 64bits\r\n    Teclado Steelseries Full Color\r\n    Dimensiones (Ancho x Profundidad x Altura) 428 x 294 x 40~48mm\r\n    Peso 3.78 kg\r\n    Color Negro.', 1, -1, 0, -1, b'0'),
+	(52, 'MSI GS70 2PE-013ES i7-4700MQ/8GB/1TB+128 SSD/GTX870M/17.3', 1465, 'MSI GS70 2PE-0613 ES es un nuevo modelo de la serie de ordenadores portÃ¡tiles MSI que ya incorporan la Ãºltima generaciÃ³n de procesadores , pensados para el mundo gamer.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    Windows 8.1\r\n    Procesador IntelÂ® Core? i7 de la 4Âº generaciÃ³n \r\n    Pantalla de 17.3" Full HD (1920x1080) anti-brillo LCD con LED \r\n    Tarjeta grÃ¡fica NVIDIAÂ® GeForce GTX 870M con memoria GDDR5 \r\n    El portÃ¡til Gaming mÃ¡s fino y ligero del mercado \r\n    Sistema de ventilaciÃ³n Dual \r\n    Matrix ofrece la posibilidad de conectar hasta 4 pantallas para disfrutar del Gaming mas excitante. \r\n    Killer? DoubleShot combina alto rendimiento en Etherner y Wi-fi \r\n    Teclado Steelseries robusto y retroiluminado en multi-color\r\n\r\nEspecificaciones:\r\n\r\n    Procesador IntelÂ® Core? i7-4700MQ (2.4 Ghz, 6MB)\r\n    Memoria RAM 8GB DDR3  (1 x 8GB) Max 16GB\r\n    Disco duro 1 TB (7200 rpm S-ATA) + 128GB SSD mSATA\r\n    Display 17.3" Full HD+ Anti-Glare (1920x1080)\r\n    Controlador grÃ¡fico Nvidia GeForce GTX 870M 3GB GDDR5\r\n    Conectividad\r\n        LAN Killer 10/100/1000\r\n        802.11 a/b/g/n\r\n        Bluetooth 4.0 \r\n    CÃ¡mara de portÃ¡til SÃ­\r\n    MicrÃ³fono SÃ­\r\n    BaterÃ­a 6 Celdas Ion Litio\r\n    Conexiones\r\n        1 x HDMI\r\n        1 x salida de auriculares\r\n        1 x entrada de micrÃ³fono\r\n        4 x USB 3.0\r\n        1 x RJ45\r\n        Lector de Tarjetas \r\n    Sistema operativo Windows 8.1 64 Bits\r\n    Dimensiones (Ancho x Profundidad x Altura)  418.5 x 287 x 21.8 mm\r\n    Peso  2.66 kg \r\n    Color Negro.', 1, -1, 0, -1, b'0'),
+	(53, 'HP Envy 15-K202NS i7-5500U/8GB/1TB/GTX 850M/15.6', 849, 'El ordenador portÃ¡til HP ENVY con funciones completas estÃ¡ optimizado para la Ãºltima experiencia de Windows 8.1 para mantenerse activo todo el dÃ­a. Disfruta de un ordenador con un potente procesador i7, 8GB de memoria RAM para sacarle el mejor rendimiento y para que no te preocupes por el almacenamiento de tus datos, un disco duro integrado de 1TB. AdemÃ¡s, podrÃ¡s disfrutar de tus juegos favoritos gracias a su grÃ¡fica Nvidia GTX850M con 4GB dedicados exclusivamente para que seas el ganador en todas tus partidas.\r\n\r\nEspecificaciones:\r\n\r\n    Procesador IntelÂ® Core? i7-5500U con grÃ¡ficos HD IntelÂ® 5500 (2,4 GHz, 4 MB de cachÃ©, 2 nÃºcleos)\r\n    Memoria RAM 8 GB DDR3L-1600 SDRAM (1 x 8 GB)\r\n    Disco duro SATA de 1 TB 5400 rpm\r\n    Almacenamiento Ã³ptico Grabadora de DVD SuperMulti\r\n    Pantalla con retroiluminaciÃ³n WLED FHD antirreflejos de 39,6 cm (15,6 pulgadas) diagonal (1920 x 1080)\r\n    Controlador grÃ¡fico NVIDIA GeForce GTX 850M (DDR3 de 4 GB dedicados)\r\n    Conectividad\r\n        LAN Ethernet Gigabit 10/100/1000 integrada\r\n        Combo de 802.11b/g/n (1x1) y BluetoothÂ® 4.0 (compatible con Miracast)\r\n    CÃ¡mara de portÃ¡til integrada\r\n    MicrÃ³fono integrado \r\n    BaterÃ­a 4 celdas, 41 W/h ion-litio polÃ­mero\r\n    Conexiones\r\n        1 x HDMI\r\n        1 x combinaciÃ³n de auriculares y micrÃ³fono\r\n        3 x USB 3.0 (1 HP USB Boost)\r\n        1 x RJ-45\r\n    Lector de Tarjetas SD multiformato HP\r\n    Sistema operativo Windows 8.1 64bits (Actualizaciones a Windows 10 Home)\r\n    Dimensiones (Ancho x Profundidad x Altura) 38,45 x 26,02 x 2,67 cm\r\n    Peso 2,34 kg\r\n    Color Plata.', 1, -1, 0, -1, b'0'),
+	(54, 'Asus ROG GX700VO-GC009T i7-6820HK/32GB/256GB 256SSD/GTX980/17.3', 4049, 'ROG GX700 es el primer portÃ¡til gaming con refrigeraciÃ³n lÃ­quida. Su diseÃ±o proporciona un equipo portÃ¡til con un potencial de overclocking que puede competir con los equipos de sobremesa mÃ¡s extremos. El GX700 incorpora Windows 10 Home, un procesador IntelÂ® Mobile K-SKU acelerado, una grÃ¡fica NVIDIAÂ® GeForceÂ® GTX? 980 y 32 GB de RAM DDR4 para que disfrutes del rendimiento mÃ¡s extremo donde tÃº quieras.\r\n\r\nCaracterÃ­sticas:\r\n\r\n    El primer portÃ¡til gaming con refrigeraciÃ³n lÃ­quida: Disfruta de lo mejor de ambos mundos\r\n    ROG GX700 es el primer portÃ¡til gaming con un mÃ³dulo de refrigeraciÃ³n lÃ­quida desmontable para proporcionar el overclocking mÃ¡s extremo. Por sÃ­ solo, el GX700 cabe perfectamente en tu mochila y tiene una pegada que noquea los modelos de la competencia sin despeinarse. Conecta el mÃ³dulo de refrigeraciÃ³n lÃ­quida y podrÃ¡s acelerar el GX700 a niveles de rendimiento propios de los PC de sobremesa gaming.\r\n    Hydro Overclocking System exclusivo de ROG\r\n    El exclusivo Hydro Overclocking System lleva el rendimiento overclocking del GX700 a nueva cotas para que arrases en el campo de batalla. El mÃ³dulo de refrigeraciÃ³n bombea lÃ­quido refrigerante a travÃ©s de un circuito que transporta el calor del modo mÃ¡s eficiente desde los componentes crÃ­ticos del PC a los dos radiadores situados en el mÃ³dulo. La conexiÃ³n ROG patentada asegura la estanqueidad para que el lÃ­quido fluya sin fugas* entre el PC y el mÃ³dulo. Hydro Overclocking System ayuda a gestionar los excesos de temperatura ocasionados por la GPU GeForce GTX980 acelerada, permitiÃ©ndote alcanzar un 20 % mÃ¡s de rendimiento sin comprometer la estabilidad de este pequeÃ±o monstruo. Por sÃ­ mismo, el diseÃ±o tÃ©rmico dual del ROG GX700 tambiÃ©n permite alcanzar niveles bestiales de rendimiento.\r\n    LÃ­quido refrigerante de alto rendimiento con una formulaciÃ³n especial\r\n    El lÃ­quido refrigerante estÃ¡ formulado para proteger los componentes y materiales internos como aleaciones de hierro, acero y cobre contra la corrosiÃ³n. La reducida tasa de agotamiento del inhibidor Ã¡cido-orgÃ¡nico elimina la necesidad de emplear aditivos suplementarios contra la erosiÃ³n, reduciendo el tiempo habitualmente dedicado a probar inhibidores y aditivos. Hydro Overclocking System permite disminuir las temperaturas de la CPU y GPU un 31 % y 33 % respectivamente.\r\n    Mundos gaming en 4K UHD\r\n    ROG GX700 es el primer portÃ¡til gaming de 17 pulgadas capaz de sumergirte en ambientes 4K UHD reales. El Hydro Overclocking System mejora el rendimiento y la estabilidad general del GX700 para que disfrutes de los juegos como se debe hacer: en 4K UHD.\r\n\r\nEspecificaciones:\r\n\r\n    Procesador IntelÂ® Core? i7-6820HK (4 Cores, 8M Cache, 2.7GHz hasta 3.6GHz)\r\n    Memoria RAM  32GB\r\n    Disco duro 256GB + 256GB SSD PCIEx4\r\n    Almacenamiento Ã³ptico No incluido\r\n    Pantalla  17.3" LED Retroiluminado / Slim / 300nits / Full HD (1920x1080/16:9) / Anti-Glare / NTSC:72% / IPS;\r\n    Controlador grÃ¡fico NVIDIAÂ® GeForceÂ® GTX980\r\n    Conectividad 802.11ac (Dual band) + IntelÂ® WiDi Bluetooth 4.0\r\n    CÃ¡mara de portÃ¡til\r\n    MicrÃ³fono incorporado\r\n    BaterÃ­a 6 celdas\r\n    Conexiones\r\n        3 x USB 3.0\r\n        1 x USB 3.1 Tipo C (Gen 1)\r\n        1 x USB 3.1 Tipo C (Gen 2) con Thunderbolt\r\n        1 x Salida Auriculares\r\n        1 x Entrada MicrÃ³fono\r\n        1 x Conector RJ45 LAN\r\n        1 x HDMI 1 x Mini Display Port\r\n        1 x Orificio Bloqueo Kensington\r\n        1 x Entrada de Corriente\r\n    Lector de Tarjetas SD/MMC\r\n    Accesorios incluidos\r\n        2 x adaptador de corriente\r\n        1 x Cable de corriente\r\n        1 x Docking (Liquid Cooling System)\r\n        1 x RatÃ³n Gaming\r\n        1 x Maleta Gaming\r\n    Sistema operativo  WindowsÂ® 10 Original (64Bits)\r\n    Dimensiones (Ancho x Profundidad x Altura)429 x 309 x 33,5~38,5 mm\r\n    Peso  3,6 Kg\r\n    Color Plateado.', 1, -1, 1, -1, b'0'),
+	(61, 'Owlotech MS-200 RatÃ³n Gaming 2400 DPI', 19.95, '    Sensor Ã“ptico de alta resoluciÃ³n y 4 niveles: El MS200 cuenta con un sensor Ã³ptico de alta resoluciÃ³n y rÃ¡pida respuesta ademÃ¡s de 4 niveles distintos seleccionables a gusto del jugador 800/1200/1600/2400 DPI\r\n\r\n    IluminaciÃ³n en cada estado de DPI: Cada uno de los perfiles cuentan con un tipo de iluminaciÃ³n diferente 800 PÃºrpura 1200 Azul 1600 Rosa 2400 Rojo para que selecciones la sensibilidad e iluminaciÃ³n que mÃ¡s se adapte a ti.\r\n\r\n    DiseÃ±o ergonÃ³mico adaptable a la mano: MS200  de OG Gaming dispone de un diseÃ±o atractivo y sobre todo efectivo y ergonÃ³mico, haciendo las largas horas de juego mucho mÃ¡s cÃ³modas\r\n\r\n    4 perfiles y colores de iluminaciÃ³n\r\n    Sensor optico con 2400DPI\r\n    DiseÃ±o ergonÃ³mico\r\n    Material de alta calidad\r\n    Pies de polymero de alta calidad\r\n    DiseÃ±o exclusivo con iluminaciÃ³n de alta intensidad ', 6, -1, 0, -1, b'0');
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.slider
 CREATE TABLE IF NOT EXISTS `slider` (
   `id_slide` int(10) NOT NULL AUTO_INCREMENT,
@@ -1314,9 +344,15 @@ CREATE TABLE IF NOT EXISTS `slider` (
   `text_footer` text COLLATE latin1_spanish_ci NOT NULL,
   `text_header` text COLLATE latin1_spanish_ci NOT NULL,
   PRIMARY KEY (`id_slide`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.slider: ~2 rows (approximately)
+/*!40000 ALTER TABLE `slider` DISABLE KEYS */;
+REPLACE INTO `slider` (`id_slide`, `url`, `text_footer`, `text_header`) VALUES
+	(10, 'multimedia/images/slide/image.jpg', 'text', 'text'),
+	(14, 'multimedia/images/slide/IMG_6600224035160-1.jpeg', 'text2', 'text1');
+/*!40000 ALTER TABLE `slider` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.stock_message
 CREATE TABLE IF NOT EXISTS `stock_message` (
   `id_stock_message` int(5) NOT NULL AUTO_INCREMENT,
@@ -1327,7 +363,10 @@ CREATE TABLE IF NOT EXISTS `stock_message` (
   CONSTRAINT `FK_id_stock_message_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.stock_message: ~0 rows (approximately)
+/*!40000 ALTER TABLE `stock_message` DISABLE KEYS */;
+/*!40000 ALTER TABLE `stock_message` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.stock_switch
 CREATE TABLE IF NOT EXISTS `stock_switch` (
   `id` tinyint(1) NOT NULL AUTO_INCREMENT,
@@ -1335,7 +374,12 @@ CREATE TABLE IF NOT EXISTS `stock_switch` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.stock_switch: 1 rows
+/*!40000 ALTER TABLE `stock_switch` DISABLE KEYS */;
+REPLACE INTO `stock_switch` (`id`, `status`) VALUES
+	(1, b'0');
+/*!40000 ALTER TABLE `stock_switch` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.subcategories
 CREATE TABLE IF NOT EXISTS `subcategories` (
   `id_subcategory` int(11) NOT NULL AUTO_INCREMENT,
@@ -1344,9 +388,14 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   PRIMARY KEY (`id_subcategory`),
   KEY `FK_id_subcategory_category` (`id_category`),
   CONSTRAINT `FK_id_subcategory_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.subcategories: ~1 rows (approximately)
+/*!40000 ALTER TABLE `subcategories` DISABLE KEYS */;
+REPLACE INTO `subcategories` (`id_subcategory`, `subcategory_name`, `id_category`) VALUES
+	(5, 'zapatos bonitos', 5);
+/*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.switch
 CREATE TABLE IF NOT EXISTS `switch` (
   `id_switch` int(11) NOT NULL AUTO_INCREMENT,
@@ -1354,7 +403,12 @@ CREATE TABLE IF NOT EXISTS `switch` (
   PRIMARY KEY (`id_switch`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.switch: 1 rows
+/*!40000 ALTER TABLE `switch` DISABLE KEYS */;
+REPLACE INTO `switch` (`id_switch`, `status`) VALUES
+	(1, b'1');
+/*!40000 ALTER TABLE `switch` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.users
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -1367,9 +421,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(50) NOT NULL DEFAULT '',
   `counter` int(3) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.users: ~1 rows (approximately)
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+REPLACE INTO `users` (`id`, `name`, `surname`, `user_name`, `email`, `rol`, `photo`, `password`, `counter`) VALUES
+	(2, 'esto es una prueba', 'JOTI JOTI', 'admin', 'pedrovillacreces@hotmail.com', 1, 'esto es un cambio', 'admin', NULL);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+
 -- Dumping structure for table multishop.zip_files
 CREATE TABLE IF NOT EXISTS `zip_files` (
   `id_files` int(11) NOT NULL AUTO_INCREMENT,
@@ -1380,1812 +439,10 @@ CREATE TABLE IF NOT EXISTS `zip_files` (
   CONSTRAINT `FK_id_product_files` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
--- Data exporting was unselected.
+-- Dumping data for table multishop.zip_files: ~0 rows (approximately)
+/*!40000 ALTER TABLE `zip_files` DISABLE KEYS */;
+/*!40000 ALTER TABLE `zip_files` ENABLE KEYS */;
 
--- Dumping database structure for mysql
-CREATE DATABASE IF NOT EXISTS `mysql` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mysql`;
-
--- Dumping structure for table mysql.columns_priv
-CREATE TABLE IF NOT EXISTS `columns_priv` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Column_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`,`Column_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.column_stats
-CREATE TABLE IF NOT EXISTS `column_stats` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `min_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `max_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `nulls_ratio` decimal(12,4) DEFAULT NULL,
-  `avg_length` decimal(12,4) DEFAULT NULL,
-  `avg_frequency` decimal(12,4) DEFAULT NULL,
-  `hist_size` tinyint(3) unsigned DEFAULT NULL,
-  `hist_type` enum('SINGLE_PREC_HB','DOUBLE_PREC_HB') COLLATE utf8_bin DEFAULT NULL,
-  `histogram` varbinary(255) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`,`column_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Statistics on Columns';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.db
-CREATE TABLE IF NOT EXISTS `db` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Select_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Insert_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Update_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Delete_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Drop_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Grant_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `References_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Index_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Execute_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Event_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`Host`,`Db`,`User`),
-  KEY `User` (`User`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.event
-CREATE TABLE IF NOT EXISTS `event` (
-  `db` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
-  `name` char(64) NOT NULL DEFAULT '',
-  `body` longblob NOT NULL,
-  `definer` char(141) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
-  `execute_at` datetime DEFAULT NULL,
-  `interval_value` int(11) DEFAULT NULL,
-  `interval_field` enum('YEAR','QUARTER','MONTH','DAY','HOUR','MINUTE','WEEK','SECOND','MICROSECOND','YEAR_MONTH','DAY_HOUR','DAY_MINUTE','DAY_SECOND','HOUR_MINUTE','HOUR_SECOND','MINUTE_SECOND','DAY_MICROSECOND','HOUR_MICROSECOND','MINUTE_MICROSECOND','SECOND_MICROSECOND') DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `last_executed` datetime DEFAULT NULL,
-  `starts` datetime DEFAULT NULL,
-  `ends` datetime DEFAULT NULL,
-  `status` enum('ENABLED','DISABLED','SLAVESIDE_DISABLED') NOT NULL DEFAULT 'ENABLED',
-  `on_completion` enum('DROP','PRESERVE') NOT NULL DEFAULT 'DROP',
-  `sql_mode` set('REAL_AS_FLOAT','PIPES_AS_CONCAT','ANSI_QUOTES','IGNORE_SPACE','IGNORE_BAD_TABLE_OPTIONS','ONLY_FULL_GROUP_BY','NO_UNSIGNED_SUBTRACTION','NO_DIR_IN_CREATE','POSTGRESQL','ORACLE','MSSQL','DB2','MAXDB','NO_KEY_OPTIONS','NO_TABLE_OPTIONS','NO_FIELD_OPTIONS','MYSQL323','MYSQL40','ANSI','NO_AUTO_VALUE_ON_ZERO','NO_BACKSLASH_ESCAPES','STRICT_TRANS_TABLES','STRICT_ALL_TABLES','NO_ZERO_IN_DATE','NO_ZERO_DATE','INVALID_DATES','ERROR_FOR_DIVISION_BY_ZERO','TRADITIONAL','NO_AUTO_CREATE_USER','HIGH_NOT_PRECEDENCE','NO_ENGINE_SUBSTITUTION','PAD_CHAR_TO_FULL_LENGTH') NOT NULL DEFAULT '',
-  `comment` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
-  `originator` int(10) unsigned NOT NULL,
-  `time_zone` char(64) CHARACTER SET latin1 NOT NULL DEFAULT 'SYSTEM',
-  `character_set_client` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `collation_connection` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `db_collation` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `body_utf8` longblob,
-  PRIMARY KEY (`db`,`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Events';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.func
-CREATE TABLE IF NOT EXISTS `func` (
-  `name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `ret` tinyint(1) NOT NULL DEFAULT '0',
-  `dl` char(128) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `type` enum('function','aggregate') CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User defined functions';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.general_log
-CREATE TABLE IF NOT EXISTS `general_log` (
-  `event_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user_host` mediumtext NOT NULL,
-  `thread_id` bigint(21) unsigned NOT NULL,
-  `server_id` int(10) unsigned NOT NULL,
-  `command_type` varchar(64) NOT NULL,
-  `argument` mediumtext NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='General log';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.gtid_slave_pos
-CREATE TABLE IF NOT EXISTS `gtid_slave_pos` (
-  `domain_id` int(10) unsigned NOT NULL,
-  `sub_id` bigint(20) unsigned NOT NULL,
-  `server_id` int(10) unsigned NOT NULL,
-  `seq_no` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`domain_id`,`sub_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Replication slave GTID position';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.help_category
-CREATE TABLE IF NOT EXISTS `help_category` (
-  `help_category_id` smallint(5) unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  `parent_category_id` smallint(5) unsigned DEFAULT NULL,
-  `url` text NOT NULL,
-  PRIMARY KEY (`help_category_id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='help categories';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.help_keyword
-CREATE TABLE IF NOT EXISTS `help_keyword` (
-  `help_keyword_id` int(10) unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  PRIMARY KEY (`help_keyword_id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='help keywords';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.help_relation
-CREATE TABLE IF NOT EXISTS `help_relation` (
-  `help_topic_id` int(10) unsigned NOT NULL,
-  `help_keyword_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`help_keyword_id`,`help_topic_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='keyword-topic relation';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.help_topic
-CREATE TABLE IF NOT EXISTS `help_topic` (
-  `help_topic_id` int(10) unsigned NOT NULL,
-  `name` char(64) NOT NULL,
-  `help_category_id` smallint(5) unsigned NOT NULL,
-  `description` text NOT NULL,
-  `example` text NOT NULL,
-  `url` text NOT NULL,
-  PRIMARY KEY (`help_topic_id`),
-  UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='help topics';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.host
-CREATE TABLE IF NOT EXISTS `host` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Select_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Insert_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Update_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Delete_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Drop_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Grant_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `References_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Index_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Execute_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`Host`,`Db`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Host privileges;  Merged with database privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.index_stats
-CREATE TABLE IF NOT EXISTS `index_stats` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `index_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefix_arity` int(11) unsigned NOT NULL,
-  `avg_frequency` decimal(12,4) DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`,`index_name`,`prefix_arity`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Statistics on Indexes';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.innodb_index_stats
-CREATE TABLE IF NOT EXISTS `innodb_index_stats` (
-  `database_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `index_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `stat_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `stat_value` bigint(20) unsigned NOT NULL,
-  `sample_size` bigint(20) unsigned DEFAULT NULL,
-  `stat_description` varchar(1024) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`database_name`,`table_name`,`index_name`,`stat_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0;
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.innodb_table_stats
-CREATE TABLE IF NOT EXISTS `innodb_table_stats` (
-  `database_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `n_rows` bigint(20) unsigned NOT NULL,
-  `clustered_index_size` bigint(20) unsigned NOT NULL,
-  `sum_of_other_index_sizes` bigint(20) unsigned NOT NULL,
-  PRIMARY KEY (`database_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin STATS_PERSISTENT=0;
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.ndb_binlog_index
-CREATE TABLE IF NOT EXISTS `ndb_binlog_index` (
-  `Position` bigint(20) unsigned NOT NULL,
-  `File` varchar(255) NOT NULL,
-  `epoch` bigint(20) unsigned NOT NULL,
-  `inserts` int(10) unsigned NOT NULL,
-  `updates` int(10) unsigned NOT NULL,
-  `deletes` int(10) unsigned NOT NULL,
-  `schemaops` int(10) unsigned NOT NULL,
-  `orig_server_id` int(10) unsigned NOT NULL,
-  `orig_epoch` bigint(20) unsigned NOT NULL,
-  `gci` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`epoch`,`orig_server_id`,`orig_epoch`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.plugin
-CREATE TABLE IF NOT EXISTS `plugin` (
-  `name` varchar(64) NOT NULL DEFAULT '',
-  `dl` varchar(128) NOT NULL DEFAULT '',
-  PRIMARY KEY (`name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='MySQL plugins';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.proc
-CREATE TABLE IF NOT EXISTS `proc` (
-  `db` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
-  `name` char(64) NOT NULL DEFAULT '',
-  `type` enum('FUNCTION','PROCEDURE') NOT NULL,
-  `specific_name` char(64) NOT NULL DEFAULT '',
-  `language` enum('SQL') NOT NULL DEFAULT 'SQL',
-  `sql_data_access` enum('CONTAINS_SQL','NO_SQL','READS_SQL_DATA','MODIFIES_SQL_DATA') NOT NULL DEFAULT 'CONTAINS_SQL',
-  `is_deterministic` enum('YES','NO') NOT NULL DEFAULT 'NO',
-  `security_type` enum('INVOKER','DEFINER') NOT NULL DEFAULT 'DEFINER',
-  `param_list` blob NOT NULL,
-  `returns` longblob NOT NULL,
-  `body` longblob NOT NULL,
-  `definer` char(141) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '',
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `sql_mode` set('REAL_AS_FLOAT','PIPES_AS_CONCAT','ANSI_QUOTES','IGNORE_SPACE','IGNORE_BAD_TABLE_OPTIONS','ONLY_FULL_GROUP_BY','NO_UNSIGNED_SUBTRACTION','NO_DIR_IN_CREATE','POSTGRESQL','ORACLE','MSSQL','DB2','MAXDB','NO_KEY_OPTIONS','NO_TABLE_OPTIONS','NO_FIELD_OPTIONS','MYSQL323','MYSQL40','ANSI','NO_AUTO_VALUE_ON_ZERO','NO_BACKSLASH_ESCAPES','STRICT_TRANS_TABLES','STRICT_ALL_TABLES','NO_ZERO_IN_DATE','NO_ZERO_DATE','INVALID_DATES','ERROR_FOR_DIVISION_BY_ZERO','TRADITIONAL','NO_AUTO_CREATE_USER','HIGH_NOT_PRECEDENCE','NO_ENGINE_SUBSTITUTION','PAD_CHAR_TO_FULL_LENGTH') NOT NULL DEFAULT '',
-  `comment` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `character_set_client` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `collation_connection` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `db_collation` char(32) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `body_utf8` longblob,
-  PRIMARY KEY (`db`,`name`,`type`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Stored Procedures';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.procs_priv
-CREATE TABLE IF NOT EXISTS `procs_priv` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Routine_name` char(64) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `Routine_type` enum('FUNCTION','PROCEDURE') COLLATE utf8_bin NOT NULL,
-  `Grantor` char(141) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Proc_priv` set('Execute','Alter Routine','Grant') CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Host`,`Db`,`User`,`Routine_name`,`Routine_type`),
-  KEY `Grantor` (`Grantor`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Procedure privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.proxies_priv
-CREATE TABLE IF NOT EXISTS `proxies_priv` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Proxied_host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Proxied_user` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `With_grant` tinyint(1) NOT NULL DEFAULT '0',
-  `Grantor` char(141) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`Host`,`User`,`Proxied_host`,`Proxied_user`),
-  KEY `Grantor` (`Grantor`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User proxy privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.roles_mapping
-CREATE TABLE IF NOT EXISTS `roles_mapping` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Role` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Admin_option` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  UNIQUE KEY `Host` (`Host`,`User`,`Role`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Granted roles';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.servers
-CREATE TABLE IF NOT EXISTS `servers` (
-  `Server_name` char(64) NOT NULL DEFAULT '',
-  `Host` char(64) NOT NULL DEFAULT '',
-  `Db` char(64) NOT NULL DEFAULT '',
-  `Username` char(80) NOT NULL DEFAULT '',
-  `Password` char(64) NOT NULL DEFAULT '',
-  `Port` int(4) NOT NULL DEFAULT '0',
-  `Socket` char(64) NOT NULL DEFAULT '',
-  `Wrapper` char(64) NOT NULL DEFAULT '',
-  `Owner` char(64) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Server_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='MySQL Foreign Servers table';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.slave_master_info
-CREATE TABLE IF NOT EXISTS `slave_master_info` (
-  `Number_of_lines` int(10) unsigned NOT NULL COMMENT 'Number of lines in the file.',
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The name of the master binary log currently being read from the master.',
-  `Master_log_pos` bigint(20) unsigned NOT NULL COMMENT 'The master log position of the last read event.',
-  `Host` char(64) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '' COMMENT 'The host name of the master.',
-  `User_name` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The user name used to connect to the master.',
-  `User_password` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The password used to connect to the master.',
-  `Port` int(10) unsigned NOT NULL COMMENT 'The network port used to connect to the master.',
-  `Connect_retry` int(10) unsigned NOT NULL COMMENT 'The period (in seconds) that the slave will wait before trying to reconnect to the master.',
-  `Enabled_ssl` tinyint(1) NOT NULL COMMENT 'Indicates whether the server supports SSL connections.',
-  `Ssl_ca` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Authority (CA) certificate.',
-  `Ssl_capath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path to the Certificate Authority (CA) certificates.',
-  `Ssl_cert` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL certificate file.',
-  `Ssl_cipher` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the cipher in use for the SSL connection.',
-  `Ssl_key` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The name of the SSL key file.',
-  `Ssl_verify_server_cert` tinyint(1) NOT NULL COMMENT 'Whether to verify the server certificate.',
-  `Heartbeat` float NOT NULL,
-  `Bind` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'Displays which interface is employed when connecting to the MySQL server',
-  `Ignored_server_ids` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The number of server IDs to be ignored, followed by the actual server IDs',
-  `Uuid` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The master server uuid.',
-  `Retry_count` bigint(20) unsigned NOT NULL COMMENT 'Number of reconnect attempts, to the master, before giving up.',
-  `Ssl_crl` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The file used for the Certificate Revocation List (CRL)',
-  `Ssl_crlpath` text CHARACTER SET utf8 COLLATE utf8_bin COMMENT 'The path used for Certificate Revocation List (CRL) files',
-  `Enabled_auto_position` tinyint(1) NOT NULL COMMENT 'Indicates whether GTIDs will be used to retrieve events from the master.',
-  PRIMARY KEY (`Host`,`Port`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 COMMENT='Master Information';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.slave_relay_log_info
-CREATE TABLE IF NOT EXISTS `slave_relay_log_info` (
-  `Number_of_lines` int(10) unsigned NOT NULL COMMENT 'Number of lines in the file or rows in the table. Used to version table definitions.',
-  `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The name of the current relay log file.',
-  `Relay_log_pos` bigint(20) unsigned NOT NULL COMMENT 'The relay log position of the last executed event.',
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL COMMENT 'The name of the master binary log file from which the events in the relay log file were read.',
-  `Master_log_pos` bigint(20) unsigned NOT NULL COMMENT 'The master log position of the last executed event.',
-  `Sql_delay` int(11) NOT NULL COMMENT 'The number of seconds that the slave must lag behind the master.',
-  `Number_of_workers` int(10) unsigned NOT NULL,
-  `Id` int(10) unsigned NOT NULL COMMENT 'Internal Id that uniquely identifies this record.',
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 COMMENT='Relay Log Information';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.slave_worker_info
-CREATE TABLE IF NOT EXISTS `slave_worker_info` (
-  `Id` int(10) unsigned NOT NULL,
-  `Relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Relay_log_pos` bigint(20) unsigned NOT NULL,
-  `Master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Master_log_pos` bigint(20) unsigned NOT NULL,
-  `Checkpoint_relay_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Checkpoint_relay_log_pos` bigint(20) unsigned NOT NULL,
-  `Checkpoint_master_log_name` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `Checkpoint_master_log_pos` bigint(20) unsigned NOT NULL,
-  `Checkpoint_seqno` int(10) unsigned NOT NULL,
-  `Checkpoint_group_size` int(10) unsigned NOT NULL,
-  `Checkpoint_group_bitmap` blob NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 STATS_PERSISTENT=0 COMMENT='Worker Information';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.slow_log
-CREATE TABLE IF NOT EXISTS `slow_log` (
-  `start_time` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-  `user_host` mediumtext NOT NULL,
-  `query_time` time(6) NOT NULL,
-  `lock_time` time(6) NOT NULL,
-  `rows_sent` int(11) NOT NULL,
-  `rows_examined` int(11) NOT NULL,
-  `db` varchar(512) NOT NULL,
-  `last_insert_id` int(11) NOT NULL,
-  `insert_id` int(11) NOT NULL,
-  `server_id` int(10) unsigned NOT NULL,
-  `sql_text` mediumtext NOT NULL,
-  `thread_id` bigint(21) unsigned NOT NULL,
-  `rows_affected` int(11) NOT NULL
-) ENGINE=CSV DEFAULT CHARSET=utf8 COMMENT='Slow log';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.tables_priv
-CREATE TABLE IF NOT EXISTS `tables_priv` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Db` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Table_name` char(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Grantor` char(141) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `Table_priv` set('Select','Insert','Update','Delete','Create','Drop','Grant','References','Index','Alter','Create View','Show view','Trigger') CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`Host`,`Db`,`User`,`Table_name`),
-  KEY `Grantor` (`Grantor`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table privileges';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.table_stats
-CREATE TABLE IF NOT EXISTS `table_stats` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `cardinality` bigint(21) unsigned DEFAULT NULL,
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Statistics on Tables';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.time_zone
-CREATE TABLE IF NOT EXISTS `time_zone` (
-  `Time_zone_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `Use_leap_seconds` enum('Y','N') NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`Time_zone_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Time zones';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.time_zone_leap_second
-CREATE TABLE IF NOT EXISTS `time_zone_leap_second` (
-  `Transition_time` bigint(20) NOT NULL,
-  `Correction` int(11) NOT NULL,
-  PRIMARY KEY (`Transition_time`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Leap seconds information for time zones';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.time_zone_name
-CREATE TABLE IF NOT EXISTS `time_zone_name` (
-  `Name` char(64) NOT NULL,
-  `Time_zone_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`Name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Time zone names';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.time_zone_transition
-CREATE TABLE IF NOT EXISTS `time_zone_transition` (
-  `Time_zone_id` int(10) unsigned NOT NULL,
-  `Transition_time` bigint(20) NOT NULL,
-  `Transition_type_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`Time_zone_id`,`Transition_time`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Time zone transitions';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.time_zone_transition_type
-CREATE TABLE IF NOT EXISTS `time_zone_transition_type` (
-  `Time_zone_id` int(10) unsigned NOT NULL,
-  `Transition_type_id` int(10) unsigned NOT NULL,
-  `Offset` int(11) NOT NULL DEFAULT '0',
-  `Is_DST` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `Abbreviation` char(8) NOT NULL DEFAULT '',
-  PRIMARY KEY (`Time_zone_id`,`Transition_type_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Time zone transition types';
-
--- Data exporting was unselected.
--- Dumping structure for table mysql.user
-CREATE TABLE IF NOT EXISTS `user` (
-  `Host` char(60) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `User` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `Password` char(41) CHARACTER SET latin1 COLLATE latin1_bin NOT NULL DEFAULT '',
-  `Select_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Insert_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Update_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Delete_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Drop_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Reload_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Shutdown_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Process_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `File_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Grant_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `References_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Index_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Show_db_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Super_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Execute_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Repl_slave_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Repl_client_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Show_view_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_user_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Event_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Trigger_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `Create_tablespace_priv` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `ssl_type` enum('','ANY','X509','SPECIFIED') CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `ssl_cipher` blob NOT NULL,
-  `x509_issuer` blob NOT NULL,
-  `x509_subject` blob NOT NULL,
-  `max_questions` int(11) unsigned NOT NULL DEFAULT '0',
-  `max_updates` int(11) unsigned NOT NULL DEFAULT '0',
-  `max_connections` int(11) unsigned NOT NULL DEFAULT '0',
-  `max_user_connections` int(11) NOT NULL DEFAULT '0',
-  `plugin` char(64) CHARACTER SET latin1 NOT NULL DEFAULT '',
-  `authentication_string` text COLLATE utf8_bin NOT NULL,
-  `password_expired` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `is_role` enum('N','Y') CHARACTER SET utf8 NOT NULL DEFAULT 'N',
-  `default_role` char(80) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `max_statement_time` decimal(12,6) NOT NULL DEFAULT '0.000000',
-  PRIMARY KEY (`Host`,`User`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and global privileges';
-
--- Data exporting was unselected.
-
--- Dumping database structure for performance_schema
-CREATE DATABASE IF NOT EXISTS `performance_schema` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `performance_schema`;
-
--- Dumping structure for table performance_schema.accounts
-CREATE TABLE IF NOT EXISTS `accounts` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `CURRENT_CONNECTIONS` bigint(20) NOT NULL,
-  `TOTAL_CONNECTIONS` bigint(20) NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.cond_instances
-CREATE TABLE IF NOT EXISTS `cond_instances` (
-  `NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_current
-CREATE TABLE IF NOT EXISTS `events_stages_current` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_history
-CREATE TABLE IF NOT EXISTS `events_stages_history` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_history_long
-CREATE TABLE IF NOT EXISTS `events_stages_history_long` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_summary_by_account_by_event_name
-CREATE TABLE IF NOT EXISTS `events_stages_summary_by_account_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_summary_by_host_by_event_name
-CREATE TABLE IF NOT EXISTS `events_stages_summary_by_host_by_event_name` (
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_summary_by_thread_by_event_name
-CREATE TABLE IF NOT EXISTS `events_stages_summary_by_thread_by_event_name` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_summary_by_user_by_event_name
-CREATE TABLE IF NOT EXISTS `events_stages_summary_by_user_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_stages_summary_global_by_event_name
-CREATE TABLE IF NOT EXISTS `events_stages_summary_global_by_event_name` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_current
-CREATE TABLE IF NOT EXISTS `events_statements_current` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SQL_TEXT` longtext,
-  `DIGEST` varchar(32) DEFAULT NULL,
-  `DIGEST_TEXT` longtext,
-  `CURRENT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned DEFAULT NULL,
-  `MYSQL_ERRNO` int(11) DEFAULT NULL,
-  `RETURNED_SQLSTATE` varchar(5) DEFAULT NULL,
-  `MESSAGE_TEXT` varchar(128) DEFAULT NULL,
-  `ERRORS` bigint(20) unsigned NOT NULL,
-  `WARNINGS` bigint(20) unsigned NOT NULL,
-  `ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_history
-CREATE TABLE IF NOT EXISTS `events_statements_history` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SQL_TEXT` longtext,
-  `DIGEST` varchar(32) DEFAULT NULL,
-  `DIGEST_TEXT` longtext,
-  `CURRENT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned DEFAULT NULL,
-  `MYSQL_ERRNO` int(11) DEFAULT NULL,
-  `RETURNED_SQLSTATE` varchar(5) DEFAULT NULL,
-  `MESSAGE_TEXT` varchar(128) DEFAULT NULL,
-  `ERRORS` bigint(20) unsigned NOT NULL,
-  `WARNINGS` bigint(20) unsigned NOT NULL,
-  `ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_history_long
-CREATE TABLE IF NOT EXISTS `events_statements_history_long` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SQL_TEXT` longtext,
-  `DIGEST` varchar(32) DEFAULT NULL,
-  `DIGEST_TEXT` longtext,
-  `CURRENT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned DEFAULT NULL,
-  `MYSQL_ERRNO` int(11) DEFAULT NULL,
-  `RETURNED_SQLSTATE` varchar(5) DEFAULT NULL,
-  `MESSAGE_TEXT` varchar(128) DEFAULT NULL,
-  `ERRORS` bigint(20) unsigned NOT NULL,
-  `WARNINGS` bigint(20) unsigned NOT NULL,
-  `ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_by_account_by_event_name
-CREATE TABLE IF NOT EXISTS `events_statements_summary_by_account_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_by_digest
-CREATE TABLE IF NOT EXISTS `events_statements_summary_by_digest` (
-  `SCHEMA_NAME` varchar(64) DEFAULT NULL,
-  `DIGEST` varchar(32) DEFAULT NULL,
-  `DIGEST_TEXT` longtext,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `FIRST_SEEN` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_SEEN` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_by_host_by_event_name
-CREATE TABLE IF NOT EXISTS `events_statements_summary_by_host_by_event_name` (
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_by_thread_by_event_name
-CREATE TABLE IF NOT EXISTS `events_statements_summary_by_thread_by_event_name` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_by_user_by_event_name
-CREATE TABLE IF NOT EXISTS `events_statements_summary_by_user_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_statements_summary_global_by_event_name
-CREATE TABLE IF NOT EXISTS `events_statements_summary_global_by_event_name` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `SUM_LOCK_TIME` bigint(20) unsigned NOT NULL,
-  `SUM_ERRORS` bigint(20) unsigned NOT NULL,
-  `SUM_WARNINGS` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_AFFECTED` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_SENT` bigint(20) unsigned NOT NULL,
-  `SUM_ROWS_EXAMINED` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_DISK_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_CREATED_TMP_TABLES` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_FULL_RANGE_JOIN` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_RANGE_CHECK` bigint(20) unsigned NOT NULL,
-  `SUM_SELECT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_MERGE_PASSES` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_RANGE` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_ROWS` bigint(20) unsigned NOT NULL,
-  `SUM_SORT_SCAN` bigint(20) unsigned NOT NULL,
-  `SUM_NO_INDEX_USED` bigint(20) unsigned NOT NULL,
-  `SUM_NO_GOOD_INDEX_USED` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_current
-CREATE TABLE IF NOT EXISTS `events_waits_current` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `SPINS` int(10) unsigned DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(512) DEFAULT NULL,
-  `INDEX_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL,
-  `OPERATION` varchar(32) NOT NULL,
-  `NUMBER_OF_BYTES` bigint(20) DEFAULT NULL,
-  `FLAGS` int(10) unsigned DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_history
-CREATE TABLE IF NOT EXISTS `events_waits_history` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `SPINS` int(10) unsigned DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(512) DEFAULT NULL,
-  `INDEX_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL,
-  `OPERATION` varchar(32) NOT NULL,
-  `NUMBER_OF_BYTES` bigint(20) DEFAULT NULL,
-  `FLAGS` int(10) unsigned DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_history_long
-CREATE TABLE IF NOT EXISTS `events_waits_history_long` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_ID` bigint(20) unsigned NOT NULL,
-  `END_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `SOURCE` varchar(64) DEFAULT NULL,
-  `TIMER_START` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_END` bigint(20) unsigned DEFAULT NULL,
-  `TIMER_WAIT` bigint(20) unsigned DEFAULT NULL,
-  `SPINS` int(10) unsigned DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(512) DEFAULT NULL,
-  `INDEX_NAME` varchar(64) DEFAULT NULL,
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `NESTING_EVENT_ID` bigint(20) unsigned DEFAULT NULL,
-  `NESTING_EVENT_TYPE` enum('STATEMENT','STAGE','WAIT') DEFAULT NULL,
-  `OPERATION` varchar(32) NOT NULL,
-  `NUMBER_OF_BYTES` bigint(20) DEFAULT NULL,
-  `FLAGS` int(10) unsigned DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_by_account_by_event_name
-CREATE TABLE IF NOT EXISTS `events_waits_summary_by_account_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_by_host_by_event_name
-CREATE TABLE IF NOT EXISTS `events_waits_summary_by_host_by_event_name` (
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_by_instance
-CREATE TABLE IF NOT EXISTS `events_waits_summary_by_instance` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_by_thread_by_event_name
-CREATE TABLE IF NOT EXISTS `events_waits_summary_by_thread_by_event_name` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_by_user_by_event_name
-CREATE TABLE IF NOT EXISTS `events_waits_summary_by_user_by_event_name` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.events_waits_summary_global_by_event_name
-CREATE TABLE IF NOT EXISTS `events_waits_summary_global_by_event_name` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.file_instances
-CREATE TABLE IF NOT EXISTS `file_instances` (
-  `FILE_NAME` varchar(512) NOT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `OPEN_COUNT` int(10) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.file_summary_by_event_name
-CREATE TABLE IF NOT EXISTS `file_summary_by_event_name` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_READ` bigint(20) NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) NOT NULL,
-  `COUNT_MISC` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_MISC` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.file_summary_by_instance
-CREATE TABLE IF NOT EXISTS `file_summary_by_instance` (
-  `FILE_NAME` varchar(512) NOT NULL,
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_READ` bigint(20) NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) NOT NULL,
-  `COUNT_MISC` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_MISC` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.hosts
-CREATE TABLE IF NOT EXISTS `hosts` (
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `CURRENT_CONNECTIONS` bigint(20) NOT NULL,
-  `TOTAL_CONNECTIONS` bigint(20) NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.host_cache
-CREATE TABLE IF NOT EXISTS `host_cache` (
-  `IP` varchar(64) NOT NULL,
-  `HOST` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `HOST_VALIDATED` enum('YES','NO') NOT NULL,
-  `SUM_CONNECT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_HOST_BLOCKED_ERRORS` bigint(20) NOT NULL,
-  `COUNT_NAMEINFO_TRANSIENT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_NAMEINFO_PERMANENT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_FORMAT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_ADDRINFO_TRANSIENT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_ADDRINFO_PERMANENT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_FCRDNS_ERRORS` bigint(20) NOT NULL,
-  `COUNT_HOST_ACL_ERRORS` bigint(20) NOT NULL,
-  `COUNT_NO_AUTH_PLUGIN_ERRORS` bigint(20) NOT NULL,
-  `COUNT_AUTH_PLUGIN_ERRORS` bigint(20) NOT NULL,
-  `COUNT_HANDSHAKE_ERRORS` bigint(20) NOT NULL,
-  `COUNT_PROXY_USER_ERRORS` bigint(20) NOT NULL,
-  `COUNT_PROXY_USER_ACL_ERRORS` bigint(20) NOT NULL,
-  `COUNT_AUTHENTICATION_ERRORS` bigint(20) NOT NULL,
-  `COUNT_SSL_ERRORS` bigint(20) NOT NULL,
-  `COUNT_MAX_USER_CONNECTIONS_ERRORS` bigint(20) NOT NULL,
-  `COUNT_MAX_USER_CONNECTIONS_PER_HOUR_ERRORS` bigint(20) NOT NULL,
-  `COUNT_DEFAULT_DATABASE_ERRORS` bigint(20) NOT NULL,
-  `COUNT_INIT_CONNECT_ERRORS` bigint(20) NOT NULL,
-  `COUNT_LOCAL_ERRORS` bigint(20) NOT NULL,
-  `COUNT_UNKNOWN_ERRORS` bigint(20) NOT NULL,
-  `FIRST_SEEN` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_SEEN` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `FIRST_ERROR_SEEN` timestamp NULL DEFAULT '0000-00-00 00:00:00',
-  `LAST_ERROR_SEEN` timestamp NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.mutex_instances
-CREATE TABLE IF NOT EXISTS `mutex_instances` (
-  `NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `LOCKED_BY_THREAD_ID` bigint(20) unsigned DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.objects_summary_global_by_type
-CREATE TABLE IF NOT EXISTS `objects_summary_global_by_type` (
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.performance_timers
-CREATE TABLE IF NOT EXISTS `performance_timers` (
-  `TIMER_NAME` enum('CYCLE','NANOSECOND','MICROSECOND','MILLISECOND','TICK') NOT NULL,
-  `TIMER_FREQUENCY` bigint(20) DEFAULT NULL,
-  `TIMER_RESOLUTION` bigint(20) DEFAULT NULL,
-  `TIMER_OVERHEAD` bigint(20) DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.rwlock_instances
-CREATE TABLE IF NOT EXISTS `rwlock_instances` (
-  `NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `WRITE_LOCKED_BY_THREAD_ID` bigint(20) unsigned DEFAULT NULL,
-  `READ_LOCKED_BY_COUNT` int(10) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.session_account_connect_attrs
-CREATE TABLE IF NOT EXISTS `session_account_connect_attrs` (
-  `PROCESSLIST_ID` int(11) NOT NULL,
-  `ATTR_NAME` varchar(32) COLLATE utf8_bin NOT NULL,
-  `ATTR_VALUE` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
-  `ORDINAL_POSITION` int(11) DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.session_connect_attrs
-CREATE TABLE IF NOT EXISTS `session_connect_attrs` (
-  `PROCESSLIST_ID` int(11) NOT NULL,
-  `ATTR_NAME` varchar(32) COLLATE utf8_bin NOT NULL,
-  `ATTR_VALUE` varchar(1024) COLLATE utf8_bin DEFAULT NULL,
-  `ORDINAL_POSITION` int(11) DEFAULT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.setup_actors
-CREATE TABLE IF NOT EXISTS `setup_actors` (
-  `HOST` char(60) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '%',
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '%',
-  `ROLE` char(16) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL DEFAULT '%'
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.setup_consumers
-CREATE TABLE IF NOT EXISTS `setup_consumers` (
-  `NAME` varchar(64) NOT NULL,
-  `ENABLED` enum('YES','NO') NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.setup_instruments
-CREATE TABLE IF NOT EXISTS `setup_instruments` (
-  `NAME` varchar(128) NOT NULL,
-  `ENABLED` enum('YES','NO') NOT NULL,
-  `TIMED` enum('YES','NO') NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.setup_objects
-CREATE TABLE IF NOT EXISTS `setup_objects` (
-  `OBJECT_TYPE` enum('TABLE') NOT NULL DEFAULT 'TABLE',
-  `OBJECT_SCHEMA` varchar(64) DEFAULT '%',
-  `OBJECT_NAME` varchar(64) NOT NULL DEFAULT '%',
-  `ENABLED` enum('YES','NO') NOT NULL DEFAULT 'YES',
-  `TIMED` enum('YES','NO') NOT NULL DEFAULT 'YES'
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.setup_timers
-CREATE TABLE IF NOT EXISTS `setup_timers` (
-  `NAME` varchar(64) NOT NULL,
-  `TIMER_NAME` enum('CYCLE','NANOSECOND','MICROSECOND','MILLISECOND','TICK') NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.socket_instances
-CREATE TABLE IF NOT EXISTS `socket_instances` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `THREAD_ID` bigint(20) unsigned DEFAULT NULL,
-  `SOCKET_ID` int(11) NOT NULL,
-  `IP` varchar(64) NOT NULL,
-  `PORT` int(11) NOT NULL,
-  `STATE` enum('IDLE','ACTIVE') NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.socket_summary_by_event_name
-CREATE TABLE IF NOT EXISTS `socket_summary_by_event_name` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_READ` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_MISC` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_MISC` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.socket_summary_by_instance
-CREATE TABLE IF NOT EXISTS `socket_summary_by_instance` (
-  `EVENT_NAME` varchar(128) NOT NULL,
-  `OBJECT_INSTANCE_BEGIN` bigint(20) unsigned NOT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_READ` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_NUMBER_OF_BYTES_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_MISC` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_MISC` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_MISC` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.table_io_waits_summary_by_index_usage
-CREATE TABLE IF NOT EXISTS `table_io_waits_summary_by_index_usage` (
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `INDEX_NAME` varchar(64) DEFAULT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_FETCH` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `COUNT_INSERT` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `COUNT_UPDATE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `COUNT_DELETE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_DELETE` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.table_io_waits_summary_by_table
-CREATE TABLE IF NOT EXISTS `table_io_waits_summary_by_table` (
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_FETCH` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_FETCH` bigint(20) unsigned NOT NULL,
-  `COUNT_INSERT` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_INSERT` bigint(20) unsigned NOT NULL,
-  `COUNT_UPDATE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_UPDATE` bigint(20) unsigned NOT NULL,
-  `COUNT_DELETE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_DELETE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_DELETE` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.table_lock_waits_summary_by_table
-CREATE TABLE IF NOT EXISTS `table_lock_waits_summary_by_table` (
-  `OBJECT_TYPE` varchar(64) DEFAULT NULL,
-  `OBJECT_SCHEMA` varchar(64) DEFAULT NULL,
-  `OBJECT_NAME` varchar(64) DEFAULT NULL,
-  `COUNT_STAR` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WAIT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_READ_NORMAL` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ_NORMAL` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ_NORMAL` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ_NORMAL` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ_NORMAL` bigint(20) unsigned NOT NULL,
-  `COUNT_READ_WITH_SHARED_LOCKS` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ_WITH_SHARED_LOCKS` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ_WITH_SHARED_LOCKS` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ_WITH_SHARED_LOCKS` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ_WITH_SHARED_LOCKS` bigint(20) unsigned NOT NULL,
-  `COUNT_READ_HIGH_PRIORITY` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ_HIGH_PRIORITY` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ_HIGH_PRIORITY` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ_HIGH_PRIORITY` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ_HIGH_PRIORITY` bigint(20) unsigned NOT NULL,
-  `COUNT_READ_NO_INSERT` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ_NO_INSERT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ_NO_INSERT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ_NO_INSERT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ_NO_INSERT` bigint(20) unsigned NOT NULL,
-  `COUNT_READ_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_READ_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_READ_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_READ_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_READ_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_ALLOW_WRITE` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_ALLOW_WRITE` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_ALLOW_WRITE` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_ALLOW_WRITE` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_ALLOW_WRITE` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_CONCURRENT_INSERT` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_CONCURRENT_INSERT` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_CONCURRENT_INSERT` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_CONCURRENT_INSERT` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_CONCURRENT_INSERT` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_DELAYED` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_DELAYED` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_DELAYED` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_DELAYED` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_DELAYED` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_LOW_PRIORITY` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_LOW_PRIORITY` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_LOW_PRIORITY` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_LOW_PRIORITY` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_LOW_PRIORITY` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_NORMAL` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_NORMAL` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_NORMAL` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_NORMAL` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_NORMAL` bigint(20) unsigned NOT NULL,
-  `COUNT_WRITE_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `SUM_TIMER_WRITE_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `MIN_TIMER_WRITE_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `AVG_TIMER_WRITE_EXTERNAL` bigint(20) unsigned NOT NULL,
-  `MAX_TIMER_WRITE_EXTERNAL` bigint(20) unsigned NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.threads
-CREATE TABLE IF NOT EXISTS `threads` (
-  `THREAD_ID` bigint(20) unsigned NOT NULL,
-  `NAME` varchar(128) NOT NULL,
-  `TYPE` varchar(10) NOT NULL,
-  `PROCESSLIST_ID` bigint(20) unsigned DEFAULT NULL,
-  `PROCESSLIST_USER` varchar(16) DEFAULT NULL,
-  `PROCESSLIST_HOST` varchar(60) DEFAULT NULL,
-  `PROCESSLIST_DB` varchar(64) DEFAULT NULL,
-  `PROCESSLIST_COMMAND` varchar(16) DEFAULT NULL,
-  `PROCESSLIST_TIME` bigint(20) DEFAULT NULL,
-  `PROCESSLIST_STATE` varchar(64) DEFAULT NULL,
-  `PROCESSLIST_INFO` longtext,
-  `PARENT_THREAD_ID` bigint(20) unsigned DEFAULT NULL,
-  `ROLE` varchar(64) DEFAULT NULL,
-  `INSTRUMENTED` enum('YES','NO') NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
--- Dumping structure for table performance_schema.users
-CREATE TABLE IF NOT EXISTS `users` (
-  `USER` char(16) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `CURRENT_CONNECTIONS` bigint(20) NOT NULL,
-  `TOTAL_CONNECTIONS` bigint(20) NOT NULL
-) ENGINE=PERFORMANCE_SCHEMA DEFAULT CHARSET=utf8;
-
--- Data exporting was unselected.
-
--- Dumping database structure for phpmyadmin
-CREATE DATABASE IF NOT EXISTS `phpmyadmin` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_bin */;
-USE `phpmyadmin`;
-
--- Dumping structure for table phpmyadmin.pma__bookmark
-CREATE TABLE IF NOT EXISTS `pma__bookmark` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `query` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__central_columns
-CREATE TABLE IF NOT EXISTS `pma__central_columns` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_length` text COLLATE utf8_bin,
-  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
-  `col_isNull` tinyint(1) NOT NULL,
-  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
-  `col_default` text COLLATE utf8_bin,
-  PRIMARY KEY (`db_name`,`col_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__column_info
-CREATE TABLE IF NOT EXISTS `pma__column_info` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__designer_settings
-CREATE TABLE IF NOT EXISTS `pma__designer_settings` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `settings_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__export_templates
-CREATE TABLE IF NOT EXISTS `pma__export_templates` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
-  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `template_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__favorite
-CREATE TABLE IF NOT EXISTS `pma__favorite` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__history
-CREATE TABLE IF NOT EXISTS `pma__history` (
-  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `sqlquery` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`db`,`table`,`timevalue`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__navigationhiding
-CREATE TABLE IF NOT EXISTS `pma__navigationhiding` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__pdf_pages
-CREATE TABLE IF NOT EXISTS `pma__pdf_pages` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `page_nr` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT '',
-  PRIMARY KEY (`page_nr`),
-  KEY `db_name` (`db_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__recent
-CREATE TABLE IF NOT EXISTS `pma__recent` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tables` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__relation
-CREATE TABLE IF NOT EXISTS `pma__relation` (
-  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`master_db`,`master_table`,`master_field`),
-  KEY `foreign_field` (`foreign_db`,`foreign_table`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__savedsearches
-CREATE TABLE IF NOT EXISTS `pma__savedsearches` (
-  `id` int(5) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `search_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__table_coords
-CREATE TABLE IF NOT EXISTS `pma__table_coords` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `pdf_page_number` int(11) NOT NULL DEFAULT '0',
-  `x` float unsigned NOT NULL DEFAULT '0',
-  `y` float unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__table_info
-CREATE TABLE IF NOT EXISTS `pma__table_info` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
-  PRIMARY KEY (`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__table_uiprefs
-CREATE TABLE IF NOT EXISTS `pma__table_uiprefs` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `prefs` text COLLATE utf8_bin NOT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`username`,`db_name`,`table_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__tracking
-CREATE TABLE IF NOT EXISTS `pma__tracking` (
-  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
-  `version` int(10) unsigned NOT NULL,
-  `date_created` datetime NOT NULL,
-  `date_updated` datetime NOT NULL,
-  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
-  `schema_sql` text COLLATE utf8_bin,
-  `data_sql` longtext COLLATE utf8_bin,
-  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
-  `tracking_active` int(1) unsigned NOT NULL DEFAULT '1',
-  PRIMARY KEY (`db_name`,`table_name`,`version`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__userconfig
-CREATE TABLE IF NOT EXISTS `pma__userconfig` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `timevalue` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `config_data` text COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__usergroups
-CREATE TABLE IF NOT EXISTS `pma__usergroups` (
-  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
-  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
-  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N',
-  PRIMARY KEY (`usergroup`,`tab`,`allowed`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
-
--- Data exporting was unselected.
--- Dumping structure for table phpmyadmin.pma__users
-CREATE TABLE IF NOT EXISTS `pma__users` (
-  `username` varchar(64) COLLATE utf8_bin NOT NULL,
-  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
-  PRIMARY KEY (`username`,`usergroup`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
-
--- Data exporting was unselected.
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

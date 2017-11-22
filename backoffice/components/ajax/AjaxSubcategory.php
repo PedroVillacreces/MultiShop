@@ -2,6 +2,8 @@
 
 require_once "../../models/subcategories.php";
 require_once "../../controllers/subcategories.php";
+require_once "../../models/categories.php";
+require_once "../../controllers/categories.php";
 
 class AjaxSubcategory
 {
@@ -13,7 +15,8 @@ class AjaxSubcategory
     {
         $data = $this->id_subcategory;
         $response= Subcategories::getSubcategoryById($data);
-        echo json_encode(array('Subcategory' => $response));
+        $categories = Category::showCategoriesForSubcategories();
+        echo json_encode(array('Subcategory' => $response, 'Categories' => $categories));
     }
 }
 

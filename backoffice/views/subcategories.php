@@ -74,8 +74,15 @@ include "views/header.php";
                         <div class="form-group">
                             <label class="control-label">Categoría</label>
                             <div>
-                                <input type="text" class="form-control input-md" id="category"
-                                       name="category" value="" required>
+                                <select class="form-control input-md" id="category"
+                                       name="category" required>
+                                    <?php
+                                    $categories = Category::showCategoriesForSubcategories();
+                                    for($i = 0; $i < count($categories); ++$i){
+                                        echo '<option value="'.$categories[$i]['id_category'].'">'.$categories[$i]['category'].'</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">

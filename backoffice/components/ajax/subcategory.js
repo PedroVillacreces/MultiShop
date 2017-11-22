@@ -19,10 +19,11 @@ $(document).on('click', '.updateSubcategoryButton', function () {
             '<input class="form-control" name="name" id ="name" type="text" value="' + subcategoryAjax.Subcategory["1"] +'">'+
             '</div>'+
             '<div class="form-group">'+
-            '<label class="control-label">Categoría</label>'+
-            '<input class="form-control" name ="category_subcategory" id="category_subcategory" type="text" value="' + subcategoryAjax.Subcategory["2"] +'">'+
-            '</div>';
-
+            '<select name="id_category" class="form-control">';
+            for(var i = 0; i<subcategoryAjax.Categories.length; i++){
+                html += '<option value="'+ subcategoryAjax.Categories[i].id_category+'">' + subcategoryAjax.Categories[i].category + '</option>';
+            }
+            html+='</select>';
         $('#update-modal-subcategory').append(html);
     });
 });

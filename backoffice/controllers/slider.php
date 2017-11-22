@@ -29,20 +29,12 @@ class Slider
                             <form role="form" method="POST" id="deleteSlider">
                                 <button type="submit" name="deleteSlider" id="deleteSlider" class="deleteSliderButton btn btn-danger btn-sm">
                                 <input type="hidden" name="deleteId" value="'.$item['0'].'">
+                                <input type="hidden" name="url" value="'.$item['1'].'">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>                            
                         </td>
-                        <td>
-                            <form role="form" method="POST" id="getSliderById">                       
-                                    <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="getSliderById" id="getSliderById" class="updateSliderButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['0'].'">
-                                            <input type="hidden" name="updateId" value="'.$item['0'].'">
-                                            <span class="glyphicon glyphicon-pencil"></span>
-                                        </button>
-                                    </p>
-                            </form>                           
-                        </td>      
+                        
                     </tr>';
         }
     }
@@ -50,6 +42,11 @@ class Slider
     public function deleteSlider()
     {
         $response = SliderModel::deleteSlider($this->id_slider, "slider");
+
+        if ($response == "ok" && is_file($this->url))
+        {
+            unlink($this->url);
+        }
         return $response;
     }
 
@@ -63,6 +60,7 @@ class Slider
 if (isset($_POST['deleteSlider'])){
     $slider = new Slider();
     $slider ->id_slider = $_POST['deleteId'];
+    $slider ->url = $_POST['url'];
     $slider->deleteSlider();
 }
 
@@ -77,39 +75,62 @@ if (isset($_POST["createSlide"]))
         if($check !== false) {
            $uploadOk = 1;
         } else {
-            echo "El archivo no es una imagen";
+            echo '<script>',
+                    'alert("El archivo que intenta cargar no es una imagen, inténtalo de nuevo");',
+                '</script>';
             $uploadOk = 0;
         }
 
     if (file_exists($target_file)) {
-        echo "El archivo ya existe en la base de datos";
+        echo '<script>',
+                'alert("La imagen ya existe en el directorio, por favor elija otra");',
+            '</script>';
         $uploadOk = 0;
     }
 
     if ($_FILES["url"]["size"] > 500000) {
-        echo "No se puede generar archivo porque tiene un tamaño superior al permitido";
+        echo '<script>',
+                'alert("No se puede generar archivo porque tiene un tamaño superior al permitido");',
+            '</script>';
+
+
+
         $uploadOk = 0;
     }
 
     if(strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpeg"
         && $imageFileType != "gif" ) {
-        echo "Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF ";
+        echo '<script>',
+                'alert("Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF");',
+            '</script>';
+
         $uploadOk = 0;
     }
 
     if ($uploadOk == 0) {
-        echo "El archivo no ha sido subido";
+        echo '<script>',
+                'alert("El archivo no ha sido subido");',
+            '</script>';
     } else {
         if (move_uploaded_file($_FILES["url"]["tmp_name"], $target_file)) {
-            echo "El archivo ". basename( $_FILES["url"]["name"]). " ha sido cargado";
+            echo '<script>',
+                    'alert("El archivo "'. basename( $_FILES["url"]["name"]).' " ha sido cargado");',
+                '</script>';
         } else {
-            echo "Ha ocurrido un error al cargar la imagen";
+            echo  '<script>',
+                    'alert("Ha ocurrido un error al cargar la imagen");',
+                '</script>';
         }
     }
-
-    $slider = new Slider();
-    $slider ->text_footer = $_POST["text_footer"];
-    $slider->text_header = $_POST["text_header"];
-    $slider->url = $target_file;
-    $slider->createSlider($slider);
+    if($uploadOk != 0) {
+        $slider = new Slider();
+        $slider->text_footer = $_POST["text_footer"];
+        $slider->text_header = $_POST["text_header"];
+        $slider->url = $target_file;
+        $slider->createSlider($slider);
+    }else{
+        echo '<script>',
+                'alert("El slide no ha sido creado, intentelo de nuevo");',
+            '</script>';
+    }
 }

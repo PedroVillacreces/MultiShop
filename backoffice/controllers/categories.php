@@ -7,7 +7,7 @@ class Category
 {
     public static function showCategories()
     {
-        $response = ProductsModel::showCategories("categories");
+        $response = CategoriesModel::showCategories("categories");
         
                 foreach($response as $row => $item){
                     echo 
@@ -15,6 +15,11 @@ class Category
                     <td>'.$item['name'].'</td>
                     </tr>';
                 }
+    }
+
+    public static function  showCategoriesForSubcategories(){
+        $response = CategoriesModel::showCategories("categories");
+        return $response;
     }
 
 }

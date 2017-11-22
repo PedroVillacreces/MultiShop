@@ -16,7 +16,7 @@ class Subcategories
             echo
                 '<tr id="item'.$item['0'].'">
                         <td class="name">'.$item['1'].'</td>
-                        <td class="price">'.$item['2'].'</td>                        
+                        <td class="category">'.$item['3'].'</td>                        
                         <td>
                             <form role="form" method="POST" id="deleteSubcategory">
                                 <button type="submit" name="deleteSubcategory" id="deleteSubcategory" class="deleteSubcategoryButton btn btn-danger btn-sm">
@@ -38,6 +38,7 @@ class Subcategories
                     </tr>';
         }
     }
+
     public function createSubcategory($data)
     {
         $response = SubcategoriesModel::createSubcategory($data, "subcategories");
@@ -84,7 +85,7 @@ if(isset($_POST['updateSubcategory']))
 {
     $subcategory = new Subcategories();
     $subcategory->name = $_POST['name'];
-    $subcategory->category = $_POST['category_subcategory'];
+    $subcategory->category = $_POST['id_category'];
     $subcategory->id_subcategory = $_POST['id_subcategory'];
     $subcategory->updateSubcategory($subcategory);
 }
