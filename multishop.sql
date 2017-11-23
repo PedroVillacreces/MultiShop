@@ -281,20 +281,6 @@ REPLACE INTO `payments` (`id_payment`, `type`) VALUES
 /*!40000 ALTER TABLE `payments` ENABLE KEYS */;
 
 -- Dumping structure for table multishop.products
-CREATE TABLE IF NOT EXISTS `products` (
-  `id_product` int(3) NOT NULL AUTO_INCREMENT,
-  `product_name` varchar(250) NOT NULL DEFAULT '',
-  `price` double NOT NULL,
-  `description` text NOT NULL,
-  `id_category` int(2) NOT NULL,
-  `id_subcategory` int(11) NOT NULL DEFAULT '-1',
-  `start` int(1) NOT NULL DEFAULT '0',
-  `quantity` smallint(6) NOT NULL DEFAULT '-1',
-  `downloadable` bit(1) NOT NULL DEFAULT b'0',
-  PRIMARY KEY (`id_product`),
-  KEY `FK_id_product_category` (`id_category`),
-  CONSTRAINT `FK_id_product_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table multishop.products: ~36 rows (approximately)
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
@@ -368,11 +354,6 @@ CREATE TABLE IF NOT EXISTS `stock_message` (
 /*!40000 ALTER TABLE `stock_message` ENABLE KEYS */;
 
 -- Dumping structure for table multishop.stock_switch
-CREATE TABLE IF NOT EXISTS `stock_switch` (
-  `id` tinyint(1) NOT NULL AUTO_INCREMENT,
-  `status` bit(1) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table multishop.stock_switch: 1 rows
 /*!40000 ALTER TABLE `stock_switch` DISABLE KEYS */;
@@ -397,11 +378,6 @@ REPLACE INTO `subcategories` (`id_subcategory`, `subcategory_name`, `id_category
 /*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
 
 -- Dumping structure for table multishop.switch
-CREATE TABLE IF NOT EXISTS `switch` (
-  `id_switch` int(11) NOT NULL AUTO_INCREMENT,
-  `status` bit(1) NOT NULL,
-  PRIMARY KEY (`id_switch`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table multishop.switch: 1 rows
 /*!40000 ALTER TABLE `switch` DISABLE KEYS */;
