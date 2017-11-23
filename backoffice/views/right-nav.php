@@ -14,7 +14,7 @@
 				<li><a style="color: white" href="home">Inicio <span class="glyphicon glyphicon-home"></span></a></li>
 				<li><a style="color: white" href="products">Artículos <span class="glyphicon glyphicon-list-alt"></span></a></li>
 				<li><a style="color: white" href="customers">Clientes <span class="glyphicon glyphicon-user"></span></a></li>
-                <li><a style="color: white" href="categories">Castegorías<span class="glyphicon glyphicon-tasks"></span></a></li>
+                <li><a style="color: white" href="categories">Categorías<span class="glyphicon glyphicon-tasks"></span></a></li>
 				<li><a style="color: white" href="subcategories">Subcategorías <span class="glyphicon glyphicon-import"></span></a></li>
 				<li><a style="color: white" href="profile">Usuarios <span class="glyphicon glyphicon-user"></span></a></li>
                 <li><a style="color: white" href="orders">Pedidos <span class="glyphicon glyphicon-shopping-cart"></span></a></li>

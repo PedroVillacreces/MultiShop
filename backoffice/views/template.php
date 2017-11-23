@@ -33,7 +33,7 @@
 	<script src="components/js/jquery.fancybox.js"></script>
 	<script src="components/js/jquery.dataTables.min.js"></script>
 	<script src="components/js/dataTables.bootstrap.min.js"></script>
-	<script src="components/js/dataTables.responsive.min.js"></script>
+	<script src="components/js/dataTables.responsive.min.js"></script>S
 	<script src="components/js/responsive.bootstrap.min.js"></script>
 	<script src="components/js/jquery-ui.min.js"></script>
 	<script src="components/js/sweetalert.min.js"></script>
@@ -45,6 +45,7 @@
     <script src="components/ajax/orders.js"></script>
     <script src="components/ajax/comments.js"></script>
     <script src="components/ajax/slider.js"></script>
+    <script src="components/ajax/categories.js"></script>
 	
 </body>
 

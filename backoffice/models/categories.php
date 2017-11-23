@@ -21,15 +21,15 @@ class CategoriesModel
     }
 
         /**
-         * Undocumented function
+    * Undocumented function
          *
          * @param [type] $data
          * @param [type] $table
          * @return void
          */
-    public function addCategory($data, $table)
+    public function createCategory($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("INSERT INTO $table (name) VALUES (:name)");
+        $stmt = Conexion::connect()->prepare("INSERT INTO $table (category) VALUES (:name)");
         $stmt -> bindParam(":name", $data, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
@@ -40,7 +40,6 @@ class CategoriesModel
 
         $stmt->close();
     }
-
     /**
      * Undocumented function
      *
@@ -48,18 +47,19 @@ class CategoriesModel
      * @param [type] $table
      * @return void
      */
+    
     public function deleteCategory($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id = :id");
-        $stmt -> bindParam(":id", $date["id"], PDO::PARAM_INT);
-        if ($stmt->execute()) {
-            return "ok";
-        } else {
-            return "error";
-        }
-
-        $stmt->close();
-    }
+            $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id = :id");
+            $stmt -> bindParam(":id", $data, PDO::PARAM_INT);
+            if ($stmt->execute()) {
+                return "ok";
+            } else {
+                return "error";
+            }
+    
+            $stmt->close();
+     }
 /**
  * Undocumented function
  *
@@ -69,9 +69,9 @@ class CategoriesModel
  */
     public function updateCategory($data, $table)
     {
-            $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name WHERE id = :id");
-            $stmt -> bindParam(":name", $data["sendName"], PDO::PARAM_STR);
-            $stmt -> bindParam(":id", $data["SendId"], PDO::PARAM_INT);
+            $stmt = Conexion::connect()->prepare("UPDATE $table SET category = :name WHERE id_category = :id");
+            $stmt -> bindParam(":name", $data->category, PDO::PARAM_STR);
+            $stmt -> bindParam(":id", $data->id_category, PDO::PARAM_INT);
     
             if ($stmt->execute()) {
                 return "ok";
@@ -82,5 +82,21 @@ class CategoriesModel
             $stmt->close();
         
     }
-
+    
+    public static function getCategoryById($data, $table)
+    {
+        $stmt = Conexion::connect()->prepare("select * from $table WHERE id_category = :id_category");
+        $stmt ->bindParam(':id_category', $data, PDO::PARAM_INT);
+        if($stmt->execute()){
+            return $stmt->fetch();
+        }
+        else{
+            return "error";
+        }
+        $stmt->close();
+    }
 }
+    
+
+
+
