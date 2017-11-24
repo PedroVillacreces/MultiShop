@@ -1,11 +1,8 @@
 <?php
 require_once "conexion.php";
-/**
- * Created by PhpStorm.
- * User: LosSaurios
- * Date: 12/11/2017
- * Time: 10:16
- */
+
+/*TODO we need to implement edit funcionality, maybe switch to slider branch in repository*/
+
 class SliderModel
 {
     public static function showSlider($table)
@@ -18,8 +15,8 @@ class SliderModel
 
     public static function deleteSlider($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_slide = :id_slide");
-        $stmt -> bindParam(":id_slide", $data, PDO::PARAM_INT);
+        $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_slider = :id_slider");
+        $stmt -> bindParam(":id_slider", $data, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return "ok";
         } else {
