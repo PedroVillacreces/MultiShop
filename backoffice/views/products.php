@@ -95,26 +95,36 @@ include "views/header.php";
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Categoría</label>
+                            <label class="control-label">Categorías</label>
                             <div>
-                                <input type="text" class="form-control input-md" id="category"
-                                       name="category" value="" required>
+                                <select class="form-control input-md" id="category"
+                                        name="category" required>
+                                    <?php
+                                    $categories = Category::showCategoriesForSubcategories();
+                                    for($i = 0; $i < count($categories); ++$i){
+                                        echo '<option value="'.$categories[$i]['id_category'].'">'.$categories[$i]['category'].'</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Subcategoría Postal</label>
+                            <label class="control-label">SubCategorías</label>
                             <div>
-                                <input type="text" class="form-control input-md" id="subcategory" name="subcategory"
-                                       value="" required>
+                                <select class="form-control input-md" id="subcategory"
+                                        name="subcategory" required>
+                                    <?php
+                                    $subcategories = Subcategories::getSubcategoryForProducts();
+                                    for($i = 0; $i < count($subcategories); ++$i){
+                                        echo '<option value="'.$subcategories[$i]['id_subcategory'].'">'.$subcategories[$i]['subcategory_name'].'</option>';
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label">Iniciar</label>
-                            <div>
-                                <input type="text" class="form-control input-md" id="start"
-                                       name="start" value="" required>
-                            </div>
-                        </div>
+
+
+
                         <div class="form-group">
                             <label class="control-label">Cantidad</label>
                             <div>
@@ -123,11 +133,14 @@ include "views/header.php";
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Descargable</label>
-                            <div>
-                                <input type="text" class="form-control input-md" id="downloadable"
-                                       name="downloadable" required>
-                            </div>
+                        <div class="checkbox">
+                            <label class="control-label"><input type="checkbox" name="downloadable" value="1"><b>Descargable</b></label>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="checkbox">
+                            <label class="control-label"><input type="checkbox" name="start" value="1"><b>Iniciar</b></label>
+                        </div>
                         </div>
                         <div class="form-group">
                             <div>

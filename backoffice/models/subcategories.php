@@ -17,6 +17,14 @@ class SubcategoriesModel
         $stmt -> close();
     }
 
+    public static  function showCategoriesForProducts($table)
+    {
+        $stmt = Conexion::connect()->prepare("select * from $table");
+        $stmt -> execute();
+        return $stmt ->fetchAll();
+        $stmt->close();
+    }
+
     public static function createSubcategory($data, $table)
     {
         $mysql_conn = Conexion::connect();

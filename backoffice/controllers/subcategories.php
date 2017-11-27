@@ -62,6 +62,12 @@ class Subcategories
         $response = SubcategoriesModel::updateSubcategory($data, "subcategories");
         return $response;
     }
+
+    public static function getSubcategoryForProducts()
+    {
+        $response = SubcategoriesModel::showSubcategories("subcategories");
+        return $response;
+    }
 }
 
 if (isset($_POST["createSubcategory"]))

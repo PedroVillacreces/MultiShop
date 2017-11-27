@@ -27,9 +27,9 @@ class Products
                         <td class="description">'.$item['3'].'</td>
                         <td class="category">'.$item['4'].'</td>
                         <td class="subcategory">'.$item['5'].'</td>
-                        <td class="start">'.$item['6'].'</td>
+                        <td class="start">'.$item['6'] == 0 ? "No Iniciado" : "Inicializado".'</td>
                         <td class="quantity">'.$item['7'].'</td>
-                        <td class="downloadable">'.$item['8'].'</td>
+                        <td class="downloadable">'.$item['8'] == 0 ? "No" : "Si".'</td>
                         <td>
                             <form role="form" method="POST" id="deleteProduct">
                                 <button type="submit" name="deleteProduct" id="deleteProduct" class="deleteProductButton btn btn-danger btn-sm">
@@ -116,13 +116,24 @@ if (isset($_POST["updateProduct"]))
 if (isset($_POST["createProduct"]))
 {
     $product = new Products();
+    if(!$_POST["start"])
+    {
+        $product ->start = 0;
+    }else{
+        $product->start = $_POST['start'];
+    }
+
+    if(!$_POST["downloadable"])
+    {
+        $product ->downloadable = 0;
+    }else{
+        $product->downloadable = $_POST['downloadable'];
+    }
     $product->name = $_POST['name'];
     $product->price= $_POST['price'];
     $product->description = $_POST['description'];
     $product->category = $_POST['category'];
     $product->subcategory = $_POST['subcategory'];
-    $product->start = $_POST['start'];
-    $product->downloadable = $_POST['downloadable'];
     $product->quantity = $_POST['quantity'];
     $product->createProduct($product);
 
