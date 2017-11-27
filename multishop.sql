@@ -2,7 +2,7 @@
 -- Host:                         127.0.0.1
 -- Server version:               10.1.26-MariaDB - mariadb.org binary distribution
 -- Server OS:                    Win32
--- HeidiSQL Version:             9.4.0.5187
+-- HeidiSQL Version:             9.4.0.5188
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -158,7 +158,15 @@ CREATE TABLE IF NOT EXISTS `products` (
   PRIMARY KEY (`id_product`),
   KEY `FK_id_product_category` (`id_category`),
   CONSTRAINT `FK_id_product_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=latin1;
+
+-- Data exporting was unselected.
+-- Dumping structure for table multishop.roles
+CREATE TABLE IF NOT EXISTS `roles` (
+  `id_role` int(11) NOT NULL AUTO_INCREMENT,
+  `role` varchar(50) COLLATE latin1_spanish_ci NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_role`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- Data exporting was unselected.
 -- Dumping structure for table multishop.slider
@@ -198,7 +206,7 @@ CREATE TABLE IF NOT EXISTS `subcategories` (
   PRIMARY KEY (`id_subcategory`),
   KEY `FK_id_subcategory_category` (`id_category`),
   CONSTRAINT `FK_id_subcategory_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
 -- Data exporting was unselected.
 -- Dumping structure for table multishop.switch
