@@ -13,36 +13,44 @@ $(document).on('click', '.updateUserButton', function () {
     }).done(function (data) {
         var userAjax = $.parseJSON(data);
         var html =
-            '<input type="hidden" id="id" name="id" value="' + userAjax['0'] + '">'+
+            '<input type="hidden" id="id" name="id" value="' + userAjax.User['0'] + '">'+
             '<div class="form-group">'+
             '<label class="control-label">Nombre</label>'+
-            '<input class="form-control" name="name" id ="name" type="text" value="' + userAjax["1"] +'">'+
+            '<input class="form-control" name="name" id ="name" type="text" value="' + userAjax.User["1"] +'">'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Apellidos</label>'+
-            '<input class="form-control" name ="surname" id="surname" type="text" value="' + userAjax["2"] +'">'+
+            '<input class="form-control" name ="surname" id="surname" type="text" value="' + userAjax.User["2"] +'">'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Nombre Usuario</label>'+
-            '<input class="form-control" name="user_name" id="user_name" type="text" value="' + userAjax["3"] +'">'+
+            '<input class="form-control" name="user_name" id="user_name" type="text" value="' + userAjax.User["3"] +'">'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Email</label>'+
-            '<input class="form-control" name="email" id="email" type="mail" value="'+ userAjax["4"] +'">'+
+            '<input class="form-control" name="email" id="email" type="mail" value="'+ userAjax.User["4"] +'">'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Rol</label>'+
-            '<input class="form-control" name="rol" id="rol" type="number" value="'+ userAjax["5"] +'">'+
+        	'<select name="role" class="form-control" value="'+ userAjax.User["5"] +'">';
+	        for(var i = 0; i < userAjax.Roles.length; i++){
+	            html += '<option value="'+ userAjax.Roles[i].id_role+'">' + userAjax.Roles[i].role + '</option>';
+	        }
+        	html+='</select>'+
+        	'</div>'+
+        	'<div class="form-group">'+
+            '<label class="control-label">Foto</label>'+
+            '<div>'+
+            '<input type="file" class="form-control input-md" id="photo" name="photo">'+
             '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Foto Perfil</label>'+
-            '<input class="form-control" name="photo" id="photo" type="text" value="'+ userAjax["6"] +'">'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Contraseña</label>'+
-            '<input class="form-control" name="password" id="password" type="password" value="'+ userAjax["7"] +'">'+
+            '<input class="form-control" name="password" id="password" type="password" value="'+ userAjax.User["7"] +'">'+
             '</div>';
+        	
         $('#update-modal-users').append(html);
+        $('select option[value="'+userAjax.User["5"]+'"]').attr("selected","selected");
     });
 });
 

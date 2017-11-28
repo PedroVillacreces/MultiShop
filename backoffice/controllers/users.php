@@ -9,7 +9,7 @@ class Users
     public $email;
     public $password;
     public $photo;
-    public $rol;
+    public $role;
 
     public function showUsers()
     {
@@ -22,9 +22,9 @@ class Users
                         <td class="surname">'.$item['2'].'</td> 
                         <td class="user_name">'.$item['3'].'</td>
                          <td class="email">'.$item['4'].'</td> 
-                         <td class="rol">'.$item['5'].'</td>
-                         <td class="photo">'.$item['6'].'</td> 
-                         <td class="password">'.$item['7'].'</td> 
+                         <td class="role">'.$item['5'].'</td>
+                         <td class="photo">
+                         <img class="img-thumbnail" src="./'.$item['6'].'" alt="profile"></td>  
                         <td>
                             <form role="form" method="POST" id="deleteUser">
                                 <button type="submit" name="deleteUser" id="deleteUser" class="deleteUserButton btn btn-danger btn-sm">
@@ -36,7 +36,7 @@ class Users
                         <td>     
                             <form role="form" method="POST" id="getIdUser">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="getIdUser" id="getById" class="updateUserButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id'].'">
+                                        <button type="button" name="getIdUser" id="getById" class="updateUserButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['0'].'">
                                             <input type="hidden" name="getIdUser" value="'.$item['0'].'">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
@@ -80,7 +80,7 @@ if (isset($_POST["createUser"]))
     $user->email=$_POST['email'];
     $user->password=$_POST['password'];
     $user->photo=$_POST['photo'];
-    $user->rol=$_POST['rol'];
+    $user->role=$_POST['role'];
     $user->user_name=$_POST['user_name'];
     $user->createUser($user);
 }
@@ -101,7 +101,7 @@ if(isset($_POST['updateUser']))
     $user->email = $_POST['email'];
     $user->password = $_POST['password'];
     $user->photo=$_POST['photo'];
-    $user->rol = $_POST['rol'];
+    $user->role = $_POST['role'];
     $user->user_name = $_POST['user_name'];
     $user->updateUser($user);
 }

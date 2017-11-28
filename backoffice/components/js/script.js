@@ -78,7 +78,7 @@ $('#tableComments').DataTable({
 $('#tableSlider').DataTable({
     "language": {
         "sProcessing":     "Cargando...",
-        "sLengthMenu":     "Mostrar _MENU_ Comentarios",
+        "sLengthMenu":     "Mostrar _MENU_ Slides",
         "sZeroRecords":    "Búsqueda no encontrada",
         "sEmptyTable":     "No existe el registro en tabla",
         "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
@@ -187,7 +187,7 @@ $('#tableProducts').DataTable({
 $('#tableCustomers').DataTable({
     "language": {
         "sProcessing":     "Cargando...",
-        "sLengthMenu":     "Mostrar _MENU_ Productos",
+        "sLengthMenu":     "Mostrar _MENU_ Clientes",
         "sZeroRecords":    "Búsqueda no encontrada",
         "sEmptyTable":     "No existen el registro en tabla",
         "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
@@ -211,5 +211,31 @@ $('#tableCustomers').DataTable({
     }
 });
 
+$('#tableUsers').DataTable({
+    "language": {
+        "sProcessing":     "Cargando...",
+        "sLengthMenu":     "Mostrar _MENU_ Usuarios",
+        "sZeroRecords":    "Búsqueda no encontrada",
+        "sEmptyTable":     "No existen el registro en tabla",
+        "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending":  ": Ordenar columna de forma ascendente",
+            "sSortDescending": ": Ordenar la columna de forma descendente"
+        }
+    }
+});
 
 

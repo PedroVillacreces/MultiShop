@@ -11,7 +11,8 @@ class UsersModel
 {
     public static function showUsers($table)
     {
-        $stmt = Conexion::connect()->prepare("SELECT id, name, surname, user_name, email, rol, photo, password FROM $table");
+        $stmt = Conexion::connect()->prepare("SELECT t1.id, t1.name, t1.surname, t1.user_name, t1.email, t2.role, t1.photo, t1.password 
+                                            FROM $table as t1 INNER JOIN roles as t2 ON t1.id_role = t2.id_role");
         $stmt -> execute();
         return $stmt -> fetchAll();
         $stmt -> close();

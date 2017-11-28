@@ -2,6 +2,8 @@
 
 require_once "../../models/users.php";
 require_once "../../controllers/users.php";
+require_once "../../models/roles.php";
+require_once "../../controllers/roles.php";
 
 class AjaxUsers
 {
@@ -11,7 +13,8 @@ class AjaxUsers
     {
         $data = $this->id;
         $response= Users::getUserById($data);
-        $user = json_encode($response);
+        $roles = Roles::getRolesForUsers();
+        $user = json_encode(array('User' => $response, 'Roles' => $roles));
         echo $user;
     }
 }
