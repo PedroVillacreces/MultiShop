@@ -27,7 +27,7 @@ class CategoriesModel
          * @param [type] $table
          * @return void
          */
-    public function createCategory($data, $table)
+    public static function createCategory($data, $table)
     {
         $stmt = Conexion::connect()->prepare("INSERT INTO $table (category) VALUES (:name)");
         $stmt -> bindParam(":name", $data, PDO::PARAM_STR);
@@ -48,9 +48,9 @@ class CategoriesModel
      * @return void
      */
     
-    public function deleteCategory($data, $table)
+    public static function deleteCategory($data, $table)
     {
-            $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id = :id");
+            $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_category = :id");
             $stmt -> bindParam(":id", $data, PDO::PARAM_INT);
             if ($stmt->execute()) {
                 return "ok";
@@ -67,7 +67,7 @@ class CategoriesModel
  * @param [type] $table
  * @return void
  */
-    public function updateCategory($data, $table)
+    public static function updateCategory($data, $table)
     {
             $stmt = Conexion::connect()->prepare("UPDATE $table SET category = :name WHERE id_category = :id");
             $stmt -> bindParam(":name", $data->category, PDO::PARAM_STR);

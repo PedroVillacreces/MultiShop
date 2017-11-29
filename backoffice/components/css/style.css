@@ -133,6 +133,14 @@ nav#botonera ul li a span{
 	padding:40px;
 }
 
+.home-boxes{
+	display: flex;
+}
+
+.home-boxes li{
+
+}
+
 
 @media (min-width:1200px) {
 

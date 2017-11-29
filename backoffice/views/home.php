@@ -15,8 +15,8 @@ include "views/header.php";
 	    <p>Página de administración de Multishop.</p>
 	</div>
 		<hr>	
-	<ul>
-		<li class="">
+	<ul class="home-boxes">
+		<li class="img-responsive">
 			<a href="products">
 			<div style="background:black">
                 <p style="color: white;">Artículos</p>
