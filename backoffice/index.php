@@ -22,5 +22,6 @@ require_once "controllers/orders.php";
 require_once "controllers/comments.php";
 require_once "controllers/slider.php";
 require_once "controllers/roles.php";
+
 $template = new TemplateController();
 $template -> template();

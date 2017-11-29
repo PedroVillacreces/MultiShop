@@ -37,7 +37,7 @@ include "views/header.php";
 </div>
 
 
-<form role="form" method="POST" id="updateUser">
+<form role="form" method="POST" id="updateUser" enctype="multipart/form-data">
     <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"
          aria-hidden="true">
         <div class="modal-dialog">

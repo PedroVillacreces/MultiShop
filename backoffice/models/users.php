@@ -86,12 +86,12 @@ class UsersModel
 
     public static function updateUser($data, $table)
     {
-        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, user_name = :user_name, email = :email, rol = :rol, photo= :photo, password= :password where id = :id");
+        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, user_name = :user_name, email = :email, id_role = :role, photo= :photo, password= :password where id = :id");
         $stmt -> bindParam(":name", $data->name, PDO::PARAM_STR);
         $stmt -> bindParam(":surname", $data->surname, PDO::PARAM_STR);
         $stmt -> bindParam(":id", $data->id, PDO::PARAM_INT);
         $stmt -> bindParam(":user_name", $data->email, PDO::PARAM_STR);
-        $stmt -> bindParam(":rol", $data->rol, PDO::PARAM_INT);
+        $stmt -> bindParam(":role", $data->role, PDO::PARAM_INT);
         $stmt -> bindParam(":photo", $data->photo, PDO::PARAM_STR);
         $stmt -> bindParam(":email", $data->email, PDO::PARAM_STR);
         $stmt -> bindParam(":password", $data->password, PDO::PARAM_STR);
@@ -101,6 +101,7 @@ class UsersModel
             return "ok";
 
         } else {
+            
             return "error";
         }
 
