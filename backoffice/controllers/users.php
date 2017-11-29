@@ -77,18 +77,79 @@ class Users
         $response = UsersModel::updateUser($data, "users");
         return $response;
     }
+
+    public static function uploadPhoto($dir, $file, $userName)
+    {
+        //$target_dir = "multimedia/images/profile/";
+        if(!is_dir($dir . $userName)){
+            mkdir($dir.$userName, 0777, true);
+        }
+        else if(count($dir . $userName) !== 0){
+            $files = glob($dir . $userName . '/*');
+            foreach ($files as $file){
+                unlink($file);
+            }
+        }
+        $target_file = $dir . $userName . "/" . basename($file["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
+
+        $check = getimagesize($file["tmp_name"]);
+        if ($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo '<script>', 'alert("El archivo que intenta cargar no es una imagen, inténtalo de nuevo");', '</script>';
+            $uploadOk = 0;
+        }
+
+        if (file_exists($target_file)) {
+            echo '<script>', 'alert("La imagen ya existe en el directorio, por favor elija otra");', '</script>';
+            $uploadOk = 0;
+        }
+
+        if ($file["size"] > 500000) {
+            echo '<script>', 'alert("No se puede generar archivo porque tiene un tamaño superior al permitido");', '</script>';
+
+            $uploadOk = 0;
+        }
+
+        if (strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpeg" && $imageFileType != "gif") {
+            echo '<script>', 'alert("Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF");', '</script>';
+
+            $uploadOk = 0;
+        }
+
+        if ($uploadOk == 0) {
+            echo '<script>', 'alert("El archivo no ha sido subido");', '</script>';
+        } else {
+            if (move_uploaded_file($file["tmp_name"], $target_file)) {
+                echo '<script>', 'alert("El archivo "' . basename($file["name"]) . ' " ha sido cargado");', '</script>';
+            } else {
+                echo '<script>', 'alert("Ha ocurrido un error al cargar la imagen");', '</script>';
+            }
+        }
+
+        return array("Status" => $uploadOk, "Path" =>$target_file);
+    }
 }
 
+
 if (isset($_POST["createUser"])) {
+
+    $uploadOk = Users::uploadPhoto("multimedia/images/profile/", $_FILES["photo"], $_POST['user_name']);
+    if ($uploadOk["Status"] != 0) {
     $user = new Users();
     $user->name = $_POST['name'];
     $user->surname = $_POST['surname'];
     $user->email = $_POST['email'];
-    $user->password = $_POST['password'];
-    $user->photo = $_POST['photo'];
+    $user->password = base64_encode($_POST['password']);
+    $user->photo = $uploadOk["Path"];
     $user->role = $_POST['role'];
     $user->user_name = $_POST['user_name'];
     $user->createUser($user);
+    } else {
+        echo '<script>', 'alert("El Perfil no ha sido actualizado, intentelo de nuevo");', '</script>';
+    }
 }
 
 if (isset($_POST["deleteUser"])) {
@@ -99,20 +160,20 @@ if (isset($_POST["deleteUser"])) {
 
 if (isset($_POST['updateUser'])) {
     
-    $uploadOk = PhotoUpdater::uploadPhoto("multimedia/images/profile/", $_FILES["photo"]);
+    $uploadOk = Users::uploadPhoto("multimedia/images/profile/", $_FILES["photo"], $_POST['user_name']);
     
-    if ($uploadOk != 0) {
+    if ($uploadOk["Status"] != 0) {
         $user = new Users();
         $user->id = $_POST['id'];
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
         $user->email = $_POST['email'];
-        $user->password = $_POST['password'];
-        $user->photo = $target_file;
+        $user->password = base64_encode($_POST['password']);
+        $user->photo = $uploadOk["Path"];
         $user->role = $_POST['role'];
         $user->user_name = $_POST['user_name'];
         $user->updateUser($user);
     } else {
-        echo '<script>', 'alert("El Perfil no ha sido creado, intentelo de nuevo");', '</script>';
+        echo '<script>', 'alert("El Perfil no ha sido actualizado, intentelo de nuevo");', '</script>';
     }
 }

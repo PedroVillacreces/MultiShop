@@ -90,7 +90,7 @@ class UsersModel
         $stmt -> bindParam(":name", $data->name, PDO::PARAM_STR);
         $stmt -> bindParam(":surname", $data->surname, PDO::PARAM_STR);
         $stmt -> bindParam(":id", $data->id, PDO::PARAM_INT);
-        $stmt -> bindParam(":user_name", $data->email, PDO::PARAM_STR);
+        $stmt -> bindParam(":user_name", $data->user_name, PDO::PARAM_STR);
         $stmt -> bindParam(":role", $data->role, PDO::PARAM_INT);
         $stmt -> bindParam(":photo", $data->photo, PDO::PARAM_STR);
         $stmt -> bindParam(":email", $data->email, PDO::PARAM_STR);

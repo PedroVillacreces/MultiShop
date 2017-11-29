@@ -27,7 +27,7 @@ class Login{
 				$maxCounter = 2;
 
 				if($counter < $maxCounter){
-					if($response["user_name"] == $_POST["userLogin"] && $response["password"] == $_POST["passwordLogin"]){
+					if($response["user_name"] == $_POST["userLogin"] && base64_decode($response["password"]) == $_POST["passwordLogin"]){
 						$counter = 0;
 						$dataController = array("currentUser"=>$currentUser, "updateCounter"=>$counter);
 						$responseUpdateCounter = LoginModels::counterModel($dataController, "Users");
