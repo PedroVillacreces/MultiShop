@@ -141,6 +141,10 @@ $(document).on('click', '.createButton', function () {
                 $('#customersRow').append(htmlRow);
                 alert(data["message"]);
                 $('#modalCreate').modal('hide');
+                $("#modalCreate").on("hidden.bs.modal", function(){
+                    $(".modal-body").html("");
+                });
+
             } else {
                 alert("El email introducido ya existe");
             }

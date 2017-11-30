@@ -12,7 +12,7 @@ include "views/header.php";
     <div class="table-responsive">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCreate" name="create" >Nueva Cliente</button>
         <hr>
-        <table id="tableSubcategories" class="table table-striped display">
+        <table id="customersRow" class="table table-striped display">
             <thead>
             <tr>
                 <th>Nombre</th>

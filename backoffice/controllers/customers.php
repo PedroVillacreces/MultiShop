@@ -11,7 +11,7 @@ class Customers
         
         foreach ($response as $row => $item) {
             echo
-            '<tr id="item'.$item['id_customer'].'">
+            '<tr id="customersRow'.$item['id_customer'].'">
                         <td class="name">'.$item['name'].'</td>
                         <td class="surname">'.$item['surname'].'</td>
                         <td class="mail">'.$item['mail'].'</td>
