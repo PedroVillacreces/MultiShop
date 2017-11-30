@@ -56,8 +56,15 @@ class Users
 
     public function createUser($data)
     {
-        $response = UsersModel::createUser($data, "users");
-        return $response;
+        $userName = UsersModel::getUserByUserName($data->user_name, "users");
+        if($userName){
+            echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, intentelo con otro");', '</script>';
+            return "error";
+        }
+        else{
+            $response = UsersModel::createUser($data, "users");
+            return $response;
+        }
     }
 
     public static function getUserById($data)
@@ -74,8 +81,23 @@ class Users
 
     public function updateUser($data)
     {
-        $response = UsersModel::updateUser($data, "users");
-        return $response;
+
+        $user = UsersModel::getUserById($data->id, "users");
+        if ($data->user_name == $user["user_name"]){
+            $response = UsersModel::updateUser($data, "users");
+            return $response;
+        }
+        else{
+            $userByName = UsersModel::getUserByUserName($data->user_name, "users");
+            if ($userByName){
+                echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, intentelo con otro");', '</script>';
+            }
+            else{
+                $response = UsersModel::updateUser($data, "users");
+                return $response;
+            }
+        }
+
     }
 
     public static function uploadPhoto($dir, $file, $userName)
@@ -86,21 +108,13 @@ class Users
         }
         else if(count($dir . $userName) !== 0){
             $files = glob($dir . $userName . '/*');
-            foreach ($files as $file){
-                unlink($file);
+            foreach ($files as $filedir){
+                unlink($filedir);
             }
         }
         $target_file = $dir . $userName . "/" . basename($file["name"]);
         $uploadOk = 1;
         $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
-
-        $check = getimagesize($file["tmp_name"]);
-        if ($check !== false) {
-            $uploadOk = 1;
-        } else {
-            echo '<script>', 'alert("El archivo que intenta cargar no es una imagen, inténtalo de nuevo");', '</script>';
-            $uploadOk = 0;
-        }
 
         if (file_exists($target_file)) {
             echo '<script>', 'alert("La imagen ya existe en el directorio, por favor elija otra");', '</script>';
@@ -114,7 +128,7 @@ class Users
         }
 
         if (strtolower($imageFileType) != "jpg" && strtolower($imageFileType) != "png" && strtolower($imageFileType) != "jpeg" && $imageFileType != "gif") {
-            echo '<script>', 'alert("Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF");', '</script>';
+            echo '<script>', 'alert("Solo se aceptan los siguientes formatos: JPG, JPEG, PNG & GIF, intente cargar una imagen");', '</script>';
 
             $uploadOk = 0;
         }
@@ -168,10 +182,10 @@ if (isset($_POST['updateUser'])) {
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
         $user->email = $_POST['email'];
-        $user->password = base64_encode($_POST['password']);
         $user->photo = $uploadOk["Path"];
         $user->role = $_POST['role'];
         $user->user_name = $_POST['user_name'];
+        $user->password = base64_encode($_POST['password']);
         $user->updateUser($user);
     } else {
         echo '<script>', 'alert("El Perfil no ha sido actualizado, intentelo de nuevo");', '</script>';

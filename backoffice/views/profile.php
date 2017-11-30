@@ -81,7 +81,7 @@ include "views/header.php";
                             <label class="control-label">Apellidos</label>
                             <div>
                                 <input type="text" class="form-control input-md" id="surname"
-                                       name="surname" value="" required>
+                                       name="surname" value="">
                             </div>
                         </div>
                         <div class="form-group">
@@ -115,7 +115,7 @@ include "views/header.php";
                        <div class="form-group">
                         <label class="control-label">Foto</label>
                         <div>
-                            <input type="file" class="form-control input-md" id="photo" name="photo">
+                            <input type="file" class="form-control input-md" id="photo" name="photo" required>
                         </div>
                     </div>
                         <div class="form-group">

@@ -16,7 +16,7 @@ $(document).on('click', '.updateUserButton', function () {
             '<input type="hidden" id="id" name="id" value="' + userAjax.User['0'] + '">'+
             '<div class="form-group">'+
             '<label class="control-label">Nombre</label>'+
-            '<input class="form-control" name="name" id ="name" type="text" value="' + userAjax.User["1"] +'">'+
+            '<input class="form-control" name="name" id ="name" type="text" value="' + userAjax.User["1"] +'" required>'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Apellidos</label>'+
@@ -24,11 +24,11 @@ $(document).on('click', '.updateUserButton', function () {
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Nombre Usuario</label>'+
-            '<input class="form-control" name="user_name" id="user_name" type="text" value="' + userAjax.User["3"] +'">'+
+            '<input class="form-control" name="user_name" id="user_name" type="text" value="' + userAjax.User["3"] +'" required>'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Email</label>'+
-            '<input class="form-control" name="email" id="email" type="mail" value="'+ userAjax.User["4"] +'">'+
+            '<input class="form-control" name="email" id="email" type="mail" value="'+ userAjax.User["4"] +'" required>'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Rol</label>'+
@@ -41,12 +41,12 @@ $(document).on('click', '.updateUserButton', function () {
         	'<div class="form-group">'+
             '<label class="control-label">Foto</label>'+
             '<div>'+
-            '<input type="file" class="form-control input-md" id="photo" name="photo">'+
+            '<input type="file" class="form-control input-md" id="photo" name="photo" required>'+
             '</div>'+
             '</div>'+
             '<div class="form-group">'+
             '<label class="control-label">Contraseña</label>'+
-            '<input class="form-control" name="password" id="password" type="password" value="'+ userAjax.User["7"] +'">'+
+            '<input class="form-control" name="password" id="password" type="password" value="'+ window.atob(userAjax.User["7"]) +'" required>'+
             '</div>';
         	
         $('#update-modal-users').append(html);
