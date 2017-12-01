@@ -1,5 +1,7 @@
 <?php
 
+require_once "helper/PhotoUpdater.php";
+
 class Users
 {
 
