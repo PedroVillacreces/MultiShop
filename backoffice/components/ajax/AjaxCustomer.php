@@ -87,6 +87,12 @@ if (isset($_POST["updateAjax"])) {
 }
 
 if (isset($_POST["Customer"])) {
+    if(!$_POST["Customer"]["validate"])
+    {
+        $customer ->validate = 0;
+    }else{
+        $customer->validate = $_POST["Customer"]["validate"];
+    }
     $customer= new AjaxCustomer();
     $customer-> name =  $_POST["Customer"]["name"];
     $customer-> surname = $_POST["Customer"]["surname"];
@@ -94,9 +100,8 @@ if (isset($_POST["Customer"])) {
     $customer-> post_code = $_POST["Customer"]["post_code"];
     $customer-> phone = $_POST["Customer"]["phone"];
     $customer-> region = $_POST["Customer"]["region"];
-    $customer-> password = $_POST["Customer"]["password"];
+    $customer-> password = base64_encode($_POST["Customer"]["password"]);
     $customer-> mail = $_POST["Customer"]["mail"];
-    $customer-> validate = $_POST["Customer"]["validate"];
     $customer -> createCustomer();
 }
 
@@ -106,6 +111,12 @@ if (isset($_POST["mail"])) {
 }
 
 if (isset($_POST['CustomerUpdate'])) {
+    if(!$_POST["CustomerUpdate"]["validate"])
+    {
+        $customer ->validate = 0;
+    }else{
+        $customer->validate = $_POST["Customer"]["validate"];
+    }
     $customer = new AjaxCustomer();
     $customer->id_customer= $_POST["CustomerUpdate"]["id_customer"];
     $customer-> name =  $_POST["CustomerUpdate"]["name"];
@@ -114,8 +125,7 @@ if (isset($_POST['CustomerUpdate'])) {
     $customer-> post_code = $_POST["CustomerUpdate"]["post_code"];
     $customer-> phone = $_POST["CustomerUpdate"]["phone"];
     $customer-> region = $_POST["CustomerUpdate"]["region"];
-    $customer-> password = $_POST["CustomerUpdate"]["password"];
+    $customer-> password = base64_encode($_POST["CustomerUpdate"]["password"]);
     $customer-> mail = $_POST["CustomerUpdate"]["mail"];
-    $customer-> validate = $_POST["CustomerUpdate"]["validate"];
     $customer -> doUpdate();
 }

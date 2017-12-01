@@ -71,7 +71,7 @@ $(document).on('click', '.updateButton', function () {
             '</div>'+
             '<div class="form-group">'+      
                 '<label class="control-label">Contraseña</label>'+      
-                '<input class="form-control" id="password" type="text" value="'+ customerAjax.Customer["password"] +'">'+
+                '<input class="form-control" id="password" type="password" value="'+ window.atob(customerAjax.Customer["password"]) +'">'+
             '</div>';            
             $('#update-modal').append(html);
     });
@@ -141,7 +141,7 @@ $(document).on('click', '.createButton', function () {
                 $('#customersRow').append(htmlRow);
                 alert(data["message"]);
                 $('#modalCreate').modal('hide');
-                $("#modalCreate").on("hidden.bs.modal", function(){
+                $("#modalCreate").on("hide", function(){
                     $(".modal-body").html("");
                 });
 

@@ -12,7 +12,7 @@ include "views/header.php";
     <div class="table-responsive">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCreate" name="create" >Nueva Cliente</button>
         <hr>
-        <table id="customersRow" class="table table-striped display">
+        <table id="tableCustomers" class="table table-striped display">
             <thead>
             <tr>
                 <th>Nombre</th>
@@ -118,7 +118,7 @@ include "views/header.php";
                     </div>
                     <div class="form-group">
                     <div class="checkbox">
-                    <label class="control-label">Activo<input type="checkbox" id="active" name="active" value="1" required></label>
+                    <label class="control-label"><b>Activo</b><input type="checkbox" name="validate" value="1"></label>
                   </div>
                     </div>
                     <div class="form-group">
