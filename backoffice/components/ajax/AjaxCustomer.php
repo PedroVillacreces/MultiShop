@@ -87,12 +87,7 @@ if (isset($_POST["updateAjax"])) {
 }
 
 if (isset($_POST["Customer"])) {
-    if(!$_POST["Customer"]["validate"])
-    {
-        $customer ->validate = 0;
-    }else{
-        $customer->validate = $_POST["Customer"]["validate"];
-    }
+
     $customer= new AjaxCustomer();
     $customer-> name =  $_POST["Customer"]["name"];
     $customer-> surname = $_POST["Customer"]["surname"];
@@ -102,6 +97,8 @@ if (isset($_POST["Customer"])) {
     $customer-> region = $_POST["Customer"]["region"];
     $customer-> password = base64_encode($_POST["Customer"]["password"]);
     $customer-> mail = $_POST["Customer"]["mail"];
+    $customer-> validate = $_POST["Customer"]["validate"];
+
     $customer -> createCustomer();
 }
 

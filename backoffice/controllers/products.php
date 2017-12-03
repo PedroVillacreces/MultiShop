@@ -20,36 +20,42 @@ class Products
         $response = ProductsModel::showProducts("products");
         
         foreach ($response as $row => $item) {
+
+            $start = $item['start'] == 0 ? "No iniciado" : "Iniciado";
+            $downloadable = $item["downloadable"] == 0 ? "No" : "Si";
+
             echo
-            '<tr id="item'.$item['0'].'">
-                        <td class="name">'.$item['1'].'</td>
-                        <td class="price">'.$item['2'].'</td>
-                        <td class="description">'.$item['3'].'</td>
-                        <td class="category">'.$item['4'].'</td>
-                        <td class="subcategory">'.$item['5'].'</td>
-                        <td class="start">'.$item['6'] == 0 ? "No Iniciado" : "Inicializado".'</td>
-                        <td class="quantity">'.$item['7'].'</td>
-                        <td class="downloadable">'.$item['8'] == 0 ? "No" : "Si".'</td>
+            '<tr id="item'.$item['id_product'].'">
+                        <td class="name">'.$item['product_name'].'</td>
+                        <td class="price">'.$item['price'].'</td>
+                        <td class="description">'.$item['description'].'</td>
+                        <td class="category">'.$item['category'].'</td>
+                        <td class="subcategory">'.$item['subcategory_name'].'</td>
+                        <td class="start">'.$start.'</td>
+                        <td class="quantity">'.$item['quantity'].'</td>
+                        <td class="downloadable">'.$downloadable.'</td>
                         <td>
                             <form role="form" method="POST" id="deleteProduct">
                                 <button type="submit" name="deleteProduct" id="deleteProduct" class="deleteProductButton btn btn-danger btn-sm">
-                                <input type="hidden" name="deleteId" value="'.$item['0'].'">
+                                <input type="hidden" name="deleteId" value="'.$item['id_product'].'">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
-                            </form>                            
+                            </form>
                         </td>
-                        <td>     
-                        <form role="form" method="POST" id="getById">                       
+                        <td>
+                        <form role="form" method="POST" id="getById">
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
                                         <button type="button" name="getById" id="getById" class="updateProductButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_product'].'">
-                                            <input type="hidden" name="updateId" value="'.$item['0'].'">
+                                            <input type="hidden" name="updateId" value="'.$item['id_product'].'">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
-                            </form>                           
-                        </td>                        
+                            </form>
+                        </td>
                     </tr>';
+
         }
+
     }
 
     public function deleteProduct()
@@ -87,6 +93,7 @@ class Products
         $response = ProductsModel::doUpdate($data, 'products');
         return $response;
     }
+
 }
 
 if (isset($_POST["deleteProduct"])) {
@@ -100,7 +107,7 @@ if (isset($_POST["deleteProduct"])) {
 if (isset($_POST["updateProduct"]))
 {
     $product = new Products();
-    $product->id_product = $_POST['id_product'];
+    $product->id_product = $_POST['id_product-update'];
     $product->name = $_POST['name'];
     $product->price= $_POST['price'];
     $product->description = $_POST['description'];

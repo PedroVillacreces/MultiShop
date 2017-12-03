@@ -6,7 +6,6 @@ require_once "../../controllers/products.php";
 class AjaxProduct
 {
     public $id_product;
-
     public $name;
     public $surname;
     public $address;
@@ -16,6 +15,7 @@ class AjaxProduct
     public $password;
     public $mail;
     public $validate;
+    public $id_category;
 
     public function getProductById()
     {
@@ -33,3 +33,5 @@ if(isset($_POST["getById"]))
     $product -> id_product = $_POST["getById"];
     $product -> getProductById();
 }
+
+

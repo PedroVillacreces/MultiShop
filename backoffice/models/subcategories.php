@@ -17,11 +17,30 @@ class SubcategoriesModel
         $stmt -> close();
     }
 
+    public static function showSubcategoriesByIdCategory($data, $table)
+    {
+        $stmt = Conexion::connect()->prepare("SELECT id_subcategory, subcategory_name 
+                                              FROM $table WHERE id_category = :id_category");
+        $stmt -> bindParam(":id_category", $data, PDO::PARAM_INT);
+        if ($stmt -> execute()){
+            return $stmt -> fetchAll();
+        }
+        else{
+            return "error";
+        }
+
+        $stmt -> close();
+    }
+
     public static  function showCategoriesForProducts($table)
     {
         $stmt = Conexion::connect()->prepare("select * from $table");
-        $stmt -> execute();
+        if ($stmt -> execute()) {
         return $stmt ->fetchAll();
+        }
+        else{
+            return "error";
+        }
         $stmt->close();
     }
 

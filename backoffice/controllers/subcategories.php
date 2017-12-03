@@ -63,9 +63,9 @@ class Subcategories
         return $response;
     }
 
-    public static function getSubcategoryForProducts()
+    public static function getSubcategoryByCategoryForProducts($data)
     {
-        $response = SubcategoriesModel::showSubcategories("subcategories");
+        $response = SubcategoriesModel::showSubcategoriesByIdCategory($data,"subcategories");
         return $response;
     }
 }

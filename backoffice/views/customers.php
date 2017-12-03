@@ -26,7 +26,7 @@ include "views/header.php";
                 <th>Editar</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="bodyCustomers">
             <?php
             $customer = new Customers();
             $customer -> showCustomers();
@@ -118,7 +118,7 @@ include "views/header.php";
                     </div>
                     <div class="form-group">
                     <div class="checkbox">
-                    <label class="control-label"><b>Activo</b><input type="checkbox" name="validate" value="1"></label>
+                    <label class="control-label"><b>Activo</b></label><input type="checkbox" id="validate" name="validate" value="1">
                   </div>
                     </div>
                     <div class="form-group">

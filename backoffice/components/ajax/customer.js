@@ -38,7 +38,7 @@ $(document).on('click', '.updateButton', function () {
         },
         cache: false,
     }).done(function (data) {
-        var customerAjax = $.parseJSON(data); 
+        var customerAjax = $.parseJSON(data);
             var html =
             '<input type="hidden" id="id_customer" name="id" value="' + customerAjax.Customer['id_customer'] + '">'+
             '<div class="form-group">'+
@@ -72,8 +72,21 @@ $(document).on('click', '.updateButton', function () {
             '<div class="form-group">'+      
                 '<label class="control-label">Contraseña</label>'+      
                 '<input class="form-control" id="password" type="password" value="'+ window.atob(customerAjax.Customer["password"]) +'">'+
-            '</div>';            
-            $('#update-modal').append(html);
+            '</div>'+
+            '<div class="form-group">'+
+            '<label class="control-label"><b>Activo</b></label><input class="form-control" type="checkbox" id="validate" name="validate" value="'+ customerAjax.Customer["validate"] +'">'+
+            '</div>';
+        $('#update-modal').append(html);
+            if(customerAjax.Customer["validate"] == 1){
+                $('input#validate').attr('checked');
+            }
+            else{
+                $('input#validate').removeAttr('checked');
+            }
+        // $('.modalUpdate').on('hidden.bs.modal', function () {
+        //     $(this).html(html);
+        //
+        // });
     });
 });        
 
@@ -92,8 +105,13 @@ $(document).on('click', '.createButton', function () {
     var password = $("input#password").val();
     var password_confirmation = $("input#password_confirmation").val();
 
+
     if (password === password_confirmation) {
-        var active = $("input#active").val();
+        var active = $("input#validate").val();
+        if(!active){
+            active = 0;
+        }
+
         var jsonFile = {
             'name': name,
             'surname': surname,
@@ -112,7 +130,7 @@ $(document).on('click', '.createButton', function () {
             data: {
                 Customer: jsonFile
             },
-            dataType: "json",
+            dataType: "json"
         }).done(function (data) {
             if (data['id']) {
                 var htmlRow = "<tr id='item" + data['id'] + "' >;"
@@ -138,11 +156,13 @@ $(document).on('click', '.createButton', function () {
                     '</form>' +
                     '</td>' +
                     '</tr>';
-                $('#customersRow').append(htmlRow);
+
                 alert(data["message"]);
+                $('#bodyCustomers').append(htmlRow);
                 $('#modalCreate').modal('hide');
-                $("#modalCreate").on("hide", function(){
-                    $(".modal-body").html("");
+                $('#modalCreate').on('hidden.bs.modal', function () {
+                    $(this).find("input,textarea,select").val('').end();
+
                 });
 
             } else {
