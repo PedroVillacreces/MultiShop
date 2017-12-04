@@ -1,6 +1,5 @@
 <?php
 
-require_once "helper/PhotoUpdater.php";
 
 class Users
 {
@@ -86,13 +85,14 @@ class Users
 
         $user = UsersModel::getUserById($data->id, "users");
         if ($data->user_name == $user["user_name"]){
+            $data->password = $data->password == $user['password'] ? $data->password : base64_encode($data->password);
             $response = UsersModel::updateUser($data, "users");
             return $response;
         }
         else{
             $userByName = UsersModel::getUserByUserName($data->user_name, "users");
             if ($userByName){
-                echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, intentelo con otro");', '</script>';
+                echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, inténtelo con otro");', '</script>';
             }
             else{
                 $response = UsersModel::updateUser($data, "users");
@@ -164,7 +164,7 @@ if (isset($_POST["createUser"])) {
     $user->user_name = $_POST['user_name'];
     $user->createUser($user);
     } else {
-        echo '<script>', 'alert("El Perfil no ha sido actualizado, intentelo de nuevo");', '</script>';
+        echo '<script>', 'alert("El Perfil no ha sido actualizado, inténtelo de nuevo");', '</script>';
     }
 }
 
@@ -180,16 +180,16 @@ if (isset($_POST['updateUser'])) {
     
     if ($uploadOk["Status"] != 0) {
         $user = new Users();
-        $user->id = $_POST['id'];
+        $user->id = $_POST['id_user-update'];
         $user->name = $_POST['name'];
         $user->surname = $_POST['surname'];
         $user->email = $_POST['email'];
         $user->photo = $uploadOk["Path"];
         $user->role = $_POST['role'];
         $user->user_name = $_POST['user_name'];
-        $user->password = base64_encode($_POST['password']);
+        $user->password = $_POST['password'];
         $user->updateUser($user);
     } else {
-        echo '<script>', 'alert("El Perfil no ha sido actualizado, intentelo de nuevo");', '</script>';
+        echo '<script>', 'alert("El Perfil no ha sido actualizado, inténtelo de nuevo");', '</script>';
     }
 }

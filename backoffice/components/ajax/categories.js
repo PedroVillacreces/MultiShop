@@ -12,13 +12,8 @@ $(document).on('click', '.updateCategoryButton', function () {
         cache: false
     }).done(function (data) {
         var categoryAjax = $.parseJSON(data);
-        var html =
-            '<input type="hidden" id="id_category" name="id_category" value="' + categoryAjax.Category['0'] + '">'+
-            '<div class="form-group">'+
-            '<label class="control-label">Nombre</label>'+
-            '<input class="form-control" name="name" id ="name" type="text" value="' + categoryAjax.Category["1"] +'">'+
-            '</div>';
-        $('#update-modal-category').append(html);
+        $('input#id_category-update').val(categoryAjax.Category['0']);
+        $('input#name-update').val(categoryAjax.Category['1']);
     });
 });
 

@@ -48,10 +48,66 @@ include "views/header.php";
                     <h4 class="modal-title custom_align" id="Heading">Edición de Usuarios</h4>
                 </div>
                 <div id="update-modal-users" class="modal-body">
+                    <input type="hidden" id="id_user-update" name="id_user-update" value="">
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="name-update" name="name"
+                                   value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Apellidos</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="surname-update"
+                                   name="surname" value="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nombre de Usuario</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="user_name-update"
+                                   name="user_name" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="email-update"
+                                   name="email" value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Roles</label>
+                        <div>
+                            <select class="form-control input-md" id="roles-update"
+                                    name="role" required>
+                                <?php
+                                $roles = Roles::getRolesForUsers();
+                                for($i = 0; $i < count($roles); ++$i){
+                                    echo '<option value="'.$roles[$i]['id_role'].'">'.$roles[$i]['role'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Foto</label>
+                        <div>
+                            <input type="file" class="form-control input-md" id="photo-update" name="photo" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Contraseña</label>
+                        <div>
+                            <input type="password" class="form-control input-md" id="password-update"
+                                   name="password" value="" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="updateUser"
-                            class="btn btn-warning btn-lg updateUser" style="width: 100%;"><span
+                            class="btn btn-warning btn-lg" style="width: 100%;"><span
                             class="glyphicon glyphicon-ok-sign"></span> Actualizar
                     </button>
                 </div>

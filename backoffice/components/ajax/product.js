@@ -66,12 +66,34 @@ $('select#category').change(function () {
     }).done(function (data) {
 
         var subAjax = $.parseJSON(data);
-        $("select#subcategory").empty();
+        $("select#subcategory option").remove();
         
         for(var i = 0; i < subAjax.length; i++){
            $('select#subcategory').append('<option value="'+ subAjax[i].id_subcategory +'">'+ subAjax[i].subcategory_name+ '</option>');
         }
         $('select#subcategory').attr('disabled', false);
+    });
+});
+
+$('select#category-update').change(function () {
+    var id_category = $(this).val();
+
+    $.ajax({
+        url: "../backoffice/components/ajax/AjaxSubcategory.php",
+        method: "POST",
+        data: {
+            category: id_category
+        },
+        cache: false
+    }).done(function (data) {
+
+        var subAjax = $.parseJSON(data);
+        $("select#subcategory-update option").remove();
+
+        for(var i = 0; i < subAjax.length; i++){
+            $('select#subcategory-update').append('<option value="'+ subAjax[i].id_subcategory +'">'+ subAjax[i].subcategory_name+ '</option>');
+        }
+        $('select#subcategory-updates').attr('disabled', false);
     });
 });
 

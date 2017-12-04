@@ -12,19 +12,9 @@ $(document).on('click', '.updateSubcategoryButton', function () {
         cache: false
     }).done(function (data) {
         var subcategoryAjax = $.parseJSON(data);
-        var html =
-            '<input type="hidden" id="id_subcategory" name="id_subcategory" value="' + subcategoryAjax.Subcategory['0'] + '">'+
-            '<div class="form-group">'+
-            '<label class="control-label">Nombre</label>'+
-            '<input class="form-control" name="name" id ="name" type="text" value="' + subcategoryAjax.Subcategory["1"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<select name="id_category" class="form-control">';
-            for(var i = 0; i<subcategoryAjax.Categories.length; i++){
-                html += '<option value="'+ subcategoryAjax.Categories[i].id_category+'">' + subcategoryAjax.Categories[i].category + '</option>';
-            }
-            html+='</select>';
-        $('#update-modal-subcategory').append(html);
+        $('input#id_subcategory-update').val(subcategoryAjax.Subcategory['0']);
+        $('input#name-update').val(subcategoryAjax.Subcategory['1']);
+        $('select[name="category"]').find('option[value="'+ subcategoryAjax.Subcategory['id_category'] +'"]').attr("selected",true);
     });
 });
 

@@ -87,7 +87,7 @@ if (isset($_POST["deleteCategory"]))
 if(isset($_POST['updateCategory']))
 {
     $category = new Category();
-    $category->id_category = $_POST['id_category'];
+    $category->id_category = $_POST['id_category-update'];
     $category->category = $_POST['name'];
     $category->updateCategory($category);
 }

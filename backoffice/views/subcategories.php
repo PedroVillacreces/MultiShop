@@ -41,6 +41,28 @@ include "views/header.php";
                     <h4 class="modal-title custom_align" id="Heading">Edición de Subcategoría</h4>
                 </div>
                 <div id="update-modal-subcategory" class="modal-body">
+                    <input type="hidden" id="id_subcategory-update" name="id_subcategory-update" value="">
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="name-update" name="name"
+                                   value="" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Categoría</label>
+                        <div>
+                            <select class="form-control input-md" id="category-update"
+                                    name="category" required>
+                                <?php
+                                $categories = Category::showCategoriesForSubcategories();
+                                for($i = 0; $i < count($categories); ++$i){
+                                    echo '<option value="'.$categories[$i]['id_category'].'">'.$categories[$i]['category'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="updateSubcategory"

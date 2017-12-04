@@ -107,14 +107,27 @@ if (isset($_POST["deleteProduct"])) {
 if (isset($_POST["updateProduct"]))
 {
     $product = new Products();
+    if(!isset($_POST["start"]))
+    {
+        $product ->start = 0;
+
+    }else{
+        $product->start = $_POST['start'];
+    }
+
+    if(!isset($_POST["downloadable"]))
+    {
+        $product ->downloadable = 0;
+
+    }else{
+        $product->downloadable = $_POST['downloadable'];
+    }
     $product->id_product = $_POST['id_product-update'];
     $product->name = $_POST['name'];
     $product->price= $_POST['price'];
     $product->description = $_POST['description'];
     $product->category = $_POST['category'];
     $product->subcategory = $_POST['subcategory'];
-    $product->start = $_POST['start'];
-    $product->downloadable = $_POST['downloadable'];
     $product->quantity = $_POST['quantity'];
     $product->updateProducts($product);
 
@@ -123,16 +136,19 @@ if (isset($_POST["updateProduct"]))
 if (isset($_POST["createProduct"]))
 {
     $product = new Products();
-    if(!$_POST["start"])
+
+    if(!isset($_POST["start"]))
     {
         $product ->start = 0;
+
     }else{
         $product->start = $_POST['start'];
     }
 
-    if(!$_POST["downloadable"])
+    if(!isset($_POST["downloadable"]))
     {
         $product ->downloadable = 0;
+
     }else{
         $product->downloadable = $_POST['downloadable'];
     }

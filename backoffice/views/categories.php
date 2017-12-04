@@ -41,6 +41,14 @@ include "views/header.php";
                     <h4 class="modal-title custom_align" id="Heading">Edición de Categoría</h4>
                 </div>
                 <div id="update-modal-category" class="modal-body">
+                    <input type="hidden" id ="id_category-update" name="id_category-update" value="">
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <div>
+                            <input type="text" class="form-control input-md" id="name-update" name="name"
+                                   value="" required>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="updateCategory"

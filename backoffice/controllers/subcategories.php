@@ -91,7 +91,7 @@ if(isset($_POST['updateSubcategory']))
 {
     $subcategory = new Subcategories();
     $subcategory->name = $_POST['name'];
-    $subcategory->category = $_POST['id_category'];
-    $subcategory->id_subcategory = $_POST['id_subcategory'];
+    $subcategory->category = $_POST['category'];
+    $subcategory->id_subcategory = $_POST['id_subcategory-update'];
     $subcategory->updateSubcategory($subcategory);
 }
