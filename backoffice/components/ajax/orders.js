@@ -12,34 +12,10 @@ $(document).on('click', '.updateDeliveryButton', function () {
         cache: false
     }).done(function (data) {
         var userAjax = $.parseJSON(data);
-
-        var html =
-            '<input type="hidden" id="id_delivery" name="id_delivery" value="' + userAjax.Order['0'] + '">'+
-            '<div class="form-group">'+
-            '<label class="control-label">Fecha de Pedido</label>'+
-            '<input class="form-control" name="delivery_date" id ="delivery_date" type="datetime" value="' + userAjax.Order["1"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Cliente</label>'+
-            '<input class="form-control" name ="id_customer" id="id_customer" type="number" value="' + userAjax.Order["2"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Total de la Factura</label>'+
-            '<input class="form-control" name="amount" id="amount" type="number" value="' + userAjax.Order["3"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Tipo de Pago</label>'+
-            '<input class="form-control" name="payment" id="payment" type="text" value="'+ userAjax.Order["4"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Enviado</label>'+
-            '<input class="form-control" name="dispath" id="dispath" type="number" value="'+ userAjax.Order["5"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label">Estado</label>'+
-            '<input class="form-control" name="status" id="status" type="number" value="'+ userAjax.Order["6"] +'">'+
-            '</div>';
-        $('#update-modal-orders').append(html);
+        $('input#id_order-update').val(userAjax.Order['0']);
+        $('select[name="payment"]').find('option[value="'+ userAjax.Order['id_payment'] +'"]').attr("selected",true);
+        $('select[name="dispath"]').find('option[value="'+ userAjax.Order['id_dispath'] +'"]').attr("selected",true);
+        $('select[name="status"]').find('option[value="'+ userAjax.Order['id_status'] +'"]').attr("selected",true);
     });
 });
 

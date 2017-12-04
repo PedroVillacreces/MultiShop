@@ -17,13 +17,13 @@ class Orders
         foreach ($response as $row => $item) {
             echo
                 '<tr id="item'.$item['0'].'">
-                        <td class="id_delivery">'.$item['0'].'</td>
+                        <td class="id_delivery">'.$item['0'].'</td> 
                         <td class="delivery_date">'.$item['1'].'</td> 
                         <td class="amount">'.$item['2'].'</td>
-                         <td class="payment">'.$item['3'].'</td> 
-                         <td class="dispath">'.$item['4'].'</td>
-                         <td class="status">' .$item['5']. '</td>
-                         <td class="customer">'.$item['6'].'</td> 
+                         <td class="payment">'.$item['5'].'</td> 
+                         <td class="dispath">'.$item['7'].'</td>
+                         <td class="status">' .$item['6']. '</td>
+                         <td class="customer">'.$item['3']. ' ' . $item['4'].'</td> 
                         <td>
                             <form role="form" method="POST" id="deleteOrder">
                                 <button type="submit" name="deleteOrder" id="deleteOrder" class="deleteOrderButton btn btn-danger btn-sm">
@@ -76,10 +76,7 @@ if (isset($_POST["deleteOrder"])) {
 if (isset($_POST["updateOrder"]))
 {
     $order = new Orders();
-    $order->id_delivery = $_POST['id_delivery'];
-    $order->delivery_date = $_POST['delivery_date'];
-    $order->id_customer= $_POST['id_customer'];
-    $order->amount = $_POST['amount'];
+    $order->id_delivery = $_POST['id_order-update'];
     $order->payment = $_POST['payment'];
     $order->dispath = $_POST['dispath'];
     $order->status = $_POST['status'];

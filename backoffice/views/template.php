@@ -37,7 +37,9 @@
 	<script src="components/js/responsive.bootstrap.min.js"></script>
 	<script src="components/js/jquery-ui.min.js"></script>
 	<script src="components/js/sweetalert.min.js"></script>
-	<script src="components/js/script.js"></script>	
+	<script src="components/js/script.js"></script>
+	<script src="components/js/moment.min.js"></script>
+	<script type="text/javascript" src="components/js/moment.locale.js"></script>
 	<script src="components/ajax/customer.js"></script>
 	<script src="components/ajax/product.js"></script>
 	<script src="components/ajax/subcategory.js"></script>
@@ -46,6 +48,7 @@
     <script src="components/ajax/comments.js"></script>
     <script src="components/ajax/slider.js"></script>
     <script src="components/ajax/categories.js"></script>
+
 	
 </body>
 

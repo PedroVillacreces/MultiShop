@@ -46,6 +46,49 @@ include "views/header.php";
                     <h4 class="modal-title custom_align" id="Heading">Edición de Pedidos</h4>
                 </div>
                 <div id="update-modal-orders" class="modal-body">
+                    <input type="hidden" id="id_order-update" name="id_order-update" value="">
+                    <div class="form-group">
+                        <label class="control-label">Forma de Pago</label>
+                        <div>
+                            <select class="form-control input-md" id="payment-update"
+                                    name="payment" required>
+                                <?php
+                                $payments = Payments::getPaymentsForOrder();
+                                for($i = 0; $i < count($payments); ++$i){
+                                    echo '<option value="'.$payments[$i]['id_payment'].'">'.$payments[$i]['type'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Proceso de Entrega</label>
+                        <div>
+                            <select class="form-control input-md" id="dispath-update"
+                                    name="dispath" required>
+                                <?php
+                                $dispaths = Dispaths::getDispathsForOrder();
+                                for($i = 0; $i < count($dispaths); ++$i){
+                                    echo '<option value="'.$dispaths[$i]['id_dispatch_status'].'">'.$dispaths[$i]['status'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Procesamiento Interno</label>
+                        <div>
+                            <select class="form-control input-md" id="status-update"
+                                     name="status" required>
+                                <?php
+                                $status = Statuses::getStatusesForOrder();
+                                for($i = 0; $i < count($status); ++$i){
+                                    echo '<option value="'.$status[$i]['id_delivery_status'].'">'.$status[$i]['status'].'</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" name="updateOrder"
