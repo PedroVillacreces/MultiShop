@@ -20,7 +20,7 @@ $(document).on('click', '.updateProductButton', function () {
         $('input#description-update').val(productAjax.Product['description']);
         $('input#quantity-update').val(productAjax.Product['quantity']);
 
-        $('select[name="category"]').find('option[value="'+ productAjax.Product['id_category'] +'"]').attr("selected",true);
+        $('select[name="category"]').find('option[value="' + productAjax.Product['id_category'] + '"]').attr("selected", true);
         //$('select[name="subcategory"]').find('option[value="'+ productAjax.Product['id_subcategory'] +'"]').attr("selected",true);
 
         $.ajax({
@@ -32,22 +32,22 @@ $(document).on('click', '.updateProductButton', function () {
             cache: false
         }).done(function (data) {
             var subcategoryAjax = $.parseJSON(data);
-                for(var i = 0; i < subcategoryAjax.length; i++){
-                    $('select#subcategory-update').append('<option value="'+ subcategoryAjax[i].id_subcategory +'">'+ subcategoryAjax[i].subcategory_name+ '</option>');
-                }
-            $('select[name="subcategory"]').find('option[value="'+ productAjax.Product['id_subcategory'] +'"]').attr("selected",true);
+            for (var i = 0; i < subcategoryAjax.length; i++) {
+                $('select#subcategory-update').append('<option value="' + subcategoryAjax[i].id_subcategory + '">' + subcategoryAjax[i].subcategory_name + '</option>');
+            }
+            $('select[name="subcategory"]').find('option[value="' + productAjax.Product['id_subcategory'] + '"]').attr("selected", true);
         });
 
-        if(productAjax.Product["start"] == 1){
+        if (productAjax.Product["start"] == 1) {
             $('input#start-update').attr('checked', true);
         }
-        else{
+        else {
             $('input#start-update').attr('checked', false);
         }
-        if(productAjax.Product["downloadable"] == 1){
+        if (productAjax.Product["downloadable"] == 1) {
             $('input#downloadable-update').attr('checked', true);
         }
-        else{
+        else {
             $('input#downloadable-update').attr('checked', false);
         }
     });
@@ -67,9 +67,9 @@ $('select#category').change(function () {
 
         var subAjax = $.parseJSON(data);
         $("select#subcategory option").remove();
-        
-        for(var i = 0; i < subAjax.length; i++){
-           $('select#subcategory').append('<option value="'+ subAjax[i].id_subcategory +'">'+ subAjax[i].subcategory_name+ '</option>');
+
+        for (var i = 0; i < subAjax.length; i++) {
+            $('select#subcategory').append('<option value="' + subAjax[i].id_subcategory + '">' + subAjax[i].subcategory_name + '</option>');
         }
         $('select#subcategory').attr('disabled', false);
     });
@@ -90,8 +90,8 @@ $('select#category-update').change(function () {
         var subAjax = $.parseJSON(data);
         $("select#subcategory-update option").remove();
 
-        for(var i = 0; i < subAjax.length; i++){
-            $('select#subcategory-update').append('<option value="'+ subAjax[i].id_subcategory +'">'+ subAjax[i].subcategory_name+ '</option>');
+        for (var i = 0; i < subAjax.length; i++) {
+            $('select#subcategory-update').append('<option value="' + subAjax[i].id_subcategory + '">' + subAjax[i].subcategory_name + '</option>');
         }
         $('select#subcategory-updates').attr('disabled', false);
     });
@@ -104,7 +104,7 @@ $('#edit').on('hidden.bs.modal', function () {
 
 $(document).on('click', '.deleteProductButton', function () {
     var agree = confirm("¿Realmente desea eliminarlo? ");
-    if (agree) return true ;
+    if (agree) return true;
     return false;
 
 });

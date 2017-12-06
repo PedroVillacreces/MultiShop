@@ -14,13 +14,13 @@ class Subcategories
 
         foreach ($response as $row => $item) {
             echo
-                '<tr id="item'.$item['0'].'">
-                        <td class="name">'.$item['1'].'</td>
-                        <td class="category">'.$item['3'].'</td>                        
+                '<tr id="item' . $item['0'] . '">
+                        <td class="name">' . $item['1'] . '</td>
+                        <td class="category">' . $item['3'] . '</td>                        
                         <td>
                             <form role="form" method="POST" id="deleteSubcategory">
                                 <button type="submit" name="deleteSubcategory" id="deleteSubcategory" class="deleteSubcategoryButton btn btn-danger btn-sm">
-                                <input type="hidden" name="deleteId" value="'.$item['0'].'">
+                                <input type="hidden" name="deleteId" value="' . $item['0'] . '">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>                            
@@ -28,8 +28,8 @@ class Subcategories
                         <td>     
                             <form role="form" method="POST" id="getById">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="getById" id="getById" class="updateSubcategoryButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_subcategory'].'">
-                                            <input type="hidden" name="updateId" value="'.$item['0'].'">
+                                        <button type="button" name="getById" id="getById" class="updateSubcategoryButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="' . $item['id_subcategory'] . '">
+                                            <input type="hidden" name="updateId" value="' . $item['0'] . '">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
@@ -65,13 +65,12 @@ class Subcategories
 
     public static function getSubcategoryByCategoryForProducts($data)
     {
-        $response = SubcategoriesModel::showSubcategoriesByIdCategory($data,"subcategories");
+        $response = SubcategoriesModel::showSubcategoriesByIdCategory($data, "subcategories");
         return $response;
     }
 }
 
-if (isset($_POST["createSubcategory"]))
-{
+if (isset($_POST["createSubcategory"])) {
     $subcategory = new Subcategories();
     $subcategory->name = $_POST['name'];
     $subcategory->category = $_POST['category'];
@@ -79,16 +78,14 @@ if (isset($_POST["createSubcategory"]))
 
 }
 
-if (isset($_POST["deleteSubcategory"]))
-{
+if (isset($_POST["deleteSubcategory"])) {
     $subcategory = new Subcategories();
     $subcategory->id_subcategory = $_POST['deleteId'];
     $subcategory->deleteSubcategory($subcategory);
 
 }
 
-if(isset($_POST['updateSubcategory']))
-{
+if (isset($_POST['updateSubcategory'])) {
     $subcategory = new Subcategories();
     $subcategory->name = $_POST['name'];
     $subcategory->category = $_POST['category'];

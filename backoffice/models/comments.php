@@ -16,15 +16,15 @@ class CommentsModel
                                                 on t1.id_product = t3.id_product
                                                 inner join categories as t4
                                                 on t1.id_category = t4.id_category");
-        $stmt -> execute();
-        return $stmt -> fetchAll();
-        $stmt -> close();
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
     }
 
-    public static  function deleteComment($data, $table)
+    public static function deleteComment($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_comment = :id_comment");
-        $stmt -> bindParam(":id_comment", $data, PDO::PARAM_INT);
+        $stmt->bindParam(":id_comment", $data, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return "ok";
         } else {
@@ -37,8 +37,8 @@ class CommentsModel
     public static function updateComment($data, $table)
     {
         $stmt = Conexion::connect()->prepare("UPDATE $table SET status = :status WHERE id_comment = :id");
-        $stmt -> bindParam(":status", $data->status, PDO::PARAM_INT);
-        $stmt -> bindParam(":id", $data->id_comment, PDO::PARAM_INT);
+        $stmt->bindParam(":status", $data->status, PDO::PARAM_INT);
+        $stmt->bindParam(":id", $data->id_comment, PDO::PARAM_INT);
 
         if ($stmt->execute()) {
             return "ok";
@@ -54,11 +54,10 @@ class CommentsModel
     public static function getCommentById($data, $table)
     {
         $stmt = Conexion::connect()->prepare("select * from $table WHERE id_comment = :id_comment");
-        $stmt ->bindParam(':id_comment', $data->id_comment, PDO::PARAM_INT);
-        if($stmt->execute()){
+        $stmt->bindParam(':id_comment', $data->id_comment, PDO::PARAM_INT);
+        if ($stmt->execute()) {
             return $stmt->fetch();
-        }
-        else{
+        } else {
             return "error";
         }
         $stmt->close();

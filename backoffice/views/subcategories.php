@@ -8,9 +8,12 @@ include "views/right-nav.php";
 include "views/header.php";
 ?>
 <div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <h2>Administrar Subcategorías</h2>
     <hr>
     <div class="table-responsive">
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalSubcategoryCreate" name="create" >Nueva Subcategoría</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalSubcategoryCreate"
+                name="create">Nueva Subcategoría
+        </button>
         <hr>
         <table id="tableSubcategories" class="table table-striped display">
             <thead>
@@ -56,31 +59,34 @@ include "views/header.php";
                                     name="category" required>
                                 <?php
                                 $categories = Category::showCategoriesForSubcategories();
-                                for($i = 0; $i < count($categories); ++$i){
-                                    echo '<option value="'.$categories[$i]['id_category'].'">'.$categories[$i]['category'].'</option>';
+                                for ($i = 0; $i < count($categories); ++$i) {
+                                    echo '<option value="' . $categories[$i]['id_category'] . '">' . $categories[$i]['category'] . '</option>';
                                 }
                                 ?>
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
+                    <br>
+                    <div class="form-group"
+                    ">
                     <button type="submit" name="updateSubcategory"
-                            class="btn btn-warning btn-lg updateSubcategory" style="width: 100%;"><span
+                            class="btn btn-warning updateSubcategory"><span
                             class="glyphicon glyphicon-ok-sign"></span> Actualizar
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    </div>
 </form>
 
-<!-- /.modal-create products -->
 <form role="form" method="POST" id="createSubcategory">
     <div id="modalSubcategoryCreate" class="modal fade">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                            class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     <h1 class="modal-title">Crear Nueva Subcategoría</h1>
                 </div>
                 <div class="modal-body">
@@ -97,11 +103,11 @@ include "views/header.php";
                             <label class="control-label">Categoría</label>
                             <div>
                                 <select class="form-control input-md" id="category"
-                                       name="category" required>
+                                        name="category" required>
                                     <?php
                                     $categories = Category::showCategoriesForSubcategories();
-                                    for($i = 0; $i < count($categories); ++$i){
-                                        echo '<option value="'.$categories[$i]['id_category'].'">'.$categories[$i]['category'].'</option>';
+                                    for ($i = 0; $i < count($categories); ++$i) {
+                                        echo '<option value="' . $categories[$i]['id_category'] . '">' . $categories[$i]['category'] . '</option>';
                                     }
                                     ?>
                                 </select>
@@ -121,5 +127,5 @@ include "views/header.php";
         </div>
     </div>
 </form>
-<!-- /end .modal-create product -->
+
 

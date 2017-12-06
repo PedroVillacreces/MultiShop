@@ -30,4 +30,4 @@ require_once "controllers/payments.php";
 require_once "controllers/dispaths.php";
 require_once "controllers/statuses.php";
 $template = new TemplateController();
-$template -> template();
+$template->template();

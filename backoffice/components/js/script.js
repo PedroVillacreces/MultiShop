@@ -13,9 +13,9 @@ if(heightBody > 1020 && window.innerWidth > 767){
 
 
 $("p#member span").click(function(){
-	$("#cabezote #admin").slideToggle("fast")
-	$("p#member span").toggleClass("fa-chevron-down");
-	$("p#member span").toggleClass("fa-chevron-up");
+	$("#header-page #admin").slideToggle("fast")
+	$("p#member span").toggleClass("glyphicon glyphicon-chevron-down");
+	$("p#member span").toggleClass("glyphicon glyphicon-chevron-up");
 });
 
 
@@ -241,10 +241,10 @@ $('#tableUsers').DataTable({
 $(document).ready(function() {
     var interval = setInterval(function() {
         var momentNow = moment();
-        $('#date-part').html(momentNow.locale(navigator.language).format('YYYY MMMM DD') + ' '
+        $('#date-part').html(momentNow.locale(navigator.language).format('DD MMMM YYYY').toUpperCase() + ' '
             + momentNow.format('dddd')
                 .substring(0,3).toUpperCase());
-        $('#time-part').html(momentNow.format('A hh:mm:ss'));
+        $('#time-part').html(momentNow.format('hh:mm:ss A'));
     }, 100);
 });
 

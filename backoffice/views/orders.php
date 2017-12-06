@@ -8,7 +8,8 @@ include "views/right-nav.php";
 include "views/header.php";
 ?>
 
-<div id="crearPerfil" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div id="createProfile" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <h2>Administrar Pedidos</h2>
     <hr>
     <div class="table-responsive">
         <table id="tableOrders" class="table table-striped display">
@@ -42,8 +43,8 @@ include "views/header.php";
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
-                                class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Edición de Pedidos</h4>
+                            class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h1 class="modal-title custom_align" id="Heading">Edición de Pedidos</h1>
                 </div>
                 <div id="update-modal-orders" class="modal-body">
                     <input type="hidden" id="id_order-update" name="id_order-update" value="">
@@ -54,8 +55,8 @@ include "views/header.php";
                                     name="payment" required>
                                 <?php
                                 $payments = Payments::getPaymentsForOrder();
-                                for($i = 0; $i < count($payments); ++$i){
-                                    echo '<option value="'.$payments[$i]['id_payment'].'">'.$payments[$i]['type'].'</option>';
+                                for ($i = 0; $i < count($payments); ++$i) {
+                                    echo '<option value="' . $payments[$i]['id_payment'] . '">' . $payments[$i]['type'] . '</option>';
                                 }
                                 ?>
                             </select>
@@ -68,8 +69,8 @@ include "views/header.php";
                                     name="dispath" required>
                                 <?php
                                 $dispaths = Dispaths::getDispathsForOrder();
-                                for($i = 0; $i < count($dispaths); ++$i){
-                                    echo '<option value="'.$dispaths[$i]['id_dispatch_status'].'">'.$dispaths[$i]['status'].'</option>';
+                                for ($i = 0; $i < count($dispaths); ++$i) {
+                                    echo '<option value="' . $dispaths[$i]['id_dispatch_status'] . '">' . $dispaths[$i]['status'] . '</option>';
                                 }
                                 ?>
                             </select>
@@ -79,22 +80,23 @@ include "views/header.php";
                         <label class="control-label">Procesamiento Interno</label>
                         <div>
                             <select class="form-control input-md" id="status-update"
-                                     name="status" required>
+                                    name="status" required>
                                 <?php
                                 $status = Statuses::getStatusesForOrder();
-                                for($i = 0; $i < count($status); ++$i){
-                                    echo '<option value="'.$status[$i]['id_delivery_status'].'">'.$status[$i]['status'].'</option>';
+                                for ($i = 0; $i < count($status); ++$i) {
+                                    echo '<option value="' . $status[$i]['id_delivery_status'] . '">' . $status[$i]['status'] . '</option>';
                                 }
                                 ?>
                             </select>
                         </div>
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" name="updateOrder"
+                                    class="btn btn-warning updateOrder"><span
+                                    class="glyphicon glyphicon-ok-sign"></span> Actualizar
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" name="updateOrder"
-                            class="btn btn-warning btn-lg updateOrder" style="width: 100%;"><span
-                                class="glyphicon glyphicon-ok-sign"></span> Actualizar
-                    </button>
                 </div>
             </div>
         </div>

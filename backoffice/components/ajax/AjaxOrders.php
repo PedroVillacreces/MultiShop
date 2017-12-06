@@ -15,15 +15,14 @@ class AjaxOrders
     {
         $data = $this->id_delivery;
 
-        $response= Orders::getOrderById($data);
+        $response = Orders::getOrderById($data);
         echo json_encode(array('Order' => $response));
     }
 
 }
 
-if(isset($_POST["getDeliveryById"]))
-{
-    $order= new AjaxOrders();
-    $order -> id_delivery = $_POST["getDeliveryById"];
-    $order -> getOrderById();
+if (isset($_POST["getDeliveryById"])) {
+    $order = new AjaxOrders();
+    $order->id_delivery = $_POST["getDeliveryById"];
+    $order->getOrderById();
 }

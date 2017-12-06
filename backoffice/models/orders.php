@@ -18,15 +18,15 @@ class OrdersModel
                                                 on t1.id_status = t3.id_delivery_status
                                                 inner join dispatch_status as t5
                                                 on t1.id_dispath = t5.id_dispatch_status");
-        $stmt -> execute();
-        return $stmt -> fetchAll();
-        $stmt -> close();
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
     }
 
-    public static  function deleteOrder($data, $table)
+    public static function deleteOrder($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_delivery = :id_delivery");
-        $stmt -> bindParam(":id_delivery", $data, PDO::PARAM_INT);
+        $stmt->bindParam(":id_delivery", $data, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return "ok";
         } else {
@@ -36,33 +36,31 @@ class OrdersModel
         $stmt->close();
     }
 
-    public static function  getOrderById($data, $table)
+    public static function getOrderById($data, $table)
     {
         $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_delivery = :id_delivery");
         $stmt->bindParam(":id_delivery", $data, PDO::PARAM_INT);
 
-        if($stmt->execute()){
+        if ($stmt->execute()) {
 
-            $result = $stmt -> fetch();
+            $result = $stmt->fetch();
             return $result;
-        }
-        else{
+        } else {
             return "error";
         }
 
-        $stmt -> close();
+        $stmt->close();
     }
 
     public static function updateOrder($data, $table)
     {
         $stmt = Conexion::connect()->prepare("UPDATE $table SET id_payment = :payment, id_dispath = :dispath, id_status = :status WHERE id_delivery = :id_delivery");
-        $stmt -> bindParam(":payment", $data->payment, PDO::PARAM_INT);
-        $stmt -> bindParam(":status", $data->status, PDO::PARAM_INT);
-        $stmt -> bindParam(":dispath", $data->dispath, PDO::PARAM_INT);
-        $stmt -> bindParam(":id_delivery", $data->id_delivery, PDO::PARAM_INT);
+        $stmt->bindParam(":payment", $data->payment, PDO::PARAM_INT);
+        $stmt->bindParam(":status", $data->status, PDO::PARAM_INT);
+        $stmt->bindParam(":dispath", $data->dispath, PDO::PARAM_INT);
+        $stmt->bindParam(":id_delivery", $data->id_delivery, PDO::PARAM_INT);
 
-        if ($stmt->execute())
-        {
+        if ($stmt->execute()) {
             return "ok";
 
         } else {

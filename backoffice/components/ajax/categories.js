@@ -19,7 +19,7 @@ $(document).on('click', '.updateCategoryButton', function () {
 
 $(document).on('click', '.deleteCategoryButton', function () {
     var agree = confirm("¿Realmente desea eliminar esta categoría, afectará a productos que la incluyan? ");
-    if (agree) return true ;
+    if (agree) return true;
     return false;
 
 });

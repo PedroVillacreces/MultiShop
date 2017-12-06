@@ -1,6 +1,7 @@
 <?php
 
 require_once "conexion.php";
+
 /**
  * Undocumented class
  */
@@ -177,11 +178,11 @@ class CustomersModel
     {
         $stmt = Conexion::connect()->prepare("SELECT id_customer, name, surname, mail, address, post_code, region, phone, 
         validate FROM $table");
-        $stmt -> execute();
-        return $stmt -> fetchAll();
-        $stmt -> close();
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
     }
-        
+
     /**
      * Undocumented function
      *
@@ -192,7 +193,7 @@ class CustomersModel
     public static function deleteCustomer($data, $table)
     {
         $stmt = Conexion::connect()->prepare("DELETE FROM $table WHERE id_customer = :id_customer");
-        $stmt -> bindParam(":id_customer", $data, PDO::PARAM_INT);
+        $stmt->bindParam(":id_customer", $data, PDO::PARAM_INT);
         if ($stmt->execute()) {
             return "ok";
         } else {
@@ -201,44 +202,68 @@ class CustomersModel
 
         $stmt->close();
     }
-/**
- * Undocumented function
- *
- * @param [type] $data
- * @param [type] $table
- * @return void
- */
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $data
+     * @param [type] $table
+     * @return string
+     */
     public static function doUpdate($data, $table)
     {
         $mail = self::getCustomerByEmail($data['mail'], 'customers');
 
-        if ($mail[0]['mail'] === $data['mail'] || !$mail['mail'])
-        {
-            $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, address = :address, post_code = :post_code, region = :region, phone = :phone, password = :password, validate = :validate WHERE id_customer = :id");
-            $stmt -> bindParam(":name", $data["name"], PDO::PARAM_STR);
-            $stmt -> bindParam(":surname", $data['surname'], PDO::PARAM_STR);
-            $stmt -> bindParam(":mail", $data['mail'], PDO::PARAM_STR);
-            $stmt -> bindParam(":address", $data['address'], PDO::PARAM_STR);
-            $stmt -> bindParam(":post_code", $data['post_code'], PDO::PARAM_STR);
-            $stmt -> bindParam(":region", $data['region'], PDO::PARAM_STR);
-            $stmt -> bindParam(":phone", $data['phone'], PDO::PARAM_STR);
-            $stmt -> bindParam(":password", $data['password'], PDO::PARAM_STR);
-            $stmt -> bindParam(":id", $data["id_customer"], PDO::PARAM_INT);
-            $stmt -> bindParam(":validate", $data["validate"], PDO::PARAM_INT);
-            $stmt -> bindParam(":password", $data["password"], PDO::PARAM_STR);
-    
-            if ($stmt->execute())
-            {
-                return "ok";
+        if (empty($mail)) {
 
+            $response = self::updateCustomer($data, $table);
+            if ($response == 'ok') {
+
+                return 'ok';
             } else {
-                return "error";
+                return 'error';
             }
-    
-            $stmt->close();
+        } else if ($mail['0']['mail'] == $data['mail']) {
+
+            $response = self::updateCustomer($data, $table);
+
+            if ($response == 'ok') {
+
+                return 'ok';
+            } else {
+                return 'error';
+            }
+
         } else {
-            return null;
+            return "El mail ya existe en la base de datos, elije otro";
         }
+
+
+    }
+
+    private static function updateCustomer($data, $table)
+    {
+        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, address = :address, post_code = :post_code, region = :region, phone = :phone, password = :password, validate = :validate WHERE id_customer = :id");
+        $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
+        $stmt->bindParam(":surname", $data['surname'], PDO::PARAM_STR);
+        $stmt->bindParam(":mail", $data['mail'], PDO::PARAM_STR);
+        $stmt->bindParam(":address", $data['address'], PDO::PARAM_STR);
+        $stmt->bindParam(":post_code", $data['post_code'], PDO::PARAM_STR);
+        $stmt->bindParam(":region", $data['region'], PDO::PARAM_STR);
+        $stmt->bindParam(":phone", $data['phone'], PDO::PARAM_STR);
+        $stmt->bindParam(":password", $data['password'], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $data["id_customer"], PDO::PARAM_INT);
+        $stmt->bindParam(":validate", $data["validate"], PDO::PARAM_INT);
+        $stmt->bindParam(":password", $data["password"], PDO::PARAM_STR);
+
+        if ($stmt->execute()) {
+            return "ok";
+
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
     }
 
     public static function getCustomerById($id, $table)
@@ -246,9 +271,9 @@ class CustomersModel
         $parseInt = intval($id);
         $stmt = Conexion::connect()->prepare("SELECT * FROM $table WHERE id_customer = $parseInt");
         $stmt->execute();
-        $result = $stmt -> fetch();
+        $result = $stmt->fetch();
         return $result;
-        $stmt -> close();
+        $stmt->close();
     }
 
     public static function createCustomer($customer, $table)
@@ -256,22 +281,22 @@ class CustomersModel
         if (!self::getCustomerByEmail($customer['mail'], 'customers')) {
             $mysql_conn = Conexion::connect();
             $stmt = $mysql_conn->prepare("INSERT INTO $table (name, surname, mail, address, post_code, region, phone, password, validate) VALUES (:name, :surname, :mail, :address, :post_code, :region, :phone, :password, :validate)");
-            $stmt -> bindParam(":name", $customer['name'], PDO::PARAM_STR);
-            $stmt -> bindParam(":surname", $customer['surname'], PDO::PARAM_STR);
-            $stmt -> bindParam(":mail", $customer['mail'], PDO::PARAM_STR);
-            $stmt -> bindParam(":address", $customer['address'], PDO::PARAM_STR);
-            $stmt -> bindParam(":post_code", $customer['post_code'], PDO::PARAM_STR);
-            $stmt -> bindParam(":region", $customer['region'], PDO::PARAM_STR);
-            $stmt -> bindParam(":phone", $customer['phone'], PDO::PARAM_STR);
-            $stmt -> bindParam(":password", $customer['password'], PDO::PARAM_STR);
-            $stmt -> bindParam(":validate", $customer['validate'], PDO::PARAM_STR);
+            $stmt->bindParam(":name", $customer['name'], PDO::PARAM_STR);
+            $stmt->bindParam(":surname", $customer['surname'], PDO::PARAM_STR);
+            $stmt->bindParam(":mail", $customer['mail'], PDO::PARAM_STR);
+            $stmt->bindParam(":address", $customer['address'], PDO::PARAM_STR);
+            $stmt->bindParam(":post_code", $customer['post_code'], PDO::PARAM_STR);
+            $stmt->bindParam(":region", $customer['region'], PDO::PARAM_STR);
+            $stmt->bindParam(":phone", $customer['phone'], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $customer['password'], PDO::PARAM_STR);
+            $stmt->bindParam(":validate", $customer['validate'], PDO::PARAM_STR);
             $mysql_conn->beginTransaction();
-             
-           
+
+
             if ($stmt->execute()) {
                 $id = $mysql_conn->lastInsertId();
                 $mysql_conn->commit();
-                $message =  "Cliente " .$id. " Inserta Correctamente";
+                $message = "Cliente " . $id . " Inserta Correctamente";
                 return array("id" => $id, "message" => $message);
             } else {
                 return "error";
@@ -284,9 +309,9 @@ class CustomersModel
     public static function getCustomerByEmail($mail, $table)
     {
         $stmt = Conexion::connect()->prepare("SELECT id_customer, name, surname, mail, address, post_code, region, phone, validate FROM $table WHERE mail = :mail");
-        $stmt -> bindParam(":mail", $mail, PDO::PARAM_STR);
-        $stmt -> execute();
-        return $stmt -> fetchAll();
-        $stmt -> close();
+        $stmt->bindParam(":mail", $mail, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt->close();
     }
 }

@@ -2,6 +2,7 @@
 
 require_once "../../models/comments.php";
 require_once "../../controllers/comments.php";
+
 /**
  * Created by PhpStorm.
  * User: mac
@@ -15,14 +16,13 @@ class AjaxComment
 
     public function getComment($data)
     {
-        $response= Comments::getCommentById($data);
+        $response = Comments::getCommentById($data);
         echo json_encode(array('Comment' => $response));
     }
 }
 
-if(isset($_POST["getComment"]))
-{
+if (isset($_POST["getComment"])) {
     $comment = new AjaxComment();
-    $comment -> id_comment = $_POST["getComment"];
-    $comment -> getComment($comment);
+    $comment->id_comment = $_POST["getComment"];
+    $comment->getComment($comment);
 }

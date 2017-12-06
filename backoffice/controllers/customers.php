@@ -8,20 +8,20 @@ class Customers
     public function showCustomers()
     {
         $response = CustomersModel::showCustomers("customers");
-        
+
         foreach ($response as $row => $item) {
             echo
-            '<tr id="customersRow'.$item['id_customer'].'">
-                        <td class="name">'.$item['name'].'</td>
-                        <td class="surname">'.$item['surname'].'</td>
-                        <td class="mail">'.$item['mail'].'</td>
-                        <td class="address">'.$item['address'].'</td>
-                        <td class="post_code">'.$item['post_code'].'</td>
-                        <td class="region">'.$item['region'].'</td>
-                        <td class="phone">'.$item['phone'].'</td>
+                '<tr id="customersRow' . $item['id_customer'] . '">
+                        <td class="name">' . $item['name'] . '</td>
+                        <td class="surname">' . $item['surname'] . '</td>
+                        <td class="mail">' . $item['mail'] . '</td>
+                        <td class="address">' . $item['address'] . '</td>
+                        <td class="post_code">' . $item['post_code'] . '</td>
+                        <td class="region">' . $item['region'] . '</td>
+                        <td class="phone">' . $item['phone'] . '</td>
                         <td>
                             <form role="form" method="POST" id="deleteCustomer">
-                                <button type="button" name="deleteCustomer" id="deleteCustomer" class="deleteButton btn btn-danger btn-sm" data-id="'.$item['id_customer'].'">
+                                <button type="button" name="deleteCustomer" id="deleteCustomer" class="deleteButton btn btn-danger btn-sm" data-id="' . $item['id_customer'] . '">
                                     <span class="glyphicon glyphicon-trash"></span>
                                 </button>
                             </form>                            
@@ -29,7 +29,7 @@ class Customers
                         <td>     
                         <form role="form" method="POST" id="updateCustomer">                       
                                     <p data-placement="top" data-toggle="tooltip" title="Edit">
-                                        <button type="button" name="updateCustomer" id="updateCustomer" class="updateButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="'.$item['id_customer'].'">
+                                        <button type="button" name="updateCustomer" id="updateCustomer" class="updateButton btn btn-primary btn-sm" data-title="Edit" data-toggle="modal" data-target="#edit" data-id="' . $item['id_customer'] . '">
                                             <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>

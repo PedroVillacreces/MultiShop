@@ -15,25 +15,25 @@ class AjaxSubcategory
     public function getSubcategoryById()
     {
         $data = $this->id_subcategory;
-        $response= Subcategories::getSubcategoryById($data);
+        $response = Subcategories::getSubcategoryById($data);
         $categories = Category::showCategoriesForSubcategories();
         echo json_encode(array('Subcategory' => $response, 'Categories' => $categories));
     }
 
-    public function getSubcategoriesByCategory(){
+    public function getSubcategoriesByCategory()
+    {
         $response = Subcategories::getSubcategoryByCategoryForProducts($this->id_category);
         echo json_encode($response);
     }
 }
 
-if(isset($_POST["getSubcategoryById"]))
-{
+if (isset($_POST["getSubcategoryById"])) {
     $subcategory = new AjaxSubcategory();
-    $subcategory -> id_subcategory = $_POST["getSubcategoryById"];
-    $subcategory -> getSubcategoryById();
+    $subcategory->id_subcategory = $_POST["getSubcategoryById"];
+    $subcategory->getSubcategoryById();
 }
 
-if (isset($_POST['category'])){
+if (isset($_POST['category'])) {
     $subcategory = new AjaxSubcategory();
     $subcategory->id_category = $_POST['category'];
     $subcategory->getSubcategoriesByCategory();

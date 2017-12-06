@@ -14,13 +14,13 @@ $(document).on('click', '.updateSubcategoryButton', function () {
         var subcategoryAjax = $.parseJSON(data);
         $('input#id_subcategory-update').val(subcategoryAjax.Subcategory['0']);
         $('input#name-update').val(subcategoryAjax.Subcategory['1']);
-        $('select[name="category"]').find('option[value="'+ subcategoryAjax.Subcategory['id_category'] +'"]').attr("selected",true);
+        $('select[name="category"]').find('option[value="' + subcategoryAjax.Subcategory['id_category'] + '"]').attr("selected", true);
     });
 });
 
 $(document).on('click', '.deleteSubcategoryButton', function () {
     var agree = confirm("¿Realmente desea eliminar esta categoría, afectará a productos que la incluyan? ");
-    if (agree) return true ;
+    if (agree) return true;
     return false;
 
 });

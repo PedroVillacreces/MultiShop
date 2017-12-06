@@ -108,13 +108,16 @@ if (isset($_POST["mail"])) {
 }
 
 if (isset($_POST['CustomerUpdate'])) {
+
+    $customer = new AjaxCustomer();
+
     if(!$_POST["CustomerUpdate"]["validate"])
     {
         $customer ->validate = 0;
     }else{
-        $customer->validate = $_POST["Customer"]["validate"];
+        $customer->validate = $_POST["CustomerUpdate"]["validate"];
     }
-    $customer = new AjaxCustomer();
+
     $customer->id_customer= $_POST["CustomerUpdate"]["id_customer"];
     $customer-> name =  $_POST["CustomerUpdate"]["name"];
     $customer-> surname = $_POST["CustomerUpdate"]["surname"];

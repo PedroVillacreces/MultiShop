@@ -23,7 +23,7 @@ class Users
     public function showUsers()
     {
         $response = UsersModel::showUsers("users");
-        
+
         foreach ($response as $row => $item) {
             echo '<tr id="item' . $item['0'] . '">
                         <td class="name">' . $item['1'] . '</td>
@@ -58,11 +58,10 @@ class Users
     public function createUser($data)
     {
         $userName = UsersModel::getUserByUserName($data->user_name, "users");
-        if($userName){
+        if ($userName) {
             echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, intentelo con otro");', '</script>';
             return "error";
-        }
-        else{
+        } else {
             $response = UsersModel::createUser($data, "users");
             return $response;
         }
@@ -84,17 +83,15 @@ class Users
     {
 
         $user = UsersModel::getUserById($data->id, "users");
-        if ($data->user_name == $user["user_name"]){
+        if ($data->user_name == $user["user_name"]) {
             $data->password = $data->password == $user['password'] ? $data->password : base64_encode($data->password);
             $response = UsersModel::updateUser($data, "users");
             return $response;
-        }
-        else{
+        } else {
             $userByName = UsersModel::getUserByUserName($data->user_name, "users");
-            if ($userByName){
+            if ($userByName) {
                 echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, inténtelo con otro");', '</script>';
-            }
-            else{
+            } else {
                 $response = UsersModel::updateUser($data, "users");
                 return $response;
             }
@@ -105,12 +102,11 @@ class Users
     public static function uploadPhoto($dir, $file, $userName)
     {
         //$target_dir = "multimedia/images/profile/";
-        if(!is_dir($dir . $userName)){
-            mkdir($dir.$userName, 0777, true);
-        }
-        else if(count($dir . $userName) !== 0){
+        if (!is_dir($dir . $userName)) {
+            mkdir($dir . $userName, 0777, true);
+        } else if (count($dir . $userName) !== 0) {
             $files = glob($dir . $userName . '/*');
-            foreach ($files as $filedir){
+            foreach ($files as $filedir) {
                 unlink($filedir);
             }
         }
@@ -123,7 +119,7 @@ class Users
             $uploadOk = 0;
         }
 
-        if ($file["size"] > 500000) {
+        if ($file["size"] > 5000000) {
             echo '<script>', 'alert("No se puede generar archivo porque tiene un tamaño superior al permitido");', '</script>';
 
             $uploadOk = 0;
@@ -145,7 +141,7 @@ class Users
             }
         }
 
-        return array("Status" => $uploadOk, "Path" =>$target_file);
+        return array("Status" => $uploadOk, "Path" => $target_file);
     }
 }
 
@@ -154,15 +150,15 @@ if (isset($_POST["createUser"])) {
 
     $uploadOk = Users::uploadPhoto("multimedia/images/profile/", $_FILES["photo"], $_POST['user_name']);
     if ($uploadOk["Status"] != 0) {
-    $user = new Users();
-    $user->name = $_POST['name'];
-    $user->surname = $_POST['surname'];
-    $user->email = $_POST['email'];
-    $user->password = base64_encode($_POST['password']);
-    $user->photo = $uploadOk["Path"];
-    $user->role = $_POST['role'];
-    $user->user_name = $_POST['user_name'];
-    $user->createUser($user);
+        $user = new Users();
+        $user->name = $_POST['name'];
+        $user->surname = $_POST['surname'];
+        $user->email = $_POST['email'];
+        $user->password = base64_encode($_POST['password']);
+        $user->photo = $uploadOk["Path"];
+        $user->role = $_POST['role'];
+        $user->user_name = $_POST['user_name'];
+        $user->createUser($user);
     } else {
         echo '<script>', 'alert("El Perfil no ha sido actualizado, inténtelo de nuevo");', '</script>';
     }
@@ -175,9 +171,9 @@ if (isset($_POST["deleteUser"])) {
 }
 
 if (isset($_POST['updateUser'])) {
-    
+
     $uploadOk = Users::uploadPhoto("multimedia/images/profile/", $_FILES["photo"], $_POST['user_name']);
-    
+
     if ($uploadOk["Status"] != 0) {
         $user = new Users();
         $user->id = $_POST['id_user-update'];

@@ -11,7 +11,7 @@ $(document).on("click", '.deleteButton', function () {
             data: {
                 id_customer: id_customer
             },
-            cache: false,
+            cache: false
         }).done(function (data) {
             if (data === "ok") {
                 $(this).parent().remove();
@@ -36,59 +36,86 @@ $(document).on('click', '.updateButton', function () {
         data: {
             updateAjax: id_customer
         },
-        cache: false,
+        cache: false
     }).done(function (data) {
         var customerAjax = $.parseJSON(data);
-            var html =
-            '<input type="hidden" id="id_customer" name="id" value="' + customerAjax.Customer['id_customer'] + '">'+
-            '<div class="form-group">'+
-                '<label class="control-label">Nombre</label>'+
-                '<input class="form-control" id ="name" type="text" value="' + customerAjax.Customer["name"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label class="control-label">Apellidos</label>'+            
-                '<input class="form-control" id="surname" type="text" value="' + customerAjax.Customer["surname"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label class="control-label">Email</label>'+            
-                '<input class="form-control" id="email" type="text" value="' + customerAjax.Customer["mail"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label class="control-label">Dirección</label>'+            
-                '<input class="form-control" id="address" type="text" value="'+ customerAjax.Customer["address"] +'">'+
-             '</div>'+
-            '<div class="form-group">'+   
-                '<label class="control-label">Código Postal</label>'+         
-                '<input class="form-control" id="pc" type="text" value="'+ customerAjax.Customer["post_code"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-                '<label class="control-label">Nombre</label>'+
-                '<input class="form-control" id="region" type="text" value="'+ customerAjax.Customer["region"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+     
-                '<label class="control-label">Teléfono</label>'+       
-                '<input class="form-control" id="phone" type="text" value="'+ customerAjax.Customer["phone"] +'">'+
-            '</div>'+
-            '<div class="form-group">'+      
-                '<label class="control-label">Contraseña</label>'+      
-                '<input class="form-control" id="password" type="password" value="'+ window.atob(customerAjax.Customer["password"]) +'">'+
-            '</div>'+
-            '<div class="form-group">'+
-            '<label class="control-label"><b>Activo</b></label><input class="form-control" type="checkbox" id="validate" name="validate" value="'+ customerAjax.Customer["validate"] +'">'+
-            '</div>';
-        $('#update-modal').append(html);
-            if(customerAjax.Customer["validate"] == 1){
-                $('input#validate').attr('checked');
-            }
-            else{
-                $('input#validate').removeAttr('checked');
-            }
-        // $('.modalUpdate').on('hidden.bs.modal', function () {
-        //     $(this).html(html);
-        //
-        // });
+
+        $('input#id_customer-update').val(customerAjax.Customer['0']);
+        $('input#name-update').val(customerAjax.Customer['1']);
+        $('input#surname-update').val(customerAjax.Customer['2']);
+        $('input#email-update').val(customerAjax.Customer['3']);
+        $('input#address-update').val(customerAjax.Customer['4']);
+        $('input#pc-update').val(customerAjax.Customer['5']);
+        $('input#region-update').val(customerAjax.Customer['6']);
+        $('input#phone-update').val(customerAjax.Customer['7']);
+        $('input#password-update').val(customerAjax.Customer['8']);
+        $('input#password_confirmation-update').val(customerAjax.Customer['8']);
+
+        if (customerAjax.Customer["9"] == 1) {
+            $('input#active-update').attr('checked', true);
+        }
+        else {
+            $('input#active-update').attr('checked', false);
+        }
+
     });
-});        
+});
+
+/**
+ * Ajax to update a customer
+ */
+$(document).on('click', '.doUpdate', function () {
+
+    var id_customer = $("input#id_customer-update").val();
+    var name = $("input#name-update").val();
+    var surname = $("input#surname-update").val();
+    var email = $("input#email-update").val();
+    var address = $("input#address-update").val();
+    var pc = $("input#pc-update").val();
+    var region = $("input#region-update").val();
+    var phone = $("input#phone-update").val();
+    var password = btoa($("input#password-update").val());
+    var confirm_password = btoa($("input#password_confirmation-update").val());
+    var active = $("input#active-update").val();
+
+    if (password == confirm_password) {
+
+        var jsonFile = {
+            'id_customer': id_customer,
+            'name': name,
+            'surname': surname,
+            'mail': email,
+            'address': address,
+            'post_code': pc,
+            'region': region,
+            'phone': phone,
+            'password': password,
+            'validate': active
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "../backoffice/components/ajax/AjaxCustomer.php",
+            data: {
+                CustomerUpdate: jsonFile
+            },
+            dataType: "json"
+        }).done(function (data) {
+            if (data.message === "ok") {
+                $.each(jsonFile, function (i, item) {
+                    $("#customersRow" + id_customer + " td." + i).html(item);
+                });
+                alert("Cliente actualizado correctamente");
+                $('.modalUpdate').modal('hide');
+            } else {
+                alert("El email introducido ya existe");
+            }
+        });
+    }
+    else {
+        alert('Las contraseñas elegidas deben ser iguales');
+    }
+});
 
 /**
  * Ajax to create a Customer
@@ -108,7 +135,8 @@ $(document).on('click', '.createButton', function () {
 
     if (password === password_confirmation) {
         var active = $("input#validate").val();
-        if(!active){
+
+        if (!active) {
             active = 0;
         }
 
@@ -177,51 +205,3 @@ $(document).on('click', '.createButton', function () {
 });
 
 
-/**
- * Ajax to update a customer
- */
-$(document).on('click', '.doUpdate', function () {
-
-    var id_customer = $("input#id_customer").val();
-    var name = $("input#name").val();
-    var surname = $("input#surname").val();
-    var email = $("input#email").val();
-    var address = $("input#address").val();
-    var pc = $("input#pc").val();
-    var region = $("input#region").val();
-    var phone = $("input#phone").val();
-    var password = $("input#password").val();
-
-    var active = $("input#active").val();
-    var jsonFile = {
-        'id_customer' : id_customer,
-        'name': name,
-        'surname': surname,
-        'mail': email,
-        'address': address,
-        'post_code': pc,
-        'region': region,
-        'phone': phone,
-        'password' : password,
-        'validate': active
-    };
-
-    $.ajax({
-        type: "POST",
-        url: "../backoffice/components/ajax/AjaxCustomer.php",
-        data: {
-            CustomerUpdate: jsonFile
-        },
-        dataType: "json",
-    }).done(function (data) {
-        if (data.message === "ok") {
-            $.each(jsonFile, function (i, item) {
-                    $("#item" + id_customer + " td."+ i).html(item);
-            });
-            alert("Cliente actualizado correctamente");
-            $('.modalUpdate').modal('hide');
-        } else {
-            alert("El email introducido ya existe");
-        }
-    });
-});

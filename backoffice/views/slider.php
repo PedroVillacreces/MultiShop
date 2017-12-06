@@ -8,10 +8,13 @@ include "views/right-nav.php";
 include "views/header.php";
 ?>
 
-<div id="crearPerfil" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+<div id="createProfile" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <h2>Administrar Slider</h2>
     <hr>
     <div class="table-responsive">
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCreate" name="create" onclick="">Nuevo Slide</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalCreate" name="create"
+                onclick="">Nuevo Slide
+        </button>
         <hr>
         <table id="tableSlider" class="table table-striped display">
             <thead>
@@ -32,11 +35,12 @@ include "views/header.php";
     </div>
 </div>
 
-<!-- /.modal-create customer -->
 <div id="modalCreate" class="modal fade">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                        class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                 <h1 class="modal-title">Crear Nuevo Slide</h1>
             </div>
             <div class="modal-body">
@@ -45,24 +49,28 @@ include "views/header.php";
                     <div class="form-group">
                         <label class="control-label">Url</label>
                         <div>
-                            <input type="file" class="form-control input-md" id="url" name="url"  required>
+                            <input type="file" class="form-control input-md" id="url" name="url" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Texto cabecera foto</label>
                         <div>
-                              <textarea name="text_header" id="text_header" cols="74" rows="5" placeholder="Introduce tu texto..." required ></textarea>
+                            <textarea name="text_header" id="text_header" cols="74" rows="5"
+                                      placeholder="Introduce tu texto..." required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Texto pie de foto</label>
                         <div>
-                              <textarea name="text_footer" id="text_footer" cols="74" rows="5" placeholder="Introduce tu texto..." required ></textarea>
+                            <textarea name="text_footer" id="text_footer" cols="74" rows="5"
+                                      placeholder="Introduce tu texto..." required></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <div>
-                            <button type="submit" value="Registrar" class="btn btn-primary createSlide" name="createSlide">Registar</button>
+                            <button type="submit" value="Registrar" class="btn btn-primary createSlide"
+                                    name="createSlide">Registar
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -70,5 +78,4 @@ include "views/header.php";
         </div>
     </div>
 </div>
-<!-- /end .modal-create customer -->
 

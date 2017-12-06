@@ -11,10 +11,10 @@ $(document).on('click', '.updateComment', function () {
         var commentAjax = $.parseJSON(data);
         $('input#id_comment-update').val(commentAjax.Comment['0']);
 
-        if(commentAjax.Comment["8"] == 1){
+        if (commentAjax.Comment["8"] == 1) {
             $('input#status-update').attr('checked', true);
         }
-        else{
+        else {
             $('input#status-update').attr('checked', false);
         }
 

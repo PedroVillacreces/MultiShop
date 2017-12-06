@@ -8,6 +8,7 @@ include "views/right-nav.php";
 include "views/header.php";
 ?>
 <div id="" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <h2>Administrar Productos</h2>
     <hr>
     <div class="table-responsive">
         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalProductCreate"
@@ -46,6 +47,8 @@ include "views/header.php";
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                            class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     <h1 class="modal-title">Actualizar Producto</h1>
                 </div>
                 <div id="update-modal-products" class="modal-body">
@@ -91,13 +94,6 @@ include "views/header.php";
                         <div>
                             <select class="form-control input-md" id="subcategory-update"
                                     name="subcategory" required>
-
-<!--                                --><?php
-//                                $subcategories = Subcategories::getSubcategoryForProducts();
-//                                for ($i = 0; $i < count($subcategories); ++$i) {
-//                                    echo '<option value="' . $subcategories[$i]['id_subcategory'] . '">' . $subcategories[$i]['subcategory_name'] . '</option>';
-//                                }
-//                                ?>
                             </select>
                         </div>
                     </div>
@@ -110,7 +106,8 @@ include "views/header.php";
                     </div>
                     <div class="form-group">
                         <div class="checkbox">
-                            <label class="control-label"><input type="checkbox" id="downloadable-update" name="downloadable"
+                            <label class="control-label"><input type="checkbox" id="downloadable-update"
+                                                                name="downloadable"
                                                                 value="1"><b>Descargable</b></label>
                         </div>
                     </div>
@@ -134,12 +131,13 @@ include "views/header.php";
     </div>
 </form>
 
-<!-- /.modal-create products -->
 <form role="form" method="POST" id="createProduct">
     <div id="modalProductCreate" class="modal fade">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span
+                            class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     <h1 class="modal-title">Crear Nuevo Producto</h1>
                 </div>
                 <div class="modal-body">
@@ -221,5 +219,5 @@ include "views/header.php";
         </div>
     </div>
 </form>
-<!-- /end .modal-create product -->
+
 

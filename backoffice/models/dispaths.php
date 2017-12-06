@@ -11,8 +11,8 @@ class DispathsModel
     public static function showDispathsForOrder($table)
     {
         $stmt = Conexion::connect()->prepare("select * from $table");
-        $stmt -> execute();
-        return $stmt ->fetchAll();
+        $stmt->execute();
+        return $stmt->fetchAll();
         $stmt->close();
     }
 }

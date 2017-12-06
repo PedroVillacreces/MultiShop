@@ -21,17 +21,16 @@ class AjaxProduct
     {
         $data = $this->id_product;
 
-        $response= Products::getProductById($data);
+        $response = Products::getProductById($data);
         echo json_encode(array('Product' => $response));
     }
 
 }
 
-if(isset($_POST["getById"]))
-{
-    $product= new AjaxProduct();
-    $product -> id_product = $_POST["getById"];
-    $product -> getProductById();
+if (isset($_POST["getById"])) {
+    $product = new AjaxProduct();
+    $product->id_product = $_POST["getById"];
+    $product->getProductById();
 }
 
 
