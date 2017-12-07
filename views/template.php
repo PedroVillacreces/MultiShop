@@ -37,6 +37,7 @@ $links->linksController();
 <script type="text/javascript" src="components/js/moment.min.js"></script>
 <script type="text/javascript" src="components/js/moment.locale.js"></script>
 <script type="text/javascript" src="components/ajax/registration.js"></script>
+<script type="text/javascript" src="components/ajax/contactus.js"></script>
 
 </body>
 

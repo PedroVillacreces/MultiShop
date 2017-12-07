@@ -1,6 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["validate"])) {
+    include "views/header.php";
     include "views/login.php";
     include "views/footer.php";
 }
@@ -10,7 +11,7 @@ else{
 }
 ?>
 
-<div class="container registration-form">
+<div class="container contact-form">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-12 col-md-8 col-sm-offset-2 col-md-offset-2">
             <div class="panel panel-default">
@@ -23,25 +24,25 @@ else{
                     <form role="form" method="POST">
                         <div class="form-group">
                             <input type="text" name="name-contact" id="name-contact" class="form-control input-md"
-                                   placeholder="Nombre *" value="" required>
+                                   placeholder="Nombre *" required/>
                         </div>
                         <div class="form-group">
                             <input type="text" name="surname-contact" id="surname-contact" class="form-control input-md"
-                                   placeholder="Apellidos *" value="" required>
+                                   placeholder="Apellidos *" required/>
                         </div>
                         <div class="form-group">
                             <input type="email" name="email-contact" id="email-contact" class="form-control input-md"
-                                   placeholder="Email *" value="" required>
+                                   placeholder="Email *" required/>
                         </div>
                         <div class="form-group">
                             <input type="text" name="phone-contact" id="phone-contact" class="form-control input-md"
-                                   placeholder="Teléfono *" value="" required>
+                                   placeholder="Teléfono *" required/>
                         </div>
                         <div class="form-group">
                             <textarea name="message-contact" id="message-contact" class="form-control input-md"
-                                   placeholder="Deja tu mensaje *" value="" rows="7" required></textarea>
+                                   placeholder="Deja tu mensaje *" rows="7" required></textarea>
                         </div>
-                        <input type="button" value="Enviar a MultiShop" class="btn btn-info btn-block custom-button btn-lg">
+                        <input type="button" name="sendEmailContact" value="Enviar a MultiShop" class="btn btn-info contact-click btn-block btn-lg"/>
                     </form>
                 </div>
             </div>
@@ -49,17 +50,17 @@ else{
     </div>
 </div>
 
-<div class="modal fade" id="successModal" role="dialog">
+
+<div class="modal fade" id="contactModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header header-registration">
-                <h3 class="modal-title">Registro Realizado con Éxito!</h3>
+            <div class="modal-header header-contactus">
+                <h3 class="modal-title">Ha contactado con Éxito!</h3>
             </div>
             <div class="modal-body">
                 <p><strong>Desde MultiShop agradecemos su confianza por elegir nuestra tienda online para sus compras!</strong></p>
-                <p>Para finalizar su registro debe dirigirse a la dirección de correo electrónico facilitada en el regitro y confirmar el email que acabamos de mandar</p>
-                <p>Para cualquier problema con el registro no dude en contactar con nuestro soporte técnico mediante el email <strong>help@multishop.es</strong></p>
-                <p><strong>Gracias y felices compras</strong></p>
+                <p>Gracias por contactar con nosotros, leeremos tu petición y nos pondremos en contacto con usted</p>
+                <p>El equipo de MultiShop, contacto:<strong>help@multishop.es</strong></p>
             </div>
             <div class="modal-footer header-registration">
                 <button type="button" class="btn btn-default close-registration" data-dismiss="modal">Cerrar</button>
