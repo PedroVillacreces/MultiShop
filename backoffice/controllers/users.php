@@ -81,7 +81,6 @@ class Users
 
     public function updateUser($data)
     {
-
         $user = UsersModel::getUserById($data->id, "users");
         if ($data->user_name == $user["user_name"]) {
             $data->password = $data->password == $user['password'] ? $data->password : base64_encode($data->password);
@@ -91,7 +90,9 @@ class Users
             $userByName = UsersModel::getUserByUserName($data->user_name, "users");
             if ($userByName) {
                 echo '<script>', 'alert("El nombre de usuario elegido ya existe en la Base de Datos, inténtelo con otro");', '</script>';
+                return "error";
             } else {
+                $data->password = $data->password == $user['password'] ? $data->password : base64_encode($data->password);
                 $response = UsersModel::updateUser($data, "users");
                 return $response;
             }

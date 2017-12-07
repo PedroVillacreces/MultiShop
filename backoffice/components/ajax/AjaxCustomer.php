@@ -5,7 +5,6 @@ require_once "../../controllers/customers.php";
 class AjaxCustomer
 {
     public $id_customer;
-
     public $name;
     public $surname;
     public $address;
@@ -114,7 +113,9 @@ if (isset($_POST['CustomerUpdate'])) {
     if(!$_POST["CustomerUpdate"]["validate"])
     {
         $customer ->validate = 0;
+
     }else{
+
         $customer->validate = $_POST["CustomerUpdate"]["validate"];
     }
 
@@ -125,7 +126,7 @@ if (isset($_POST['CustomerUpdate'])) {
     $customer-> post_code = $_POST["CustomerUpdate"]["post_code"];
     $customer-> phone = $_POST["CustomerUpdate"]["phone"];
     $customer-> region = $_POST["CustomerUpdate"]["region"];
-    $customer-> password = base64_encode($_POST["CustomerUpdate"]["password"]);
+    $customer-> password = $_POST["CustomerUpdate"]["password"];
     $customer-> mail = $_POST["CustomerUpdate"]["mail"];
     $customer -> doUpdate();
 }

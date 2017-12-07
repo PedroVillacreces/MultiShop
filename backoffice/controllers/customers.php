@@ -71,7 +71,22 @@ class Customers
 
     public static function doUpdate($data)
     {
-        $response = CustomersModel::doUpdate($data, 'customers');
-        return $response;
+        $customer = CustomersModel::getCustomerById($data["id_customer"], "customers");
+        if ($data["mail"] == $customer["mail"]) {
+            $data["password"] = $data["password"] == $customer['password'] ? $data["password"] : base64_encode($data["password"]);
+            $response = CustomersModel::doUpdate($data, "customers");
+            return $response;
+        } else {
+            $customerByemail = CustomersModel::getCustomerByEmail($data["mail"], "customers");
+            if ($customerByemail) {
+                echo '<script>', 'alert("El mail elegido ya existe en la Base de Datos, inténtelo con otro");', '</script>';
+                return "error";
+            } else {
+                $data["password"] = $data["password"] == $customer['password'] ? $data["password"] : base64_encode($data["password"]);
+                $response = CustomersModel::doUpdate($data, "customers");
+                return $response;
+            }
+        }
+
     }
 }

@@ -11,7 +11,6 @@ if(heightBody > 1020 && window.innerWidth > 767){
 	$("#col1").css({"height":heightBody+"px"})
 }
 
-
 $("p#member span").click(function(){
 	$("#header-page #admin").slideToggle("fast")
 	$("p#member span").toggleClass("glyphicon glyphicon-chevron-down");

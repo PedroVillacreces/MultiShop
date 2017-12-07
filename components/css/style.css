@@ -1,0 +1,11 @@
+#header-page #admin {
+    display: none;
+}
+.dropdown-toggle{
+    background-color: transparent !important;
+    border: none !important;
+}
+
+li.exit-li:hover{
+    background-color: #222222 !important;
+}

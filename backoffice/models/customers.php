@@ -212,38 +212,7 @@ class CustomersModel
      */
     public static function doUpdate($data, $table)
     {
-        $mail = self::getCustomerByEmail($data['mail'], 'customers');
-
-        if (empty($mail)) {
-
-            $response = self::updateCustomer($data, $table);
-            if ($response == 'ok') {
-
-                return 'ok';
-            } else {
-                return 'error';
-            }
-        } else if ($mail['0']['mail'] == $data['mail']) {
-
-            $response = self::updateCustomer($data, $table);
-
-            if ($response == 'ok') {
-
-                return 'ok';
-            } else {
-                return 'error';
-            }
-
-        } else {
-            return "El mail ya existe en la base de datos, elije otro";
-        }
-
-
-    }
-
-    private static function updateCustomer($data, $table)
-    {
-        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :surname, address = :address, post_code = :post_code, region = :region, phone = :phone, password = :password, validate = :validate WHERE id_customer = :id");
+        $stmt = Conexion::connect()->prepare("UPDATE $table SET name = :name, surname = :surname, mail = :mail, address = :address, post_code = :post_code, region = :region, phone = :phone, password = :password, validate = :validate WHERE id_customer = :id");
         $stmt->bindParam(":name", $data["name"], PDO::PARAM_STR);
         $stmt->bindParam(":surname", $data['surname'], PDO::PARAM_STR);
         $stmt->bindParam(":mail", $data['mail'], PDO::PARAM_STR);

@@ -23,11 +23,10 @@ class LinksModels
             $links == "subcategories" ||
             $links == "profile" ||
             $links == "slider" ||
-            $links == "perfil" ||
             $links == "users" ||
             $links == "orders" ||
             $links == "comments" ||
-            $links == "salir"
+            $links == "exit"
         ) {
 
             $module = "views/" . $links . ".php";

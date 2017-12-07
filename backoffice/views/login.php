@@ -7,8 +7,8 @@
                id="passwordLogin">
 
         <?php
-        $ingreso = new Login();
-        $ingreso->loginController();
+        $login = new Login();
+        $login->loginController();
         ?>
 
         <input class="form-control formLogin btn btn-primary" type="submit" value="Enviar">

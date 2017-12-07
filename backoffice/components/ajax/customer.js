@@ -74,8 +74,8 @@ $(document).on('click', '.doUpdate', function () {
     var pc = $("input#pc-update").val();
     var region = $("input#region-update").val();
     var phone = $("input#phone-update").val();
-    var password = btoa($("input#password-update").val());
-    var confirm_password = btoa($("input#password_confirmation-update").val());
+    var password = $("input#password-update").val();
+    var confirm_password = $("input#password_confirmation-update").val();
     var active = $("input#active-update").val();
 
     if (password == confirm_password) {
