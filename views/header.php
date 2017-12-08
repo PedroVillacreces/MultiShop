@@ -1,8 +1,8 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <i class="fa fa-shopping-basket fa-4x" aria-hidden="true"></i>
+        <span class="glyphicon glyphicon-shopping-cart" style="font-size: 2em; color: #999;padding-top:10px; "></span>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">MultiShop</a>
+            <a class="navbar-brand" href="#"><img class="img-circle img-responsive" src="../multimedia/images/logo/index.png" alt="Logo MultiShop"></a>
         </div>
         <ul class="nav navbar-nav main-center">
             <li class="active">

@@ -6,11 +6,19 @@ $(document).on('click', '.contact-click', function () {
     var message = $("textarea#message-contact").val();
     var phone = $("input#phone-contact").val();
 
+    var htmlBody = '<h2>'+ name + ' ' + surname +' ha contactado con nosotros</h2>'+
+                    '<h4><strong>Esta es su pregunta: </strong> </h4>'+
+                    '<p>' + message + '</p>'+
+                    '<h4><strong>Si desea contacta con él estos son sus datos: </strong></h4>' +
+                    '<p><strong>Email: </strong>' + email + '</p>'+
+                    '<p><strong>Teléfono: </strong>' + phone + '</p>';
+
+
     var jsonFile = {
         'name': name,
         'surname': surname,
         'mail': email,
-        'message': message,
+        'message': htmlBody,
         'phone': phone
     };
 

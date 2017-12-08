@@ -38,6 +38,7 @@ class Login
                         $_SESSION["validate"] = true;
                         $_SESSION["user_name"] = $response["mail"];
                         $_SESSION["name"] = $response["name"];
+                        $_SESSION["id"] = $response["id_customer"];
                         header("location:home");
                     } else {
                         ++$counter;

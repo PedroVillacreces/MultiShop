@@ -18,7 +18,7 @@ class LoginModels
     public static function loginModel($dataModel, $table)
     {
 
-        $stmt = Conexion::connect()->prepare("SELECT name, mail, password, counter FROM $table WHERE mail = :mail");
+        $stmt = Conexion::connect()->prepare("SELECT id_customer, name, mail, password, counter FROM $table WHERE mail = :mail");
         $stmt->bindParam(":mail", $dataModel["user_name"], PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetch();

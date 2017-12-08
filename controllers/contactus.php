@@ -29,8 +29,8 @@ class ContactUs
         $mail->Password = 'proyectoDaw';
         $mail->setFrom($this->from);
         $mail->addAddress('multishop.proyecto.daw@gmail.com');
-        $mail->Subject = 'PHPMailer SMTP test';
-        $mail->Body = '<p>'. $this->html .'. '. $this->name . ' ' .$this->surname .'</p>';
+        $mail->Subject = 'Mensaje cliente MultiShop. Pregunta:';
+        $mail->Body = $this->html;
         if (!$mail->send()) {
             echo json_encode(array('response' => 'error'));
         } else {

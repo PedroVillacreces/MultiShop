@@ -14,7 +14,7 @@
                                     <input type="text" id="userLogin" name="userLogin" class="form-control input-lg chat-input"
                                            placeholder="Email"/>
                                     <br>
-                                    <input type="text" id="passwordLogin" name="passwordLogin" class="form-control input-lg chat-input"
+                                    <input type="password" id="passwordLogin" name="passwordLogin" class="form-control input-lg chat-input"
                                            placeholder="Contraseña"/>
                                     <br>
                                         <?php

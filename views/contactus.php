@@ -1,13 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION["validate"])) {
-    include "views/header.php";
     include "views/login.php";
-    include "views/footer.php";
+    include "views/header.php";
 }
 else{
     include "views/headerlogin.php";
-    include "views/footer.php";
 }
 ?>
 
@@ -23,24 +21,24 @@ else{
                 <div class="panel-body">
                     <form role="form" method="POST">
                         <div class="form-group">
-                            <input type="text" name="name-contact" id="name-contact" class="form-control input-md"
-                                   placeholder="Nombre *" required/>
+                            <input type="text" required name="name-contact" id="name-contact" class="form-control input-md"
+                                   placeholder="Nombre *"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="surname-contact" id="surname-contact" class="form-control input-md"
-                                   placeholder="Apellidos *" required/>
+                            <input type="text" required name="surname-contact" id="surname-contact" class="form-control input-md"
+                                   placeholder="Apellidos *"/>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email-contact" id="email-contact" class="form-control input-md"
-                                   placeholder="Email *" required/>
+                            <input type="email" required name="email-contact" id="email-contact" class="form-control input-md"
+                                   placeholder="Email *"/>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="phone-contact" id="phone-contact" class="form-control input-md"
-                                   placeholder="Teléfono *" required/>
+                            <input type="text" required name="phone-contact" id="phone-contact" class="form-control input-md"
+                                   placeholder="Teléfono *"/>
                         </div>
                         <div class="form-group">
-                            <textarea name="message-contact" id="message-contact" class="form-control input-md"
-                                   placeholder="Deja tu mensaje *" rows="7" required></textarea>
+                            <textarea name="message-contact" required id="message-contact" class="form-control input-md"
+                                   placeholder="Deja tu mensaje *" rows="7"></textarea>
                         </div>
                         <input type="button" name="sendEmailContact" value="Enviar a MultiShop" class="btn btn-info contact-click btn-block btn-lg"/>
                     </form>
