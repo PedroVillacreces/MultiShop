@@ -1,18 +1,11 @@
 <section class="topSales container">
-    <h2>Top Ventas</h2>
+    <h2>Top Ventas<span style="margin-left:10px;" class="glyphicon glyphicon-upload"></span></h2>
     <div class="row">
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <img src="..." alt="...">
-                <div class="caption">
-                    <h3>Thumbnail label</h3>
-                    <p>...</p>
-                    <p>
-                        <a href="#" class="btn btn-primary" role="button">Button</a>
-                        <a href="#" class="btn btn-default" role="button">Button</a>
-                    </p>
-                </div>
-            </div>
-        </div>
+        <?php
+        $topsales = new TopSales();
+        $topsales->getTopSales();
+        ?>
     </div>
 </section>
+<?php
+?>

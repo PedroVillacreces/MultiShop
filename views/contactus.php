@@ -9,7 +9,7 @@ else{
 }
 ?>
 
-<div class="container contact-form">
+<div class="container contact-form" style="margin-bottom: 40px">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-12 col-md-8 col-sm-offset-2 col-md-offset-2">
             <div class="panel panel-default">
@@ -48,7 +48,6 @@ else{
     </div>
 </div>
 
-
 <div class="modal fade" id="contactModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -67,3 +66,6 @@ else{
 
     </div>
 </div>
+<?php
+include "views/footer.php";
+?>

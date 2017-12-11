@@ -17,11 +17,8 @@
                                     <input type="password" id="passwordLogin" name="passwordLogin" class="form-control input-lg chat-input"
                                            placeholder="Contraseña"/>
                                     <br>
-                                        <?php
-                                        $login = new Login();
-                                        $login->loginController();
-                                        ?>
-                                     <input class="formLogin btn btn-primary btn-md" name="formLogin" type="submit" value="Acceder">
+
+                                     <input class="formLogin btn btn-primary btn-md" name="formLogin" type="button" value="Acceder">
 
                                 </div>
                             </form>
@@ -35,6 +32,8 @@
         </div>
     </div>
 </div>
+
+
 
 
 

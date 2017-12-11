@@ -161,7 +161,7 @@ if (isset($_POST["createUser"])) {
         $user->user_name = $_POST['user_name'];
         $user->createUser($user);
     } else {
-        echo '<script>', 'alert("El Perfil no ha sido actualizado, inténtelo de nuevo");', '</script>';
+        echo '<script>', 'alert("El Perfil no ha sido creado, inténtelo de nuevo");', '</script>';
     }
 }
 

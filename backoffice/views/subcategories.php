@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -44,12 +44,12 @@ include "views/header.php";
                     <h4 class="modal-title custom_align" id="Heading">Edición de Subcategoría</h4>
                 </div>
                 <div id="update-modal-subcategory" class="modal-body">
-                    <input type="hidden" id="id_subcategory-update" name="id_subcategory-update" value="">
+                    <input type="hidden" id="id_subcategory-update" name="id_subcategory-update" >
                     <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <div>
                             <input type="text" class="form-control input-md" id="name-update" name="name"
-                                   value="" required>
+                                    required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -91,12 +91,12 @@ include "views/header.php";
                 </div>
                 <div class="modal-body">
                     <form role="form" method="POST" id="createSubcategory">
-                        <input type="hidden" name="createSubcategory" value="">
+                        <input type="hidden" name="createSubcategory" >
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
                             <div>
                                 <input type="text" class="form-control input-md" id="name" name="name"
-                                       value="" required>
+                                        required>
                             </div>
                         </div>
                         <div class="form-group">

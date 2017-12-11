@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -47,7 +47,7 @@ include "views/header.php";
                     <h1 class="modal-title custom_align" id="Heading">Edición de Pedidos</h1>
                 </div>
                 <div id="update-modal-orders" class="modal-body">
-                    <input type="hidden" id="id_order-update" name="id_order-update" value="">
+                    <input type="hidden" id="id_order-update" name="id_order-update" >
                     <div class="form-group">
                         <label class="control-label">Forma de Pago</label>
                         <div>

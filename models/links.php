@@ -25,7 +25,7 @@ class LinksModels
             $links == "slider" ||
             $links == "contactus" ||
             $links == "orders" ||
-            $links == "comments" ||
+            $links == "shoppingcart" ||
             $links == "exit"
         ) {
 

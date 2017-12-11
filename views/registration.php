@@ -4,7 +4,7 @@ include "views/header.php";
 include "views/login.php";
 ?>
 
-<div class="container registration-form">
+<div class="container registration-form" style="margin-bottom: 40px;">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-12 col-md-8 col-sm-offset-2 col-md-offset-2">
             <div class="panel panel-default">
@@ -110,3 +110,8 @@ include "views/login.php";
 
     </div>
 </div>
+
+
+<?php
+include "views/footer.php";
+?>

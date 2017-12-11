@@ -1,5 +1,6 @@
 <?php
 
+require_once (__DIR__."/../models/login.php");
 /**
  * Created by PhpStorm.
  * User: mac
@@ -11,50 +12,53 @@ class Login
     /**
      * Undocumented function
      *
-     * @return void
+     * @return array
      */
-    public function loginController()
+    public static function loginController($data)
     {
-
-        if (isset($_POST["formLogin"])) {
-
-            if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST["userLogin"]) &&
-                preg_match('/^[a-zA-Z0-9]+$/', $_POST["passwordLogin"])
-            ) {
-
-                $dataController = array("user_name" => $_POST["userLogin"],
-                    "password" => $_POST["passwordLogin"]);
-                $response = LoginModels::loginModel($dataController, "customers");
-                $counter = $response["counter"];
-                $currentUser = $_POST["userLogin"];
-                $maxCounter = 2;
-
-                if ($counter < $maxCounter) {
-                    if ($response["mail"] == $_POST["userLogin"] && base64_decode($response["password"]) == $_POST["passwordLogin"]) {
-                        $counter = 0;
-                        $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
-                        $responseUpdateCounter = LoginModels::counterModel($dataController, "customers");
-                        session_start();
-                        $_SESSION["validate"] = true;
-                        $_SESSION["user_name"] = $response["mail"];
-                        $_SESSION["name"] = $response["name"];
-                        $_SESSION["id"] = $response["id_customer"];
-                        header("location:home");
-                    } else {
-                        ++$counter;
-                        $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
-                        $responseUpdateCounter = LoginModels::counterModel($dataController, "Users");
-                        echo '<div class="alert alert-danger">Error al loguearse en la página</div>';
-                    }
-                } else {
-                    $counter = 0;
-                    $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
-                    $responseUpdateCounter = LoginModels::counterModel($dataController, "users");
-                    echo '<div class="alert alert-danger">Ha gastando los tres intentos,debe demuestrar que no es un robot</div>';
-                }
-
-            }
-
-        }
+        $response = LoginModels::loginModel($data, "customers");
+        return $response;
     }
 }
+
+if (isset($_POST["formLogin"])) {
+
+    if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $_POST['formLogin']["user_name"]) &&
+        preg_match('/^[a-zA-Z0-9]+$/', $_POST['formLogin']["passwordLogin"])
+    ) {
+
+        $dataController = array("user_name" => $_POST['formLogin']["user_name"],
+            "password" => $_POST['formLogin']["passwordLogin"]);
+        $response = Login::loginController($dataController);
+        $counter = $response["counter"];
+        $currentUser = $_POST['formLogin']["user_name"];
+        $maxCounter = 2;
+
+        if ($counter < $maxCounter) {
+            if ($response["mail"] == $_POST['formLogin']["user_name"] && base64_decode($response["password"]) == $_POST['formLogin']["passwordLogin"]) {
+                $counter = 0;
+                $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
+                $responseUpdateCounter = LoginModels::counterModel($dataController, "customers");
+                session_start();
+                $_SESSION["validate"] = true;
+                $_SESSION["user_name"] = $response["mail"];
+                $_SESSION["name"] = $response["name"];
+                $_SESSION["id"] = $response["id_customer"];
+                echo json_encode(array('message' => 'ok'));
+            } else {
+                ++$counter;
+                $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
+                $responseUpdateCounter = LoginModels::counterModel($dataController, "custoomers");
+                echo json_encode(array('message' => 'error'));
+            }
+        } else {
+            $counter = 0;
+            $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
+            $responseUpdateCounter = LoginModels::counterModel($dataController, "customers");
+            echo json_encode(array('message' => 'tries'));
+        }
+
+    }
+
+}
+

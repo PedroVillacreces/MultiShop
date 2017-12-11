@@ -6,7 +6,6 @@ if (!isset($_SESSION["validate"])) {
     include "views/login.php";
     include "views/header.php";
     include "views/slider.php";
-    include "views/categories.php";
     include "views/topsales.php";
     include "views/whatsnew.php";
     include "views/footer.php";
@@ -14,7 +13,6 @@ if (!isset($_SESSION["validate"])) {
 else{
     include "views/headerlogin.php";
     include "views/slider.php";
-    include "views/categories.php";
     include "views/topsales.php";
     include "views/whatsnew.php";
     include "views/footer.php";

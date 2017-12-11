@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="components/css/cssFancybox/jquery.fancybox.css">
     <link rel="stylesheet" href="components/css/jquery-ui.min.css">
     <link rel="stylesheet" href="components/css/profileSection.css">
+    <link rel="stylesheet" href="components/css/footer.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
@@ -39,6 +40,16 @@ $links->linksController();
 <script type="text/javascript" src="components/js/moment.locale.js"></script>
 <script type="text/javascript" src="components/ajax/registration.js"></script>
 <script type="text/javascript" src="components/ajax/contactus.js"></script>
+<script type="text/javascript" src="components/ajax/profile.js"></script>
+<script type="text/javascript" src="components/ajax/categories.js"></script>
+<script type="text/javascript" src="components/ajax/home.js"></script>
+<script type="text/javascript" src="components/ajax/submitorder.js"></script>
+<?php
+if(isset($_GET['action']) == 'products'){
+    if ($_GET['action'] == 'products')
+    echo '<script type="text/javascript" src="components/ajax/products.js"></script>';
+}
+?>
 </body>
 
 </html>

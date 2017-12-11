@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -51,33 +51,33 @@ include "views/header.php";
                     <h1 class="modal-title custom_align" id="Heading">Edición de Usuarios</h1>
                 </div>
                 <div id="update-modal-users" class="modal-body">
-                    <input type="hidden" id="id_user-update" name="id_user-update" value="">
+                    <input type="hidden" id="id_user-update" name="id_user-update" >
                     <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <div>
                             <input type="text" class="form-control input-md" id="name-update" name="name"
-                                   value="" required>
+                                    required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Apellidos</label>
                         <div>
                             <input type="text" class="form-control input-md" id="surname-update"
-                                   name="surname" value="">
+                                   name="surname" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Nombre de Usuario</label>
                         <div>
                             <input type="text" class="form-control input-md" id="user_name-update"
-                                   name="user_name" value="" required>
+                                   name="user_name"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Email</label>
                         <div>
                             <input type="text" class="form-control input-md" id="email-update"
-                                   name="email" value="" required>
+                                   name="email"  required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -104,7 +104,7 @@ include "views/header.php";
                         <label class="control-label">Contraseña</label>
                         <div>
                             <input type="password" class="form-control input-md" id="password-update"
-                                   name="password" value="" required>
+                                   name="password"  required>
                         </div>
                     </div>
                     <br>
@@ -130,33 +130,33 @@ include "views/header.php";
                     <h1 class="modal-title">Crear Nuevo Usuario</h1>
                 </div>
                 <div class="modal-body">
-                    <input type="hidden" name="createUser" value="">
+                    <input type="hidden" name="createUser" >
                     <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <div>
                             <input type="text" class="form-control input-md" id="name" name="name"
-                                   value="" required>
+                                    required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Apellidos</label>
                         <div>
                             <input type="text" class="form-control input-md" id="surname"
-                                   name="surname" value="">
+                                   name="surname" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Nombre de Usuario</label>
                         <div>
                             <input type="text" class="form-control input-md" id="user_name"
-                                   name="user_name" value="" required>
+                                   name="user_name"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Email</label>
                         <div>
                             <input type="text" class="form-control input-md" id="email"
-                                   name="email" value="" required>
+                                   name="email"  required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -183,7 +183,7 @@ include "views/header.php";
                         <label class="control-label">Contraseña</label>
                         <div>
                             <input type="password" class="form-control input-md" id="password"
-                                   name="password" value="" required>
+                                   name="password"  required>
                         </div>
                     </div>
                     <div class="form-group">

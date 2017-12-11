@@ -36,12 +36,36 @@ class ProfileModels
 
     public static function getCountsStatusesByCustomer($id, $table){
         $stmt = Conexion::connect()->prepare("SELECT sum(case when id_status = 1 then 1 end) as paid, 
-                                            sum(case when id_status = 2 then 1 end) as unpaid, 
-                                            sum(case when id_status = 3 then 1 end) as cancel 
-                                            FROM $table where id_customer = :id");
+                                                sum(case when id_status = 2 then 1 end) as unpaid, 
+                                                sum(case when id_status = 3 then 1 end) as cancel 
+                                                FROM $table where id_customer = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
+        $stmt->close();
+    }
+
+    public static function getDeliveryDetailsById($data, $table){
+        $stmt = Conexion::connect()->prepare("select p1.id_delivery, p1.quantity, p2.id_product, p2.product_name, p2.price,
+                                                p3.delivery_date, p3.amount, 
+                                                p4.*,
+                                                p5.type,
+                                                p6.method, p6.price_method
+                                                from $table as p2
+                                                inner join delivery_details as p1
+                                                on p1.id_product = p2.id_product
+                                                inner join deliveries as p3
+                                                on p1.id_delivery = p3.id_delivery
+                                                inner join customers as p4
+                                                on p3.id_customer = p4.id_customer
+                                                inner join payments as p5
+                                                on p3.id_payment = p5.id_payment
+                                                inner join dispatch_method as p6
+                                                on p6.id_method = p3.id_method
+                                                where p1.id_delivery = :id");
+        $stmt->bindParam(":id", $data, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
         $stmt->close();
     }
 }

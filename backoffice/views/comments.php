@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -49,7 +49,7 @@ include "views/header.php";
                     <h1 class="modal-title custom_align" id="Heading">Estado del Comentario</h1>
                 </div>
                 <div id="update-modal-category" class="modal-body">
-                    <input type="hidden" id="id_comment-update" name="id_comment-update" value="">
+                    <input type="hidden" id="id_comment-update" name="id_comment-update" >
                     <div class="form-control">
                         <div class="checkbox">
                             <input type="checkbox" class="input-md" id="status-update" name="status"

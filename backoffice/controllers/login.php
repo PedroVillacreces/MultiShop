@@ -33,9 +33,9 @@ class Login
                         $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
                         $responseUpdateCounter = LoginModels::counterModel($dataController, "Users");
                         session_start();
-                        $_SESSION["validate"] = true;
-                        $_SESSION["user_name"] = $response["user_name"];
-                        $_SESSION["photo"] = $response["photo"];
+                        $_SESSION["validate_back"] = true;
+                        $_SESSION["user_name_back"] = $response["user_name"];
+                        $_SESSION["photo_back"] = $response["photo"];
                         header("location:home");
                     } else {
                         ++$counter;

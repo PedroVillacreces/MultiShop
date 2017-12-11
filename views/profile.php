@@ -7,12 +7,12 @@ if (!isset($_SESSION["validate"])) {
     include "views/headerlogin.php";
 }
 ?>
-<div class="container" style="margin-left:20px; margin-right: 20px;">
+<div class="container" style="margin: 20px;s">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Sheena Shrestha</h3>
+                    <h3 class="panel-title">Datos del Clientes</h3>
                 </div>
                 <?php
                 $profile = new Profile();
@@ -57,8 +57,8 @@ if (!isset($_SESSION["validate"])) {
 <div class="modal fade" id="deliveryModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header header-registration">
-                <h3 class="modal-title text-center"></h3>
+            <div class="modal-header header-delivery">
+                <h3 class="modal-title text-center delivery-title"></h3>
             </div>
             <div class="modal-body">
                 <div class="container">
@@ -68,40 +68,7 @@ if (!isset($_SESSION["validate"])) {
                                 <h2 class="summary-title"></h2>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-3 col-lg-3 pull-left">
-                                    <div class="panel panel-default height">
-                                        <div class="panel-heading">Detalles del pedido</div>
-                                        <div class="panel-body delivery-details">
-<!--                                            <strong>David Peere:</strong><br>
-                                            1111 Army Navy Drive<br>
-                                            Arlington<br>
-                                            VA<br>
-                                            <strong>22 203</strong><br>-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-md-3 col-lg-3">
-                                    <div class="panel panel-default height">
-                                        <div class="panel-heading">Información del pago</div>
-                                        <div class="panel-body">
-                              <!--              <strong>Card Name:</strong> Visa<br>
-                                            <strong>Card Number:</strong> ***** 332<br>
-                                            <strong>Exp Date:</strong> 09/2020<br>-->
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-md-3 col-lg-3">
-                                    <div class="panel panel-default height">
-                                        <div class="panel-heading">Preferencias Pedido</div>
-                                        <div class="panel-body">
-                     <!--                       <strong>Gift:</strong> No<br>
-                                            <strong>Express Delivery:</strong> Yes<br>
-                                            <strong>Insurance:</strong> No<br>
-                                            <strong>Coupon:</strong> No<br>-->
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row delivery-details">
                             </div>
                         </div>
                     </div>
@@ -109,7 +76,7 @@ if (!isset($_SESSION["validate"])) {
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h3 class="text-center"><strong>Order summary</strong></h3>
+                                    <h3 class="text-center"><strong>Resumen del Pedido</strong></h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -122,31 +89,7 @@ if (!isset($_SESSION["validate"])) {
                                                 <td class="text-right"><strong>Total</strong></td>
                                             </tr>
                                             </thead>
-                                            <tbody>
-                                            <tr class="items">
-                                                <!--<td class="item-name">Samsung Galaxy S5</td>
-                                                <td class="text-center item-price">$900</td>
-                                                <td class="text-center item-quantity">1</td>
-                                                <td class="text-right amount">$900</td>-->
-                                            </tr>
-                                            <tr class="prices">
-                                        <!--        <td class="highrow"></td>
-                                                <td class="highrow"></td>
-                                                <td class="highrow text-center"><strong>Subtotal</strong></td>
-                                                <td class="highrow text-right">$958.00</td>-->
-                                            </tr>
-                                            <tr class="quantities">
-                                                <!--<td class="emptyrow"></td>
-                                                <td class="emptyrow"></td>
-                                                <td class="emptyrow text-center"><strong>Shipping</strong></td>
-                                                <td class="emptyrow text-right">$20</td>-->
-                                            </tr>
-                                            <tr class="total-amount">
-                            <!--                    <td class="emptyrow"><i class="fa fa-barcode iconbig"></i></td>
-                                                <td class="emptyrow"></td>
-                                                <td class="emptyrow text-center"><strong>Total</strong></td>
-                                                <td class="emptyrow text-right">$978.00</td>-->
-                                            </tr>
+                                            <tbody class="insert-items">
                                             </tbody>
                                         </table>
                                     </div>
@@ -162,7 +105,9 @@ if (!isset($_SESSION["validate"])) {
         </div>
     </div>
 </div>
-
+<?php
+include "views/footer.php";
+?>
 
 
 

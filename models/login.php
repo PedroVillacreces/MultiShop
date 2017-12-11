@@ -1,5 +1,6 @@
 <?php
 
+require_once "conexion.php";
 /**
  * Created by PhpStorm.
  * User: mac

@@ -75,7 +75,7 @@ class ProductsModel
     public static function createProduct($data, $table)
     {
         $mysql_conn = Conexion::connect();
-        $stmt = $mysql_conn->prepare("INSERT INTO $table (product_name, price, description, id_category, id_subcategory, start, quantity, downloadable) VALUES (:product_name, :price, :description, :id_category, :id_subcategory, :start, :quantity, :downloadable)");
+        $stmt = $mysql_conn->prepare("INSERT INTO $table (product_name, price, description, id_category, id_subcategory, start, quantity, downloadable, picture) VALUES (:product_name, :price, :description, :id_category, :id_subcategory, :start, :quantity, :downloadable, :picture)");
         $stmt->bindParam(":product_name", $data->name, PDO::PARAM_STR);
         $stmt->bindParam(":price", $data->price, PDO::PARAM_STR);
         $stmt->bindParam(":description", $data->description, PDO::PARAM_STR);
@@ -84,6 +84,7 @@ class ProductsModel
         $stmt->bindParam(":start", $data->start, PDO::PARAM_INT);
         $stmt->bindParam(":quantity", $data->quantity, PDO::PARAM_INT);
         $stmt->bindParam(":downloadable", $data->downloadable, PDO::PARAM_INT);
+        $stmt->bindParam(":picture", $data->photo, PDO::PARAM_STR);
         $mysql_conn->beginTransaction();
 
         if ($stmt->execute()) {

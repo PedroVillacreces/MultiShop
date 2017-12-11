@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -10,7 +10,7 @@ include "views/header.php";
 
 <div id="inicio" class="col-lg-8 col-md-8 col-sm-9 col-xs-12">
     <div class="jumbotron">
-        <h1>Bienvenido, <?php echo $_SESSION['user_name']?></h1>
+        <h1>Bienvenido, <?php echo $_SESSION['user_name_back']?></h1>
         <p>Página de administración de Multishop.</p>
     </div>
     <hr>

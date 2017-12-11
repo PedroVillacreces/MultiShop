@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -42,7 +42,7 @@ include "views/header.php";
 </div>
 
 
-<form role="form" method="POST" id="updateProduct">
+<form role="form" method="POST" id="updateProduct" enctype="multipart/form-data">
     <div class="modal fade" id="edit">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -52,26 +52,26 @@ include "views/header.php";
                     <h1 class="modal-title">Actualizar Producto</h1>
                 </div>
                 <div id="update-modal-products" class="modal-body">
-                    <input type="hidden" id="id_product-update" name="id_product-update" value="">
+                    <input type="hidden" id="id_product-update" name="id_product-update" >
                     <div class="form-group">
                         <label class="control-label">Nombre</label>
                         <div>
                             <input type="text" class="form-control input-md" id="name-update" name="name"
-                                   value="" required>
+                                    required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Precio</label>
                         <div>
                             <input type="text" class="form-control input-md" id="price-update"
-                                   name="price" value="" required>
+                                   name="price"  required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Descripción</label>
                         <div>
                             <input type="text" class="form-control input-md" id="description-update"
-                                   name="description" value="" required>
+                                   name="description"  required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -98,10 +98,16 @@ include "views/header.php";
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="control-label">Foto Producto</label>
+                        <div>
+                            <input type="file" class="form-control input-md" id="photo-product" name="photo-product" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="control-label">Cantidad</label>
                         <div>
                             <input type="number" class="form-control input-md" id="quantity-update" name="quantity"
-                                   value="" required>
+                                    required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -131,7 +137,7 @@ include "views/header.php";
     </div>
 </form>
 
-<form role="form" method="POST" id="createProduct">
+
     <div id="modalProductCreate" class="modal fade">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -141,27 +147,27 @@ include "views/header.php";
                     <h1 class="modal-title">Crear Nuevo Producto</h1>
                 </div>
                 <div class="modal-body">
-                    <form role="form" method="POST" id="createProduct">
-                        <input type="hidden" name="createProduct" value="">
+                    <form role="form" method="POST" id="createProduct" enctype="multipart/form-data">
+                        <input type="hidden" name="createProduct" >
                         <div class="form-group">
                             <label class="control-label">Nombre</label>
                             <div>
                                 <input type="text" class="form-control input-md" id="name" name="name"
-                                       value="" required>
+                                        required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Precio</label>
                             <div>
                                 <input type="text" class="form-control input-md" id="price"
-                                       name="price" value="" required>
+                                       name="price"  required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label">Descripción</label>
                             <div>
                                 <input type="text" class="form-control input-md" id="description"
-                                       name="description" value="" required>
+                                       name="description"  required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -188,10 +194,16 @@ include "views/header.php";
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label">Foto Producto</label>
+                            <div>
+                                <input type="file" class="form-control input-md" id="photo-product" name="photo-product" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label">Cantidad</label>
                             <div>
                                 <input type="number" class="form-control input-md" id="quantity" name="quantity"
-                                       value="" required>
+                                        required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -218,6 +230,5 @@ include "views/header.php";
             </div>
         </div>
     </div>
-</form>
 
 

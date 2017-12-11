@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -48,51 +48,51 @@ include "views/header.php";
                 <h4 class="modal-title custom_align" id="Heading">Edición de Cliente</h4>
             </div>
             <div id="update-modal" class="modal-body">
-                <input type="hidden" name="updateCustomer" id="id_customer-update" value="">
+                <input type="hidden" name="updateCustomer" id="id_customer-update" >
                 <div class="form-group">
                     <label class="control-label">Nombre</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="name-update" name="name" value="" required>
+                        <input type="text" class="form-control input-md" id="name-update" name="name"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="surname-update" name="surname" value=""
+                        <input type="text" class="form-control input-md" id="surname-update" name="surname"
                                required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">E-Mail</label>
                     <div>
-                        <input type="email" class="form-control input-md" id="email-update" name="email" value=""
+                        <input type="email" class="form-control input-md" id="email-update" name="email"
                                required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Dirección</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="address-update" name="address" value=""
+                        <input type="text" class="form-control input-md" id="address-update" name="address"
                                required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Código Postal</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="pc-update" name="pc" value="" required>
+                        <input type="text" class="form-control input-md" id="pc-update" name="pc"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Provincia</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="region-update" name="region" value=""
+                        <input type="text" class="form-control input-md" id="region-update" name="region"
                                required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Teléfono</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="phone-update" name="phone" value=""
+                        <input type="text" class="form-control input-md" id="phone-update" name="phone"
                                required>
                     </div>
                 </div>
@@ -133,47 +133,47 @@ include "views/header.php";
                 <h1 class="modal-title">Crear Nuevo Cliente</h1>
             </div>
             <div class="modal-body">
-                <input type="hidden" name="createCustomer" value="">
+                <input type="hidden" name="createCustomer" >
                 <div class="form-group">
                     <label class="control-label">Nombre</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="name" name="name" value="" required>
+                        <input type="text" class="form-control input-md" id="name" name="name"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Apellido</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="surname" name="surname" value="" required>
+                        <input type="text" class="form-control input-md" id="surname" name="surname"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">E-Mail</label>
                     <div>
-                        <input type="email" class="form-control input-md" id="email" name="email" value="" required>
+                        <input type="email" class="form-control input-md" id="email" name="email"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Dirección</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="address" name="address" value="" required>
+                        <input type="text" class="form-control input-md" id="address" name="address"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Código Postal</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="pc" name="pc" value="" required>
+                        <input type="text" class="form-control input-md" id="pc" name="pc"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Provincia</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="region" name="region" value="" required>
+                        <input type="text" class="form-control input-md" id="region" name="region"  required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Teléfono</label>
                     <div>
-                        <input type="text" class="form-control input-md" id="phone" name="phone" value="" required>
+                        <input type="text" class="form-control input-md" id="phone" name="phone"  required>
                     </div>
                 </div>
                 <div class="form-group">

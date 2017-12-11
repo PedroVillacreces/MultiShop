@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!$_SESSION["validate"]) {
+if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
 }
@@ -45,7 +45,7 @@ include "views/header.php";
             </div>
             <div class="modal-body">
                 <form role="form" method="POST" id="createSlide" enctype="multipart/form-data">
-                    <input type="hidden" name="createSlide" value="">
+                    <input type="hidden" name="createSlide" >
                     <div class="form-group">
                         <label class="control-label">Url</label>
                         <div>
