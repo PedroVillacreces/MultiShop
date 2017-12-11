@@ -1,13 +1,13 @@
 # ************************************************************
 # Sequel Pro SQL dump
-# Versión 4541
+# Versi�n 4541
 #
 # http://www.sequelpro.com/
 # https://github.com/sequelpro/sequelpro
 #
 # Host: 127.0.0.1 (MySQL 5.6.35)
 # Base de datos: multishop
-# Tiempo de Generación: 2017-12-08 11:23:05 +0000
+# Tiempo de Generaci�n: 2017-12-11 22:04:39 +0000
 # ************************************************************
 
 
@@ -44,23 +44,6 @@ VALUES
 UNLOCK TABLES;
 
 
-# Volcado de tabla codes
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `codes`;
-
-CREATE TABLE `codes` (
-  `id_code` int(3) NOT NULL AUTO_INCREMENT,
-  `code` varchar(10) NOT NULL DEFAULT '',
-  `old_date` int(15) NOT NULL,
-  `id_customer` int(3) NOT NULL,
-  PRIMARY KEY (`id_code`),
-  KEY `FK_id_customer_code` (`id_customer`),
-  CONSTRAINT `FK_id_customer_code` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
 # Volcado de tabla comments
 # ------------------------------------------------------------
 
@@ -86,15 +69,6 @@ CREATE TABLE `comments` (
   CONSTRAINT `FK_id_product_comment` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
 
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-
-INSERT INTO `comments` (`id_comment`, `date`, `comment`, `score`, `url`, `id_customer`, `id_product`, `id_category`, `status`, `title`)
-VALUES
-	(15,'2017-12-04 18:44:21','bueno, bonito, barto todo lo que he comprado',5,'www.google.es',42,1,7,0,'bueno,bonito,barato');
-
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Volcado de tabla customers
@@ -172,12 +146,42 @@ CREATE TABLE `deliveries` (
   KEY `FK_id_payment` (`id_payment`),
   KEY `FK_id_dispath` (`id_dispath`),
   KEY `FK_id_status` (`id_status`),
+  KEY `FK_id_method` (`id_method`),
   CONSTRAINT `FK_id_customer_delivery` FOREIGN KEY (`id_customer`) REFERENCES `customers` (`id_customer`),
   CONSTRAINT `FK_id_dispath` FOREIGN KEY (`id_dispath`) REFERENCES `dispatch_status` (`id_dispatch_status`),
+  CONSTRAINT `FK_id_method` FOREIGN KEY (`id_method`) REFERENCES `dispatch_method` (`id_method`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `FK_id_payment` FOREIGN KEY (`id_payment`) REFERENCES `payments` (`id_payment`),
   CONSTRAINT `FK_id_status` FOREIGN KEY (`id_status`) REFERENCES `delivery_status` (`id_delivery_status`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `deliveries` WRITE;
+/*!40000 ALTER TABLE `deliveries` DISABLE KEYS */;
+
+INSERT INTO `deliveries` (`id_delivery`, `delivery_date`, `id_customer`, `amount`, `id_payment`, `id_dispath`, `id_status`, `id_method`)
+VALUES
+	(23,'0000-00-00 00:00:00',51,80,2,2,1,3),
+	(24,'0000-00-00 00:00:00',51,80,2,2,1,3),
+	(25,'0000-00-00 00:00:00',51,40,2,2,1,3),
+	(26,'0000-00-00 00:00:00',51,40,2,2,1,3),
+	(27,'0000-00-00 00:00:00',51,40,1,2,1,3),
+	(28,'0000-00-00 00:00:00',51,80,2,2,1,3),
+	(29,'0000-00-00 00:00:00',51,40,2,2,1,3),
+	(30,'0000-00-00 00:00:00',51,40,2,2,1,3),
+	(33,'2017-12-11 18:58:12',51,40,2,2,1,3),
+	(34,'2017-12-11 18:59:00',51,80,2,2,1,3),
+	(35,'2017-12-11 18:59:29',51,40,2,2,1,3),
+	(36,'2017-12-11 19:00:20',51,40,2,2,1,3),
+	(37,'2017-12-11 19:01:13',51,40,2,2,1,3),
+	(38,'2017-12-11 19:01:31',51,40,2,2,1,3),
+	(39,'2017-12-11 19:01:49',51,50,2,2,1,3),
+	(40,'2017-12-11 19:14:31',51,80,2,2,1,3),
+	(41,'2017-12-11 19:15:05',51,160,2,2,1,3),
+	(42,'2017-12-11 20:01:24',51,40,2,2,1,3),
+	(43,'2017-12-11 20:23:50',51,240,2,2,1,3),
+	(44,'2017-12-11 22:46:42',51,160,2,2,1,1);
+
+/*!40000 ALTER TABLE `deliveries` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla delivery_details
@@ -189,12 +193,30 @@ CREATE TABLE `delivery_details` (
   `id_product` int(11) NOT NULL,
   `quantity` int(1) NOT NULL DEFAULT '0',
   `id_delivery` int(5) NOT NULL,
-  PRIMARY KEY (`id_product`),
-  KEY `FK_id_delivery` (`id_delivery`),
-  CONSTRAINT `FK_id_delivery` FOREIGN KEY (`id_delivery`) REFERENCES `deliveries` (`id_delivery`) ON DELETE CASCADE,
-  CONSTRAINT `FKdelivery_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
+  KEY `PK_delivery` (`id_delivery`),
+  KEY `id_product` (`id_product`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `delivery_details` WRITE;
+/*!40000 ALTER TABLE `delivery_details` DISABLE KEYS */;
+
+INSERT INTO `delivery_details` (`id_product`, `quantity`, `id_delivery`)
+VALUES
+	(9,2,23),
+	(10,1,29),
+	(11,1,39),
+	(11,2,39),
+	(9,2,40),
+	(9,2,41),
+	(10,2,41),
+	(12,1,42),
+	(9,5,43),
+	(10,1,43),
+	(9,2,44),
+	(10,2,44);
+
+/*!40000 ALTER TABLE `delivery_details` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla delivery_status
@@ -227,11 +249,23 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `dispatch_method`;
 
 CREATE TABLE `dispatch_method` (
-  `id_method` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_method` int(11) NOT NULL AUTO_INCREMENT,
   `method` varchar(50) COLLATE utf8_spanish_ci NOT NULL DEFAULT '',
+  `price_method` double(10,2) NOT NULL,
   PRIMARY KEY (`id_method`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
+LOCK TABLES `dispatch_method` WRITE;
+/*!40000 ALTER TABLE `dispatch_method` DISABLE KEYS */;
+
+INSERT INTO `dispatch_method` (`id_method`, `method`, `price_method`)
+VALUES
+	(1,'Pedido Express',9.90),
+	(2,'Pedido Normal',5.90),
+	(3,'Recogida Tienda',0.00);
+
+/*!40000 ALTER TABLE `dispatch_method` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Volcado de tabla dispatch_status
@@ -256,23 +290,6 @@ VALUES
 
 /*!40000 ALTER TABLE `dispatch_status` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Volcado de tabla images
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `images`;
-
-CREATE TABLE `images` (
-  `id_image` int(4) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL DEFAULT '',
-  `priority` int(1) NOT NULL,
-  `id_product` int(3) NOT NULL,
-  PRIMARY KEY (`id_image`),
-  KEY `FK_id_product_image` (`id_product`),
-  CONSTRAINT `FK_id_product_image` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 # Volcado de tabla payments
@@ -313,6 +330,8 @@ CREATE TABLE `products` (
   `start` int(1) NOT NULL DEFAULT '0',
   `quantity` smallint(6) NOT NULL DEFAULT '-1',
   `downloadable` bit(1) NOT NULL DEFAULT b'0',
+  `topsales` int(11) DEFAULT NULL,
+  `picture` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_product`),
   KEY `FK_id_product_category` (`id_category`),
   CONSTRAINT `FK_id_product_category` FOREIGN KEY (`id_category`) REFERENCES `categories` (`id_category`)
@@ -321,13 +340,13 @@ CREATE TABLE `products` (
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
 
-INSERT INTO `products` (`id_product`, `product_name`, `price`, `description`, `id_category`, `id_subcategory`, `start`, `quantity`, `downloadable`)
+INSERT INTO `products` (`id_product`, `product_name`, `price`, `description`, `id_category`, `id_subcategory`, `start`, `quantity`, `downloadable`, `topsales`, `picture`)
 VALUES
-	(1,'Zapatos de Fiesta',1000000,'unas zapatillas baloncesto adidas',8,8,1,10,b'0'),
-	(4,'Zapatos de Fiesta II',400,'unas zapatillas baloncesto adidas',8,10,1,12,b'1'),
-	(5,'Chandal Real Madrid',400,'chandal nike mujer',8,8,1,100,b'1'),
-	(7,'Zapatos muy caros',80,'zapatos mujer fiesta',7,7,1,23,b'0'),
-	(8,'Chandal Real Madrid',4000,'chandal nike',7,7,1,250,b'0');
+	(9,'Chandal Real Madrid',40,'Un chandal del Madrid de niño',8,10,1,2,b'0',NULL,NULL),
+	(10,'Chandal del Barcelona',40,'Un chandal del barcelona de niño',8,10,1,5,b'0',NULL,NULL),
+	(11,'Chandal del Bilbao',50,'un chandal de niño del bilbao',8,10,1,5,b'0',NULL,NULL),
+	(12,'Chandal Betis',40,'Chandal betis de niño',8,10,1,2,b'0',NULL,NULL),
+	(13,'Chandal Valencia',40,'Un chandal del valencia de niño',8,10,1,2,b'0',NULL,'multimedia/images/products/Chandal Valencia/Captura de pantalla 2017-11-17 a las 23.53.57.png');
 
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -374,26 +393,10 @@ LOCK TABLES `slider` WRITE;
 
 INSERT INTO `slider` (`id_slide`, `url`, `text_footer`, `text_header`)
 VALUES
-	(18,'multimedia/images/slide/firma.png','text','text');
+	(19,'multimedia/images/slide/blackfriday.jpg','Acude a nuestra tienda para obtener las mejores ofertas','Ofertas del Black Friday');
 
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Volcado de tabla stock_message
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `stock_message`;
-
-CREATE TABLE `stock_message` (
-  `id_stock_message` int(5) NOT NULL AUTO_INCREMENT,
-  `mail` varchar(100) CHARACTER SET latin1 NOT NULL DEFAULT '',
-  `id_product` int(5) NOT NULL,
-  PRIMARY KEY (`id_stock_message`),
-  KEY `FK_id_stock_message_product` (`id_product`),
-  CONSTRAINT `FK_id_stock_message_product` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
 
 
 # Volcado de tabla stock_switch
@@ -429,23 +432,12 @@ LOCK TABLES `subcategories` WRITE;
 INSERT INTO `subcategories` (`id_subcategory`, `subcategory_name`, `id_category`)
 VALUES
 	(7,'Zapatos de Fiesta',7),
-	(10,'Chandal NBA',8);
+	(10,'Chandal NBA',8),
+	(12,'Zapatos Nauticos',7),
+	(13,'Zapatos Deportivos',7);
 
 /*!40000 ALTER TABLE `subcategories` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Volcado de tabla switch
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `switch`;
-
-CREATE TABLE `switch` (
-  `id_switch` int(11) NOT NULL AUTO_INCREMENT,
-  `status` bit(1) NOT NULL,
-  PRIMARY KEY (`id_switch`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
 
 
 # Volcado de tabla users
@@ -477,22 +469,6 @@ VALUES
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Volcado de tabla zip_files
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `zip_files`;
-
-CREATE TABLE `zip_files` (
-  `id_files` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) CHARACTER SET latin1 NOT NULL DEFAULT '',
-  `id_product` int(11) NOT NULL,
-  PRIMARY KEY (`id_files`),
-  KEY `FK_id_product_files` (`id_product`),
-  CONSTRAINT `FK_id_product_files` FOREIGN KEY (`id_product`) REFERENCES `products` (`id_product`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;
-
 
 
 
