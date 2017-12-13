@@ -34,6 +34,7 @@ $links->linksController();
 <script type="text/javascript" src="components/js/responsive.bootstrap.min.js"></script>
 <script type="text/javascript" src="components/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="components/js/sweetalert.min.js"></script>
+<script type="text/javascript" src="components/js/validations.js"></script>
 <script type="text/javascript" src="components/js/script.js"></script>
 <script type="text/javascript" src="components/js/moment.min.js"></script>
 <script type="text/javascript" src="components/js/moment.locale.js"></script>
@@ -43,6 +44,7 @@ $links->linksController();
 <script type="text/javascript" src="components/ajax/categories.js"></script>
 <script type="text/javascript" src="components/ajax/home.js"></script>
 <script type="text/javascript" src="components/ajax/submitorder.js"></script>
+
 <?php
 if(isset($_GET['action']) == 'products'){
     if ($_GET['action'] == 'products')

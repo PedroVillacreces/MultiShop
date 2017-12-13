@@ -20,7 +20,7 @@ class search
             echo '<div class="col-sm-6 col-md-4" style="margin-bottom: 20px;">
                     <div class="thumbnail">
                         <h3>' . $item['product_name'] . '</h3>
-                        <img src="backoffice/' . $picture . '" alt="">
+                        <img src="../backoffice/' . $picture . '" alt="">
                         <div class="caption">                            
                             <p>' . $item['price'] . '€</p>                          
                             <div class="toolAdd">

@@ -51,7 +51,7 @@ class ProductsModel
     {
         $stmt = Conexion::connect()->prepare("UPDATE $table SET product_name = :name, price = :price, description = :description, 
                                               id_category = :id_category, id_subcategory = :id_subcategory, start = :start, 
-                                              quantity = :quantity, downloadable = :downloadable WHERE id_product = :id_product");
+                                              quantity = :quantity, downloadable = :downloadable, picture = :picture WHERE id_product = :id_product");
         $stmt->bindParam(":name", $data->name, PDO::PARAM_STR);
         $stmt->bindParam(":price", $data->price, PDO::PARAM_STR);
         $stmt->bindParam(":description", $data->description, PDO::PARAM_LOB);
@@ -61,6 +61,7 @@ class ProductsModel
         $stmt->bindParam(":quantity", $data->quantity, PDO::PARAM_INT);
         $stmt->bindParam(":downloadable", $data->downloadable, PDO::PARAM_INT);
         $stmt->bindParam(":id_product", $data->id_product, PDO::PARAM_INT);
+        $stmt->bindParam(":picture", $data->photo, PDO::PARAM_STR);
 
         if ($stmt->execute()) {
             return "ok";

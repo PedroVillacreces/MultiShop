@@ -12,7 +12,7 @@ include "views/login.php";
                     </h2>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST">
+                    <form role="form" method="POST" id="registrationForm">
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">

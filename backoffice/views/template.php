@@ -46,6 +46,7 @@
 <script type="text/javascript" src="components/ajax/comments.js"></script>
 <script type="text/javascript" src="components/ajax/slider.js"></script>
 <script type="text/javascript" src="components/ajax/categories.js"></script>
+<script type="text/javascript" src="components/js/validations.js"></script>
 
 
 </body>

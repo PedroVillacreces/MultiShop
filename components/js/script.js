@@ -43,3 +43,9 @@ $(document).ready(function () {
         }
     });
 });
+
+
+$(document).ready(function() {
+    $("#contactForm").validate();
+    $("#registrationForm").validate();
+});

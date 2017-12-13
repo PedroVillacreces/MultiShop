@@ -91,7 +91,7 @@ class Products
 
     public static function doUpdate($data)
     {
-        $response = ProductsModel::doUpdate($data, 'products');
+        $response = ProductsModel::updateProducts($data, 'products');
         return $response;
     }
 

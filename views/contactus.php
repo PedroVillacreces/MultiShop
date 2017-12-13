@@ -18,7 +18,7 @@ else{
                     </h2>
                 </div>
                 <div class="panel-body">
-                    <form role="form" method="POST">
+                    <form role="form" method="POST" id="contactForm">
                         <div class="form-group">
                             <input type="text" required name="name-contact" id="name-contact" class="form-control input-md"
                                    placeholder="Nombre *"/>
@@ -68,3 +68,35 @@ else{
 <?php
 include "views/footer.php";
 ?>
+<!--<script>
+
+    $("#contactForm").validate();
+      /*  rules: {
+            name-contact: "required",
+    surname-contact: "required",
+    email-contact: "required",
+    phone-contact:"required",
+    message-contact
+            messages: {
+                 name-contact: "Por favor introduzca su nombre",
+                /!*lastname: "Please enter your lastname",
+                 username: {
+                 required: "Please enter a username",
+                 minlength: "Your username must consist of at least 2 characters"
+                 },
+                 password: {
+                 required: "Please provide a password",
+                 minlength: "Your password must be at least 5 characters long"
+                 },
+                 confirm_password: {
+                 required: "Please provide a password",
+                 minlength: "Your password must be at least 5 characters long",
+                 equalTo: "Please enter the same password as above"
+                 },
+                 email: "Please enter a valid email address",
+                 agree: "Please accept our policy",
+                 topic: "Please select at least 2 topics"*!/
+            }
+        });*/
+
+</script>-->
