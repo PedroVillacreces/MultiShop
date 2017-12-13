@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>BackEnd Multishop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="views/images/icono.jpg">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="components/css/font-awesome.min.css">
     <link rel="stylesheet" href="components/css/style.css">
@@ -25,7 +24,6 @@
         $links = new Links();
         $links->linksController();
         ?>
-
     </section>
 </div>
 <script type="text/javascript" src="components/js/jquery-2.2.0.min.js"></script>
@@ -34,7 +32,6 @@
 <script type="text/javascript" src="components/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="components/js/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript" src="components/js/dataTables.responsive.min.js"></script>
-S
 <script type="text/javascript" src="components/js/responsive.bootstrap.min.js"></script>
 <script type="text/javascript" src="components/js/jquery-ui.min.js"></script>
 <script type="text/javascript" src="components/js/sweetalert.min.js"></script>

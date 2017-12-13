@@ -1,9 +1,7 @@
 <?php
-
 include "views/header.php";
 include "views/login.php";
 ?>
-
 <div class="container registration-form" style="margin-bottom: 40px;">
     <div class="row centered-form">
         <div class="col-xs-12 col-sm-12 col-md-8 col-sm-offset-2 col-md-offset-2">
@@ -99,7 +97,7 @@ include "views/login.php";
             </div>
             <div class="modal-body">
                 <p><strong>Desde MultiShop agradecemos su confianza por elegir nuestra tienda online para sus compras!</strong></p>
-                <p>Para finalizar su registro debe dirigirse a la dirección de correo electrónico facilitada en el regitro y confirmar el email que acabamos de mandar</p>
+                <p>Para finalizar su registro, vamos a validar de manera interna el usuario, espero que entienda este proceso</p>
                 <p>Para cualquier problema con el registro no dude en contactar con nuestro soporte técnico mediante el email <strong>help@multishop.es</strong></p>
                 <p><strong>Gracias y felices compras</strong></p>
             </div>
@@ -110,8 +108,6 @@ include "views/login.php";
 
     </div>
 </div>
-
-
 <?php
 include "views/footer.php";
 ?>

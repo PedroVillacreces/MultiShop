@@ -20,7 +20,7 @@ class TopSales
                                     <input type="text" name="french-hens" id="buttonsincre" value="1">
                                 </div>
                                 <button type="submit" id="' . $item['id_product'] . '" class="btn btn-primary buyit" role="button" style="background-color:#222; border-color:#222;">Comprar</button>
-                                <a href="#" class="btn btn-default buyit" role="button">Ver Ficha</a>
+                                <a data-toggle="modal" href="#viewCartModal" class="btn btn-default view-product" data-id="' . $item['id_product'] . '" role="button">Ver Ficha</a>
                             </div>                          
                         </div>
                     </div>

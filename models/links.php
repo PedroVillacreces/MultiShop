@@ -18,7 +18,6 @@ class LinksModels
             $links == "login" ||
             $links == "registration" ||
             $links == "products" ||
-            $links == "categories" ||
             $links == "customers" ||
             $links == "subcategories" ||
             $links == "profile" ||

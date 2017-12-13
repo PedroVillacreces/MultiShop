@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_SESSION["validate"])) {
     include "views/login.php";
     include "views/header.php";
@@ -50,7 +49,6 @@ if (!isset($_SESSION["validate"])) {
                         </tr>
                         </thead>
                         <tbody>
-                        <!-- foreach ($order->lineItems as $line) or some such thing here -->
                         <?php
                             $total = 0;
                             if (isset($_SESSION['cart_item'])) {
@@ -258,7 +256,6 @@ if (!isset($_SESSION["validate"])) {
 </div>
 <?php
 include "views/footer.php";
-
 if (isset($_SESSION['cart_item'])) {
     echo '<script> document.getElementById("confirm-order").style.pointerEvents = "auto";</script>';
 }

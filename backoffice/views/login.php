@@ -5,12 +5,10 @@
                id="userLogin">
         <input class="form-control formLogin" type="password" placeholder="Introduzca Contraseña" name="passwordLogin"
                id="passwordLogin">
-
         <?php
         $login = new Login();
         $login->loginController();
         ?>
-
         <input class="form-control formLogin btn btn-primary" type="submit" value="Enviar">
     </form>
 

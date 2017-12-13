@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_SESSION["validate"])) {
     include "views/login.php";
     include "views/header.php";

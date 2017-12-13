@@ -61,4 +61,22 @@ class ShoppingCartModel
             return "error";
         }
     }
+
+    public static function updateTopSales($sales, $id, $table){
+       $stmt = Conexion::connect()->prepare("UPDATE $table SET topsales = :sales WHERE id_product = :id");
+
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt->bindParam(":sales", $sales, PDO::PARAM_INT);
+
+
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+
+        $stmt->close();
+
+
+    }
 }

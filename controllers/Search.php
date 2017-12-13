@@ -1,5 +1,6 @@
 <?php
-
+ob_start();
+require_once (__DIR__."/../models/search.php");
 /**
  * Created by PhpStorm.
  * User: mac
@@ -11,8 +12,9 @@ class search
     public $name;
     public function getSearch()
     {
-        $response = SearchModel::getSearch($this->name, "products");
+        $this->name = $_POST['product-searched'];
 
+        $response = SearchModel::getSearch($this->name, "products");
         foreach ($response as $row => $item) {
             $picture = $item['picture'] ? $item['picture'] : "multimedia/images/products/dummy.jpg";
             echo '<div class="col-sm-6 col-md-4" style="margin-bottom: 20px;">
@@ -26,7 +28,7 @@ class search
                                     <input type="text" name="french-hens" id="buttonsincre" value="1">
                                 </div>
                                 <button type="submit" id="' . $item['id_product'] . '" class="btn btn-primary buyit" role="button" style="pointer-events:auto; background-color:#222; border-color:#222;">Comprar</button>
-                                <a href="#" class="btn btn-default buyit" role="button">Ver Ficha</a>
+                                <a data-toggle="modal" href="#viewCartModal" class="btn btn-default view-product" data-id="' . $item['id_product'] . '" role="button">Ver Ficha</a>
                             </div>                          
                         </div>
                     </div>
@@ -39,6 +41,3 @@ class search
     }
 }
 
-if(isset($_POST['searchProduct'])){
-    header('products');
-}

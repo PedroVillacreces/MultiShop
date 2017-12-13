@@ -7,3 +7,5 @@ Options All -Indexes
 RewriteEngine on
 
 RewriteRule ^(\w+)$ index.php?action=$1
+
+Header set Access-Control-Allow-Origin "*"

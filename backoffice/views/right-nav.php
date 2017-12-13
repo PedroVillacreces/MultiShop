@@ -1,7 +1,7 @@
 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12" id="col1">
     <div id="logo" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <img src="multimedia/images/logo/index.png" class="img-responsive img-center img-circle" alt="Brand">
-        <a style="color: white; font-size: 12pt; align-self: center;" href="www.google.es">Ir a la Web</a>
+        <a style="color: white; font-size: 12pt; align-self: center;" href="../">Ir a la Web</a>
     </div>
     <div class="navbar-header navbar-inverse">
         <button type="button" class="navbar-toggle pull-left" data-toggle="collapse" data-target="#botonera">

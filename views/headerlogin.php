@@ -10,7 +10,7 @@ include "views/login.php";
         $is_session = true;
             echo 'var session= "' . $is_session .'"';
         }
-    ?>
+        ?>
 </script>
 <nav class="navbar navbar-inverse" style="margin-bottom: 0;">
     <div class="container-fluid">
@@ -33,21 +33,19 @@ include "views/login.php";
                 <a href="contactus">Contacto</a>
             </li>
         </ul>
-        <form class="navbar-form navbar-right">
+        <form method="post" action="products" class="navbar-form navbar-right" >
             <div class="form-group dropdown">
-                <button class="btn btn-primary dropdown-toggle profile-button" id="menu90" type="button" data-toggle="dropdown1" style="color: white; margin-right: 20px; padding-top: 10px;"> <span class="glyphicon glyphicon glyphicon-user"></span> Hola, <?php if(isset($_SESSION["name"])) echo $_SESSION["name"]; ?>&nbsp;
+                <button class="btn btn-primary profile-button" type="button" data-toggle="collapse" data-target="#menu90" style="color: white; margin-right: 20px; padding-top: 10px;"> <span class="glyphicon glyphicon glyphicon-user"></span> Hola, <?php if(isset($_SESSION["name"])) echo $_SESSION["name"]; ?>&nbsp;
                     <span class="arrow-way glyphicon glyphicon-chevron-down"></span></button>
-                <ul class="dropdown-menu profile-click" role="menu" aria-labelledby="menu90">
+                <ul id ="menu90" class="dropdown-menu profile-click" role="menu" aria-labelledby="menu90">
                     <li class="exit-li" role="presentation"><a role="menuitem" tabindex="-1" href="profile"><b>Mi Cuentas</b></a></li>
                     <li class="exit-li" role="presentation"><a role="menuitem" tabindex="-1" href="exit"><b>Salir</b></a></li>
                 </ul>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control product-searched" placeholder="Buscar Producto">
+                <input type="text" class="form-control" name="product-searched" placeholder="Buscar Producto">
             </div>
-            <button type="submit" class="btn btn-default search-product">Enviar</button>
+            <button type="submit" name="searchProduct" class="btn btn-default">Enviar</button>
         </form>
-
-
     </div>
 </nav>

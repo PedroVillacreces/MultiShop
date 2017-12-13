@@ -2,7 +2,7 @@ $(document).on('click', '.header-click', function () {
 
     $.ajax({
         type: "POST",
-        url: "controllers/categories.php",
+        url: "controllers/categoriesFront.php",
         data: {
             header: "header"
         },

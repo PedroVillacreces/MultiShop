@@ -17,6 +17,7 @@ class CategoriesModelFront
         $stmt->close();
     }
 
+
     public static function showSubcategories($id, $table){
         $stmt = Conexion::connect()->prepare("select * from $table where id_category = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -33,8 +34,13 @@ class CategoriesModelFront
                                               where p.id_category = :id");
 
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-        $stmt ->execute();
-        return $stmt -> fetchAll();
+        if($stmt ->execute()){
+
+            return $stmt -> fetchAll();
+        }
+        else{
+            return "error";
+        }
         $stmt ->close();
     }
 
@@ -45,6 +51,15 @@ class CategoriesModelFront
                                               on p2.id_subcategory = p.id_subcategory
                                               where p.id_subcategory = :id");
 
+        $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+        $stmt ->execute();
+        return $stmt -> fetchAll();
+        $stmt ->close();
+    }
+
+    public static function showProductsbyId($id, $table){
+
+        $stmt = Conexion::connect()->prepare("select * from $table where id_product = :id");
         $stmt->bindParam(":id", $id, PDO::PARAM_INT);
         $stmt ->execute();
         return $stmt -> fetchAll();

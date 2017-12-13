@@ -11,7 +11,7 @@ class TopSalesModel
 {
     public static function getTopSales($table){
 
-        $stmt = Conexion::connect()->prepare("select * from $table order by topsales DESC");
+        $stmt = Conexion::connect()->prepare("select * from $table order by topsales DESC LIMIT 6");
         $stmt->execute();
         return $stmt->fetchAll();
         $stmt->close();

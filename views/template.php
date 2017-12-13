@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>BackEnd Multishop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="views/images/icono.jpg">
     <link rel="stylesheet" href="components/css/style.css">
     <link rel="stylesheet" href="components/css/registrationForm.css">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
@@ -19,6 +18,8 @@
     <link rel="stylesheet" href="components/css/profileSection.css">
     <link rel="stylesheet" href="components/css/footer.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script type="text/javascript" src="components/js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="components/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,8 +27,6 @@
 $links = new Links();
 $links->linksController();
 ?>
-<script type="text/javascript" src="components/js/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="components/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="components/js/jquery.fancybox.js"></script>
 <script type="text/javascript" src="components/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="components/js/dataTables.bootstrap.min.js"></script>

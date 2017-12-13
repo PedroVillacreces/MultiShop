@@ -6,8 +6,8 @@
         <div id='time-part'></div>
     </div>
     <div class="col-lg-4 col-md-4 col-sm-5 col-xs-4 text-right">
-        <img src="<?php echo $_SESSION["photo_back"]; ?> " class="img-circle" alt="Profile">
-        <p id="member">Hola, <?php echo $_SESSION["user_name_back"]; ?> <span
+        <img src="<?php echo $_SESSION["photo_back"];?> " class="img-circle" alt="Profile">
+        <p id="member">Hola, <?php echo $_SESSION["user_name_back"];?> <span
                 class="glyphicon glyphicon-chevron-down"></span>
             <br>
         <ol id="admin">

@@ -23,7 +23,7 @@
             <div class="form-group">
                 <input type="text" class="form-control" name="product-searched" placeholder="Buscar Producto">
             </div>
-            <button type="submit" name="searchProduct" class="btn btn-default search-product">Enviar</button>
+            <button  type="submit" name="searchProduct" class="btn btn-default ">Enviar</button>
         </form>
         <ul class="nav navbar-nav navbar-right">
             <li>

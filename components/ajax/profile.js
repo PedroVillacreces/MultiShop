@@ -1,8 +1,9 @@
 $(document).on('click', '.delivery-details', function () {
 
     var id = $(this).attr('id');
-    reset();
+    resetDelivery();
     $('.delivery-title').append('<h3 class="modal-title text-center title-order"> Datos del Pedido Número: ' + id + '</h3>');
+
     if (id) {
         $.ajax({
             type: "POST",
@@ -84,17 +85,6 @@ $(document).on('click', '.delivery-details', function () {
     }
 });
 
-function reset(){
-    $("div.delivery-body").remove();
-    $(".title-order").remove();
-    $("div.delivery-shipping").remove();
-    $("tr.quantities-items").remove();
-    $("tr.total-amount").remove();
-    $("tr.prices-items").remove();
-    $("tr.products-dev").remove();
-}
-
-
 $(document).on('click', '.formLogin', function () {
 
     var user_name = $("input#userLogin").val();
@@ -114,6 +104,7 @@ $(document).on('click', '.formLogin', function () {
         }).done(function (data) {
             if(data.message == "ok"){
                 location.reload();
+                $('.buyit').css('pointer-events', 'none');
             }
             else if(data.message == "error"){
                 var message ='<div id="alert-message" class="alert alert-danger" style="margin-top: 20px;">Login incorrecto comprueba los campos</div>';
@@ -128,6 +119,17 @@ function alertTimeout(wait){
         if ($('#alert-message').length > 0) {
             $('#alert-message').remove();
         }
-    }, wait)
+    }, wait);
+}
+
+function resetDelivery(){
+    $("div.delivery-body").remove();
+    $(".title-order").remove();
+    $("div.delivery-shipping").remove();
+    $("tr.quantities-items").remove();
+    $("tr.total-amount").remove();
+    $("tr.prices-items").remove();
+    $("tr.products-dev").remove();
+    $(".title-order").remove();
 }
 

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once (__DIR__."/../models/login.php");
 /**
  * Created by PhpStorm.
@@ -39,7 +39,7 @@ if (isset($_POST["formLogin"])) {
                 $counter = 0;
                 $dataController = array("currentUser" => $currentUser, "updateCounter" => $counter);
                 $responseUpdateCounter = LoginModels::counterModel($dataController, "customers");
-                session_start();
+
                 $_SESSION["validate"] = true;
                 $_SESSION["user_name"] = $response["mail"];
                 $_SESSION["name"] = $response["name"];
@@ -59,6 +59,5 @@ if (isset($_POST["formLogin"])) {
         }
 
     }
-
 }
 

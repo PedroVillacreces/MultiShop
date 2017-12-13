@@ -1,3 +1,4 @@
+$(document).ready(function(){
 $(document).on('click', '#confirm-order', function () {
     var payment = $('input[name=optradio1]:checked').attr('id');
 
@@ -10,7 +11,7 @@ $(document).on('click', '#confirm-order', function () {
         /* TODO abrir el modal de la página de tarjeta de crédito */
     }
 });
-
+});
 $(document).on('click', '.submitProductCart', function () {
     var time = Math.floor(new Date().getTime()/1000);
     var subtotal = $('td.subtotal-order').html();

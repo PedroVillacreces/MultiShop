@@ -1,5 +1,4 @@
 <?php
-
 require_once(__DIR__ . "/../models/shoppingcart.php");
 
 class ShoppingCart
@@ -70,6 +69,7 @@ class ShoppingCart
 
     public function getPayments()
     {
+
         $response = ShoppingCartModel::getPayments("payments");
         foreach ($response as $row => $item) {
             if ($item['id_payment'] == 2) {
@@ -136,7 +136,14 @@ class ShoppingCart
                 ];
 
                 ShoppingCartModel::submitOrderDetails($data, "delivery_details");
+                $product = ShoppingCartModel::getProductById($item['id'], "products");
+                if (!$product['topsales']){
+                    $product['topsales'] = 0;
+                }
+                $newTopSales = $product['topsales'] + intval($item['quantity']);
+                ShoppingCartModel::updateTopSales($newTopSales, $item['id'],"products");
             }
+            session_start();
             unset($_SESSION["cart_item"]);
 
             echo json_encode(array("message" => "ok"));

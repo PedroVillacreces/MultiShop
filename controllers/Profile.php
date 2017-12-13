@@ -66,11 +66,7 @@ class Profile
                                     <td>' . $response["phone"] . '</td>
                                 </tr>                               
                                 </tbody>
-                            </table>
-                            <a id ="' . $response["id_customer"] . '" href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
-                            <a id ="' . $response["id_customer"] . '" data-original-title="Remove this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                            </table>                           
                         </div>
                     </div>
                 </div>

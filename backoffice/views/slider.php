@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!$_SESSION["validate_back"]) {
     header("location:login");
     exit();
@@ -7,7 +6,6 @@ if (!$_SESSION["validate_back"]) {
 include "views/right-nav.php";
 include "views/header.php";
 ?>
-
 <div id="createProfile" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
     <h2>Administrar Slider</h2>
     <hr>
