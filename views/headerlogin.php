@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (!isset($_SESSION["validate"])) {
 include "views/login.php";
 }
@@ -14,10 +15,17 @@ include "views/login.php";
 </script>
 <nav class="navbar navbar-inverse" style="margin-bottom: 0;">
     <div class="container-fluid">
-        <a href="shoppingcart"><span class="glyphicon glyphicon-shopping-cart" style="font-size: 2em; color: #999999;padding-top:10px; "></span><span class="badge" id="comparison-count"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);} ?></span></a>
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="home"><img class="img-circle img-responsive img-rounded" style="width: 50px;" src="multimedia/images/logo/index.png" alt="Logo MultiShop"></a>
         </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a href="shoppingcart"><span class="glyphicon glyphicon-shopping-cart" style="font-size: 2em; color: #999999;padding-top:10px; "></span><span class="badge" id="comparison-count"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);} ?></span></a>
         <ul class="nav navbar-nav main-center">
             <li class="active link-menu">
                 <a href="home">Inicio</a>
@@ -47,5 +55,6 @@ include "views/login.php";
             </div>
             <button type="submit" name="searchProduct" class="btn btn-default">Enviar</button>
         </form>
+            </div>
     </div>
 </nav>

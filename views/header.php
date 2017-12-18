@@ -1,9 +1,16 @@
 <nav class="navbar navbar-inverse" style="margin-bottom: 0;">
     <div class="container-fluid">
-        <span class="glyphicon glyphicon-shopping-cart" style="font-size: 2em; color: #999;padding-top:10px; "></span><span class="badge" id="comparison-count"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);} ?></span>
         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="home"><img class="img-circle img-responsive img-rounded" style="width: 50px;" src="multimedia/images/logo/index.png" alt="Logo MultiShop"></a>
         </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <span class="glyphicon glyphicon-shopping-cart" style="font-size: 2em; color: #999;padding-top:10px; "></span><span class="badge" id="comparison-count"><?php if(isset($_SESSION['cart_item'])){echo count($_SESSION['cart_item']);} ?></span>
         <ul class="nav navbar-nav main-center">
             <li class="link-menu active">
                 <a href="home">Inicio</a>
@@ -36,4 +43,5 @@
             </li>
         </ul>
     </div>
+        </div>
 </nav>

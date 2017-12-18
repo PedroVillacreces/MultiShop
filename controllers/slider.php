@@ -19,7 +19,7 @@ class SliderFront
             if($row == 0){
                 echo '<div class="item active">
                         <h3 class="text-center">' . $item["text_header"] . '</h3>
-                        <img src="backoffice/'. $item["url"] . '" alt="Los Angeles"> 
+                        <img style="width:100%;" src="backoffice/'. $item["url"] . '" alt="Los Angeles"> 
                         <div style="margin-top : 20px; margin-bottom:0;" class="alert alert-info text-center">
                             <strong>' . $item["text_footer"] . '</strong>
                         </div>
@@ -28,7 +28,7 @@ class SliderFront
             else{
                 echo '<div class="item">
                         <h3 class="text-center">' . $item["text_header"] . '</h3>
-                        <img src="backoffice/'. $item["url"] . '" alt="Los Angeles"> 
+                        <img style="width:100%;" src="backoffice/'. $item["url"] . '" alt="Los Angeles"> 
                         <div style="margin-top : 20px; margin-bottom:0;" class="alert alert-info text-center">
                             <strong>' . $item["text_footer"] . '</strong>
                         </div>

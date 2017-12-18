@@ -138,4 +138,8 @@ input#buttonsincre{
     cursor: pointer;
 }
 
+.thumbnail>img{
+    height: 250px !important;
+}
+
 
