@@ -1,0 +1,537 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    overflow-x: hidden;
+    background: white;
+    font-family: Brandon Text, sans-serif;
+
+}
+
+ul, ol {
+    padding: 0;
+}
+
+th, td, tr {
+    font-size: 12px;
+}
+
+a:visited, a:link, a:focus, a:hover, a:active {
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+#backLogin {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 150, 1), rgba(0, 100, 200, 0));
+}
+
+form#formLogin {
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #001;
+    width: 300px;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    margin-left: -150px;
+    margin-top: -115px;
+    background: #eee;
+    padding: 0px 20px 10px 20px;
+}
+
+form h1#formLoginTitle {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 50px;
+    background: #333;
+    color: white;
+}
+
+form input.formLogin {
+    margin: 10px auto;
+}
+
+#logo {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav#buttons {
+    width: 100%;
+    padding-right: 2px;
+}
+
+nav#buttons ul li a {
+    padding: 15px 15px;
+}
+
+nav#buttons ul li a:hover {
+    background-color: #5e5e5e;
+}
+
+nav#buttons ul li a span {
+    float: left;
+}
+
+.color-style {
+    color: white;
+    font-size: 15pt;
+}
+
+.img-center {
+    height: 60px;
+}
+
+#header-page {
+    position: relative;
+    padding: 10px 10px 0px 10px;
+    background: white;
+    z-index: 1;
+    box-shadow: 0px 1px 10px #333;
+}
+
+#header-page #admin {
+    display: none;
+}
+
+.startButton div {
+    position: relative;
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+.startButton div span {
+    font-size: 40px;
+    margin-top: 30%;
+    color: white;
+}
+
+.startButton div p {
+    font-size: 15px;
+    color: white;
+}
+
+#status {
+    position: relative;
+    display: block;
+    margin: auto;
+}
+
+#slide {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: -50px;
+    overflow: hidden;
+    background: white;
+}
+
+#editProfile {
+    padding: 20px;
+    width: 20% !important;
+}
+
+#editProfile img {
+    margin-top: -50px;
+    width: 20%;
+}
+
+#createProfile {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 40px;
+}
+
+.home-boxes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-boxes li div {
+    width: 125px;
+    height: 125px;
+    padding-top: 50px;
+    text-align: center;
+}
+
+.time-frame {
+    font-size: 12pt;
+    font-family: Brandon Text, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+
+    #time {
+        font-size: 12px;
+        padding-top: 15px;
+    }
+
+    #col1 {
+        background: black;
+        height: auto;
+    }
+
+    #header-page ul li {
+        list-style: none;
+        float: left;
+        margin: 5px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 100%;
+        position: relative;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #header-page ul li span {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 10px;
+        background: red;
+        border-radius: 100%;
+    }
+
+    #header-page img {
+        width: 40px;
+        height: 40px;
+        display: inline;
+        margin: 5px;
+    }
+
+    #header-page p {
+        display: inline;
+        margin: 5px 20px 5px 0px;
+    }
+
+    #header-page #admin {
+        position: absolute;
+        right: 0px;
+        text-align: left;
+        padding: 15px;
+        float: right;
+        width: 55%;
+        font-size: 12px;
+        border: 1px solid #aab;
+        background: white;
+        box-shadow: 0px 0px 2px #999;
+        z-index: 10;
+    }
+
+    #header-page #member span {
+        cursor: pointer;
+    }
+
+    #header-page #admin li {
+        height: 25px;
+        line-height: 25px;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    #header-page #admin li span {
+        margin-right: 10px;
+    }
+
+    .startButton {
+        float: left;
+        margin: 20px 10px;
+        width: 15%;
+    }
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+
+    #time {
+        font-size: 12px;
+        padding-top: 15px;
+    }
+
+    #col1 {
+        background: black;
+        height: auto;
+    }
+
+    #header-page ul li {
+        list-style: none;
+        float: left;
+        margin: 5px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 100%;
+        position: relative;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #header-page ul li span {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 10px;
+        background: red;
+        border-radius: 100%;
+    }
+
+    #header-page img {
+        width: 40px;
+        height: 40px;
+        display: inline;
+        margin: 5px;
+    }
+
+    #header-page p {
+        display: inline;
+        margin: 5px 20px 5px 0px;
+    }
+
+    #header-page #admin {
+        position: absolute;
+        right: 0px;
+        text-align: left;
+        padding: 15px;
+        float: right;
+        width: 72%;
+        font-size: 12px;
+        border: 1px solid #aab;
+        background: white;
+        box-shadow: 0px 0px 2px #999;
+        z-index: 10;
+    }
+
+    #header-page #member span {
+        cursor: pointer;
+    }
+
+    #header-page #admin li {
+        height: 25px;
+        line-height: 25px;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    #header-page #admin li span {
+        margin-right: 10px;
+    }
+
+    .startButton {
+        float: left;
+        margin: 20px 10px;
+        width: 20%;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+
+    #time {
+        font-size: 10px;
+        padding-top: 15px;
+    }
+
+    #col1 {
+        background: black;
+        height: auto;
+    }
+
+    #header-page ul li {
+        list-style: none;
+        float: left;
+        margin: 5px;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 100%;
+        position: relative;
+        font-size: 16px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #header-page ul li span {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        text-align: center;
+        line-height: 20px;
+        font-size: 10px;
+        background: red;
+        border-radius: 100%;
+    }
+
+    #header-page img {
+        width: 40px;
+        height: 40px;
+        display: inline;
+        margin: 5px;
+    }
+
+    #header-page p {
+        display: inline;
+        margin: 5px 20px 5px 0px;
+    }
+
+    #header-page #admin {
+        position: absolute;
+        right: 0px;
+        text-align: left;
+        padding: 15px;
+        float: right;
+        width: 105%;
+        font-size: 12px;
+        border: 1px solid #aab;
+        background: white;
+        box-shadow: 0px 0px 2px #999;
+        z-index: 10;
+    }
+
+    #header-page #member span {
+        cursor: pointer;
+    }
+
+    #header-page #admin li {
+        height: 25px;
+        line-height: 25px;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    #header-page #admin li span {
+        margin-right: 10px;
+    }
+
+    .startButton {
+        float: left;
+        margin: 20px 10px;
+        width: 25%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    #time {
+        font-size: 10px;
+        padding-top: 15px;
+    }
+
+    #header-page ul li {
+        list-style: none;
+        float: left;
+        margin: 1px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 100%;
+        position: relative;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+    }
+
+    #header-page ul li span {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        line-height: 15px;
+        font-size: 8px;
+        background: red;
+        border-radius: 100%;
+    }
+
+    #header-page img {
+        width: 40px;
+        height: 40px;
+        display: inline;
+        margin: 5px;
+    }
+
+    #header-page p {
+        display: inline;
+        margin: 5px 20px 5px 0px;
+    }
+
+    #header-page #admin {
+        position: absolute;
+        right: 0px;
+        text-align: left;
+        padding: 15px;
+        float: right;
+        width: 175%;
+        font-size: 12px;
+        border: 1px solid #aab;
+        background: white;
+        box-shadow: 0px 0px 2px #999;
+        z-index: 10;
+    }
+
+    #header-page #member span {
+        cursor: pointer;
+    }
+
+    #header-page #admin li {
+        height: 25px;
+        line-height: 15px;
+        font-size: 10px;
+        text-decoration: none;
+        list-style: none;
+    }
+
+    #header-page #admin li span {
+        margin-right: 10px;
+    }
+
+    .startButton {
+        float: left;
+        margin: 20px 10px;
+        width: 40%;
+    }
+
+    .startButton div {
+        position: relative;
+        display: block;
+        margin: auto;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+    }
+
+}
